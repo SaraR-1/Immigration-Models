@@ -12,7 +12,7 @@ The model could be written as:
 where:
 - *I* is the reference territory, here *Rome*. Here all the Italian regions capitals and the time period is considered.
 - ![](https://latex.codecogs.com/gif.latex?%5Cbeta) and *a* are the regression parameters, ![](https://latex.codecogs.com/gif.latex?%5Cbeta) can be interpreted as the network effect (is a local phenomenon that influences the immigrant choice, that is: foreign-born population tend to migrate to territories where a community of the same ethnic already exists)
-- ![](https://latex.codecogs.com/gif.latex?%5Calpha_i%20%3D%20x%27_%7Bi%7D%20%5Ctheta%20&plus;%20%5Ceta) , ![](https://latex.codecogs.com/gif.latex?x%27_%7Bi%7D) is the vector of all the time invariant observable location factors, $\eta$ is an error random term
+- ![](https://latex.codecogs.com/gif.latex?%5Calpha_i%20%3D%20x%27_i%20%5Ctheta%20&plus;%20%5Ceta_i) , ![](https://latex.codecogs.com/gif.latex?x%27_%7Bi%7D) is the vector of all the time invariant observable location factors, ![](https://latex.codecogs.com/gif.latex?%5Ceta_i) is an error random term
 - ![](https://latex.codecogs.com/gif.latex?v_%7Bi%2Ct%7D%20%3D%20u_%7Bi%2Ct%7D%20-%20u_%7BI%2C%20t%7D), ![](https://latex.codecogs.com/gif.latex?u_%7Bi%2Ct%7D%20%5Csim%20N%280%2C%20%5Csigma%5E2%29) is an error random term
 
 In the below table the results for some interest origin countries are summarized:
