@@ -17,7 +17,7 @@ where:
 
 In the below table the results for some interest origin countries are summarized:
 
-| Origin Country  | ![](https://latex.codecogs.com/gif.latex?%5Cbeta)  | ![](https://latex.codecogs.com/gif.latex?a)  | ![](https://latex.codecogs.com/gif.latex?R%5E2)  | *MSE*  |  Pearson's corr. coeff. | Spearman's corr. coeff.  |  Kendall's corr. coeff. |
+| Origin Country  | *![](https://latex.codecogs.com/gif.latex?%5Cbeta)*  | *![](https://latex.codecogs.com/gif.latex?a)*  | *![](https://latex.codecogs.com/gif.latex?R%5E2)*  | *MSE*  |  Pearson's corr. coeff. | Spearman's corr. coeff.  |  Kendall's corr. coeff. |
 |---|---|---|---|---|---|---|---|
 | Morocco  | 0.99  | -0.03  |  0.986 | 578469.84  | 0.986  |  0.993 | 0.939  |
 |Tunisia  |  0.98 | -0.06  |  0.983 | 25260.73  |  0.991 | 0.994  |  0.943 |
