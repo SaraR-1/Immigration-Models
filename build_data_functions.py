@@ -202,7 +202,7 @@ def relation_plot_time_variant_intern_function(data_, temp_territories, time_idx
         lgd = plt.legend(handles = legend, loc='center left', bbox_to_anchor=(2.35, 0.05+int(str(plt_seed)[0])), fancybox=True)
 
     if len(temp_territories) == 2:
-                lgd = plt.legend(handles = legend, loc='center left', bbox_to_anchor=(1.05, .925), fancybox=True)
+            lgd = plt.legend(handles = legend, loc='center left', bbox_to_anchor=(1.05, .925), fancybox=True)
     fig.suptitle(title, fontsize = 14)
     if save == False:
         plt.show()
@@ -258,7 +258,7 @@ def merge_xs(features, pop, territories):
     pop = resident_norm.copy()
     idx = pop.columns[(pop.columns != "Gender") & (pop.columns != "Value")].tolist()
     pop = pop.groupby(idx, as_index=False)["Value"].sum()
-    pop = bdf.pivot(pop, value = "Value")
+    pop = pivot(pop, value = "Value")
     pop.columns = ["Population"]
     pop = pop.loc[(zones, list(range(2005, 2016))), :].copy()
 
@@ -285,22 +285,83 @@ def fill_aggragating(to_fill, to_fill_attr, to_aggr_attr1, to_aggr_attr2, aggreg
 
 
 
-def filter_origin_country_dataset(data_, country, years, territories):
-    y = data_.groupby(["Province", "Country", "Year"], as_index=False)["Value"].sum()
-    y = bdf.pivot(y, "Country", "Value")
-
-    y = y.loc[(territories, ), :][country]
+def filter_origin_country_dataset(data_, country, years, territories, x):
+    y = data_.loc[(territories, ), :][country]
     y = pd.DataFrame(y)
 
-    y_prev = y.copy()
-    y_prev = y_prev.groupby(level=0)[country].shift(1)
-    y_prev = pd.DataFrame(y_prev)
+    y_prev_1 = y.copy()
+    y_prev_1 = y_prev_1.groupby(level=0)[country].shift(1)
+    y_prev_1 = pd.DataFrame(y_prev_1)
+
+    y_prev_2 = y.copy()
+    y_prev_2 = y_prev_2.groupby(level=0)[country].shift(2)
+    y_prev_2 = pd.DataFrame(y_prev_2)
 
     y = y.loc[(slice(None), years), :]
     y.columns = ["y"]
-    y_prev = y_prev.loc[(slice(None), years), :]
-    y_prev.columns = ["y_prev"]
+    y_prev_1 = y_prev_1.loc[(slice(None), years), :]
+    y_prev_1.columns = ["y_prev_1"]
 
-    res = pd.concat([y, y_prev, a], axis = 1)
+    y_prev_2 = y_prev_2.loc[(slice(None), years), :]
+    y_prev_2.columns = ["y_prev_2"]
+
+    res = pd.concat([y, y_prev_1, y_prev_2, x], axis = 1)
 
     return(res)
+
+
+def plot_real_VS_prediction(y, xs, time_idx, country, rot, title, save, path):
+
+    fig = plt.figure(1, figsize=(15,10))
+    plt_seed = 231
+
+    for r in xs.index.levels[0].tolist():
+        y_i = y.loc[(r, years), :][country].values
+
+        sns.set_style("whitegrid")
+
+        ax = fig.add_subplot(plt_seed)
+        ax.tick_params(axis='x', which='minor', labelsize='small', rotation=30)
+        legend = []
+        ax = sns.pointplot(y = y_i, x = time_idx)
+        legend.append(mlines.Line2D([], [], markersize=15, label="Immigrant Stock"))
+
+        ax = sns.pointplot(y = res.fitted_values.loc[r].fitted_values.values, x = time_idx, color = "red")
+        legend.append(mlines.Line2D([], [], markersize=15, label="Immigrant Stock Prediction", color = "red"))
+        ax.ticklabel_format(style='sci', axis='y', scilimits=(0,0))
+
+
+        sns.despine(ax=ax, right=True, left=True)
+        #sns.despine(ax=ax2, left=True, right=False)
+        ax.set_xlabel("")
+        #ax2.set_xlabel("")
+        #ax2.spines['right'].set_color('white')
+        ax.ticklabel_format(style='sci', axis='y', scilimits=(0,0))
+
+
+        ax.set_xticklabels(ax.get_xticklabels(), rotation=rot)
+        #plt.title(r, fontsize = 14)
+        #plt.legend(handles = legend, prop={'size':14}, loc='best')
+        plt.title(r, fontsize = 14)
+
+        plt_seed += 1
+
+    lgd = plt.legend(handles = legend, loc='upper center', bbox_to_anchor=(0.5, -.25), fancybox=True, ncol = 2)
+
+    fig.suptitle(title, fontsize = 14)
+    if save == False:
+        plt.show()
+    else:
+        plt.savefig(path+".png",  box_extra_artists=(lgd,), bbox_inches='tight')
+    plt.close()
+
+
+
+    def panel_regression(y, xs, years, country, list_x, save = True, path = ""):
+        data = bdf.filter_origin_country_dataset(y, country, years, xs.index.levels[0].tolist(), xs)
+
+        mod = PanelOLS(data.y, data[list_x])
+        res = mod.fit()
+        print("The R-squared of the regression model using the independent variables %s is %f." %(list_x, res.rsquared))
+
+        plot_real_VS_prediction(y, xs, years, country, rot, "Regression model using the independent var %s" %list_x, save, path)
