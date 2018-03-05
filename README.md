@@ -8,11 +8,11 @@ The model could be written as:
 ![](https://latex.codecogs.com/gif.latex?ln%28n_%7Bi%2Ct%7D%29%20%3D%20%5Cbeta%20ln%28n_%7Bi%2Ct-1%7D%29%20&plus;%20a%20&plus;%20%5Cepsilon%2C%20%5C%20%5Cforall%20%5C%20i%20%5Cin%20%5B1%2C%20%5Cdots%2C%20I%5D%2C%20%5C%20t%20%5Cin%20%5B2005%2C%202015%5D%29)
 
 where:
-- ![](https://latex.codecogs.com/gif.latex?%5B1%2C%20%5Cdots%2C%20I%5D) is the Italian regions capitals.
-- ![](https://latex.codecogs.com/gif.latex?%5Cbeta) and *a* are the regression parameters, ![](https://latex.codecogs.com/gif.latex?%5Cbeta) can be interpreted as the network effect (is a local phenomenon that influences the immigrant choice, that is: foreign-born population tend to migrate to territories where a community of the same ethnic already exists)
+- ![](https://latex.codecogs.com/gif.latex?%5B1%2C%20%5Cdots%2C%20I%5D) is the set of Italian regions capitals.
+- ![](https://latex.codecogs.com/gif.latex?%5Cbeta) and ![](https://latex.codecogs.com/gif.latex?a) are the regression parameters, ![](https://latex.codecogs.com/gif.latex?%5Cbeta) can be interpreted as the *network effect*. The network effect is a local phenomenon that influences the immigrant choice: foreign-born population tend to migrate to territories where a community of the same ethnic already exists.
 - ![](https://latex.codecogs.com/gif.latex?%5Cepsilon_i%20%5Csim%20N%280%2C%20%5Csigma%5E2%29) is the error random term
 
-In the below table the results for some interest origin countries are summarized:
+In the below table the regression results for some interest origin countries are summarized:
 
 | Origin Country  | *![](https://latex.codecogs.com/gif.latex?%5Cbeta)*  | *![](https://latex.codecogs.com/gif.latex?a)*  | *![](https://latex.codecogs.com/gif.latex?R%5E2)*  | *MSE*  |  Pearson's corr. coeff. | Spearman's corr. coeff.  |  Kendall's corr. coeff. |
 |---|---|---|---|---|---|---|---|
@@ -32,7 +32,7 @@ To begin, an initial data filtering is performed. Only the data that are suppose
 Some features can not be used, due to the availability of data:
 - **Basic health care** only 2004-2013
 - **Expenditure for intervections and social services** only 2013-2014
-- **Expenditure for the house of families with foreign components** only at zones level in 2009
+- **Expenditure for the house of families with foreign components** only 2009
 - **Aspect of dayli life - Interpersonal Trust** only from 2010
 - **Hospitalizations** missing 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2016, 2017
 - **Aspects of daily life - general life degree of satisfaction** missing 2003, 2004, 2005, 2006, 2007, 2008, 2009

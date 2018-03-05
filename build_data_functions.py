@@ -61,7 +61,7 @@ def filtering(data, attribute, list_values):
 # In[ ]:
 
 
-def pivot(data, attibute, value):
+def pivot(data, attibute = None, value = None):
     idx = data.columns[(data.columns != attibute) & (data.columns != value)]
     return pd.pivot_table(data, columns=attibute, values = value, index = list(idx))
 
@@ -130,11 +130,12 @@ def relation_plot_time_invariant(data_, cols, y, rot, title, save, path):
         ax.tick_params(axis='x', which='minor', labelsize='small', labelcolor='m', rotation=30)
         legend = []
         x_idx = [x.split(" / ")[0] for x in data_.index]
-        ax = sns.pointplot(y = data_[y], x = x_idx)
+        ax = sns.pointplot(y = getattr(data_, y), x = x_idx)
         legend.append(mlines.Line2D([], [], markersize=15, label="Immigrant Stock"))
-
+        ax.ticklabel_format(style='sci', axis='y', scilimits=(0,0))
         sns.set_style("white")
         ax2 = ax.twinx()
+
         ax2 = sns.pointplot(y = getattr(data_, c), x = x_idx, color = "red")
         legend.append(mlines.Line2D([], [], markersize=15, label=c, color = "red"))
 
@@ -142,6 +143,7 @@ def relation_plot_time_invariant(data_, cols, y, rot, title, save, path):
         sns.despine(ax=ax2, left=True, right=False)
 
         ax2.spines['right'].set_color('white')
+        ax2.ticklabel_format(style='sci', axis='y', scilimits=(0,0))
 
         ax.set_xticklabels(ax.get_xticklabels(), rotation=rot)
         plt.xticks(rotation=90)
@@ -209,7 +211,7 @@ def relation_plot_time_variant_intern_function(data_, temp_territories, time_idx
     plt.close()
 
 
-def relation_plot_time_variant(data_, cols, y, zones_data, rot, title, palette, save, path = "", sub_iteration = False):
+def relation_plot_time_variant(data_, cols, y, zones_data, rot, title, palette, save, path = "", sub_iteration = True):
     territories = list(set(zones_data["Zona"]))
     y_grouped = y.groupby(["Province", "Year"])
     time_idx = data_.index.levels[0]
@@ -239,3 +241,66 @@ def relation_plot_time_variant(data_, cols, y, zones_data, rot, title, palette, 
             relation_plot_time_variant_intern_function(data_, temp_region, time_idx, cols, y_grouped, fig, plt_seed, rot, palette, "Immigrant Stock VS "+title+" in "+z, save, path+z)
     else:
         pass
+
+
+def merge_xs(features, pop, territories):
+    x = features[0].loc[(slice(None), territories), :].copy()
+    for f in features[1:]:
+        if set(territories).issubset(f.index.levels[1]):
+            temp = f.loc[(slice(None), territories), :].copy()
+            x = pd.concat([temp, x], axis = 1)
+        else:
+            pass
+
+    x.index = x.index.swaplevel(0, 1)
+    x.sort_index(inplace=True)
+
+    pop = resident_norm.copy()
+    idx = pop.columns[(pop.columns != "Gender") & (pop.columns != "Value")].tolist()
+    pop = pop.groupby(idx, as_index=False)["Value"].sum()
+    pop = bdf.pivot(pop, value = "Value")
+    pop.columns = ["Population"]
+    pop = pop.loc[(zones, list(range(2005, 2016))), :].copy()
+
+    x = pd.concat([pop, x], axis = 1)
+
+    return x
+
+
+def fill_aggragating(to_fill, to_fill_attr, to_aggr_attr1, to_aggr_attr2, aggregation_data, data_):
+    grouped = aggregation_data.groupby([to_fill_attr])
+    for r in to_fill:
+        list_temp = grouped.get_group(r)[to_aggr_attr1].values
+        idx = data_.columns[(data_.columns != to_aggr_attr2) & (data_.columns != "Value")].tolist()
+        res_temp = data_[(data_[to_aggr_attr2].isin(list_temp))].groupby(idx)["Value"].sum()
+        temp = pd.DataFrame(res_temp)
+        temp = temp.reset_index(level=idx)
+        temp[to_aggr_attr2] = [r for i in range(len(temp))]
+        temp = temp[temp.columns.tolist()[-1:] + temp.columns.tolist()[:-1]]
+
+        data_ = pd.concat([data_, temp])
+
+    data_.index = list(range(len(data_)))
+    return data_
+
+
+
+def filter_origin_country_dataset(data_, country, years, territories):
+    y = data_.groupby(["Province", "Country", "Year"], as_index=False)["Value"].sum()
+    y = bdf.pivot(y, "Country", "Value")
+
+    y = y.loc[(territories, ), :][country]
+    y = pd.DataFrame(y)
+
+    y_prev = y.copy()
+    y_prev = y_prev.groupby(level=0)[country].shift(1)
+    y_prev = pd.DataFrame(y_prev)
+
+    y = y.loc[(slice(None), years), :]
+    y.columns = ["y"]
+    y_prev = y_prev.loc[(slice(None), years), :]
+    y_prev.columns = ["y_prev"]
+
+    res = pd.concat([y, y_prev, a], axis = 1)
+
+    return(res)
