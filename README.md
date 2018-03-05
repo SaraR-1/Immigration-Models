@@ -1,28 +1,6 @@
 # Immigration-Models
 
 ## First Model
-As first, a very simple regression model is implemented.
-
-The model could be written as:
-
-![](https://latex.codecogs.com/gif.latex?ln%28n_%7Bi%2Ct%7D%29%20%3D%20%5Cbeta%20ln%28n_%7Bi%2Ct-1%7D%29%20&plus;%20a%20&plus;%20%5Cepsilon%2C%20%5C%20%5Cforall%20%5C%20i%20%5Cin%20%5B1%2C%20%5Cdots%2C%20I%5D%2C%20%5C%20t%20%5Cin%20%5B2005%2C%202015%5D%29)
-
-where:
-- ![](https://latex.codecogs.com/gif.latex?%5B1%2C%20%5Cdots%2C%20I%5D) is the set of Italian regions capitals.
-- ![](https://latex.codecogs.com/gif.latex?%5Cbeta) and ![](https://latex.codecogs.com/gif.latex?a) are the regression parameters, ![](https://latex.codecogs.com/gif.latex?%5Cbeta) can be interpreted as the *network effect*. The network effect is a local phenomenon that influences the immigrant choice: foreign-born population tend to migrate to territories where a community of the same ethnic already exists.
-- ![](https://latex.codecogs.com/gif.latex?%5Cepsilon_i%20%5Csim%20N%280%2C%20%5Csigma%5E2%29) is the error random term
-
-In the below table the regression results for some interest origin countries are summarized:
-
-| Origin Country  | *![](https://latex.codecogs.com/gif.latex?%5Cbeta)*  | *![](https://latex.codecogs.com/gif.latex?a)*  | *![](https://latex.codecogs.com/gif.latex?R%5E2)*  | *MSE*  |  Pearson's corr. coeff. | Spearman's corr. coeff.  |  Kendall's corr. coeff. |
-|---|---|---|---|---|---|---|---|
-| Morocco  | 0.99  | 0.16  |  0.986 | 581107.88  | 0.986  |  0.993 | 0.939  |
-|Tunisia  |  0.98 | 0.17 |  0.971 | 44168.93  |  0.986 | 0.992  |  0.935 |
-|  Peru | 0.99  |  0.07 | 0.996  |  203545.81 |  0.998| 0.998  | 0.967  |
-|  China | 0.99  |  0.16 | 0.990  | 414440.54  |  0.995 | 0.996  |  0.956 |
-|  Philippines |  0.99 |  0.09 | 0.991  | 992418.96  | 0.995  |0.998  | 0.970  |
-| Albania  | 1.00  |  -0.006 | 0.989  |  477374.68 | 0.994  | 0.997  |  0.959 |
-| Romania  | 0.92  | 0.89  | 0.952  | 46353088.24  |  0.984 |  0.986 |  0.917 |
 
 ## Variable selection
 On the [ISTAT website](http://dati.istat.it/#), it is possible to find some interesting features that could be included in the formulation of a model aim to explain the immigration flow to Italy.
