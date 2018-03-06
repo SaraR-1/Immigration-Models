@@ -137,7 +137,41 @@ Some features can not be used, due to the availability of data:
 Some others, due to statistical problems:
 - **Economic situation opinions (Famigie per capacità di arrivare a fine mese)**: around 10.4% of data are not statistically significant and 4.6% do not reach the half of the minimum (ISTAT definition: Il dato si definisce poco significativo nel caso in cui corrisponda ad una numerosità campionaria compresa tra 20 e 49 unità.)
 
-In order to see the relationship between the Immigrant flow and other additional features, let's plot them.
+In order to see the relationship between the Immigrant flow and other additional features, let's plot them. The zone level is sufficient to understand the behaviour.
 
+![](https://github.com/SaraR-1/Immigration-Models/blob/master/Plots/stock_vs_population_zones.png)
+
+![](https://github.com/SaraR-1/Immigration-Models/blob/master/Plots/stock_vs_income_zones.png)
+
+![](https://github.com/SaraR-1/Immigration-Models/blob/master/Plots/stock_vs_work_satisfaction1_zones.png)
+
+![](https://github.com/SaraR-1/Immigration-Models/blob/master/Plots/stock_vs_work_satisfaction2_zones.png)
+
+![](https://github.com/SaraR-1/Immigration-Models/blob/master/Plots/stock_vs_fertility_rate_zones.png)
+
+![](https://github.com/SaraR-1/Immigration-Models/blob/master/Plots/stock_vs_reach_services_difficulty1_zones.png)
+
+![](https://github.com/SaraR-1/Immigration-Models/blob/master/Plots/stock_vs_reach_services_difficulty2_zones.png)
+
+![](https://github.com/SaraR-1/Immigration-Models/blob/master/Plots/stock_vs_internal_migration_zones.png)
+
+![](https://github.com/SaraR-1/Immigration-Models/blob/master/Plots/stock_vs_live_births_zones.png)
+
+![](https://github.com/SaraR-1/Immigration-Models/blob/master/Plots/stock_vs_housing_costs1_zones.png)
+
+![](https://github.com/SaraR-1/Immigration-Models/blob/master/Plots/stock_vs_housing_costs2_zones.png)
+
+![](https://github.com/SaraR-1/Immigration-Models/blob/master/Plots/stock_vs_hom_net_income_zones.png)
+
+![](https://github.com/SaraR-1/Immigration-Models/blob/master/Plots/stock_vs_political_info1_zones.png)
+
+![](https://github.com/SaraR-1/Immigration-Models/blob/master/Plots/stock_vs_political_info2_zones.png)
+
+![](https://github.com/SaraR-1/Immigration-Models/blob/master/Plots/stock_vs_social_act1_zones.png)
+
+![](https://github.com/SaraR-1/Immigration-Models/blob/master/Plots/stock_vs_social_act2_zones.png)
+
+Let's see also the "Area" variable which is time invariant. Here as "Immigrant Stock" the mean over the years 2005-2015 is considered.
+![](https://github.com/SaraR-1/Immigration-Models/blob/master/Plots/stock_vs_time_invariant_regions.png)
 
 ## Regression Model for Data Panel
