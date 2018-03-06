@@ -139,6 +139,8 @@ Some others, due to statistical problems:
 
 In order to see the relationship between the Immigrant flow and other additional features, let's plot them. The zone level is sufficient to understand the behaviour.
 
+![](https://github.com/SaraR-1/Immigration-Models/blob/master/Plots/stock_vs_population_zones.png)
+
 ![](https://github.com/SaraR-1/Immigration-Models/blob/master/Plots/stock_vs_income_zones.png)
 
 ![](https://github.com/SaraR-1/Immigration-Models/blob/master/Plots/stock_vs_work_satisfaction1_zones.png)
