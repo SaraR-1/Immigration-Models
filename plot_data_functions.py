@@ -8,7 +8,7 @@ import matplotlib.lines as mlines
 def relation_plot_time_invariant(data_, cols, y, rot, title, save, path):
     fig = plt.figure(1, figsize=(15,8))
 
-    plt_seed = 131
+    plt_seed = 111
     for c in cols:
         sns.set_style("whitegrid")
 
