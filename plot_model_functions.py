@@ -5,13 +5,14 @@ import seaborn as sns
 import matplotlib.pyplot as plt
 import matplotlib.lines as mlines
 
-def plot_real_VS_prediction(y, xs, time_idx, country, rot, title, save, path):
+def plot_real_VS_prediction(y, fitted_values, xs, time_idx, country, rot, title, save, path):
 
     fig = plt.figure(1, figsize=(15,10))
     plt_seed = 231
 
     for r in xs.index.levels[0].tolist():
-        y_i = y.loc[(r, years), :][country].values
+        y_i = y.loc[(r, time_idx), :][country].values
+        x_i = fitted_values.loc[r].fitted_values.values
 
         sns.set_style("whitegrid")
 
@@ -21,7 +22,7 @@ def plot_real_VS_prediction(y, xs, time_idx, country, rot, title, save, path):
         ax = sns.pointplot(y = y_i, x = time_idx)
         legend.append(mlines.Line2D([], [], markersize=15, label="Immigrant Stock"))
 
-        ax = sns.pointplot(y = res.fitted_values.loc[r].fitted_values.values, x = time_idx, color = "red")
+        ax = sns.pointplot(y = x_i, x = time_idx, color = "red")
         legend.append(mlines.Line2D([], [], markersize=15, label="Immigrant Stock Prediction", color = "red"))
         ax.ticklabel_format(style='sci', axis='y', scilimits=(0,0))
 
@@ -40,6 +41,7 @@ def plot_real_VS_prediction(y, xs, time_idx, country, rot, title, save, path):
         plt.title(r, fontsize = 14)
 
         plt_seed += 1
+
 
     lgd = plt.legend(handles = legend, loc='upper center', bbox_to_anchor=(0.5, -.25), fancybox=True, ncol = 2)
 

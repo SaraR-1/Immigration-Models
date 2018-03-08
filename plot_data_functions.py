@@ -4,6 +4,9 @@ import string
 import seaborn as sns
 import matplotlib.pyplot as plt
 import matplotlib.lines as mlines
+from sklearn.metrics import mean_squared_error
+from sklearn.metrics import r2_score
+import scipy
 
 def relation_plot_time_invariant(data_, cols, y, rot, title, save, path):
     fig = plt.figure(1, figsize=(15,8))
@@ -48,9 +51,11 @@ def relation_plot_time_invariant(data_, cols, y, rot, title, save, path):
         plt.savefig(path+".png",  box_extra_artists=(lgd,), bbox_inches='tight')
     plt.close()
 
-def relation_plot_time_variant_intern_function(data_, temp_territories, time_idx, cols, y, fig, plt_seed, rot, palette, title, save, path = ""):
+def relation_plot_time_variant_intern_function(data_, temp_territories, time_idx, cols, y, fig, plt_seed, rot, palette, info, title, save, path = ""):
+
     for r in temp_territories:
         y_i = [y.get_group((r, t))["Value"].sum() for t in time_idx]
+        y_i_mean = np.mean(y_i)
 
         sns.set_style("whitegrid")
 
@@ -67,6 +72,24 @@ def relation_plot_time_variant_intern_function(data_, temp_territories, time_idx
             # Color - always +1 because the first color is for the real value (ax)
             ax2 = sns.pointplot(y = x_i, x = time_idx, color = palette[cols.index(c)+1])
             legend.append(mlines.Line2D([], [], markersize=15, label=c.split("-")[0], color = palette[cols.index(c)+1]))
+
+
+            info[c]["R2"].append(1 - sum(np.subtract(y_i, x_i)**2) / sum((y_i - y_i_mean)**2))
+            #print(R2)
+            info[c]["MSE"].append(sum(np.subtract(y_i, x_i)**2)/len(y_i))
+
+            info[c]["Pearson"].append(scipy.stats.pearsonr(y_i, x_i)[0])
+            info[c]["Spearman"].append(scipy.stats.spearmanr(y_i, x_i)[0])
+            info[c]["Kendall"].append(scipy.stats.kendalltau(y_i, x_i)[0])
+
+            #print("------------------ %s and %s info ------------------" %(r, c))
+
+            #print("The R2 score is: %f" %(R2))
+            #print("The MSE score is: %f" %(MSE))
+
+            #print("The Pearson's correlation coefficient is: %f, with p-value %f" %(scipy.stats.pearsonr(y_i, x_i)[0], scipy.stats.pearsonr(y_i, x_i)[1]))
+            #print("The Spearman's correlation coefficient is: %f, with p-value %f" %(scipy.stats.spearmanr(y_i, x_i)[0], scipy.stats.spearmanr(y_i, x_i)[1]))
+            #print("The Kendall's correlation coefficient is: %f, with p-value %f" %(scipy.stats.kendalltau(y_i, x_i)[0], scipy.stats.kendalltau(y_i, x_i)[1]))
 
         sns.despine(ax=ax, right=True, left=True)
         sns.despine(ax=ax2, left=True, right=False)
@@ -96,6 +119,7 @@ def relation_plot_time_variant_intern_function(data_, temp_territories, time_idx
         plt.savefig(path+".png", box_extra_artists=(lgd,), bbox_inches='tight')
     plt.close()
 
+    return(info)
 
 def relation_plot_time_variant(data_, cols, y, zones_data, rot, title, palette, save, path = "", sub_iteration = True):
     territories = list(set(zones_data["Zona"]))
@@ -104,8 +128,18 @@ def relation_plot_time_variant(data_, cols, y, zones_data, rot, title, palette, 
 
     fig = plt.figure(1, figsize=(15,10))
 
-    relation_plot_time_variant_intern_function(data_, territories, time_idx, cols, y_grouped, fig, 231, rot, palette, "Immigrant Stock VS "+title+" in Italian Zones", save, path+"zones")
+    info = {c: {"R2": [], "MSE": [], "Pearson": [], "Spearman": [], "Kendall": []} for c in cols}
+    info = relation_plot_time_variant_intern_function(data_, territories, time_idx, cols, y_grouped, fig, 231, rot, palette, info, "Immigrant Stock VS "+title+" in Italian Zones", save, path+"zones")
 
+    for c in cols:
+        print("----------- %s - zones mean -----------" %(c))
+        for k in info[c].keys():
+            if k != "R2" and k != "MSE":
+                print("The %s's correlation coefficient is: %f" %(k, np.mean(info[c][k])))
+            else:
+                print("The %s is: %f" %(k, np.mean(info[c][k])))
+
+    info = {c: {"R2": [], "MSE": [], "Pearson": [], "Spearman": [], "Kendall": []} for c in cols}
     if sub_iteration:
         # A single figure with 21+legend boxes is difficult to analyse. What to do? Figure for each zone.
         grouped_zone = zones_data.groupby(["Zona"])["Regione"]
@@ -124,6 +158,14 @@ def relation_plot_time_variant(data_, cols, y, zones_data, rot, title, palette, 
             time_idx = data_.index.levels[0]
 
             # For each region in the zone, produce a plot (box) in the figure
-            relation_plot_time_variant_intern_function(data_, temp_region, time_idx, cols, y_grouped, fig, plt_seed, rot, palette, "Immigrant Stock VS "+title+" in "+z, save, path+z)
+            info = relation_plot_time_variant_intern_function(data_, temp_region, time_idx, cols, y_grouped, fig, plt_seed, rot, palette, info, "Immigrant Stock VS "+title+" in "+z, save, path+z)
     else:
         pass
+
+    for c in cols:
+        print("----------- %s - regions mean -----------" %(c))
+        for k in info[c].keys():
+            if k != "R2" and k != "MSE":
+                print("The %s's correlation coefficient is: %f" %(k, np.mean(info[c][k])))
+            else:
+                print("The %s is: %f" %(k, np.mean(info[c][k])))

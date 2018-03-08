@@ -105,23 +105,24 @@ def fill_aggragating(to_fill, to_fill_attr, to_aggr_attr1, to_aggr_attr2, aggreg
     data_.index = list(range(len(data_)))
     return data_
 
-def filter_origin_country_dataset(data_, country, years, territories, x, prev = 1):
+def filter_origin_country_dataset(data_, country, years, territories, x, prev):
     y = data_.loc[(territories, ), :][country]
     y = pd.DataFrame(y)
 
-    y = y.loc[(slice(None), years), :]
-    y.columns = ["y"]
+    y_ = y.loc[(slice(None), ), :]
+    y_.columns = ["y"]
 
-    res = pd.concat([y, x], axis = 1)
+    res = pd.concat([y_, x], axis = 1)
 
     for p in range(1, prev+1):
         y_prev = y.copy()
         y_prev = y_prev.groupby(level=0)[country].shift(p)
         y_prev = pd.DataFrame(y_prev)
 
-        y_prev = y_prev.loc[(slice(None), years), :]
-        y_prev.columns = ["y_prev_"+p]
+        y_prev = y_prev.loc[(slice(None), ), :]
+        y_prev.columns = ["y_prev_"+str(p)]
 
         res = pd.concat([y_prev, res], axis = 1)
 
+    res = res.loc[(slice(None), years), :]
     return(res)

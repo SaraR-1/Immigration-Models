@@ -121,6 +121,11 @@ It could be useful to use different methods to build the distance matrix between
 - the distance between the two regions capitals
 - the mean distance between all the province pairs belonging to the two regions (zones) considered
 
+As spacial weights the inverse of the squared of the distances are used. The result matrix ![](https://latex.codecogs.com/gif.latex?W) is a symmetric, nonnegative matrix with ![](https://latex.codecogs.com/gif.latex?w_%7Bij%7D%20%3E%3D%200) and ![](https://latex.codecogs.com/gif.latex?w_%7Bii%7D%20%3D%200).
+
+The row-normalized ![](https://latex.codecogs.com/gif.latex?W) is used for ease of interpretation. It is defined as ![](https://latex.codecogs.com/gif.latex?%5Csum_%7Bj%3D1%7D%5En%20w_%7Bij%7D%20%3D%201%2C%20%5Cforall%20i%20%3D%201%2C%20%5Cdots%2C%20n). This ensure that all weights are between 0 and 1. Each rownormalized weight, ![](https://latex.codecogs.com/gif.latex?wij), can be interpreted as the fraction of all spatial influence on unit ![](https://latex.codecogs.com/gif.latex?i) attributable to unit ![](https://latex.codecogs.com/gif.latex?j).
+
+
 ## Variable selection
 On the [ISTAT website](http://dati.istat.it/#), it is possible to find some interesting features that could be included in the formulation of a model aim to explain the immigration flow to Italy.
 
@@ -173,5 +178,16 @@ In order to see the relationship between the Immigrant flow and other additional
 
 Let's see also the "Area" variable which is time invariant. Here as "Immigrant Stock" the mean over the years 2005-2015 is considered.
 ![](https://github.com/SaraR-1/Immigration-Models/blob/master/Plots/stock_vs_time_invariant_regions.png)
+
+
+Some variables like:
+- Native population
+- Difficulty to reach services
+- Housing costs
+- Net Income
+- Social activities
+seems to effect, somehow, one or more location-specific immigrant flow.
+
+The others may be included in a regression model to see if they improve or not the prediction.
 
 ## Regression Model for Data Panel
