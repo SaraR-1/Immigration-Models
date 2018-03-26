@@ -36,7 +36,7 @@ def pivot(data, attibute = None, value = None):
     return pd.pivot_table(data, columns=attibute, values = value, index = list(idx))
 
 def re_ordering_df(data):
-    return data.reindex_axis(sorted(data.columns), axis=1)
+    return data.reindex(sorted(data.columns), axis=1)
 
 def check_missing(data):
     for c in data.columns:
@@ -59,12 +59,18 @@ def differentiate_values(data, attribute, to_modify):
 
 def check_missing_index(data, time, place):
     y = data.index.levels[0]
-    p = data.index.levels[1]
+    #p = data.index.levels[1]
 
     if len(y) != len(time):
         print([i for i in time if i not in y])
-    if len(p) != len(place):
-        print([i for i in place if i not in p])
+    sub_index_miss = set()
+    for i in y:
+        temp = data.loc[i].index
+        if len(temp) != len(place):
+            sub_index_miss.update([p for p in place if p not in temp])
+    print(list(sub_index_miss))
+'''    if len(p) != len(place):
+        print([i for i in place if i not in p])'''
 
 def merge_xs(features, pop, territories):
     x = features[0].loc[(slice(None), territories), :].copy()
@@ -78,12 +84,12 @@ def merge_xs(features, pop, territories):
     x.index = x.index.swaplevel(0, 1)
     x.sort_index(inplace=True)
 
-    pop = resident_norm.copy()
+    #pop = resident_norm.copy()
     idx = pop.columns[(pop.columns != "Gender") & (pop.columns != "Value")].tolist()
     pop = pop.groupby(idx, as_index=False)["Value"].sum()
     pop = pivot(pop, value = "Value")
     pop.columns = ["Population"]
-    pop = pop.loc[(zones, list(range(2005, 2016))), :].copy()
+    pop = pop.loc[(territories, list(range(2005, 2016))), :].copy()
 
     x = pd.concat([pop, x], axis = 1)
 

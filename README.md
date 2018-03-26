@@ -146,35 +146,27 @@ In order to see the relationship between the Immigrant flow and other additional
 
 ![](https://github.com/SaraR-1/Immigration-Models/blob/master/Plots/stock_vs_population_zones.png)
 
-![](https://github.com/SaraR-1/Immigration-Models/blob/master/Plots/stock_vs_income_zones.png)
+![](https://github.com/SaraR-1/Immigration-Models/blob/master/Plots/stock_vs_social_act1_zones.png)
 
-![](https://github.com/SaraR-1/Immigration-Models/blob/master/Plots/stock_vs_work_satisfaction1_zones.png)
+![](https://github.com/SaraR-1/Immigration-Models/blob/master/Plots/stock_vs_political_info1_zones.png)
 
-![](https://github.com/SaraR-1/Immigration-Models/blob/master/Plots/stock_vs_work_satisfaction2_zones.png)
+![](https://github.com/SaraR-1/Immigration-Models/blob/master/Plots/stock_vs_consumption_expend_zones.png)
 
 ![](https://github.com/SaraR-1/Immigration-Models/blob/master/Plots/stock_vs_fertility_rate_zones.png)
 
-![](https://github.com/SaraR-1/Immigration-Models/blob/master/Plots/stock_vs_reach_services_difficulty1_zones.png)
+![](https://github.com/SaraR-1/Immigration-Models/blob/master/Plots/stock_vs_hom_net_income_zones.png)
+
+![](https://github.com/SaraR-1/Immigration-Models/blob/master/Plots/stock_vs_housing_costs2_zones.png)
+
+![](https://github.com/SaraR-1/Immigration-Models/blob/master/Plots/stock_vs_live_births_zones.png)
+
+![](https://github.com/SaraR-1/Immigration-Models/blob/master/Plots/stock_vs_unemployment_zones.png)
+
+![](https://github.com/SaraR-1/Immigration-Models/blob/master/Plots/stock_vs_work_satisfaction2_zones.png)
 
 ![](https://github.com/SaraR-1/Immigration-Models/blob/master/Plots/stock_vs_reach_services_difficulty2_zones.png)
 
 ![](https://github.com/SaraR-1/Immigration-Models/blob/master/Plots/stock_vs_internal_migration_zones.png)
-
-![](https://github.com/SaraR-1/Immigration-Models/blob/master/Plots/stock_vs_live_births_zones.png)
-
-![](https://github.com/SaraR-1/Immigration-Models/blob/master/Plots/stock_vs_housing_costs1_zones.png)
-
-![](https://github.com/SaraR-1/Immigration-Models/blob/master/Plots/stock_vs_housing_costs2_zones.png)
-
-![](https://github.com/SaraR-1/Immigration-Models/blob/master/Plots/stock_vs_hom_net_income_zones.png)
-
-![](https://github.com/SaraR-1/Immigration-Models/blob/master/Plots/stock_vs_political_info1_zones.png)
-
-![](https://github.com/SaraR-1/Immigration-Models/blob/master/Plots/stock_vs_political_info2_zones.png)
-
-![](https://github.com/SaraR-1/Immigration-Models/blob/master/Plots/stock_vs_social_act1_zones.png)
-
-![](https://github.com/SaraR-1/Immigration-Models/blob/master/Plots/stock_vs_social_act2_zones.png)
 
 Let's see also the "Area" variable which is time invariant. Here as "Immigrant Stock" the mean over the years 2005-2015 is considered.
 ![](https://github.com/SaraR-1/Immigration-Models/blob/master/Plots/stock_vs_time_invariant_regions.png)
@@ -182,10 +174,11 @@ Let's see also the "Area" variable which is time invariant. Here as "Immigrant S
 
 Some variables like:
 - Native population
-- Difficulty to reach services
+- Difficulty to reach services (e.g. pharmacy)
 - Housing costs
 - Net Income
 - Social activities
+- Unemployment
 seems to effect, somehow, one or more location-specific immigrant flow.
 
 The others may be included in a regression model to see if they improve or not the prediction.
