@@ -80,12 +80,12 @@ def evaluation(data, y_hat, constant):
     else:
         R2 = 1 - (sum(np.subtract(data["y"].values, y_hat.fitted_values.values)**2) / sum((data["y"].values - np.mean(data["y"].values))**2))
 
-    print("The R-squared of the regression model is %f." %R2)
+    print("R-squared %f." %R2)
     # k: number of independet vars
     k = 1
     n = len(data["y"].values)
     R2_adj = 1 - (1 - R2)*((n - 1)/(n - k -1))
-    print("The adjusted R-squared of the regression model is %f." %R2_adj)
+    print("Adjusted R-squared %f." %R2_adj)
 
 # Get the foreigners stock value
 def n_it(data_, i, t):
