@@ -225,8 +225,8 @@ Follows the results of the models performed at Italian zones level.
 | Indep. var.  |  Romania |  Morocco | Albania  |  Tunisia | Egypt  | Ecuador  | Peru  | China  | Philippines  |
 |---|---|---|---|---|---|---|---|---|---|
 | ![](https://latex.codecogs.com/gif.latex?y_%7Bi%2C%20t-1%7D) | 1.074  |  1.029 |  1.032 |  1.015 | 1.063  |  1.040 |  1.049 | 1.073  | 1.058 |
-| **R-squared** | 0.983  |  0.996 | 0.996  | 0.991  | 0.984  | 0.990  | 0.995  |  0.995 |   |
-| **Adj R-squared** | 0.982  | 0.996  | 0.996  |  0.991 | 0.984  | 0.990  | 0.995  | 0.995  |   |
+| **R-squared** | 0.983  |  0.996 | 0.996  | 0.991  | 0.984  | 0.990  | 0.995  |  0.995 |  0.995 |
+| **Adj R-squared** | 0.982  | 0.996  | 0.996  |  0.991 | 0.984  | 0.990  | 0.995  | 0.995  |  0.995 |
 
 
 | Indep. var.  |  Romania |  Morocco | Albania  |  Tunisia | Egypt  | Ecuador  | Peru  | China  | Philippines  |
