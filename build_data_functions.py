@@ -72,7 +72,7 @@ def check_missing_index(data, time, place):
 '''    if len(p) != len(place):
         print([i for i in place if i not in p])'''
 
-def merge_xs(features, pop, territories):
+def merge_xs(features, territories):
     x = features[0].loc[(slice(None), territories), :].copy()
     for f in features[1:]:
         if set(territories).issubset(f.index.levels[1]):
@@ -84,14 +84,14 @@ def merge_xs(features, pop, territories):
     x.index = x.index.swaplevel(0, 1)
     x.sort_index(inplace=True)
 
-    #pop = resident_norm.copy()
+    '''    #pop = resident_norm.copy()
     idx = pop.columns[(pop.columns != "Gender") & (pop.columns != "Value")].tolist()
     pop = pop.groupby(idx, as_index=False)["Value"].sum()
     pop = pivot(pop, value = "Value")
     pop.columns = ["Population"]
     pop = pop.loc[(territories, list(range(2005, 2016))), :].copy()
 
-    x = pd.concat([pop, x], axis = 1)
+    x = pd.concat([pop, x], axis = 1)'''
 
     return x
 

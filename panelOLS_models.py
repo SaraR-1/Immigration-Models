@@ -19,45 +19,45 @@ from sklearn.feature_selection import SelectKBest, f_regression, mutual_info_reg
 import pycountry
 
 
-def panel_regression(y, xs, years, country, ks, save = False, show = False):
+def panel_regression(y, xs, years, country, ks, save = False, show = False, diff = False, constant = False, entity_effects = False):
     country = pycountry.countries.get(name=country).alpha_3
     print("--------------------- Previous  Time ---------------------")
     # PanelOLS uses fixed effect (i.e., entity effects) to eliminate the entity specific components.
     # FirstDifferenceOLS takes the first difference to eliminate the entity specific effect.
-    param, values = mf.panel_regression(y, xs, years, country, ['y_prev_1'], prev = 1, save = save, show = show)
+    param, values = mf.panel_regression(y, xs, years, country, ['y_prev_1'], prev = 1, save = save, show = show, diff = diff, constant = constant, entity_effects = entity_effects)
+    print(param)
 
     # Training - Test (2014, 2015)
-    param, values = mf.panel_regression_training_test(y, xs, years[:-2], years[-2:], country, ['y_prev_1'], prev = 1, save = save, show = show)
+    #param, values = mf.panel_regression_training_test(y, xs, years[:-2], years[-2:], country, ['y_prev_1'], prev = 1, save = save, show = show, diff = diff, constant = constant, entity_effects = entity_effects)
 
-    # Training - Test (2013, 2014, 2015)
-    param, values = mf.panel_regression_training_test(y, xs, years[:-3], years[-3:], country, ['y_prev_1'], prev = 1, save = save, show = show)
-
+    # Training - Test (2014, 2015, 2016)
+    param, values = mf.panel_regression_training_test(y, xs, years[:-3], years[-3:], country, ['y_prev_1'], prev = 1, save = save, show = show, diff = diff, constant = constant, entity_effects = entity_effects)
+    print(param)
     print("-------------------- Previous 2 Times --------------------")
-    param, values = mf.panel_regression(y, xs, years, country, ['y_prev_1', 'y_prev_2'], prev = 2, save = save, show = show)
-
+    param, values = mf.panel_regression(y, xs, years, country, ['y_prev_1', 'y_prev_2'], prev = 2, save = save, show = show, diff = diff, constant = constant, entity_effects = entity_effects)
+    print(param)
     # Training - Test (2014, 2015)
-    param, values = mf.panel_regression_training_test(y, xs, years[:-2], years[-2:], country, ['y_prev_1', 'y_prev_2'], prev = 2, save = save, show = show)
+    #param, values = mf.panel_regression_training_test(y, xs, years[:-2], years[-2:], country, ['y_prev_1', 'y_prev_2'], prev = 2, save = save, show = show, diff = diff, constant = constant, entity_effects = entity_effects)
 
-    # Training - Test (2013, 2014, 2015)
-    param, values = mf.panel_regression_training_test(y, xs, years[:-3], years[-3:], country, ['y_prev_1', 'y_prev_2'], prev = 2, save = save, show = show)
-
+    # Training - Test (2014, 2015, 2016)
+    param, values = mf.panel_regression_training_test(y, xs, years[:-3], years[-3:], country, ['y_prev_1', 'y_prev_2'], prev = 2, save = save, show = show, diff = diff, constant = constant, entity_effects = entity_effects)
+    print(param)
     print("------------- Variable Selection  Plot based -------------")
-    var_selection = ['Population', 'Free activities in voluntary associations',
-                 'Meetings in cultural, recreational or other associations',
-                 'homogeneity_net_income - Excluding imputed rents',
-                 'Average monthly expenditure for housing', 'unemployment - Total',
-                 'reach_difficulty - Emergency room']
+    var_selection = ['native population - Total', 'Free activities in voluntary associations',
+                     'Meetings in cultural, recreational or other associations',
+                     'Disposable Income', 'Average monthly expenditure for housing',
+                     'unemployment - Total', 'reach_difficulty - Emergency room']
 
     # PanelOLS uses fixed effect (i.e., entity effects) to eliminate the entity specific components.
     # FirstDifferenceOLS takes the first difference to eliminate the entity specific effect.
-    param, values = mf.panel_regression(y, xs, years, country, ['y_prev_1', 'y_prev_2']+var_selection, prev = 2, save = save, show = show)
-
+    param, values = mf.panel_regression(y, xs, years, country, ['y_prev_1', 'y_prev_2']+var_selection, prev = 2, save = save, show = show, diff = diff, constant = constant, entity_effects = entity_effects)
+    print(param)
     # Training - Test (2014, 2015)
-    param, values = mf.panel_regression_training_test(y, xs, years[:-2], years[-2:], country, ['y_prev_1', 'y_prev_2']+var_selection, prev = 2, save = save, show = show)
+    #param, values = mf.panel_regression_training_test(y, xs, years[:-2], years[-2:], country, ['y_prev_1', 'y_prev_2']+var_selection, prev = 2, save = save, show = show, diff = diff, constant = constant, entity_effects = entity_effects)
 
-    # Training - Test (2013, 2014, 2015)
-    param, values = mf.panel_regression_training_test(y, xs, years[:-3], years[-3:], country, ['y_prev_1', 'y_prev_2']+var_selection, prev = 2, save = save, show = show)
-
+    # Training - Test (2014, 2015, 2016)
+    param, values = mf.panel_regression_training_test(y, xs, years[:-3], years[-3:], country, ['y_prev_1', 'y_prev_2']+var_selection, prev = 2, save = save, show = show, diff = diff, constant = constant, entity_effects = entity_effects)
+    print(param)
     print("----------------- Variable Selection  MI -----------------")
     data = bdf.filter_origin_country_dataset(y, country, years, xs.index.levels[0].tolist(), xs, prev = 2)
     y_ = data["y"]
@@ -71,10 +71,11 @@ def panel_regression(y, xs, years, country, ks, save = False, show = False):
             temp = (data == v).idxmax(axis=1)[0]
             selected_.append(temp)
 
-        param, values = mf.panel_regression(y, xs, years, country, selected_, prev = 2, save = False, show = False)
-
+        param, values = mf.panel_regression(y, xs, years, country, selected_, prev = 2, save = save, show = show, diff = diff, constant = constant, entity_effects = entity_effects)
+        print(param)
         # Training - Test (2014, 2015)
-        param, values = mf.panel_regression_training_test(y, xs, years[:-2], years[-2:], country, selected_, prev = 2, save = False, show = False)
+        #param, values = mf.panel_regression_training_test(y, xs, years[:-2], years[-2:], country, selected_, prev = 2, save = save, show = show, diff = diff, constant = constant, entity_effects = entity_effects)
 
-        # Training - Test (2013, 2014, 2015)
-        param, values = mf.panel_regression_training_test(y, xs, years[:-3], years[-3:], country, selected_, prev = 2, save = False, show = False)
+        # Training - Test (2014, 2015, 2016)
+        param, values = mf.panel_regression_training_test(y, xs, years[:-3], years[-3:], country, selected_, prev = 2, save = save, show = show, diff = diff, constant = constant, entity_effects = entity_effects)
+        print(param)

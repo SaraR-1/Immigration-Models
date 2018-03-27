@@ -1,5 +1,5 @@
 # Immigration-Models
-The aim of this chapter is to model the immigrant flow across the Italian territory. Thus, working with *data panel* is necessary. Data panel, or longitudinal data, refers to a set of *n* units surveyed repeatedly over *T* times. The notation ![](https://latex.codecogs.com/gif.latex?Y_%7Bi%2Ct%7D) denotes the variable ![](https://latex.codecogs.com/gif.latex?Y) observed for the ![](https://latex.codecogs.com/gif.latex?i)-th unit at time ![](https://latex.codecogs.com/gif.latex?t).
+The aim of this chapter is to model the immigrant flow across the Italian territory. Thus, working with *data panel* is necessary. Data panel, or longitudinal data, refers to a set of *I* units surveyed repeatedly over *T* times. The notation ![](https://latex.codecogs.com/gif.latex?Y_%7Bi%2Ct%7D) denotes the variable ![](https://latex.codecogs.com/gif.latex?Y) observed for the ![](https://latex.codecogs.com/gif.latex?i)-th unit at time ![](https://latex.codecogs.com/gif.latex?t).
 
 ## [H. Jayet et al. paper](http://www.jstor.org/stable/41219121?casa_token=kWQZrm4oyF0AAAAA:KeWFnUzB0a35pI6h39ZjcK8jd4njelxV-w_oC98qZM2nro4pkyqIyrDON1KmTmVz7zfRrIvDY3xOU1ws2aQgkOANz_hYo-nkw0SGTtgDH2jGgG9k9g&seq=1#page_scan_tab_contents)
 
@@ -10,6 +10,7 @@ The initial model is defined as:
 ![](https://latex.codecogs.com/gif.latex?%5Cinline%20ln%28n_%7Bi%2C%20t%7D%29%20%3D%20%5Cbeta%20ln%20%28n_%7Bi%2C%20t-1%7D%29%20&plus;%20%5Calpha_i%20&plus;%20%5Cgamma_t%20&plus;%20u_%7Bi%2C%20t%7D%20%5C%20%5C%20i%20%3D%201%2C%20%5Cdots%2C%20I%20%5Ctext%7B%20and%20%7D%20t%20%3D%201%2C%20%5Cdots%2C%20T)
 
 where:
+- ![](https://latex.codecogs.com/gif.latex?n_%7Bi%2C%20t%7D) is the stock of foreign-born in territory ![](https://latex.codecogs.com/gif.latex?i) at time ![](https://latex.codecogs.com/gif.latex?t).
 - ![](https://latex.codecogs.com/gif.latex?%5Cbeta) is the parameters for the network effect (is a local phenomenon that influences the immigrant choice, that is: foreign-born population tend to migrate to territories where a community of the same ethnic already exists).
 - ![](https://latex.codecogs.com/gif.latex?%5Calpha_i%20%3D%20x%27_i%20%5Ctheta%20&plus;%20%5Ceta_i) , ![](https://latex.codecogs.com/gif.latex?x%27_%7Bi%7D) is the vector of all the time invariant observable location factors (features vector), ![](https://latex.codecogs.com/gif.latex?%5Cinline%20%5Ctheta) is the vector of coefficient and![](https://latex.codecogs.com/gif.latex?%5Ceta_i) is an error random term.
 - ![](https://latex.codecogs.com/gif.latex?%5Cinline%20%5Cgamma_t) measures the fixed time effect.
@@ -154,7 +155,7 @@ In order to see the relationship between the Immigrant flow and other additional
 
 ![](https://github.com/SaraR-1/Immigration-Models/blob/master/Plots/stock_vs_fertility_rate_zones.png)
 
-![](https://github.com/SaraR-1/Immigration-Models/blob/master/Plots/stock_vs_hom_net_income_zones.png)
+![](https://github.com/SaraR-1/Immigration-Models/blob/master/Plots/stock_vs_disp_income_zones.png)
 
 ![](https://github.com/SaraR-1/Immigration-Models/blob/master/Plots/stock_vs_housing_costs2_zones.png)
 
@@ -184,3 +185,72 @@ seems to effect, somehow, one or more location-specific immigrant flow.
 The others may be included in a regression model to see if they improve or not the prediction.
 
 ## Regression Model for Data Panel
+
+In this section regression models for data panel are performed. The model is given by:
+
+![](https://latex.codecogs.com/gif.latex?y_%7Bi%2Ct%7D%20%3D%20%5Cbeta%5ET%20x_%7Bi%2C%20t%7D%20&plus;%20%5Cepsilon_%7Bi%2Ct%7D)
+
+where:
+- ![](https://latex.codecogs.com/gif.latex?y_%7Bi%2Ct%7D) is the stock of foreign-born in territory ![](https://latex.codecogs.com/gif.latex?i) at time ![](https://latex.codecogs.com/gif.latex?t).
+- ![](https://latex.codecogs.com/gif.latex?%5Cbeta) is the parameters vector.
+- ![](https://latex.codecogs.com/gif.latex?x_%7Bi%2C%20t%7D) is the independent variables vector.
+
+No unit-specific effect is used in the model, since it is assumed the randomness depends both on the time and the unit.
+
+For each origin country, multiples regression models are trained using different independent variables:
+- only the previous time stock;
+- the previous two times stock;
+- the previous two times stock plus a set of seven features. The selection of the additional variables is based on the plots;
+- a set of 3, 5, 7, 10, 15 variables selected through the Mutual information criterion.
+
+Each model is then trained:
+-  on the whole period 2005-2016;
+- on the period 2005-2013 and tested on the period 2014-2016.
+
+The countries object of the study are:
+- Romania;
+- Morocco;
+- Albania;
+- Tunisia;
+- Egypt;
+- Ecuador;
+- Peru;
+- China;
+- Philippines.
+
+Follows the results of the models performed at Italian zones level.
+
+2005-2016 model
+| Indep. var.  |  Romania |  Morocco | Albania  |  Tunisia | Egypt  | Ecuador  | Peru  | China  | Philippines  |
+|---|---|---|---|---|---|---|---|---|---|
+| ![](https://latex.codecogs.com/gif.latex?y_%7Bi%2C%20t-1%7D) | 1.074  |  1.029 |  1.032 |  1.015 | 1.063  |  1.040 |  1.049 | 1.073  | 1.058 |
+|---|---|---|---|---|---|---|---|---|---|
+|---|---|---|---|---|---|---|---|---|---|
+| R-squared | 0.983  |  0.996 | 0.996  | 0.991  | 0.984  | 0.990  | 0.995  |  0.995 |   |
+| Adj R-squared | 0.982  | 0.996  | 0.996  |  0.991 | 0.984  | 0.990  | 0.995  | 0.995  |   |
+
+| Indep. var.  |  Romania |  Morocco | Albania  |  Tunisia | Egypt  | Ecuador  | Peru  | China  | Philippines  |
+|---|---|---|---|---|---|---|---|---|---|
+| ![](https://latex.codecogs.com/gif.latex?y_%7Bi%2C%20t-1%7D) | 1.3623  |  1.419 | 1.623  | 1.139  |  1.009 | 1.551  | 1.429  | 1.094  | 0.927  |
+| ![](https://latex.codecogs.com/gif.latex?y_%7Bi%2C%20t-2%7D) | -0.320  | -0.407  | -0.621  | -0.128  |  0.058 | -0.548  |  -0.408 |  -0.022 |  0.142 |
+|---|---|---|---|---|---|---|---|---|---|
+|---|---|---|---|---|---|---|---|---|---|
+| R-squared | 0.984  |  0.997 |  0.998 | 0.991  |  0.984 | 0.993  | 0.995  |  0.995 | 0.995  |
+| Adj R-squared |  0.984 |  0.996 | 0.998  | 0.991  | 0.984  |  0.993 | 0.995  |  0.995 |  0.995 |
+
+
+| Indep. var.  |  Romania |  Morocco | Albania  |  Tunisia | Egypt  | Ecuador  | Peru  | China  | Philippines  |
+|---|---|---|---|---|---|---|---|---|---|
+| ![](https://latex.codecogs.com/gif.latex?y_%7Bi%2C%20t-1%7D) | 1.002  | 0.997  |  1.403 |  0.560 | 0.949  |  1.426 | 1.269 | 0.910  |  0.903 |
+| ![](https://latex.codecogs.com/gif.latex?y_%7Bi%2C%20t-2%7D) | -0.118  | -0.083  |  -0.420 | 0.092  |  0.102 |  -0.408 | -0.221  |  0.121 |  0.200 |
+| Native population - Total | -0.011  |  0.002 |  0.003 | -0.001  |  0.001 |  0.001 | 0.001  |  0.001 |  0.001 |
+| Free activities in voluntary associations  | 0.509  | 8.029  |  -2.373 | 4.926  | 6.457  |  0.411 | -3.785  | -1.472  |  -4.478 |
+| Meetings in cultural, recreational or other associations | 27.938   |  2.405 |  -2.842 | 6.376  |  -8.877 | -4.019  | 2.574  | 2.002  | 1.731  |
+| Disposable Income |  14.358 | -2.524  |  -1.035 |  -0.766 | -0.984 | -0.883 |  -0.557 | -0.417  |   -0.902|
+| Average monthly expenditure for housing |  100.526 | -103.720  |  159.674 | 721.979  |  102.845 |  79.697 | 15.750  |  48.655 |  30.877 |
+| Unemployment - Total | -20.429  | -10.239  |  -9.103 | -1.084  | -4.090 | -3.273  | -2.306  | -2.527  |-1.093|
+| Reach_difficulty - Emergency room | 7.365  | 1.298  | -4.829  |  0.376 | 1.861  |  -0.840 | -0.564  |  -0.951 | -2.068  |
+|---|---|---|---|---|---|---|---|---|---|
+|---|---|---|---|---|---|---|---|---|---|
+| R-squared | 0.988  |  0.997 | 0.998  | 0.995  |  0.985 |  0.994 |  0.996 |   |   |
+| Adj R-squared | 0.988  |  0.997 | 0.998  | 0.995  | 0.985  | 0.994  |  0.996 |   |   |

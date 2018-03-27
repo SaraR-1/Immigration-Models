@@ -57,8 +57,8 @@ def panel_regression_training_test(y, xs, years_training, years_test, country, l
         mod = FirstDifferenceOLS(data_tr.y, exog_tr)
     res_tr = mod.fit()
 
-    print("---------------- Training Results ----------------")
-    evaluation(data_tr, res_tr.fitted_values, constant)
+    #print("---------------- Training Results ----------------")
+    #evaluation(data_tr, res_tr.fitted_values, constant)
 
     fitted_values_te = res_tr.params.values*exog_te
     fitted_values_te["fitted_values"] = fitted_values_te.sum(axis=1)
@@ -69,7 +69,7 @@ def panel_regression_training_test(y, xs, years_training, years_test, country, l
     else:
         pass
 
-    print("---------------- Overall Results ----------------")
+    print("-------------- Trainin-Test  Results --------------")
     evaluation(data, fitted_values, constant)
 
     return(res_tr.params, fitted_values.fitted_values)
@@ -80,12 +80,12 @@ def evaluation(data, y_hat, constant):
     else:
         R2 = 1 - (sum(np.subtract(data["y"].values, y_hat.fitted_values.values)**2) / sum((data["y"].values - np.mean(data["y"].values))**2))
 
-    print("R-squared %f." %R2)
+    print("R-squared %f." %round(R2,3))
     # k: number of independet vars
     k = 1
     n = len(data["y"].values)
     R2_adj = 1 - (1 - R2)*((n - 1)/(n - k -1))
-    print("Adjusted R-squared %f." %R2_adj)
+    print("Adjusted R-squared %f." %round(R2_adj, 3))
 
 # Get the foreigners stock value
 def n_it(data_, i, t):
