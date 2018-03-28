@@ -278,21 +278,21 @@ Albania, 2005-2016 models
 |---|---|---|---|---|---|---|---|---|
 | ![](https://latex.codecogs.com/gif.latex?y_%7Bi%2C%20t-1%7D) | 1.032 | 1.623 | 1.583 | 1.447 | 1.272 | 1.210 | 0.746 | 1.403 |
 | ![](https://latex.codecogs.com/gif.latex?y_%7Bi%2C%20t-2%7D)  | | -0.621 | -0.593 | -0.517 | -0.336 |  -0.222 | 0.170 | -0.420 |
-| Native population - Total | | | 0.000145 | 0.000359 | 0.000821 | 0.000025 | 0.001928 | 0.002633 |
-| Internal_migration - Foreign country | | | | 0.188328 | -0.007034 | -0.093453 | -0.266077 | |
-| Free activities in voluntary associations | | | | -5.845516 | -3.054390 | 5.099211 | -9.541644 | -2.373218 |
-| Disposable Income  | | | | | -2.908191 | -4.288772 | -2.792695 | -1.035576 |
-| Political_info - Every day  | | | | | 7.075885 | 6.663723 | 0.090511 | |
-| Reach_difficulty - Supermarket   | | | | |  | 1.369143 | -10.633867 | |
-| Born alive | | | | |  | 0.161899 | 0.223271 | |
-| Free activities in non voluntary associations | | | | |  | -13.834937 | 3.269312 | |
-| Reach_difficulty - Pharmacy | | | | |  | | -2.013174 | |
-| Political_info - Never | | | | |  | | -8.952313 | |
-| Political_info - Some times in a week | | | | |  | | 15.411084 | |
-| Pay money to an association | | | | |  | | 18.846645 |  |    
-| Meetings in cultural, recreational or other associations  | | | | |  | | -19.909299 | -2.842014 |
-| Average monthly expenditure for housing  | | | | | | | | 159.673775 |
-| Unemployment - Total  | | | | | | | | -9.102725 |
-| Reach_difficulty - Emergency room  | | | | | | | | -4.829418 |
+| Native population - Total | | | 0.001| 0.001 | 0.001 | 0.001 | 0.002 | 0.003 |
+| Internal_migration - Foreign country | | | | 0.188 | -0.007 | -0.093 | -0.266 | |
+| Free activities in voluntary associations | | | | -5.845 | -3.054 | 5.099 | -9.542 | -2.373 |
+| Disposable Income  | | | | | -2.908 | -4.289 | -2.793 | -1.035 |
+| Political_info - Every day  | | | | | 7.076 | 6.664 | 0.090 | |
+| Reach_difficulty - Supermarket   | | | | |  | 1.369 | -10.634 | |
+| Born alive | | | | |  | 0.162 | 0.223 | |
+| Free activities in non voluntary associations | | | | |  | -13.835 | 3.269 | |
+| Reach_difficulty - Pharmacy | | | | |  | | -2.013 | |
+| Political_info - Never | | | | |  | | -8.952 | |
+| Political_info - Some times in a week | | | | |  | | 15.411 | |
+| Pay money to an association | | | | |  | | 18.847 |  |    
+| Meetings in cultural, recreational or other associations  | | | | |  | | -19.909 | -2.842 |
+| Average monthly expenditure for housing  | | | | | | | | 159.674v|
+| Unemployment - Total  | | | | | | | | -9.103 |
+| Reach_difficulty - Emergency room  | | | | | | | | -4.829 |
 | **R-squared** | 0.996  |  0.998 | 0.998  | 0.998  |  0.998 |  0.999 |  0.999 | 0.998  |
 | **Adj R-squared** | 0.996  |  0.998 | 0.998  | 0.998  | 0.998  | 0.999  |  0.999 |  0.998 |
