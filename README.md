@@ -250,23 +250,23 @@ Morocco, 2005-2016 models
 
 | Indep. var.  | I | II | III | IV | V | VI | VII | VIII |
 |---|---|---|---|---|---|---|---|---|
-| ![](https://latex.codecogs.com/gif.latex?y_%7Bi%2C%20t-1%7D) | 1.029| 1.419 | 1.272 | 1.173292 | 1.148242 | 0.944758 | 0.746926 | 0.997305 |
-| ![](https://latex.codecogs.com/gif.latex?y_%7Bi%2C%20t-2%7D)  | | -0.407 | -0.330 | -0.295498 | -0.263448 |  0.055779 | 0.271963 | -0.083266 |
-| Free activities in voluntary associations | | | 6.629235 | 11.481260 | 7.933882 | -14.697642 | -2.359557 | 8.028802 |
-| Internal_migration - Foreign country | | | | 0.083893 | 0.081224 | -0.222624 | -0.227045 | |
-| Native population - Total  | | | | -0.000287 | -0.000445 | -0.001843 | -0.003196 | 0.001943 |
-| Free activities in non voluntary associations  | | | | | -11.436617 | 17.438643 | 20.743240 | |
-| Meetings in cultural, recreational or other associations  | | | | | 9.808491 | -3.913562 | -7.311329 | 2.404775 |
-| Internal_migration - Italy | | | | |  | -0.015777 | -0.143381 | |
-| Political_info - Some times in a week | | | | |  | 10.323185 | 23.898417 | |
-| Pay money to an association | | | | |  | 17.158517 | 13.075623 | |
-| Reach_difficulty - Supermarket | | | | |  | | 10.607936 | |
-| Reach_difficulty - Post offices | | | | |  | | -8.876569 | |
-| Born alive | | | | |  | | 0.470396 | |
-| Disposable Income | | | | |  | | -5.862540 | -2.524103 |    
-| Political_info - Every day | | | | |  | | 1.692758 | |
-| Average monthly expenditure for housing  | | | | | | | | -103.720228 |
-| unemployment - Total  | | | | | | | | -10.239161 |
-| reach_difficulty - Emergency room  | | | | | | | | 1.298005 |
+| ![](https://latex.codecogs.com/gif.latex?y_%7Bi%2C%20t-1%7D) | 1.029| 1.419 | 1.272 | 1.173 | 1.148 | 0.945 | 0.747 | 0.997 |
+| ![](https://latex.codecogs.com/gif.latex?y_%7Bi%2C%20t-2%7D)  | | -0.407 | -0.330 | -0.295 | -0.263 |  0.056 | 0.272 | -0.083 |
+| Free activities in voluntary associations | | | 6.629 | 11.481 | 7.934 | -14.698 | -2.359 | 8.029 |
+| Internal_migration - Foreign country | | | | 0.084 | 0.081 | -0.223 | -0.227 | |
+| Native population - Total  | | | | -0.001 | -0.001 | -0.002 | -0.003 | 0.002 |
+| Free activities in non voluntary associations  | | | | | -11.437 | 17.439 | 20.743 | |
+| Meetings in cultural, recreational or other associations  | | | | | 9.808 | -3.913 | -7.311 | 2.405 |
+| Internal_migration - Italy | | | | |  | -0.016 | -0.1431 | |
+| Political_info - Some times in a week | | | | |  | 10.323 | 23.898 | |
+| Pay money to an association | | | | |  | 17.158 | 13.076 | |
+| Reach_difficulty - Supermarket | | | | |  | | 10.608 | |
+| Reach_difficulty - Post offices | | | | |  | | -8.876 | |
+| Born alive | | | | |  | | 0.470 | |
+| Disposable Income | | | | |  | | -5.862 | -2.524 |    
+| Political_info - Every day | | | | |  | | 1.693 | |
+| Average monthly expenditure for housing  | | | | | | | | -103.720 |
+| Unemployment - Total  | | | | | | | | -10.2391 |
+| Reach_difficulty - Emergency room  | | | | | | | | 1.298 |
 | **R-squared** | 0.996  |  0.997 | 0.997  | 0.997  |  0.997 |  0.997 |  0.999 | 0.997  |
 | **Adj R-squared** | 0.996  |  0.996 | 0.997  | 0.997  | 0.997  | 0.997  |  0.999 |  0.997 |
