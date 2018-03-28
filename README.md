@@ -356,23 +356,49 @@ Ecuador, Training 2005-2013 models
 
 | Indep. var.  | I | II | III | IV | V | VI | VII | VIII |
 |---|---|---|---|---|---|---|---|---|
-| ![](https://latex.codecogs.com/gif.latex?y_%7Bi%2C%20t-1%7D) | 1.054755 | 1.566581 | 1.546477 | 1.385491 | 1.425626 | 1.140886 | 1.176029 | 1.385611 |
-| ![](https://latex.codecogs.com/gif.latex?y_%7Bi%2C%20t-2%7D)  | | -0.556437 | -0.544615 | -0.358883 | -0.398358 |  -0.164034 | -0.173508 | -0.343948 |
-| Native population - Total | | | 0.000027 | -0.000197 | 0.000275 | 0.000126 | 0.002016 | 0.001409 |
-| Internal_migration - Foreign country| | | | -0.084934 | -0.101624 | -0.130213 | -0.063998 | |
-| Pay money to an association | | | | 3.848858 | 3.786879 | 8.274384 | 3.038165 |  |
-| Reach_difficulty - Post offices | | | | | -2.999172 | -2.086090 | -3.834740 |  |
-| Free activities in voluntary associations  | | | | | -1.029176 | 7.535966 | 3.446167 | -1.669178 |
-| Internal_migration - Italy  | | | | |  | 0.015372 | -0.036089 | |
-| Accommodation and catering services | | | | |  | 1.455502 | 14.394011 | |
-| Meetings in cultural, recreational or other associations| | | | |  | -18.261347 | -5.907138 | -2.456244 |
-| Other goods and services | | | | |  | | -8.600147 | |
-| Non food | | | | |  | | 1.663732 | |
-| Reach_difficulty - Supermarket  | | | | |  | | 7.971314 | |    
-| Transport | | | | |  | | -13.837702 |  |
-| Disposable Income | | | | |  | | -2.420094 | -1.205364 |    
-| Average monthly expenditure for housing  | | | | | | | | 68.382507 |
-| Unemployment - Total  | | | | | | | | -5.073973 |
-| Reach_difficulty - Emergency room  | | | | | | | | -0.630696 |
+| ![](https://latex.codecogs.com/gif.latex?y_%7Bi%2C%20t-1%7D) | 1.055 | 1.567 | 1.546 | 1.385 | 1.426 | 1.141 | 1.176 | 1.386 |
+| ![](https://latex.codecogs.com/gif.latex?y_%7Bi%2C%20t-2%7D)  | | -0.557 | -0.545 | -0.359 | -0.398 |  -0.164 | -0.173 | -0.344 |
+| Native population - Total | | | 0.001 | -0.001 | 0.001 | 0.001 | 0.002 | 0.001 |
+| Internal_migration - Foreign country| | | | -0.085 | -0.102 | -0.130 | -0.064 | |
+| Pay money to an association | | | | 3.849 | 3.787 | 8.274 | 3.038 |  |
+| Reach_difficulty - Post offices | | | | | -2.999 | -2.086 | -3.835 |  |
+| Free activities in voluntary associations  | | | | | -1.029 | 7.536 | 3.446 | -1.669 |
+| Internal_migration - Italy  | | | | |  | 0.0153| -0.036 | |
+| Accommodation and catering services | | | | |  | 1.455 | 14.394 | |
+| Meetings in cultural, recreational or other associations| | | | |  | -18.261 | -5.907 | -2.456 |
+| Other goods and services | | | | |  | | -8.600 | |
+| Non food | | | | |  | | 1.664 | |
+| Reach_difficulty - Supermarket  | | | | |  | | 7.971 | |    
+| Transport | | | | |  | | -13.838 |  |
+| Disposable Income | | | | |  | | -2.420 | -1.205 |    
+| Average monthly expenditure for housing  | | | | | | | | 68.382 |
+| Unemployment - Total  | | | | | | | | -5.074 |
+| Reach_difficulty - Emergency room  | | | | | | | | -0.631 |
 | **R-squared** | 0.990  |  0.993 | 0.993  | 0.993  |  0.993 |  0.994 |  0.994 | 0.994  |
 | **Adj R-squared** | 0.989  |  0.993 | 0.993  | 0.993  | 0.993  | 0.994  |  0.994 |  0.993 |
+
+
+Peru, Training 2005-2013 models
+
+| Indep. var.  | I | II | III | IV | V | VI | VII | VIII |
+|---|---|---|---|---|---|---|---|---|
+| ![](https://latex.codecogs.com/gif.latex?y_%7Bi%2C%20t-1%7D) | 1.075437 | 1.284157 | 1.259071 | 1.262226 | 0.890409 | 0.859447 | 0.782557 | 0.968494 |
+| ![](https://latex.codecogs.com/gif.latex?y_%7Bi%2C%20t-2%7D)  | | -0.227779 | -0.211690 | -0.181921 | 0.246538 |  0.279000 | 0.305359 | 0.130281 |
+| Native population - Total | | | 0.000026 | -0.000245 | 0.000175 | 0.000012 | 0.000665 | 0.000156 |
+| Internal_migration - Foreign country| | | | -0.104182 | -0.141469 | -0.112253 | -0.166843 | |
+| Free activities in voluntary associations | | | | 7.767907 | 2.849424 | 5.315570 | 1.910229 | -2.678440 |
+| Pay money to an association | | | | | 4.167799 | 4.791425 | 6.407128 |  |
+| Disposable Income  | | | | | -0.698923 | -0.778889 | 0.237025 | -0.834399 |
+| Internal_migration - Italy  | | | | |  | -0.011773 | 0.000925 | |
+| Reach_difficulty - Post offices | | | | |  | 2.851088 | -1.086320 | |
+| Meetings in cultural, recreational or other associations| | | | |  | -3.296438 | -1.105758 | 3.207896 |
+| Reach_difficulty - Supermarket  | | | | |  | | 6.476280 | |
+| Non food | | | | |  | | -0.073918 | |
+| Born alive  | | | | |  | | -0.195100 | |    
+| Political_info - Every day | | | | |  | | -0.147931 |  |
+| Free activities in non voluntary associations | | | | |  | | 2.695467 |  |    
+| Average monthly expenditure for housing  | | | | | | | | -11.476348 |
+| Unemployment - Total  | | | | | | | | -3.697946 |
+| Reach_difficulty - Emergency room  | | | | | | | | 2.438640 |
+| **R-squared** | 0.994  |  0.995 | 0.995  | 0.994  |  0.993 |  0.994 |  0.986 | 0.995  |
+| **Adj R-squared** | 0.984  |  0.994 | 0.995  | 0.993  | 0.993  | 0.994  |  0.985 |  0.995 |
