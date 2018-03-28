@@ -62,17 +62,17 @@ def panel_regression_training_test(y, xs, years_training, years_test, country, l
 
     fitted_values_te = res_tr.params.values*exog_te
     fitted_values_te["fitted_values"] = fitted_values_te.sum(axis=1)
-    fitted_values = fitted_values_te.append(res_tr.fitted_values)
-    fitted_values = fitted_values.sort_index()
+    fitted_values_ = fitted_values_te.append(res_tr.fitted_values)
+    fitted_values_ = fitted_values_.sort_index()
     if show == True:
-        pmf.plot_real_VS_prediction(y, fitted_values, xs, years, country, 45, "Regression model", save = False, path = "")
+        pmf.plot_real_VS_prediction(y, fitted_values_, xs, years, country, 45, "Regression model", save = False, path = "")
     else:
         pass
 
     print("-------------- Trainin-Test  Results --------------")
-    evaluation(data, fitted_values, constant)
+    evaluation(data, fitted_values_, constant)
 
-    return(res_tr.params, fitted_values.fitted_values)
+    return(res_tr.params, fitted_values_)
 
 def evaluation(data, y_hat, constant):
     if constant == False:
