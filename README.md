@@ -220,82 +220,82 @@ The countries object of the study are:
 
 Follows the results of the models performed at Italian zones level.
 
-Romania, 2005-2016 models
+Romania, Training 2005-2013 models
 
 | Indep. var.  | I | II | III | IV | V | VI | VII | VIII |
 |---|---|---|---|---|---|---|---|---|
-| ![](https://latex.codecogs.com/gif.latex?y_%7Bi%2C%20t-1%7D) | 1.074| 1.363 | 1.213 | 1.135 | 1.112 | 1.002 | 0.803 | 1.002 |
-| ![](https://latex.codecogs.com/gif.latex?y_%7Bi%2C%20t-2%7D)  | | -0.320 | -0.229 | -0.225 | -0.228 |  -0.269 | -0.189 | -0.118 |
-| Average age of mothers at birth  | | | 468.159 | 30294.227 | 35337.353 | 37911.960 | 75046.306 | |
-| Average age of fathers at birth | |  | | -26923.197 | -31302.563 | -34073.089 | -67849.756 | |
-| Free activities in voluntary associations | | | | 19.771 | 22.013 | -35.254 | -9.027 | 0.509 |
-| Communications | | | | | -67.169 | -431.196 | 22.785 | |
-| Other goods and services | | | | | 20.336 | 153.937 | 247.430 | |
-| Disposable Income | | | | | | 18.357 | 34.269 | 14.358 |
-| Reach_difficulty - Pharmacy | | | | | | -59.797 | 25.446 | |
-| Internal_migration - Foreign country | | | | |  | 0.098 | 0.017 | |
-| Transport | | | | | | | -109.532 | |
-| Reach_difficulty - Emergency room | | | | | | | -18.944 | 7.365 |
-| Unemployment - Total | | | | | | | -78.801 | -20.429 |
-| Born alive | | | | | | | -1.175 | |
-| Clothing and footwear | | | | | | | -150.303 | |
-| Native population - Total  | | | | | | | | -0.011 |
-| Meetings in cultural, recreational or other associations  | | | | | | | | 27.938 |
-| Average monthly expenditure for housing  | | | | | | | | 100.526 |
-| **R-squared** | 0.983  |  0.984 | 0.986  | 0.987  |  0.987 |  0.989 |  0.992 | 0.988  |
-| **Adj R-squared** | 0.982  |  0.984 | 0.986  | 0.987  | 0.987  | 0.989  |  0.992 |  0.988 |
+| ![](https://latex.codecogs.com/gif.latex?y_%7Bi%2C%20t-1%7D) | 1.084| 1.359 | 1.186 | 1.068 | 0.974 | 0.799 | 0.687 | 0.838 |
+| ![](https://latex.codecogs.com/gif.latex?y_%7Bi%2C%20t-2%7D)  | | -0.308 | -0.210 | -0.202 | -0.190 |  -0.171 | -0.032 | 0.006 |
+| Average age of mothers at birth  | | | 524.506 | 55284.921 | 74630.324 | 32634.865 | 42023.009 | |
+| Average age of fathers at birth | |  | | -49289.944 | -66271.533 | -30346.083 | -39339.754 | |
+| Free activities in voluntary associations | | | | 19.771 | 44.505 | -0.775 | 18.446 | -15.847 |
+| Communications | | | | | -100.724 | -869.426 | -163.744 | |
+| Other goods and services | | | | | 16.786 | 299.458 | 247.428 | |
+| Disposable Income | | | | | | 18.357 | 32.520 | 19.498 |
+| Reach_difficulty - Pharmacy | | | | | | -56.561 | -39.905 | |
+| Internal_migration - Foreign country | | | | |  | -0.840 | -1.165 | |
+| Transport | | | | | | | -43.753 | |
+| Reach_difficulty - Emergency room | | | | | | | 27.943 | 8.721 |
+| Unemployment - Total | | | | | | | -109.413 | -60.310 |
+| Born alive | | | | | | | -0.810 | |
+| Clothing and footwear | | | | | | | -197.273 | |
+| Native population - Total  | | | | | | | | -0.012 |
+| Meetings in cultural, recreational or other associations  | | | | | | | | 43.804 |
+| Average monthly expenditure for housing  | | | | | | | | -51-706 |
+| **R-squared** | 0.982  |  0.984 | 0.986  | 0.987  |  0.987 |  0.985 |  0.990 | 0.986  |
+| **Adj R-squared** | 0.982  |  0.984 | 0.986  | 0.986  | 0.987  | 0.985  |  0.990 |  0.986 |
 
 
-Morocco, 2005-2016 models
-
-| Indep. var.  | I | II | III | IV | V | VI | VII | VIII |
-|---|---|---|---|---|---|---|---|---|
-| ![](https://latex.codecogs.com/gif.latex?y_%7Bi%2C%20t-1%7D) | 1.029| 1.419 | 1.272 | 1.173 | 1.148 | 0.945 | 0.747 | 0.997 |
-| ![](https://latex.codecogs.com/gif.latex?y_%7Bi%2C%20t-2%7D)  | | -0.407 | -0.330 | -0.295 | -0.263 |  0.056 | 0.272 | -0.083 |
-| Free activities in voluntary associations | | | 6.629 | 11.481 | 7.934 | -14.698 | -2.359 | 8.029 |
-| Internal_migration - Foreign country | | | | 0.084 | 0.081 | -0.223 | -0.227 | |
-| Native population - Total  | | | | -0.001 | -0.001 | -0.002 | -0.003 | 0.002 |
-| Free activities in non voluntary associations  | | | | | -11.437 | 17.439 | 20.743 | |
-| Meetings in cultural, recreational or other associations  | | | | | 9.808 | -3.913 | -7.311 | 2.405 |
-| Internal_migration - Italy | | | | |  | -0.016 | -0.1431 | |
-| Political_info - Some times in a week | | | | |  | 10.323 | 23.898 | |
-| Pay money to an association | | | | |  | 17.158 | 13.076 | |
-| Reach_difficulty - Supermarket | | | | |  | | 10.608 | |
-| Reach_difficulty - Post offices | | | | |  | | -8.876 | |
-| Born alive | | | | |  | | 0.470 | |
-| Disposable Income | | | | |  | | -5.862 | -2.524 |    
-| Political_info - Every day | | | | |  | | 1.693 | |
-| Average monthly expenditure for housing  | | | | | | | | -103.720 |
-| Unemployment - Total  | | | | | | | | -10.2391 |
-| Reach_difficulty - Emergency room  | | | | | | | | 1.298 |
-| **R-squared** | 0.996  |  0.997 | 0.997  | 0.997  |  0.997 |  0.997 |  0.999 | 0.997  |
-| **Adj R-squared** | 0.996  |  0.996 | 0.997  | 0.997  | 0.997  | 0.997  |  0.999 |  0.997 |
-
-
-Albania, 2005-2016 models
+Morocco, Training 2005-2013 models
 
 | Indep. var.  | I | II | III | IV | V | VI | VII | VIII |
 |---|---|---|---|---|---|---|---|---|
-| ![](https://latex.codecogs.com/gif.latex?y_%7Bi%2C%20t-1%7D) | 1.032 | 1.623 | 1.583 | 1.447 | 1.272 | 1.210 | 0.746 | 1.403 |
-| ![](https://latex.codecogs.com/gif.latex?y_%7Bi%2C%20t-2%7D)  | | -0.621 | -0.593 | -0.517 | -0.336 |  -0.222 | 0.170 | -0.420 |
-| Native population - Total | | | 0.001| 0.001 | 0.001 | 0.001 | 0.002 | 0.003 |
-| Internal_migration - Foreign country | | | | 0.188 | -0.007 | -0.093 | -0.266 | |
-| Free activities in voluntary associations | | | | -5.845 | -3.054 | 5.099 | -9.542 | -2.373 |
-| Disposable Income  | | | | | -2.908 | -4.289 | -2.793 | -1.035 |
-| Political_info - Every day  | | | | | 7.076 | 6.664 | 0.090 | |
-| Reach_difficulty - Supermarket   | | | | |  | 1.369 | -10.634 | |
-| Born alive | | | | |  | 0.162 | 0.223 | |
-| Free activities in non voluntary associations | | | | |  | -13.835 | 3.269 | |
-| Reach_difficulty - Pharmacy | | | | |  | | -2.013 | |
-| Political_info - Never | | | | |  | | -8.952 | |
-| Political_info - Some times in a week | | | | |  | | 15.411 | |
-| Pay money to an association | | | | |  | | 18.847 |  |    
-| Meetings in cultural, recreational or other associations  | | | | |  | | -19.909 | -2.842 |
-| Average monthly expenditure for housing  | | | | | | | | 159.674|
-| Unemployment - Total  | | | | | | | | -9.103 |
-| Reach_difficulty - Emergency room  | | | | | | | | -4.829 |
-| **R-squared** | 0.996  |  0.998 | 0.998  | 0.998  |  0.998 |  0.999 |  0.999 | 0.998  |
-| **Adj R-squared** | 0.996  |  0.998 | 0.998  | 0.998  | 0.998  | 0.999  |  0.999 |  0.998 |
+| ![](https://latex.codecogs.com/gif.latex?y_%7Bi%2C%20t-1%7D) | 1.043 | 1.346 | 1.188 | 0.941 | 0.946 | 0.624 | 0.541 | 0.685 |
+| ![](https://latex.codecogs.com/gif.latex?y_%7Bi%2C%20t-2%7D) | | -0.320 | -0.237 | -0.099 | -0.116 | 0.390 | 0.483 | 0.250 |
+| Free activities in voluntary associations | | | 7.301 | 40.489 | 45.084 | 9.580 | -8.331 | 10.240 |
+| Internal_migration - Foreign country | | | | -0.170 | -0.156 | -0.666 | -0.498 | |
+| Native population - Total | | | | -0.001 | -0.001 | 0.004 | -0.002 | 0.001 |
+| Free activities in non voluntary associations | | | | | -31.145 | 33.851 | 15.454 | |
+| Meetings in cultural, recreational or other associations | | | | | 9.237 | -12.697 | 15.807 | 5.075 |
+| Internal_migration - Italy | | | | | | -0.011 | -0.111 | |
+| Political_info - Some times in a week | | | | | | 19.406 | 24.884 | |
+| Pay money to an association | | | | | | 23.873 | 19.558 | |
+| Reach_difficulty - Supermarket | | | | | | | 24.042 | |
+| Reach_difficulty - Post offices | | | | | | | -14.270 | |
+| Born alive | | | | | | | -0.012 | |
+| Disposable Income | | | | | | | -3.921 | -3.179 |
+| Political_info - Every day | | | | | | | -1.001 | |
+| Average monthly expenditure for housing  | | | | | | | | -126.261 |
+| Unemployment - Total | | | | | | | | -20.336 |
+| Reach_difficulty - Emergency room  | | | | | | | | 10.584 |
+| **R-squared** | 0.996 |  0.996 | 0.997 | 0.996  |  0.996 |  0.996 |  0.997 | 0.997  |
+| **Adj R-squared** | 0.996 |  0.996 | 0.997  | 0.996 | 0.996  | 0.996  |  0.997 |  0.997 |
+
+
+Albania, Training 2005-2013 models
+
+| Indep. var.  | I | II | III | IV | V | VI | VII | VIII |
+|---|---|---|---|---|---|---|---|---|
+| ![](https://latex.codecogs.com/gif.latex?y_%7Bi%2C%20t-1%7D) | | | | | | | | |
+| ![](https://latex.codecogs.com/gif.latex?y_%7Bi%2C%20t-2%7D) | | | | | | | | |
+| Native population - Total | | | | | | | | |
+| Internal_migration - Foreign country | | | | | | | | |
+| Free activities in voluntary associations | | | | | | | | |
+| Disposable Income  | | | | | | | | |
+| Political_info - Every day | | | | | | | | |
+| Reach_difficulty - Supermarket  | | | | | | | | |
+| Born alive | | | | | | | | |
+| Free activities in non voluntary associations | | | | | | | | |
+| Reach_difficulty - Pharmacy | | | | | | | | |
+| Political_info - Never | | | | | | | | |
+| Political_info - Some times in a week | | | | | | | | |
+| Pay money to an association | | | | | | | | |
+| Meetings in cultural, recreational or other associations | | | | | | | | |
+| Average monthly expenditure for housing | | | | | | | | |
+| Unemployment - Total | | | | | | | | |
+| Reach_difficulty - Emergency room | | | | | | | | |
+| **R-squared** | 0.99  |  0.99 | 0.99  | 0.99  |  0.99 |  0.99 |  0.99 | 0.99  |
+| **Adj R-squared** | 0.99  |  0.99 | 0.99 | 0.99  | 0.99  | 0.99  |  0.99 |  0.99 |
 
 
 Tunisia, Training 2005-2013 models
