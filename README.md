@@ -256,23 +256,23 @@ Romania, 2005-2016 models
 
 | Indep. var.  | I | II | III | IV | V | VI | VII | VIII |
 |---|---|---|---|---|---|---|---|---|
-| ![](https://latex.codecogs.com/gif.latex?y_%7Bi%2C%20t-1%7D) | 1.074432 | 1.362724 | 1.213584 | 1.135104 | 1.112534 | 1.002437 | 0.803086 | 1.001708 |
-| ![](https://latex.codecogs.com/gif.latex?y_%7Bi%2C%20t-2%7D)  | | -0.320482 | -0.229003 | -0.224902 | -0.227655 |  -0.269565 | -0.189361 | -0.118216 |
-| Average age of mothers at birth  | | | 468.159117 | 30294.227373 | 35337.353310 | 37911.959955 | 75046.306540 | |
-| Average age of fathers at birth | |  | | -26923.197001 | -31302.563138 | -34073.089129 | -67849.756099 | |
-| Free activities in voluntary associations | | | | 19.771076 | 22.013302 | -35.253609 | -9.027229 | 0.509519 |
-| Communications | | | | | -67.168660 | -431.196197 | 22.785112 | |
-| Other goods and services | | | | | 20.335824 | 153.936650 | 247.430078 | |
-| Disposable Income | | | | | | 18.357132 | 34.269065 | 14.357621
-| Reach_difficulty - Pharmacy | | | | | | -59.797113 | 25.445744 | |
-| Internal_migration - Foreign country | | | | |  | 0.098077 | 0.017580 | |
-| Transport | | | | | | | -109.532063 | |
-| Reach_difficulty - Emergency room | | | | | | | -18.944566 | 7.365240 |
-| Unemployment - Total | | | | | | | -78.801010 | -20.429506 |
-| Born alive | | | | | | | -1.175509 | |
-| Clothing and footwear | | | | | | | -150.303376 | |
-| Native population - Total  | | | | | | | | -0.010692 |
-| Meetings in cultural, recreational or other associations  | | | | | | | | 27.937886 |
-| Average monthly expenditure for housing  | | | | | | | | 100.526036 |
+| ![](https://latex.codecogs.com/gif.latex?y_%7Bi%2C%20t-1%7D) | 1.074| 1.363 | 1.213 | 1.135 | 1.112 | 1.002 | 0.803 | 1.002 |
+| ![](https://latex.codecogs.com/gif.latex?y_%7Bi%2C%20t-2%7D)  | | -0.320 | -0.229 | -0.225 | -0.228 |  -0.269 | -0.189 | -0.118 |
+| Average age of mothers at birth  | | | 468.159 | 30294.227 | 35337.353 | 37911.960 | 75046.306 | |
+| Average age of fathers at birth | |  | | -26923.197 | -31302.563 | -34073.089 | -67849.756 | |
+| Free activities in voluntary associations | | | | 19.771 | 22.013 | -35.254 | -9.027 | 0.509 |
+| Communications | | | | | -67.169 | -431.196 | 22.785 | |
+| Other goods and services | | | | | 20.336 | 153.937 | 247.430 | |
+| Disposable Income | | | | | | 18.357 | 34.269 | 14.357621 |
+| Reach_difficulty - Pharmacy | | | | | | -59.797 | 25.446 | |
+| Internal_migration - Foreign country | | | | |  | 0.098 | 0.017 | |
+| Transport | | | | | | | -109.532 | |
+| Reach_difficulty - Emergency room | | | | | | | -18.944 | 7.365 |
+| Unemployment - Total | | | | | | | -78.801 | -20.429 |
+| Born alive | | | | | | | -1.175 | |
+| Clothing and footwear | | | | | | | -150.303 | |
+| Native population - Total  | | | | | | | | -0.0107 |
+| Meetings in cultural, recreational or other associations  | | | | | | | | 27.938 |
+| Average monthly expenditure for housing  | | | | | | | | 100.526 |
 | **R-squared** | 0.983  |  0.984 | 0.986  | 0.987  |  0.987 |  0.989 |  0.992 | 0.988  |
 | **Adj R-squared** | 0.982  |  0.984 | 0.986  | 0.987  | 0.987  | 0.989  |  0.992 |  0.988 |
