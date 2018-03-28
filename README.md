@@ -382,23 +382,76 @@ Peru, Training 2005-2013 models
 
 | Indep. var.  | I | II | III | IV | V | VI | VII | VIII |
 |---|---|---|---|---|---|---|---|---|
-| ![](https://latex.codecogs.com/gif.latex?y_%7Bi%2C%20t-1%7D) | 1.075437 | 1.284157 | 1.259071 | 1.262226 | 0.890409 | 0.859447 | 0.782557 | 0.968494 |
-| ![](https://latex.codecogs.com/gif.latex?y_%7Bi%2C%20t-2%7D)  | | -0.227779 | -0.211690 | -0.181921 | 0.246538 |  0.279000 | 0.305359 | 0.130281 |
-| Native population - Total | | | 0.000026 | -0.000245 | 0.000175 | 0.000012 | 0.000665 | 0.000156 |
-| Internal_migration - Foreign country| | | | -0.104182 | -0.141469 | -0.112253 | -0.166843 | |
-| Free activities in voluntary associations | | | | 7.767907 | 2.849424 | 5.315570 | 1.910229 | -2.678440 |
-| Pay money to an association | | | | | 4.167799 | 4.791425 | 6.407128 |  |
-| Disposable Income  | | | | | -0.698923 | -0.778889 | 0.237025 | -0.834399 |
-| Internal_migration - Italy  | | | | |  | -0.011773 | 0.000925 | |
-| Reach_difficulty - Post offices | | | | |  | 2.851088 | -1.086320 | |
-| Meetings in cultural, recreational or other associations| | | | |  | -3.296438 | -1.105758 | 3.207896 |
-| Reach_difficulty - Supermarket  | | | | |  | | 6.476280 | |
-| Non food | | | | |  | | -0.073918 | |
-| Born alive  | | | | |  | | -0.195100 | |    
-| Political_info - Every day | | | | |  | | -0.147931 |  |
-| Free activities in non voluntary associations | | | | |  | | 2.695467 |  |    
-| Average monthly expenditure for housing  | | | | | | | | -11.476348 |
-| Unemployment - Total  | | | | | | | | -3.697946 |
-| Reach_difficulty - Emergency room  | | | | | | | | 2.438640 |
+| ![](https://latex.codecogs.com/gif.latex?y_%7Bi%2C%20t-1%7D) | 1.075 | 1.284 | 1.259 | 1.262 | 0.890 | 0.859 | 0.782 | 0.968 |
+| ![](https://latex.codecogs.com/gif.latex?y_%7Bi%2C%20t-2%7D)  | | -0.228 | -0.212 | -0.182 | 0.246 |  0.279 | 0.305 | 0.130 |
+| Native population - Total | | | 0.001 | -0.001 | 0.001 | 0.001 | 0.001 | 0.001 |
+| Internal_migration - Foreign country| | | | -0.104 | -0.141| -0.112 | -0.167 | |
+| Free activities in voluntary associations | | | | 7.768 | 2.849 | 5.315 | 1.910 | -2.678 |
+| Pay money to an association | | | | | 4.168 | 4.791 | 6.407 |  |
+| Disposable Income  | | | | | -0.699 | -0.779 | 0.237 | -0.834 |
+| Internal_migration - Italy  | | | | |  | -0.012 | 0.001 | |
+| Reach_difficulty - Post offices | | | | |  | 2.851 | -1.086 | |
+| Meetings in cultural, recreational or other associations| | | | |  | -3.296 | -1.106 | 3.208 |
+| Reach_difficulty - Supermarket  | | | | |  | | 6.476 | |
+| Non food | | | | |  | | -0.074 | |
+| Born alive  | | | | |  | | -0.195 | |    
+| Political_info - Every day | | | | |  | | -0.148 |  |
+| Free activities in non voluntary associations | | | | |  | | 2.6954   |    
+| Average monthly expenditure for housing  | | | | | | | | -11.476 |
+| Unemployment - Total  | | | | | | | | -3.698 |
+| Reach_difficulty - Emergency room  | | | | | | | | 2.439 |
 | **R-squared** | 0.994  |  0.995 | 0.995  | 0.994  |  0.993 |  0.994 |  0.986 | 0.995  |
 | **Adj R-squared** | 0.984  |  0.994 | 0.995  | 0.993  | 0.993  | 0.994  |  0.985 |  0.995 |
+
+China, Training 2005-2013 models
+
+| Indep. var.  | I | II | III | IV | V | VI | VII | VIII |
+|---|---|---|---|---|---|---|---|---|
+| ![](https://latex.codecogs.com/gif.latex?y_%7Bi%2C%20t-1%7D) | 1.087 | 1.041 | 0.900 | 0.515 | 0.481 | 0.405 | 0.426 | 0.390 |
+| ![](https://latex.codecogs.com/gif.latex?y_%7Bi%2C%20t-2%7D) | | 0.0500 | 0.152 | 0.488 | 0.512 | 0.463 | 0.539 | 0.690 |
+| Born alive | | | 0.017 | 0.127 | 0.099 | 0.022 | -0.176 | |
+| Internal_migration - Foreign country | | | | 0.094 | 0.101 | 0.060 | -0.178 | |
+| Political_info - Some times in a week | | | | 6.394 | -6.785 | -5.820 | -4.261 | |
+| Reach_difficulty - Pharmacy | | | | | 2.774 | 1.152 | 9.618 | |
+| Free activities in voluntary associations | | | | | 1.093 | -4.378 | -0.315 | -2.807 |
+| Reach_difficulty - Post offices  | | | | |  | -1.016 | -16.002 | |
+| Political_info - Every day | | | | |  |  4.834 | 3.677 | |
+| Meetings in cultural, recreational or other associations | | | | |  | 2.997 | -7.571 | 2.342 |
+| Native population - Total | | | | |  | | 0.002 | 0.001 |
+| Reach_difficulty - Emergency room | | | | |  | |  | |
+| Disposable Income | | | | |  | | -0.058 | -0.975 |    
+| Pay money to an association | | | | |  | | 8.923 |  |  
+| Average age of fathers at birth | | | | |  | | -104.609 |  |  
+| Average monthly expenditure for housing  | | | | | | | | 150.086 |
+| Unemployment - Total  | | | | | | | | -13.276 |
+| Reach_difficulty - Emergency room  | | | | | | | 6.368 | 3.281 |
+| **R-squared** | 0.995  |  0.995 | 0.995 | 0.993 |  0.993 |  0.991 |  0.996 | 0.994 |
+| **Adj R-squared** | 0.995 |  0.995 | 0.995  | 0.993  | 0.993  | 0.991  |  0.996 |  0.994 |
+
+
+Philippines, Training 2005-2013 models
+
+| Indep. var.  | I | II | III | IV | V | VI | VII | VIII |
+|---|---|---|---|---|---|---|---|---|
+| ![](https://latex.codecogs.com/gif.latex?y_%7Bi%2C%20t-1%7D) | 1.063 | 0.955 | 0.918 | 0.699 | 0.761 | 0.610 | 0.762 | 0.633 |  
+| ![](https://latex.codecogs.com/gif.latex?y_%7Bi%2C%20t-2%7D) | | 0.142 | 0.137 | 0.202 | 0.221 | 0.347 | 0.284 | 0.473 |  
+| Native population - Total | | | 0.001 | 0.001 | 0.001 | 0.001 | 0.001 | 0.001 |
+| Internal_migration - Foreign country | | | | 0.064 | 0.008 | -0.065 | -0.203 |  |
+| Other goods and services  | | | | -6.116 | 10.469 | 12.515 | 10.231 |  |  
+| Communications | | | | | -18.917 | -17.420 | -9.230 |  |  
+| Non food | | | | | -0.679 | -0.141 | -1.418 |  |  
+| Housing, water, electricity, gas and other fuels | | | | |  | -1.611 | 0.721 |  |  
+| Accommodation and catering services | | | | |  | -8.049| 11.558 |  |  
+| Free activities in voluntary associations| | | | |  | 11.167 | 5.669 | -3.116 |  
+| Reach_difficulty - Post offices | | | | |  | | 1.075 |  |  
+| Born alive | | | | |  | | -0.086 |  |  
+| Pay money to an association  | | | | |  | | 2.375 |  |  
+| Average age of fathers at birth | | | | |  | | -166.873 |  |
+| Food and non-alcoholic beverages | | | | |  | | -2.390 |  |   
+| Meetings in cultural, recreational or other associations | | | | |  |  |  | 1.444 |
+| Disposable Income | | | | |  | |  | -0.913 |   
+| Average monthly expenditure for housing  | | | | | | | | 43.382 |
+| Unemployment - Total  | | | | | | | | -5.443 |
+| Reach_difficulty - Emergency room  | | | | | | |  | -1.299 |
+| **R-squared** | 0.995  |  0.995 | 0.995 | 0.992 |  0.994 |  0.988 |  0.990 | 0.995 |
+| **Adj R-squared** | 0.995 |  0.995 | 0.995  | 0.992  | 0.994  | 0.988  |  0.990 |  0.994 |
