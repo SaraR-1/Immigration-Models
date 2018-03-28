@@ -220,38 +220,6 @@ The countries object of the study are:
 
 Follows the results of the models performed at Italian zones level.
 
-2005-2016 model
-
-| Indep. var.  |  Romania |  Morocco | Albania  |  Tunisia | Egypt  | Ecuador  | Peru  | China  | Philippines  |
-|---|---|---|---|---|---|---|---|---|---|
-| ![](https://latex.codecogs.com/gif.latex?y_%7Bi%2C%20t-1%7D) | 1.074  |  1.029 |  1.032 |  1.015 | 1.063  |  1.040 |  1.049 | 1.073  | 1.058 |
-| **R-squared** | 0.983  |  0.996 | 0.996  | 0.991  | 0.984  | 0.990  | 0.995  |  0.995 |  0.995 |
-| **Adj R-squared** | 0.982  | 0.996  | 0.996  |  0.991 | 0.984  | 0.990  | 0.995  | 0.995  |  0.995 |
-
-
-| Indep. var.  |  Romania |  Morocco | Albania  |  Tunisia | Egypt  | Ecuador  | Peru  | China  | Philippines  |
-|---|---|---|---|---|---|---|---|---|---|
-| ![](https://latex.codecogs.com/gif.latex?y_%7Bi%2C%20t-1%7D) | 1.3623  |  1.419 | 1.623  | 1.139  |  1.009 | 1.551  | 1.429  | 1.094  | 0.927  |
-| ![](https://latex.codecogs.com/gif.latex?y_%7Bi%2C%20t-2%7D) | -0.320  | -0.407  | -0.621  | -0.128  |  0.058 | -0.548  |  -0.408 |  -0.022 |  0.142 |
-| **R-squared** | 0.984  |  0.997 |  0.998 | 0.991  |  0.984 | 0.993  | 0.995  |  0.995 | 0.995  |
-| **Adj R-squared** |  0.984 |  0.996 | 0.998  | 0.991  | 0.984  |  0.993 | 0.995  |  0.995 |  0.995 |
-
-
-| Indep. var.  |  Romania |  Morocco | Albania  |  Tunisia | Egypt  | Ecuador  | Peru  | China  | Philippines  |
-|---|---|---|---|---|---|---|---|---|---|
-| ![](https://latex.codecogs.com/gif.latex?y_%7Bi%2C%20t-1%7D) | 1.002  | 0.997  |  1.403 |  0.560 | 0.949  |  1.426 | 1.269 | 0.910  |  0.903 |
-| ![](https://latex.codecogs.com/gif.latex?y_%7Bi%2C%20t-2%7D) | -0.118  | -0.083  |  -0.420 | 0.092  |  0.102 |  -0.408 | -0.221  |  0.121 |  0.200 |
-| Native population - Total | -0.011  |  0.002 |  0.003 | -0.001  |  0.001 |  0.001 | 0.001  |  0.001 |  0.001 |
-| Free activities in voluntary associations  | 0.509  | 8.029  |  -2.373 | 4.926  | 6.457  |  0.411 | -3.785  | -1.472  |  -4.478 |
-| Meetings in cultural, recreational or other associations | 27.938   |  2.405 |  -2.842 | 6.376  |  -8.877 | -4.019  | 2.574  | 2.002  | 1.731  |
-| Disposable Income |  14.358 | -2.524  |  -1.035 |  -0.766 | -0.984 | -0.883 |  -0.557 | -0.417  |   -0.902|
-| Average monthly expenditure for housing |  100.526 | -103.720  |  159.674 | 721.979  |  102.845 |  79.697 | 15.750  |  48.655 |  30.877 |
-| Unemployment - Total | -20.429  | -10.239  |  -9.103 | -1.084  | -4.090 | -3.273  | -2.306  | -2.527  |-1.093|
-| Reach_difficulty - Emergency room | 7.365  | 1.298  | -4.829  |  0.376 | 1.861  |  -0.840 | -0.564  |  -0.951 | -2.068  |
-| **R-squared** | 0.988  |  0.997 | 0.998  | 0.995  |  0.985 |  0.994 |  0.996 | 0.996  | 0.995  |
-| **Adj R-squared** | 0.988  |  0.997 | 0.998  | 0.995  | 0.985  | 0.994  |  0.996 | 0.996  |  0.995 |
-
-
 Romania, 2005-2016 models
 
 | Indep. var.  | I | II | III | IV | V | VI | VII | VIII |
@@ -276,3 +244,29 @@ Romania, 2005-2016 models
 | Average monthly expenditure for housing  | | | | | | | | 100.526 |
 | **R-squared** | 0.983  |  0.984 | 0.986  | 0.987  |  0.987 |  0.989 |  0.992 | 0.988  |
 | **Adj R-squared** | 0.982  |  0.984 | 0.986  | 0.987  | 0.987  | 0.989  |  0.992 |  0.988 |
+
+
+Morocco, 2005-2016 models
+
+| Indep. var.  | I | II | III | IV | V | VI | VII | VIII |
+|---|---|---|---|---|---|---|---|---|
+| ![](https://latex.codecogs.com/gif.latex?y_%7Bi%2C%20t-1%7D) | 1.029| 1.419 | 1.272 | 1.173292 | 1.148242 | 0.944758 | 0.746926 | 0.997305 |
+| ![](https://latex.codecogs.com/gif.latex?y_%7Bi%2C%20t-2%7D)  | | -0.407 | -0.330 | -0.295498 | -0.263448 |  0.055779 | 0.271963 | -0.083266 |
+| Free activities in voluntary associations | | | 6.629235 | 11.481260 | 7.933882 | -14.697642 | -2.359557 | 8.028802 |
+| Internal_migration - Foreign country | | | | 0.083893 | 0.081224 | -0.222624 | -0.227045 | |
+| Native population - Total  | | | | -0.000287 | -0.000445 | -0.001843 | -0.003196 | 0.001943 |
+| Free activities in non voluntary associations  | | | | | -11.436617 | 17.438643 | 20.743240 | |
+| Meetings in cultural, recreational or other associations  | | | | | 9.808491 | -3.913562 | -7.311329 | 2.404775 |
+| Internal_migration - Italy | | | | |  | -0.015777 | -0.143381 | |
+| Political_info - Some times in a week | | | | |  | 10.323185 | 23.898417 | |
+| Pay money to an association | | | | |  | 17.158517 | 13.075623 | |
+| Reach_difficulty - Supermarket | | | | |  | | 10.607936 | |
+| Reach_difficulty - Post offices | | | | |  | | -8.876569 | |
+| Born alive | | | | |  | | 0.470396 | |
+| Disposable Income | | | | |  | | -5.862540 | -2.524103 |    
+| Political_info - Every day | | | | |  | | 1.692758 | |
+| Average monthly expenditure for housing  | | | | | | | | -103.720228 |
+| unemployment - Total  | | | | | | | | -10.239161 |
+| reach_difficulty - Emergency room  | | | | | | | | 1.298005 |
+| **R-squared** | 0.996  |  0.997 | 0.997  | 0.997  |  0.997 |  0.997 |  0.999 | 0.997  |
+| **Adj R-squared** | 0.996  |  0.996 | 0.997  | 0.997  | 0.997  | 0.997  |  0.999 |  0.997 |
