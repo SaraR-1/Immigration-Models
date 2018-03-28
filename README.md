@@ -263,7 +263,7 @@ Romania, 2005-2016 models
 | Free activities in voluntary associations | | | | 19.771 | 22.013 | -35.254 | -9.027 | 0.509 |
 | Communications | | | | | -67.169 | -431.196 | 22.785 | |
 | Other goods and services | | | | | 20.336 | 153.937 | 247.430 | |
-| Disposable Income | | | | | | 18.357 | 34.269 | 14.357621 |
+| Disposable Income | | | | | | 18.357 | 34.269 | 14.358 |
 | Reach_difficulty - Pharmacy | | | | | | -59.797 | 25.446 | |
 | Internal_migration - Foreign country | | | | |  | 0.098 | 0.017 | |
 | Transport | | | | | | | -109.532 | |
@@ -271,7 +271,7 @@ Romania, 2005-2016 models
 | Unemployment - Total | | | | | | | -78.801 | -20.429 |
 | Born alive | | | | | | | -1.175 | |
 | Clothing and footwear | | | | | | | -150.303 | |
-| Native population - Total  | | | | | | | | -0.0107 |
+| Native population - Total  | | | | | | | | -0.011 |
 | Meetings in cultural, recreational or other associations  | | | | | | | | 27.938 |
 | Average monthly expenditure for housing  | | | | | | | | 100.526 |
 | **R-squared** | 0.983  |  0.984 | 0.986  | 0.987  |  0.987 |  0.989 |  0.992 | 0.988  |
