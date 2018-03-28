@@ -309,9 +309,9 @@ Tunisia, Training 2005-2013 models
 | Native population - Total  | | | | -0.000340 | -0.000450 | 0.001229 | 0.000182 | -0.000805 |
 | Free activities in voluntary associations | | | |  | 2.259032 | 4.978177 |  -0.837115 | 2.872758 |
 | Meetings in cultural, recreational or other associations  | | | | | 1.895080 | -1.273197 | 2.291926 | 7.528854 |
-| Free activities in non voluntary associations  | | | | | |  | -4.278372 | -24.446436 | |
-| Reach_difficulty - Post offices | | | | | |  | -4.159634 | -0.495315 | |
-| Political_info - Never | | | | | |  | -2.870659 | -2.295537 | |
+| Free activities in non voluntary associations  | | | | |  | -4.278372 | -24.446436 | |
+| Reach_difficulty - Post offices | | | | | |   -4.159634 | -0.495315 | |
+| Political_info - Never | | | | | |  -2.870659 | -2.295537 | |
 | Internal_migration - Italy | | | | |  |  | 0.010840 | |
 | Reach_difficulty - Pharmacy | | | | |  | | 3.408684 | |
 | Born alive | | | | |  | | -0.049889 | |
