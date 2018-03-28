@@ -323,3 +323,30 @@ Tunisia, Training 2005-2013 models
 | Reach_difficulty - Emergency room  | | | | | | | | 2.717 |
 | **R-squared** | 0.991  |  0.991 | 0.992  | 0.993  |  0.993 |  0.993 |  0.983 | 0.994  |
 | **Adj R-squared** | 0.991  |  0.991 | 0.991  | 0.993  | 0.993  | 0.993  |  0.983 |  0.994 |
+
+
+Egypt, Training 2005-2013 models
+
+| Indep. var.  | I | II | III | IV | V | VI | VII | VIII |
+|---|---|---|---|---|---|---|---|---|
+| ![](https://latex.codecogs.com/gif.latex?y_%7Bi%2C%20t-1%7D) | 1.03881 | 0.893476 | 0.876579 | 0.783521 | 0.594626 | 0.374218 | 0.321103 | 0.591453 |
+| ![](https://latex.codecogs.com/gif.latex?y_%7Bi%2C%20t-2%7D)  | | 0.153555 | 0.154484 | 0.214063 | 0.486634 |  0.617765 | 0.653290 | 0.478642 |
+| Native population - Total | | | 0.000048 | -0.000127 | -0.000526 | -0.001911 | -0.002071 | 0.000509 |
+| Pay money to an association| | | | 1.965090 | 8.468786 | 9.820965 | 13.464388 | |
+| Non food | | | | -0.091271 | 0.078972 | 0.033561 | 3.264126 |  |
+| Internal_migration - Foreign country | | | | | -0.202939 | -0.238595 | -0.221679 |  |
+| Free activities in voluntary associations  | | | | | 0.845244 | 12.995150 | 3.014041 | -1.334382 |
+| Internal_migration - Italy  | | | | |  | 0.043193 | 0.048037 | |
+| Reach_difficulty - Post offices | | | | |  | 5.431537 | 9.096158 | |
+| Meetings in cultural, recreational or other associations| | | | |  | -11.948210 | -15.947701 | 0.078064 |
+| Other goods and services | | | | |  | | -24.446186 | |
+| Communications| | | | |  | | -35.373932 | |
+| Food and non-alcoholic beverages | | | | |  | | 3.052475 | |
+| Accommodation and catering services    | | | | |  | | 17.723357 |  |    
+| Transport | | | | |  | | -6.712551 |  |
+| Disposable Income | | | | |  | |  | -1.860632 |    
+| Average monthly expenditure for housing  | | | | | | | | 45.316674 |
+| Unemployment - Total  | | | | | | | | -10.960415 |
+| Reach_difficulty - Emergency room  | | | | | | | | 5.682682 |
+| **R-squared** | 0.984  |  0.983 | 0.983  | 0.984  |  0.983 |  0.983 |  0.966 | 0.979  |
+| **Adj R-squared** | 0.983  |  0.983 | 0.983  | 0.983  | 0.983  | 0.983  |  0.966 |  0.979 |
