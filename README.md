@@ -291,8 +291,35 @@ Albania, 2005-2016 models
 | Political_info - Some times in a week | | | | |  | | 15.411 | |
 | Pay money to an association | | | | |  | | 18.847 |  |    
 | Meetings in cultural, recreational or other associations  | | | | |  | | -19.909 | -2.842 |
-| Average monthly expenditure for housing  | | | | | | | | 159.674v|
+| Average monthly expenditure for housing  | | | | | | | | 159.674|
 | Unemployment - Total  | | | | | | | | -9.103 |
 | Reach_difficulty - Emergency room  | | | | | | | | -4.829 |
 | **R-squared** | 0.996  |  0.998 | 0.998  | 0.998  |  0.998 |  0.999 |  0.999 | 0.998  |
 | **Adj R-squared** | 0.996  |  0.998 | 0.998  | 0.998  | 0.998  | 0.999  |  0.999 |  0.998 |
+
+
+Tunisia, Training 2005-2013 models
+
+| Indep. var.  | I | II | III | IV | V | VI | VII | VIII |
+|---|---|---|---|---|---|---|---|---|
+| ![](https://latex.codecogs.com/gif.latex?y_%7Bi%2C%20t-1%7D) | 1.015138 | 1.131116 | 0.956110 | 0.542531 | 0.529737 | 0.822659 | 0.234570 | 0.406161 |
+| ![](https://latex.codecogs.com/gif.latex?y_%7Bi%2C%20t-2%7D)  | | -0.119564 | -0.044422 | 0.415498 | 0.395901 |  0.069382 | 0.623212 | 0.297794 |
+| Pay money to an association | | | 1.203807 | 6.724293 | 5.955795 | 4.273477 | 6.650397 |  |
+| Internal_migration - Foreign country | | | | -0.128618 | -0.145747 | -0.208764 | -0.151948 | |
+| Native population - Total  | | | | -0.000340 | -0.000450 | 0.001229 | 0.000182 | -0.000805 |
+| Free activities in voluntary associations | | | |  | 2.259032 | 4.978177 |  -0.837115 | 2.872758 |
+| Meetings in cultural, recreational or other associations  | | | | | 1.895080 | -1.273197 | 2.291926 | 7.528854 |
+| Free activities in non voluntary associations  | | | | | |  | -4.278372 | -24.446436 | |
+| Reach_difficulty - Post offices | | | | | |  | -4.159634 | -0.495315 | |
+| Political_info - Never | | | | | |  | -2.870659 | -2.295537 | |
+| Internal_migration - Italy | | | | |  |  | 0.010840 | |
+| Reach_difficulty - Pharmacy | | | | |  | | 3.408684 | |
+| Born alive | | | | |  | | -0.049889 | |
+| Accommodation and catering services  | | | | |  | | 9.148984 | |
+| Political_info - Every day | | | | |  | | 1.490814 | |
+| Disposable Income | | | | |  | |  | -0.802034 |    
+| Average monthly expenditure for housing  | | | | | | | | 577.272930 |
+| Unemployment - Total  | | | | | | | | -4.703815 |
+| Reach_difficulty - Emergency room  | | | | | | | | 2.717094 |
+| **R-squared** | 0.991  |  0.991 | 0.992  | 0.993  |  0.993 |  0.993 |  0.983 | 0.994  |
+| **Adj R-squared** | 0.991  |  0.991 | 0.991  | 0.993  | 0.993  | 0.993  |  0.983 |  0.994 |
