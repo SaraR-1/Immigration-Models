@@ -276,26 +276,26 @@ Albania, Training 2005-2013 models
 
 | Indep. var.  | I | II | III | IV | V | VI | VII | VIII |
 |---|---|---|---|---|---|---|---|---|
-| ![](https://latex.codecogs.com/gif.latex?y_%7Bi%2C%20t-1%7D) | | | | | | | | |
-| ![](https://latex.codecogs.com/gif.latex?y_%7Bi%2C%20t-2%7D) | | | | | | | | |
-| Native population - Total | | | | | | | | |
-| Internal_migration - Foreign country | | | | | | | | |
-| Free activities in voluntary associations | | | | | | | | |
-| Disposable Income  | | | | | | | | |
-| Political_info - Every day | | | | | | | | |
-| Reach_difficulty - Supermarket  | | | | | | | | |
-| Born alive | | | | | | | | |
-| Free activities in non voluntary associations | | | | | | | | |
-| Reach_difficulty - Pharmacy | | | | | | | | |
-| Political_info - Never | | | | | | | | |
-| Political_info - Some times in a week | | | | | | | | |
-| Pay money to an association | | | | | | | | |
-| Meetings in cultural, recreational or other associations | | | | | | | | |
-| Average monthly expenditure for housing | | | | | | | | |
-| Unemployment - Total | | | | | | | | |
-| Reach_difficulty - Emergency room | | | | | | | | |
-| **R-squared** | 0.99  |  0.99 | 0.99  | 0.99  |  0.99 |  0.99 |  0.99 | 0.99  |
-| **Adj R-squared** | 0.99  |  0.99 | 0.99 | 0.99  | 0.99  | 0.99  |  0.99 |  0.99 |
+| ![](https://latex.codecogs.com/gif.latex?y_%7Bi%2C%20t-1%7D) | 1.049 | 1.568 | 1.537 | 1.471 | 1.34 | 1.164 | 0.449 | 1.153 |
+| ![](https://latex.codecogs.com/gif.latex?y_%7Bi%2C%20t-2%7D) | | -0.552 | -0.534 | -0.479 | -0.344 | -0.098 | 0.557 | -0.153 |
+| Native population - Total | | | 0.001 | -0.001 | 0.001 | -0.001 | 0.002 | 0.002 |
+| Internal_migration - Foreign country | | | | -0.111 | -0.229 | -0.301 | -0.440 | |
+| Free activities in voluntary associations | | | | 12.233 | 7.609 | 23.119 | -4.664 | -0.336 |
+| Disposable Income  | | | | | -3.684 | -7.379 | -4.214 | -1.713 |
+| Political_info - Every day | | | | | 7.635 | 7.760 | -1.752 | |
+| Reach_difficulty - Supermarket  | | | | | | -3.932 | -1.432 | |
+| Born alive | | | | | | 0.473 | 0.100 | |
+| Free activities in non voluntary associations | | | | | | -42.284 | -38.935 | |
+| Reach_difficulty - Pharmacy | | | | | | | 0.452 | |
+| Political_info - Never | | | | | | | -7.226 | |
+| Political_info - Some times in a week | | | | | | | 11.357 | |
+| Pay money to an association | | | | | | | 25.832 | |
+| Meetings in cultural, recreational or other associations | | | | | | | 2.164 | -2.775 |
+| Average monthly expenditure for housing | | | | | | | | 188.830 |
+| Unemployment - Total | | | | | | | | -19.643 |
+| Reach_difficulty - Emergency room | | | | | | | | 1.174 |
+| **R-squared** | 0.996 |  0.998 | 0.998  | 0.997  |  0.998 |  0.998 |  0.998 | 0.998 |
+| **Adj R-squared** | 0.996 |  0.998 | 0.998 | 0.997  | 0.998  | 0.998  |  0.998 |  0.998 |
 
 
 Tunisia, Training 2005-2013 models
