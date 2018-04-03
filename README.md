@@ -118,9 +118,11 @@ where:
 2. ![](https://latex.codecogs.com/gif.latex?%5Cinline%20d_%7BLivorno%7D%20%3D%20d_%7B%28origin%2C%20Olbia%29%7D%20&plus;%20d_%7B%28Olbia%2C%20Livorno%29%7D%20&plus;%20d_%7B%28Livorno%2C%20destination%29%7D)
 3. ![](https://latex.codecogs.com/gif.latex?%5Cinline%20d_%7BCivitavecchia%7D%20%3D%20d_%7B%28origin%2C%20Olbia%29%7D%20&plus;%20d_%7B%28Olbia%2C%20Civitavecchia%29%7D%20&plus;%20d_%7B%28Civitavecchia%2C%20destination%29%7D)
 
-It could be useful to use different methods to build the distance matrix between regions (zones):
-- the distance between the two regions capitals
-- the mean distance between all the province pairs belonging to the two regions (zones) considered
+It could be useful to use different methods to build the distance matrix between regions:
+- the distance between the two regions capitals;
+- the mean distance between all the province pairs belonging to the two regions considered.
+
+The zones distance matrix is obtained by taking the mean distance between all the regions pairs belonging to the two zones considered.  Two different matrices are obtained, since two regions distance matrices exist.
 
 As spacial weights the inverse of the squared of the distances are used. The result matrix ![](https://latex.codecogs.com/gif.latex?W) is a symmetric, nonnegative matrix with ![](https://latex.codecogs.com/gif.latex?w_%7Bij%7D%20%3E%3D%200) and ![](https://latex.codecogs.com/gif.latex?w_%7Bii%7D%20%3D%200).
 

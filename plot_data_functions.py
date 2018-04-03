@@ -93,7 +93,11 @@ def relation_plot_time_variant_intern_function(data_, temp_territories, time_idx
         lgd = plt.legend(handles = legend, loc='center left', bbox_to_anchor=(2.35, 0.05+int(str(plt_seed)[0])), fancybox=True)
 
     if len(temp_territories) == 2:
-            lgd = plt.legend(handles = legend, loc='center left', bbox_to_anchor=(1.05, .925), fancybox=True)
+        lgd = plt.legend(handles = legend, loc='center left', bbox_to_anchor=(1.05, .925), fancybox=True)
+
+    if len(temp_territories) == 9:
+        lgd = plt.legend(handles = legend, loc='center left', bbox_to_anchor=(1.1, 3.25), fancybox=True)
+
     fig.suptitle(title, fontsize = 14)
     if save == False:
         plt.show()
