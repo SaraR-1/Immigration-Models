@@ -221,4 +221,17 @@ def run_model(data_init, country, times, I, x_, W, territories, var_selection, c
     title = "Immigrant Stock VS "+title+" "+country_name+ " in Italian Zones"
     relation_plot_time_variant_intern_function(df, terr_not_ref, times, df.columns.tolist(), plt.figure(1, figsize=(15,10)), plt_seed, 45, palette, None, title, save, path = "")
 
+    for c in df.columns.tolist()[1:]:
+        #if constant == False:
+        #    R2 = 1 - (sum(np.subtract(data["y"].values, y_hat.fitted_values.values)**2) / sum((data["y"].values)**2))
+        #else:
+        R2 = 1 - (sum(np.subtract(df["Immigrant Stock"].values, df[c].values)**2) / sum((df["Immigrant Stock"].values - np.mean(df["Immigrant Stock"].values))**2))
+
+        print("R-squared for %s %f." %(c, round(R2,3)))
+        # k: number of independet vars
+        #k = len(va)
+        #n = len(df["Immigrant Stock"].values,.values)
+        #R2_adj = 1 - (1 - R2)*((n - 1)/(n - k -1))
+        #print("Adjusted R-squared %f." %round(R2_adj, 3))
+
     return(df, [beta_hat, a_hat, rho_hat, thetas_hat])
