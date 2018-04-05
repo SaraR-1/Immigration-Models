@@ -86,58 +86,14 @@ def stepII_constant(param, a, x_, ref_I, territories):
     return(ols)
 
 
-def relation_plot_time_variant_intern_function(data_, temp_territories, time_idx, cols, fig, plt_seed, rot, palette, info, title, save = False, path = ""):
-
-  for r in temp_territories:
-      sns.set_style("whitegrid")
-
-      ax = fig.add_subplot(plt_seed)
-      ax.tick_params(axis='x', which='minor', labelsize='small', rotation=30)
-      legend = []
-      for c in cols:
-          x_i = [data_.loc[t].loc[r][c] for t in time_idx]
-          # Color - always +1 because the first color is for the real value (ax)
-          ax = sns.pointplot(y = x_i, x = time_idx, color = palette[cols.index(c)])
-          legend.append(mlines.Line2D([], [], markersize=15, label=c.split("-")[0], color = palette[cols.index(c)]))
-
-      sns.despine(ax=ax, right=True, left=True)
-      #sns.despine(ax=ax2, left=True, right=False)
-      ax.set_xlabel("")
-      #ax2.set_xlabel("")
-      #ax2.spines['right'].set_color('white')
-      ax.ticklabel_format(style='sci', axis='y', scilimits=(0,0))
-
-
-      ax.set_xticklabels(ax.get_xticklabels(), rotation=rot)
-      #plt.title(r, fontsize = 14)
-      #plt.legend(handles = legend, prop={'size':14}, loc='best')
-      plt.title(r, fontsize = 14)
-      plt_seed += 1
-
-  if len(temp_territories)%2 == 0:
-      lgd = plt.legend(handles = legend, loc='center left', bbox_to_anchor=(1.05, 0.05+int(str(plt_seed)[0])), fancybox=True)
-  else:
-      lgd = plt.legend(handles = legend, loc='center left', bbox_to_anchor=(2.35, 0.05+int(str(plt_seed)[0])), fancybox=True)
-
-  if len(temp_territories) == 2:
-      lgd = plt.legend(handles = legend, loc='center left', bbox_to_anchor=(1.05, .925), fancybox=True)
-
-  if len(temp_territories) == 9:
-      lgd = plt.legend(handles = legend, loc='center left', bbox_to_anchor=(1.1, 3.25), fancybox=True)
-
-  fig.suptitle(title, fontsize = 14)
-  if save == False:
-      plt.show()
-  else:
-      plt.savefig(path+".png", box_extra_artists=(lgd,), bbox_inches='tight')
-  plt.close()
-
-  return(info)
-
 
 def run_model(data_init, country, times, I, x_, W, territories, var_selection, constant, palette, title, save, path = ""):
     country_name = country
     country = pycountry.countries.get(name=country_name).alpha_3
+    y = data_init
+    y_ = y.rename(columns = {country: "Value"})
+    y_ = y_["Value"]
+    y_ = y_.reset_index(level=['Province', 'Year'])
     data_init = bdf.filter_origin_country_dataset(data_init, country, times, x_.index.levels[0].tolist(), x_, prev = 1)
 
     data_all = data_init.copy()
@@ -218,8 +174,9 @@ def run_model(data_init, country, times, I, x_, W, territories, var_selection, c
         else:
             plt_seed = 231
 
-    title = "Immigrant Stock VS "+title+" "+country_name+ " in Italian Zones"
-    relation_plot_time_variant_intern_function(df, terr_not_ref, times, df.columns.tolist(), plt.figure(1, figsize=(15,10)), plt_seed, 45, palette, None, title, save, path = "")
+    title = "Immigrant Stock VS "+title+" "+country_name
+    #relation_plot_time_variant_intern_function(df, terr_not_ref, times, df.columns.tolist(), plt.figure(1, figsize=(15,10)), plt_seed, 45, palette, None, title, save, path = "")
+    pdf.relation_plot_time_variant(df, df.columns.tolist()[1:], y_, terr_not_ref, 45, title, palette, save, "Plots/"+"_".join(title.lower().split(" ")), sub_iteration=False, double_scale_x = False)
 
     for c in df.columns.tolist()[1:]:
         #if constant == False:

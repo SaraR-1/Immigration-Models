@@ -27,7 +27,7 @@ def panel_regression(y, xs, years, country, list_x, prev = 0, show = False, save
     #print("Estimated parameters:")
     #print(pd.DataFrame(res.params))
 
-    evaluation(data, res.fitted_values, constant)
+    evaluation(data, res.fitted_values, constant, len(xs.columns.tolist()))
 
     if show == True:
             pmf.plot_real_VS_prediction(y, res.fitted_values, xs, years, country, 45, "Regression model", save, path)
@@ -65,16 +65,16 @@ def panel_regression_training_test(y, xs, years_training, years_test, country, l
     fitted_values_ = fitted_values_te.append(res_tr.fitted_values)
     fitted_values_ = fitted_values_.sort_index()
     if show == True:
-        pmf.plot_real_VS_prediction(y, fitted_values_, xs, years, country, 45, "Regression model", save = False, path = "")
+        pmf.plot_real_VS_prediction(y, fitted_values_, xs, years, country, 45, "Regression model", save = save, path = "")
     else:
         pass
 
     print("-------------- Trainin-Test  Results --------------")
-    evaluation(data, fitted_values_, constant)
+    evaluation(data, fitted_values_, constant, len(xs.columns.tolist()))
 
     return(res_tr.params, fitted_values_)
 
-def evaluation(data, y_hat, constant):
+def evaluation(data, y_hat, constant, k):
     if constant == False:
         R2 = 1 - (sum(np.subtract(data["y"].values, y_hat.fitted_values.values)**2) / sum((data["y"].values)**2))
     else:
@@ -82,7 +82,6 @@ def evaluation(data, y_hat, constant):
 
     print("R-squared %f." %round(R2,3))
     # k: number of independet vars
-    k = 1
     n = len(data["y"].values)
     R2_adj = 1 - (1 - R2)*((n - 1)/(n - k -1))
     print("Adjusted R-squared %f." %round(R2_adj, 3))

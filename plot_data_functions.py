@@ -51,7 +51,7 @@ def relation_plot_time_invariant(data_, cols, y, rot, title, save, path):
         plt.savefig(path+".png",  box_extra_artists=(lgd,), bbox_inches='tight')
     plt.close()
 
-def relation_plot_time_variant_intern_function(data_, temp_territories, time_idx, cols, y, fig, plt_seed, rot, palette, info, title, save, path = ""):
+def relation_plot_time_variant_intern_function(data_, temp_territories, time_idx, cols, y, fig, plt_seed, rot, palette, info, title, save, path = "", double_scale_x = True):
 
     for r in temp_territories:
         y_i = [y.get_group((r, t))["Value"].sum() for t in time_idx]
@@ -66,21 +66,29 @@ def relation_plot_time_variant_intern_function(data_, temp_territories, time_idx
         legend.append(mlines.Line2D([], [], markersize=15, label="Immigrant Stock"))
         ax.ticklabel_format(style='sci', axis='y', scilimits=(0,0))
         sns.set_style("white")
-        ax2 = ax.twinx()
-        for c in cols:
-            x_i = [data_.loc[t].loc[r][c] for t in time_idx]
-            # Color - always +1 because the first color is for the real value (ax)
-            ax2 = sns.pointplot(y = x_i, x = time_idx, color = palette[cols.index(c)+1])
-            legend.append(mlines.Line2D([], [], markersize=15, label=c.split("-")[0], color = palette[cols.index(c)+1]))
+        if double_scale_x:
+            ax2 = ax.twinx()
+            for c in cols:
+                x_i = [data_.loc[t].loc[r][c] for t in time_idx]
+                # Color - always +1 because the first color is for the real value (ax)
+                ax2 = sns.pointplot(y = x_i, x = time_idx, color = palette[cols.index(c)+1])
+                legend.append(mlines.Line2D([], [], markersize=15, label=c.split("-")[0], color = palette[cols.index(c)+1]))
+
+            #sns.despine(ax=ax, right=True, left=True)
+            sns.despine(ax=ax2, left=True, right=False)
+            #ax.set_xlabel("")
+            ax2.set_xlabel("")
+            ax2.spines['right'].set_color('white')
+            ax2.ticklabel_format(style='sci', axis='y', scilimits=(0,0))
+        else:
+            for c in cols:
+                x_i = [data_.loc[t].loc[r][c] for t in time_idx]
+                # Color - always +1 because the first color is for the real value (ax)
+                ax2= sns.pointplot(y = x_i, x = time_idx, color = palette[cols.index(c)+1])
+                legend.append(mlines.Line2D([], [], markersize=15, label=c.split("-")[0], color = palette[cols.index(c)+1]))
 
         sns.despine(ax=ax, right=True, left=True)
-        sns.despine(ax=ax2, left=True, right=False)
         ax.set_xlabel("")
-        ax2.set_xlabel("")
-        ax2.spines['right'].set_color('white')
-        ax2.ticklabel_format(style='sci', axis='y', scilimits=(0,0))
-
-
         ax.set_xticklabels(ax.get_xticklabels(), rotation=rot)
         #plt.title(r, fontsize = 14)
         #plt.legend(handles = legend, prop={'size':14}, loc='best')
@@ -107,15 +115,25 @@ def relation_plot_time_variant_intern_function(data_, temp_territories, time_idx
 
     return(info)
 
-def relation_plot_time_variant(data_, cols, y, zones_data, rot, title, palette, save, path = "", sub_iteration = True):
-    territories = list(set(zones_data["Zona"]))
+def relation_plot_time_variant(data_, cols, y, zones_data, rot, title, palette, save, path = "", sub_iteration = True, double_scale_x = True):
+    if type(zones_data) != list:
+        territories = list(set(zones_data["Zona"]))
+    else:
+        territories = zones_data
     y_grouped = y.groupby(["Province", "Year"])
     time_idx = data_.index.levels[0]
 
     fig = plt.figure(1, figsize=(15,10))
 
     info = {c: {"R2": [], "MSE": [], "Pearson": [], "Spearman": [], "Kendall": []} for c in cols}
-    info = relation_plot_time_variant_intern_function(data_, territories, time_idx, cols, y_grouped, fig, 231, rot, palette, info, "Immigrant Stock VS "+title+" in Italian Zones", save, path+"zones")
+    if len(territories) <= 2:
+        plt_seed = 121
+    else:
+        if len(territories) <= 4:
+            plt_seed = 221
+        else:
+            plt_seed = 231
+    info = relation_plot_time_variant_intern_function(data_, territories, time_idx, cols, y_grouped, fig, plt_seed, rot, palette, info, "Immigrant Stock VS "+title+" in Italian Zones", save, path+"zones", double_scale_x = double_scale_x)
 
     #info = {c: {"R2": [], "MSE": [], "Pearson": [], "Spearman": [], "Kendall": []} for c in cols}
     if sub_iteration:

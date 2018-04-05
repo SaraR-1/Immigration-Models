@@ -79,6 +79,7 @@ def panel_regression(y, xs, years, country, ks, zones_data, palette, title, plot
         xs_new_ = SelectKBest(mutual_info_regression, k=k).fit_transform(xs_, y_)
         selected_ = []
         for v in xs_new_[0]:
+            print()
             temp = (data == v).idxmax(axis=1)[0]
             selected_.append(temp)
 
@@ -106,9 +107,9 @@ def panel_regression(y, xs, years, country, ks, zones_data, palette, title, plot
 
         if unique_plot == True:
             results1 = pd.concat([results1, results2], axis = 1)
-            pdf.relation_plot_time_variant(results1, results1.columns.tolist(), y_, zones_data, 45, title, palette, save_final, "Plots/"+"_".join(title.lower().split(" ")), sub_iteration=False)
+            pdf.relation_plot_time_variant(results1, results1.columns.tolist(), y_, zones_data, 45, title, palette, save_final, "Plots/"+"_".join(title.lower().split(" ")), sub_iteration=False, double_scale_x = False)
         else:
             temp = " ".join([title, str(1)])
-            pdf.relation_plot_time_variant(results1, results1.columns.tolist(), y_, zones_data, 45, temp, palette, save_final, "Plots/"+"_".join(temp.lower().split(" ")), sub_iteration=False)
+            pdf.relation_plot_time_variant(results1, results1.columns.tolist(), y_, zones_data, 45, temp, palette, save_final, "Plots/"+"_".join(temp.lower().split(" ")), sub_iteration=False, double_scale_x =  False)
             temp = " ".join([title, str(2)])
-            pdf.relation_plot_time_variant(results2, results2.columns.tolist(), y_, zones_data, 45, temp, palette, save_final, "Plots/"+"_".join(temp.lower().split(" ")), sub_iteration=False)
+            pdf.relation_plot_time_variant(results2, results2.columns.tolist(), y_, zones_data, 45, temp, palette, save_final, "Plots/"+"_".join(temp.lower().split(" ")), sub_iteration=False, double_scale_x =  False)
