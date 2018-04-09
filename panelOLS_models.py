@@ -63,7 +63,7 @@ def panel_regression(y, xs, years, country, ks, zones_data, palette, title, plot
     #param, values = mf.panel_regression_training_test(y, xs, years[:-2], years[-2:], country, ['y_prev_1', 'y_prev_2']+var_selection, prev = 2, save = save, show = show, diff = diff, constant = constant, entity_effects = entity_effects)
 
     # Training - Test (2014, 2015, 2016)
-    param, values = mf.panel_regression_training_test(y, xs, years[:-3], years[-3:], country, ['y_prev_1', 'y_prev_2']+var_selection, prev = 2, save = save, show = show, diff = diff, constant = constant, entity_effects = entity_effects)
+    param, values = mf.panel_regression_training_test(y, xs, years[:-2], years[-2:], country, ['y_prev_1', 'y_prev_2']+var_selection, prev = 2, save = save, show = show, diff = diff, constant = constant, entity_effects = entity_effects)
     print(param)
     results1 = pd.concat([results1, values.fitted_values], axis = 1)
     results1 = results1.rename(columns = {"fitted_values": "Manual Selection"})
@@ -79,7 +79,6 @@ def panel_regression(y, xs, years, country, ks, zones_data, palette, title, plot
         xs_new_ = SelectKBest(mutual_info_regression, k=k).fit_transform(xs_, y_)
         selected_ = []
         for v in xs_new_[0]:
-            print()
             temp = (data == v).idxmax(axis=1)[0]
             selected_.append(temp)
 
@@ -89,7 +88,7 @@ def panel_regression(y, xs, years, country, ks, zones_data, palette, title, plot
         #param, values = mf.panel_regression_training_test(y, xs, years[:-2], years[-2:], country, selected_, prev = 2, save = save, show = show, diff = diff, constant = constant, entity_effects = entity_effects)
 
         # Training - Test (2014, 2015, 2016)
-        param, values = mf.panel_regression_training_test(y, xs, years[:-3], years[-3:], country, selected_, prev = 2, save = save, show = show, diff = diff, constant = constant, entity_effects = entity_effects)
+        param, values = mf.panel_regression_training_test(y, xs, years[:-2], years[-2:], country, selected_, prev = 2, save = save, show = show, diff = diff, constant = constant, entity_effects = entity_effects)
         print(param)
         results2 = pd.concat([results2, values.fitted_values], axis = 1)
         results2 = results2.rename(columns = {"fitted_values": "MI %d selection" %k})
