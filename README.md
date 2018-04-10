@@ -506,3 +506,7 @@ The model specified is used to predict the immigrant stock at Italian zones leve
 The model requires a reference territory, both "Centro" and "Italia" are used:
 - in the first case the real "Centro" stock is used;
 - in the second case the estimation of the "Italia" stock at the current time ![](https://latex.codecogs.com/gif.latex?t) is used.
+
+The prediction of the overall Italian flow is obtained through regression models whose independent variables are chosen using an automatic feature selection based on mutual information. Follows the plot of the prediction.
+
+![](https://github.com/SaraR-1/Immigration-Models/blob/master/Plots/regression_model_italy.png)

@@ -66,7 +66,7 @@ def stepI(param, data_, W, times, ref_I, territories, data_hat):
 
     return(log_lik)
 
-def stepII(theta, a, x_, ref_I, territories):
+'''def stepII(theta, a, x_, ref_I, territories):
   # All the I-1 locations (all but the reference one)
   terr_not_ref = [i for i in territories if i != ref_I]
 
@@ -87,7 +87,42 @@ def stepII_constant(param, a, x_, ref_I, territories):
     temp = np.array([(a[terr_not_ref.index(i)] - np.dot(np.subtract(x_.loc[i].values, x_I), theta) - c) for i in terr_not_ref])
 
     ols = (1/len(a))*temp.T.dot(temp)
-    return(ols)
+    return(ols)'''
+
+def stepII(theta, data_, W, times, beta_, ro_, x_, ref_I, territories, data_hat):
+    T = len(times)
+    I = len(territories)
+
+    identity_I = np.identity(I)
+    identity_I_1 = np.identity(I-1)
+    neg1 = np.negative(np.ones((I-1, 1)))
+    # Not-squared matrix
+    Q = np.append(identity_I_1, neg1, axis=1)
+    # All the I-1 locations (all but the reference one)
+    terr_not_ref = [i for i in territories if i != ref_I]
+
+    # Modify W s.t. the "ref_I" location is the last one (so that Q is well defined)
+    W = W.reindex(index = terr_not_ref+[ref_I], columns = terr_not_ref+[ref_I])
+
+    # Time-invariant quantity
+    L = Q.dot(np.linalg.inv(identity_I-ro_*W)).dot(np.linalg.inv(identity_I-ro_*W.T)).dot(Q.T)
+
+    log_lik = 0
+    x_I = x_.loc[ref_I].values
+    x_i = np.array([np.dot(np.subtract(x_.loc[i].values, x_I), theta) for i in terr_not_ref])
+
+    for t in times[:]:
+        if type(data_hat) != type(None):
+            y = (data_.loc[(t, terr_not_ref), "y"]/data_hat.loc[(t, ref_I), "y"]).values
+        else:
+            y = (data_.loc[(t, terr_not_ref), "y"]/data_.loc[(t, ref_I), "y"]).values
+        x = (data_.loc[(t, terr_not_ref), "y_prev_1"]/data_.loc[(t, ref_I), "y_prev_1"]).values
+        #print(y.shape, x.shape, len(a))
+        main_term = x_i + np.log(y) - beta_*np.log(x)
+
+        log_lik += np.log(np.linalg.det(L)) + main_term.T.dot(np.linalg.inv(L)).dot(main_term)
+
+    return(log_lik)
 
 
 
@@ -117,7 +152,7 @@ def run_model(data_init, country, times, I, x_, W, territories, var_selection, c
 
     # I-1 locations + beta + ro
     random.seed(123)
-    param_init = [0 for i in range(len(territories)+1)]
+    param_init = [random.random() for i in range(len(territories)+1)]
 
     if train_test:
         res_stepI =  minimize(stepI, param_init, args = (data_, W, times[:-3], I, territories, data_hat), method='CG')
@@ -140,6 +175,7 @@ def run_model(data_init, country, times, I, x_, W, territories, var_selection, c
     idx = pd.MultiIndex.from_product([times, terr_not_ref], names=['Year', 'Province'])
     col = ['Immigrant Stock', 'Prediction step I', 'MI 3 selection','MI 5 selection',
     'MI 7 selection', 'MI 10 selection', 'MI 15 selection', 'Manual selection']
+    ks = [3, 5, 7, 10, 15, 7]
     df = pd.DataFrame('-', idx, col)
 
     for t in times[:]:
@@ -159,11 +195,16 @@ def run_model(data_init, country, times, I, x_, W, territories, var_selection, c
 
         random.seed(123)
         if constant:
-            param_init = [0 for i in range(len(xs_.columns)+1)]
-            res_stepII =  minimize(stepII_constant, param_init, args = (a_hat, xs_, I, territories), method='CG')
+            param_init = [random.uniform(0, 1) for i in range(len(xs_.columns)+1)]
+            #res_stepII =  minimize(stepII_constant, param_init, args = (a_hat, xs_, I, territories), method='CG')
+            res_stepII =  minimize(stepII_constant, param_init,
+                                   args = (data_, W, times, beta_hat, rho_hat, xs_, I, territories, data_hat), method='CG')
         else:
-            param_init = [0 for i in range(len(xs_.columns))]
-            res_stepII =  minimize(stepII, param_init, args = (a_hat, xs_, I, territories), method='CG')
+            param_init = [random.random() for i in range(len(xs_.columns))]
+            #res_stepII =  minimize(stepII, param_init, args = (a_hat, xs_, I, territories), method='CG')
+            res_stepII =  minimize(stepII, param_init,
+                                   args = (data_, W, times, beta_hat, rho_hat, xs_, I, territories, data_hat), method='CG')
+
 
         x_I = xs_.loc[I].values
 
@@ -198,19 +239,18 @@ def run_model(data_init, country, times, I, x_, W, territories, var_selection, c
 
     title = "Immigrant Stock VS "+title+" "+country_name
     #relation_plot_time_variant_intern_function(df, terr_not_ref, times, df.columns.tolist(), plt.figure(1, figsize=(15,10)), plt_seed, 45, palette, None, title, save, path = "")
-    pdf.relation_plot_time_variant(df, df.columns.tolist()[1:], y_, terr_not_ref, 45, title, palette, save, "Plots/"+"_".join(title.lower().split(" ")), sub_iteration=False, double_scale_x = False)
+    pdf.relation_plot_time_variant(df, df.columns.tolist()[1:], y_, terr_not_ref, 45, title, palette, save, "Plots/"+path, sub_iteration=False, double_scale_x = False)
 
-    for c in df.columns.tolist()[1:]:
+    for c, k in zip(df.columns.tolist()[1:], ks):
         #if constant == False:
         #    R2 = 1 - (sum(np.subtract(data["y"].values, y_hat.fitted_values.values)**2) / sum((data["y"].values)**2))
         #else:
         R2 = 1 - (sum(np.subtract(df["Immigrant Stock"].values, df[c].values)**2) / sum((df["Immigrant Stock"].values - np.mean(df["Immigrant Stock"].values))**2))
 
-        print("R-squared for %s %f." %(c, round(R2,3)))
+        print("R-squared for %s: %f." %(c, round(R2,3)))
         # k: number of independet vars
-        #k = len(va)
-        #n = len(df["Immigrant Stock"].values,.values)
-        #R2_adj = 1 - (1 - R2)*((n - 1)/(n - k -1))
-        #print("Adjusted R-squared %f." %round(R2_adj, 3))
+        n = len(df)
+        R2_adj = 1 - (1 - R2)*((n - 1)/(n - k -1))
+        print("Adjusted R-squared for %s: %f." %(c, round(R2_adj, 3)))
 
     return(df, [beta_hat, a_hat, rho_hat, thetas_hat, cs_hat])
