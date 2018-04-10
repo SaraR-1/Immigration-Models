@@ -28,7 +28,7 @@ import matplotlib.pyplot as plt
 import plot_data_functions as pdf
 
 
-def stepI(param, data_, W, times, ref_I, territories):
+def stepI(param, data_, W, times, ref_I, territories, data_hat):
     beta = param[0]
     a = param[1:-1]
     ro = param[-1]
@@ -53,7 +53,11 @@ def stepI(param, data_, W, times, ref_I, territories):
     log_lik = 0
 
     for t in times[:]:
-        y = (data_.loc[(t, terr_not_ref), "y"]/data_.loc[(t, ref_I), "y"]).values
+        if type(data_hat) != type(None):
+            y = (data_.loc[(t, terr_not_ref), "y"]/data_hat.loc[(t, ref_I), "y"]).values
+        else:
+            y = (data_.loc[(t, terr_not_ref), "y"]/data_.loc[(t, ref_I), "y"]).values
+            
         x = (data_.loc[(t, terr_not_ref), "y_prev_1"]/data_.loc[(t, ref_I), "y_prev_1"]).values
         #print(y.shape, x.shape, len(a))
         main_term = np.log(y) - beta*np.log(x) - a
@@ -87,7 +91,7 @@ def stepII_constant(param, a, x_, ref_I, territories):
 
 
 
-def run_model(data_init, country, times, I, x_, W, territories, var_selection, constant, palette, title, save, path = ""):
+def run_model(data_init, country, times, I, x_, W, territories, var_selection, constant, palette, title, save, path = "", data_hat = None):
     country_name = country
     country = pycountry.countries.get(name=country_name).alpha_3
     y = data_init
@@ -101,6 +105,12 @@ def run_model(data_init, country, times, I, x_, W, territories, var_selection, c
     data_all.sort_index(inplace=True)
     data_ = data_all[["y_prev_1", "y"]]
 
+    if type(data_hat) != type(None):
+        data_hat = bdf.filter_origin_country_dataset(data_hat, country, times, x_.index.levels[0].tolist(), x_, prev = 1)
+        data_hat.index = data_hat.index.swaplevel(0, 1)
+        data_hat.sort_index(inplace=True)
+        data_hat = data_hat[["y_prev_1", "y"]]
+
     print("---------- Step I ----------")
     initial_time = datetime.datetime.now()
     print ("Current time: " + str(initial_time.strftime('%H:%M:%S') ))
@@ -108,7 +118,7 @@ def run_model(data_init, country, times, I, x_, W, territories, var_selection, c
     # I-1 locations + beta + ro
     random.seed(123)
     param_init = [0 for i in range(len(territories)+1)]
-    res_stepI =  minimize(stepI, param_init, args = (data_, W, times, I, territories), method='CG')
+    res_stepI =  minimize(stepI, param_init, args = (data_, W, times, I, territories, data_hat), method='CG')
     print(res_stepI.message)
 
     final_time = datetime.datetime.now()
@@ -129,7 +139,11 @@ def run_model(data_init, country, times, I, x_, W, territories, var_selection, c
 
     for t in times[:]:
         df.loc[(t, slice(None)), 'Immigrant Stock'] = data_.loc[(t, terr_not_ref), "y"].values
-        df.loc[(t, slice(None)), 'Prediction step I'] = np.exp(beta_hat*np.log((data_.loc[(t, terr_not_ref), "y_prev_1"]/data_.loc[(t, I), "y_prev_1"]).values) + a_hat + np.log([data_.loc[(t, I), "y"] for i in terr_not_ref]))
+        if type(data_hat) != type(None):
+            df.loc[(t, slice(None)), 'Prediction step I'] = np.exp(beta_hat*np.log((data_.loc[(t, terr_not_ref), "y_prev_1"]/data_.loc[(t, I), "y_prev_1"]).values) + a_hat + np.log([data_hat.loc[(t, I), "y"] for i in terr_not_ref]))
+        else:
+            df.loc[(t, slice(None)), 'Prediction step I'] = np.exp(beta_hat*np.log((data_.loc[(t, terr_not_ref), "y_prev_1"]/data_.loc[(t, I), "y_prev_1"]).values) + a_hat + np.log([data_.loc[(t, I), "y"] for i in terr_not_ref]))
+
 
     print("---------- Step II ----------")
     thetas_hat = []
@@ -162,7 +176,10 @@ def run_model(data_init, country, times, I, x_, W, territories, var_selection, c
         fixed_hat = [np.dot(np.subtract(xs_.loc[i].values, x_I), theta_hat) + c_hat for i in terr_not_ref]
 
         for t in times[:]:
-            df.loc[(t, slice(None)), k] = np.exp(beta_hat*np.log((data_.loc[(t, terr_not_ref), "y_prev_1"]/data_.loc[(t, I), "y_prev_1"]).values) + fixed_hat + np.log([data_.loc[(t, I), "y"] for i in terr_not_ref]))
+            if type(data_hat) != type(None):
+                df.loc[(t, slice(None)), k] = np.exp(beta_hat*np.log((data_.loc[(t, terr_not_ref), "y_prev_1"]/data_.loc[(t, I), "y_prev_1"]).values) + fixed_hat + np.log([data_hat.loc[(t, I), "y"] for i in terr_not_ref]))
+            else:
+                df.loc[(t, slice(None)), k] = np.exp(beta_hat*np.log((data_.loc[(t, terr_not_ref), "y_prev_1"]/data_.loc[(t, I), "y_prev_1"]).values) + fixed_hat + np.log([data_.loc[(t, I), "y"] for i in terr_not_ref]))
 
     print("---------- Validation ----------")
 
