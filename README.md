@@ -43,7 +43,7 @@ In order to see the relationship between the Immigrant flow and other additional
 
 ![](https://github.com/SaraR-1/Immigration-Models/blob/master/Plots/stock_vs_internal_migration_zones.png)
 
-Let's see also the "Area" variable which is time invariant. Here as "Immigrant Stock" the mean over the years 2005-2015 is considered.
+Let's see also the "Area" variable which is time-invariant. Here as "Immigrant Stock" the mean over the years 2005-2015 is considered.
 ![](https://github.com/SaraR-1/Immigration-Models/blob/master/Plots/stock_vs_time_invariant_regions.png)
 
 
@@ -378,7 +378,7 @@ The initial model is defined as:
 where:
 - ![](https://latex.codecogs.com/gif.latex?n_%7Bi%2C%20t%7D) is the stock of foreign-born in territory ![](https://latex.codecogs.com/gif.latex?i) at time ![](https://latex.codecogs.com/gif.latex?t).
 - ![](https://latex.codecogs.com/gif.latex?%5Cbeta) is the parameters for the network effect (is a local phenomenon that influences the immigrant choice, that is: foreign-born population tend to migrate to territories where a community of the same ethnic already exists).
-- ![](https://latex.codecogs.com/gif.latex?%5Calpha_i%20%3D%20x%27_i%20%5Ctheta%20&plus;%20%5Ceta_i) , ![](https://latex.codecogs.com/gif.latex?x%27_%7Bi%7D) is the vector of all the time invariant observable location factors (features vector), ![](https://latex.codecogs.com/gif.latex?%5Cinline%20%5Ctheta) is the vector of coefficient and![](https://latex.codecogs.com/gif.latex?%5Ceta_i) is an error random term.
+- ![](https://latex.codecogs.com/gif.latex?%5Calpha_i%20%3D%20x%27_i%20%5Ctheta%20&plus;%20%5Ceta_i) , ![](https://latex.codecogs.com/gif.latex?x%27_%7Bi%7D) is the vector of all the time-invariant observable location factors (features vector), ![](https://latex.codecogs.com/gif.latex?%5Cinline%20%5Ctheta) is the vector of coefficient and![](https://latex.codecogs.com/gif.latex?%5Ceta_i) is an error random term.
 - ![](https://latex.codecogs.com/gif.latex?%5Cinline%20%5Cgamma_t) measures the fixed time effect.
 
 ![](https://latex.codecogs.com/gif.latex?u_%7Bi%2C%20t%7D) is the *error term*. It is modeled using a *Spatial Autoregressive Model*, ![](https://latex.codecogs.com/gif.latex?u_t%20%3D%20%28u_%7B1%2C%20t%7D%2C%20%5Cdots%2C%20u_%7BI%2C%20t%7D%29) follows:
@@ -491,12 +491,18 @@ where:
 2. ![](https://latex.codecogs.com/gif.latex?%5Cinline%20d_%7BLivorno%7D%20%3D%20d_%7B%28origin%2C%20Olbia%29%7D%20&plus;%20d_%7B%28Olbia%2C%20Livorno%29%7D%20&plus;%20d_%7B%28Livorno%2C%20destination%29%7D)
 3. ![](https://latex.codecogs.com/gif.latex?%5Cinline%20d_%7BCivitavecchia%7D%20%3D%20d_%7B%28origin%2C%20Olbia%29%7D%20&plus;%20d_%7B%28Olbia%2C%20Civitavecchia%29%7D%20&plus;%20d_%7B%28Civitavecchia%2C%20destination%29%7D)
 
-It could be useful to use different methods to build the distance matrix between regions:
-- the distance between the two regions capitals;
-- the mean distance between all the province pairs belonging to the two regions considered.
+The regions distance matrix is computed as the mean distance between all the province pairs belonging to the two regions considered.
 
-The zones distance matrix is obtained by taking the mean distance between all the regions pairs belonging to the two zones considered.  Two different matrices are obtained, since two regions distance matrices exist.
+The zones distance matrix is obtained by taking the mean distance between all the regions pairs belonging to the two zones considered.
 
-As spacial weights the inverse of the squared of the distances are used. The result matrix ![](https://latex.codecogs.com/gif.latex?W) is a symmetric, nonnegative matrix with ![](https://latex.codecogs.com/gif.latex?w_%7Bij%7D%20%3E%3D%200) and ![](https://latex.codecogs.com/gif.latex?w_%7Bii%7D%20%3D%200).
+As spacial weights the inverse of the squared of the distances are used. The result matrix ![](https://latex.codecogs.com/gif.latex?W) is a symmetric, non-negative matrix with ![](https://latex.codecogs.com/gif.latex?w_%7Bij%7D%20%3E%3D%200) and ![](https://latex.codecogs.com/gif.latex?w_%7Bii%7D%20%3D%200).
 
-The row-normalized ![](https://latex.codecogs.com/gif.latex?W) is used for ease of interpretation. It is defined as ![](https://latex.codecogs.com/gif.latex?%5Csum_%7Bj%3D1%7D%5En%20w_%7Bij%7D%20%3D%201%2C%20%5Cforall%20i%20%3D%201%2C%20%5Cdots%2C%20n). This ensure that all weights are between 0 and 1. Each rownormalized weight, ![](https://latex.codecogs.com/gif.latex?wij), can be interpreted as the fraction of all spatial influence on unit ![](https://latex.codecogs.com/gif.latex?i) attributable to unit ![](https://latex.codecogs.com/gif.latex?j).
+The row-normalized ![](https://latex.codecogs.com/gif.latex?W) is used for ease of interpretation. It is defined as ![](https://latex.codecogs.com/gif.latex?%5Csum_%7Bj%3D1%7D%5En%20w_%7Bij%7D%20%3D%201%2C%20%5Cforall%20i%20%3D%201%2C%20%5Cdots%2C%20n). This ensure that all weights are between 0 and 1. Each row-normalized weight, ![](https://latex.codecogs.com/gif.latex?wij), can be interpreted as the fraction of all spatial influence on unit ![](https://latex.codecogs.com/gif.latex?i) attributable to unit ![](https://latex.codecogs.com/gif.latex?j).
+
+### Estimation Results
+
+The model specified is used to predict the immigrant stock at Italian zones level. Same features, times period and origin countries used it the previous section (Regression Model for Data Panel) are considered.
+
+The model requires a reference territory, both "Centro" and "Italia" are used:
+- in the first case the real "Centro" stock is used;
+- in the second case the estimation of the "Italia" stock at the current time ![](https://latex.codecogs.com/gif.latex?t) is used.

@@ -57,7 +57,7 @@ def stepI(param, data_, W, times, ref_I, territories, data_hat):
             y = (data_.loc[(t, terr_not_ref), "y"]/data_hat.loc[(t, ref_I), "y"]).values
         else:
             y = (data_.loc[(t, terr_not_ref), "y"]/data_.loc[(t, ref_I), "y"]).values
-            
+
         x = (data_.loc[(t, terr_not_ref), "y_prev_1"]/data_.loc[(t, ref_I), "y_prev_1"]).values
         #print(y.shape, x.shape, len(a))
         main_term = np.log(y) - beta*np.log(x) - a
@@ -91,7 +91,7 @@ def stepII_constant(param, a, x_, ref_I, territories):
 
 
 
-def run_model(data_init, country, times, I, x_, W, territories, var_selection, constant, palette, title, save, path = "", data_hat = None):
+def run_model(data_init, country, times, I, x_, W, territories, var_selection, constant, palette, title, save, path = "", data_hat = None, train_test = False):
     country_name = country
     country = pycountry.countries.get(name=country_name).alpha_3
     y = data_init
@@ -118,7 +118,12 @@ def run_model(data_init, country, times, I, x_, W, territories, var_selection, c
     # I-1 locations + beta + ro
     random.seed(123)
     param_init = [0 for i in range(len(territories)+1)]
-    res_stepI =  minimize(stepI, param_init, args = (data_, W, times, I, territories, data_hat), method='CG')
+
+    if train_test:
+        res_stepI =  minimize(stepI, param_init, args = (data_, W, times[:-3], I, territories, data_hat), method='CG')
+    else:
+        res_stepI =  minimize(stepI, param_init, args = (data_, W, times, I, territories, data_hat), method='CG')
+
     print(res_stepI.message)
 
     final_time = datetime.datetime.now()
@@ -208,4 +213,4 @@ def run_model(data_init, country, times, I, x_, W, territories, var_selection, c
         #R2_adj = 1 - (1 - R2)*((n - 1)/(n - k -1))
         #print("Adjusted R-squared %f." %round(R2_adj, 3))
 
-    return(df, [beta_hat, a_hat, rho_hat, thetas_hat])
+    return(df, [beta_hat, a_hat, rho_hat, thetas_hat, cs_hat])
