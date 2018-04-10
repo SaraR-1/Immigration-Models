@@ -89,7 +89,7 @@ def stepII_constant(param, a, x_, ref_I, territories):
     ols = (1/len(a))*temp.T.dot(temp)
     return(ols)'''
 
-def stepII(theta, data_, W, times, beta_, ro_, x_, ref_I, territories, data_hat):
+'''def stepII(theta, data_, W, times, beta_, ro_, x_, ref_I, territories, data_hat):
     T = len(times)
     I = len(territories)
 
@@ -122,8 +122,30 @@ def stepII(theta, data_, W, times, beta_, ro_, x_, ref_I, territories, data_hat)
 
         log_lik += np.log(np.linalg.det(L)) + main_term.T.dot(np.linalg.inv(L)).dot(main_term)
 
-    return(log_lik)
+    return(log_lik)'''
 
+def stepII(theta, a, x_, ref_I, territories, constant):
+    # All the I-1 locations (all but the reference one)
+    terr_not_ref = [i for i in territories if i != ref_I]
+    # to be sure about the ordering
+    A = [a[terr_not_ref.index(i)] for i in terr_not_ref]
+
+    if constant:
+        # with constant
+        var_c = np.ones((len(A), 1))
+        X = x_.loc[terr_not_ref].values - x_.loc[ref_I].values
+        X = np.append(var_c, X, axis=1)
+        temp1 = np.linalg.inv(np.array(X.T.dot(X), dtype=np.float64))
+        temp2 = X.T.dot(A)
+        ols = temp1.dot(temp2)
+    else:
+        # without constant
+        X = x_.loc[terr_not_ref].values - x_.loc[ref_I].values
+        temp1 = np.linalg.inv(np.array(X.T.dot(X), dtype=np.float64))
+        temp2 = X.T.dot(A)
+        ols = temp1.dot(temp2)
+
+    return(ols)
 
 
 def run_model(data_init, country, times, I, x_, W, territories, var_selection, constant, palette, title, save, path = "", data_hat = None, train_test = False):
@@ -152,7 +174,7 @@ def run_model(data_init, country, times, I, x_, W, territories, var_selection, c
 
     # I-1 locations + beta + ro
     random.seed(123)
-    param_init = [random.random() for i in range(len(territories)+1)]
+    param_init = [0 for i in range(len(territories)+1)]
 
     if train_test:
         res_stepI =  minimize(stepI, param_init, args = (data_, W, times[:-3], I, territories, data_hat), method='CG')
@@ -195,28 +217,31 @@ def run_model(data_init, country, times, I, x_, W, territories, var_selection, c
 
         random.seed(123)
         if constant:
-            param_init = [random.uniform(0, 1) for i in range(len(xs_.columns)+1)]
+            param_init = [0 for i in range(len(xs_.columns)+1)]
             #res_stepII =  minimize(stepII_constant, param_init, args = (a_hat, xs_, I, territories), method='CG')
-            res_stepII =  minimize(stepII_constant, param_init,
-                                   args = (data_, W, times, beta_hat, rho_hat, xs_, I, territories, data_hat), method='CG')
+            '''res_stepII =  minimize(stepII_constant, param_init,
+                                   args = (data_, W, times, beta_hat, rho_hat, xs_, I, territories, data_hat), method='CG')'''
         else:
-            param_init = [random.random() for i in range(len(xs_.columns))]
+            param_init = [0 for i in range(len(xs_.columns))]
             #res_stepII =  minimize(stepII, param_init, args = (a_hat, xs_, I, territories), method='CG')
-            res_stepII =  minimize(stepII, param_init,
-                                   args = (data_, W, times, beta_hat, rho_hat, xs_, I, territories, data_hat), method='CG')
-
+            '''res_stepII =  minimize(stepII, param_init,
+                                   args = (data_, W, times, beta_hat, rho_hat, xs_, I, territories, data_hat), method='CG')'''
+        res_stepII =  stepII(param_init, a_hat, xs_, I, territories, constant)
 
         x_I = xs_.loc[I].values
 
         if constant:
-            c_hat = res_stepII.x[-1]
+            #c_hat = res_stepII.x[-1]
+            c_hat = res_stepII[-1]
             cs_hat.append(c_hat)
-            theta_hat = res_stepII.x[:-1]
+            #theta_hat = res_stepII.x[:-1]
+            theta_hat = res_stepII[:-1]
             thetas_hat.append(theta_hat)
         else:
             c_hat = 0
             cs_hat.append(0)
-            theta_hat = res_stepII.x
+            #theta_hat = res_stepII.x
+            theta_hat = res_stepII
             thetas_hat.append(theta_hat)
 
         fixed_hat = [np.dot(np.subtract(xs_.loc[i].values, x_I), theta_hat) + c_hat for i in terr_not_ref]
@@ -245,13 +270,13 @@ def run_model(data_init, country, times, I, x_, W, territories, var_selection, c
         #if constant == False:
         #    R2 = 1 - (sum(np.subtract(data["y"].values, y_hat.fitted_values.values)**2) / sum((data["y"].values)**2))
         #else:
-        R2 = 1 - (sum(np.subtract(df["Immigrant Stock"].values, df[c].values)**2) / sum((df["Immigrant Stock"].values - np.mean(df["Immigrant Stock"].values))**2))
-
+        #R2 = 1 - (sum(np.subtract(df["Immigrant Stock"].values, df[c].values)**2) / sum((df["Immigrant Stock"].values - np.mean(df["Immigrant Stock"].values))**2))
+        R2 = 1 - (sum(np.subtract(res_pred["Immigrant Stock"].values, res_pred[c].values)**2) / sum((res_pred["Immigrant Stock"].values)**2))
         print("R-squared for %s: %f." %(c, round(R2,3)))
         # k: number of independet vars
         #n = len(df)
         # len(df) includes also the reference territory
-        n = times*(territories-1)
+        n = len(times)*(len(territories)-1)
         R2_adj = 1 - (1 - R2)*((n - 1)/(n - k -1))
         print("Adjusted R-squared for %s: %f." %(c, round(R2_adj, 3)))
 

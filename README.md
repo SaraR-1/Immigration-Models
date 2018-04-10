@@ -466,6 +466,8 @@ Once ![](https://latex.codecogs.com/gif.latex?%5Chat%7B%5Cbeta%7D) and ![](https
 
 where ![](https://latex.codecogs.com/gif.latex?%5Cepsilon_i%20%3D%20%5Ceta_i%20-%20%5Ceta_I)
 
+![](https://latex.codecogs.com/gif.latex?%5Ctheta) is then estimated by ordinary least squares.
+
 ### Spatial weights matrix
 
 In order to build the spatial weights matrix, useful information are available on the [ISTA website](http://www.istat.it/it/archivio/157423).
