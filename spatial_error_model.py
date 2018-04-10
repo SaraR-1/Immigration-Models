@@ -249,7 +249,9 @@ def run_model(data_init, country, times, I, x_, W, territories, var_selection, c
 
         print("R-squared for %s: %f." %(c, round(R2,3)))
         # k: number of independet vars
-        n = len(df)
+        #n = len(df)
+        # len(df) includes also the reference territory
+        n = times*(territories-1)
         R2_adj = 1 - (1 - R2)*((n - 1)/(n - k -1))
         print("Adjusted R-squared for %s: %f." %(c, round(R2_adj, 3)))
 
