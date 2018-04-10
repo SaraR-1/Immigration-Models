@@ -460,6 +460,12 @@ maximize ![](https://latex.codecogs.com/gif.latex?%5Cinline%20L%20%5Cleft%20%28%
 
 ![](https://latex.codecogs.com/gif.latex?%5Cinline%20%5Ctext%7B%20min%20%7D%20%5C%20%5C%20T%5Ccdot%20ln%7CL%7C%20&plus;%5Csum_%7Bt%3D1%7D%5ET%20%5Cleft%20%28%20ln%20%5Cleft%20%28%20%5Cfrac%7Bn_t%7D%7Bn_%7BI%2C%20t%7D%7D%20%5Cright%20%29%20-%20%5Cmu%20%5Cright%20%29%5ET%20L%5E%7B-1%7D%20%5Cleft%20%28%20ln%20%5Cleft%20%28%20%5Cfrac%7Bn_t%7D%7Bn_%7BI%2C%20t%7D%7D%20%5Cright%20%29%20-%20%5Cmu%20%5Cright%20%29%20%5C%5C)
 
+Once ![](https://latex.codecogs.com/gif.latex?%5Chat%7B%5Cbeta%7D) and ![](https://latex.codecogs.com/gif.latex?%5Chat%7Ba%7D) have been found, it is possible to estimate the coefficients of the time-invariant features through the formula:
+
+![](https://latex.codecogs.com/gif.latex?%5Chat%7Ba%7D_i%20%3D%20a_i%20&plus;%20%5Cxi_i%20%3D%20%5Calpha_i%20-%20%5Calpha_I%20&plus;%20%5Cxi_i%20%3D%20%5Cleft%20%5C%28%20x%5ET_i%20-%20x%5ET_I%20%5Cright%20%5C%29%5Ctheta%20&plus;%20%5Cepsilon_i%20&plus;%20%5Cxi_i%2C)
+
+where ![](https://latex.codecogs.com/gif.latex?%5Cepsilon_i%20%3D%20%5Ceta_i%20-%20%5Ceta_I)
+
 ### Spatial weights matrix
 
 In order to build the spatial weights matrix, useful information are available on the [ISTA website](http://www.istat.it/it/archivio/157423).
