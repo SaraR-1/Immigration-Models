@@ -510,10 +510,10 @@ The model requires a reference territory, the estimation of the "Italia" stock a
 The prediction of the overall Italian flow is obtained through regression models whose independent variables are chosen using an automatic feature selection based on mutual information. Follows the results and the plot of the prediction.
 
 | Indep. var.  | Romania | Morocco | Albania | Tunisia | Egypt | Ecuador | Peru | China | Philippines |
-|---|---|---|---|---|---|---|---|---|
-| ![](https://latex.codecogs.com/gif.latex?y_%7Bi%2C%20t-1%7D) | -9924907.997 |  2505852.962 | 3045695.264 | 0.952 |  1.946 | | -341374.895 | |
-| ![](https://latex.codecogs.com/gif.latex?y_%7Bi%2C%20t-2%7D) | | 0.822 | 1.844 | |20389.242  | | 0.235 | 0.006 |
-| Native population - Total | 0.206 | 0.0 | -0.063 | 0.0042 | 9.325 | |  0.318 | 8236.308 | 5559.481|
+|---|---|---|---|---|---|---|---|---|---|
+| ![](https://latex.codecogs.com/gif.latex?y_%7Bi%2C%20t-1%7D) | -9924907.997 |  2505852.962 | 3045695.264 | 0.952 | 1.946 | -341374.895 | | |
+| ![](https://latex.codecogs.com/gif.latex?y_%7Bi%2C%20t-2%7D) | | 0.822 | 1.844 | |20389.242  | | 0.235 | 0.006 | |
+| Native population - Total | 0.206 | 0.0 | -0.063 | 0.0042 | 9.325 | | 0.318 | 8236.308 | 5559.481|
 | Average age of mothers at birth | 0.083 | 52.976 | 0.013 | -7.053 | 0.003 | | | -4901865.809 | -2396631.342 |
 | Disposable Income | 20977.322 | 0.573 | 0.632 | 5.581 | -28066.732 | | | | |
 | Free activities in voluntary associations | 43.024 | 0.004 | -9975.376 | 5.599 | -952927.923 | | | | |
@@ -534,7 +534,7 @@ The prediction of the overall Italian flow is obtained through regression models
 | Political_info - Some times in a year | | | | -0.002 | | | | | |
 | Reach_difficulty - Food stores, markets | | | | -5.925 | | | | | |
 | Political_info - Every day | | | | 1567.650 | | | | | |
-| Free activities in non voluntary associations| | | | -1.174 | | | | | |
+| Free activities in non voluntary associations| | | | -1.174 | | | | | | |
 
 
 
