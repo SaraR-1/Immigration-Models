@@ -155,6 +155,7 @@ def run_model(data_init, country, times, I, x_, W, territories, var_selection, c
     y_ = y.rename(columns = {country: "Value"})
     y_ = y_["Value"]
     y_ = y_.reset_index(level=['Province', 'Year'])
+    x_["y_prev_2"] = np.log(pd.DataFrame(data_init.shift().loc[(slice(None), slice(None)), country]))
     data_init = bdf.filter_origin_country_dataset(data_init, country, times, x_.index.levels[0].tolist(), x_, prev = 1)
 
     data_all = data_init.copy()
@@ -197,7 +198,7 @@ def run_model(data_init, country, times, I, x_, W, territories, var_selection, c
     idx = pd.MultiIndex.from_product([times, terr_not_ref], names=['Year', 'Province'])
     col = ['Immigrant Stock', 'Prediction step I', 'MI 3 selection','MI 5 selection',
     'MI 7 selection', 'MI 10 selection', 'MI 15 selection', 'Manual selection']
-    ks = [3, 5, 7, 10, 15, 7]
+    ks = [1, 3, 5, 7, 10, 15, 7]
     df = pd.DataFrame('-', idx, col)
 
     for t in times[:]:
@@ -264,14 +265,14 @@ def run_model(data_init, country, times, I, x_, W, territories, var_selection, c
 
     title = "Immigrant Stock VS "+title+" "+country_name
     #relation_plot_time_variant_intern_function(df, terr_not_ref, times, df.columns.tolist(), plt.figure(1, figsize=(15,10)), plt_seed, 45, palette, None, title, save, path = "")
-    pdf.relation_plot_time_variant(df, df.columns.tolist()[1:], y_, terr_not_ref, 45, title, palette, save, "Plots/"+path, sub_iteration=False, double_scale_x = False)
+    pdf.relation_plot_time_variant(df, df.columns.tolist()[1:], y_, terr_not_ref, 45, title, palette, save, path, sub_iteration=False, double_scale_x = False)
 
     for c, k in zip(df.columns.tolist()[1:], ks):
         #if constant == False:
         #    R2 = 1 - (sum(np.subtract(data["y"].values, y_hat.fitted_values.values)**2) / sum((data["y"].values)**2))
         #else:
         #R2 = 1 - (sum(np.subtract(df["Immigrant Stock"].values, df[c].values)**2) / sum((df["Immigrant Stock"].values - np.mean(df["Immigrant Stock"].values))**2))
-        R2 = 1 - (sum(np.subtract(res_pred["Immigrant Stock"].values, res_pred[c].values)**2) / sum((res_pred["Immigrant Stock"].values)**2))
+        R2 = 1 - (sum(np.subtract(df["Immigrant Stock"].values, df[c].values)**2) / sum((df["Immigrant Stock"].values)**2))
         print("R-squared for %s: %f." %(c, round(R2,3)))
         # k: number of independet vars
         #n = len(df)

@@ -158,6 +158,7 @@ def compute_regression_model(y, xs, years, country_list, target, ks):
     col = ["Predicted"]
     prediction_df = pd.DataFrame('-', idx, col)
 
+    res = defaultdict(dict)
     for country in countries_list_iso3:
         #country = pycountry.countries.get(name=c).alpha_3
         '''temp = xs_additional.loc[(years, country), :]
@@ -211,15 +212,16 @@ def compute_regression_model(y, xs, years, country_list, target, ks):
         model = model[mse.index(min(mse))]
         features = features[mse.index(min(mse))]
 
-
         clf = [reg for reg in models_function if model == str(reg).split("(")[0]][0].fit(X[features], y_temp)
         prediction = clf.predict(X[features])
 
         prediction_df.loc[(country, years), "Predicted"] = prediction
         print(country)
-        print(features)
+        res[country]["features"] = features
+        res[country]["coefficients"] = np.concatenate((np.array([clf.intercept_]), clf.coef_))
+        res[country]["model"] = model
     #prediction_df.index = years
     prediction_df = prediction_df.swaplevel()
     prediction_df = prediction_df.sort_index()
 
-    return(prediction_df)
+    return(prediction_df, res)
