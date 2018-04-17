@@ -509,33 +509,4 @@ The model requires a reference territory, the estimation of the "Italia" stock a
 
 The prediction of the overall Italian flow is obtained through regression models whose independent variables are chosen using an automatic feature selection based on mutual information. Follows the results and the plot of the prediction.
 
-| Indep. var.  | Romania | Morocco | Albania | Tunisia | Egypt | Ecuador | Peru | China | Philippines |
-|---|---|---|---|---|---|---|---|---|---|
-| ![](https://latex.codecogs.com/gif.latex?y_%7Bi%2C%20t-1%7D) | -9924907.997 |  2505852.962 | 3045695.264 | 0.952 | 1.946 | -341374.895 | | |
-| ![](https://latex.codecogs.com/gif.latex?y_%7Bi%2C%20t-2%7D) | | 0.822 | 1.844 | |20389.242  | | 0.235 | 0.006 | |
-| Native population - Total | 0.206 | 0.0 | -0.063 | 0.0042 | 9.325 | | 0.318 | 8236.308 | 5559.481|
-| Average age of mothers at birth | 0.083 | 52.976 | 0.013 | -7.053 | 0.003 | | | -4901865.809 | -2396631.342 |
-| Disposable Income | 20977.322 | 0.573 | 0.632 | 5.581 | -28066.732 | | | | |
-| Free activities in voluntary associations | 43.024 | 0.004 | -9975.376 | 5.599 | -952927.923 | | | | |
-| Average age of fathers at birth | | 0.013 | 27.019 | -1009.268 | 14.093 | | | 13612.959 | 0.016 |
-| Political_info - Some times in a week | | -5282.569 | -12220.386 | | | | | | |
-| Average monthly expenditure for housing | | 15.551 | 16.360 | | | | | | |
-| Unemployment - Total | | 2150.934 | 0.0 | | | | | | |
-| Internal_migration - Foreign country | | -5.825 | -0.340 | | | | | | |
-| Political_info - A time per week | | 0.724 | 5.784 | | | | | | |
-| Internal_migration - Italy | | -11.467 | -257.443 | 1.423 | | | | | |
-| Reach_difficulty - Pharmacy | | -0.434 | | | | | | | |
-| Furniture, articles and services for the house | | 12.705 | | | | | | | |
-| Communications | | | 0.666 | | | | | | |
-| Recreation, shows and culture | | | -27.880 | | | | | | |
-| Meetings in cultural, recreational or other associations | | | | -10006.812 | | | | | |
-| Reach_difficulty - Emergency room | | | | -0.075 | 1767.634 | | | | |
-| Total fertility rate | | | | -0.097 | | | | | |
-| Political_info - Some times in a year | | | | -0.002 | | | | | |
-| Reach_difficulty - Food stores, markets | | | | -5.925 | | | | | |
-| Political_info - Every day | | | | 1567.650 | | | | | |
-| Free activities in non voluntary associations| | | | -1.174 | | | | | | |
-
-
-
 ![](https://github.com/SaraR-1/Immigration-Models/blob/master/Plots/regression_model_italy.png)
