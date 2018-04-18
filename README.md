@@ -529,7 +529,7 @@ Romania, Training 2005-2013 models
 | ![](https://latex.codecogs.com/gif.latex?a_%7BNord%20%5C%20est%7D)  | - 0.137| | |
 | ![](https://latex.codecogs.com/gif.latex?a_%7BNord%20%5C%20ovest%7D)  | -0.113 | | |
 | ![](https://latex.codecogs.com/gif.latex?a_%7BSud%7D)  | -0.086 | | |
-| ![](https://latex.codecogs.com/gif.latex?y_%7Bi%2C%20t-1%7D) | |-0.008 | -0.029 |
+| ![](https://latex.codecogs.com/gif.latex?y_%7Bi%2C%20t-2%7D) | |-0.008 | -0.029 |
 | Average age of mothers at birth  | | 0.001 | 0.245 |
 | Average age of fathers at birth | | | -0.219 |
 | Free activities in voluntary associations | | | 0.001 |
@@ -553,7 +553,7 @@ Morocco, Training 2005-2013 models
 | ![](https://latex.codecogs.com/gif.latex?a_%7BNord%20%5C%20est%7D)  | - 0.211| | |
 | ![](https://latex.codecogs.com/gif.latex?a_%7BNord%20%5C%20ovest%7D)  | -0.163 | | |
 | ![](https://latex.codecogs.com/gif.latex?a_%7BSud%7D)  | -0.448 | | |
-| ![](https://latex.codecogs.com/gif.latex?y_%7Bi%2C%20t-1%7D) | |0.189 | 0.186 |
+| ![](https://latex.codecogs.com/gif.latex?y_%7Bi%2C%20t-2%7D) | |0.189 | 0.186 |
 | Free activities in voluntary associations | | 0.001 | 0.001 |
 | Internal_migration - Foreign country  | | | 0.001 |
 | Native population - Total | | | 0.001 |
@@ -577,7 +577,7 @@ Albania, Training 2005-2013 models
 | ![](https://latex.codecogs.com/gif.latex?a_%7BNord%20%5C%20est%7D)  | - 0.342| | |
 | ![](https://latex.codecogs.com/gif.latex?a_%7BNord%20%5C%20ovest%7D)  | -0.293 | | |
 | ![](https://latex.codecogs.com/gif.latex?a_%7BSud%7D)  | -0.648 | | |
-| ![](https://latex.codecogs.com/gif.latex?y_%7Bi%2C%20t-1%7D) | | 0.278 | 0.279 |
+| ![](https://latex.codecogs.com/gif.latex?y_%7Bi%2C%20t-2%7D) | | 0.278 | 0.279 |
 | Native population - Total | | 0.001 | 0.001 |
 | Internal_migration - Foreign country  | | | 0.001 |
 | Free activities in voluntary associations | | | 0.001 |
@@ -601,7 +601,7 @@ Tunisia, Training 2005-2013 models
 | ![](https://latex.codecogs.com/gif.latex?a_%7BNord%20%5C%20est%7D)  | - 0.297 | | |
 | ![](https://latex.codecogs.com/gif.latex?a_%7BNord%20%5C%20ovest%7D)  | -0.330 | | |
 | ![](https://latex.codecogs.com/gif.latex?a_%7BSud%7D)  | -0.732 | | |
-| ![](https://latex.codecogs.com/gif.latex?y_%7Bi%2C%20t-1%7D) | | 0.266 | 0.245 |
+| ![](https://latex.codecogs.com/gif.latex?y_%7Bi%2C%20t-2%7D) | | 0.266 | 0.245 |
 | Pay money to an association | | 0.001 | 0.001 |
 | Internal_migration - Foreign country | | | 0.001 |
 | Native population - Total | | | 0.001 |
@@ -625,7 +625,7 @@ Egypt, Training 2005-2013 models
 | ![](https://latex.codecogs.com/gif.latex?a_%7BNord%20%5C%20est%7D)  | -0.922 | | |
 | ![](https://latex.codecogs.com/gif.latex?a_%7BNord%20%5C%20ovest%7D)  | -0.083 | | |
 | ![](https://latex.codecogs.com/gif.latex?a_%7BSud%7D)  | -1.621 | | |
-| ![](https://latex.codecogs.com/gif.latex?y_%7Bi%2C%20t-1%7D) | | 0.342 | 0.354 |
+| ![](https://latex.codecogs.com/gif.latex?y_%7Bi%2C%20t-2%7D) | | 0.342 | 0.354 |
 | Native population - Total | | 0.001 | 0.001 |
 | Pay money to an association | | | 0.001 |
 | Non food | | | 0.001 |
@@ -649,7 +649,7 @@ Ecuador, Training 2005-2013 models
 | ![](https://latex.codecogs.com/gif.latex?a_%7BNord%20%5C%20est%7D)  | -1.856 | | |
 | ![](https://latex.codecogs.com/gif.latex?a_%7BNord%20%5C%20ovest%7D)  | -0.222 | | |
 | ![](https://latex.codecogs.com/gif.latex?a_%7BSud%7D)  | -3.512 | | |
-| ![](https://latex.codecogs.com/gif.latex?y_%7Bi%2C%20t-1%7D) | | 0.720 | 0.769 |
+| ![](https://latex.codecogs.com/gif.latex?y_%7Bi%2C%20t-2%7D) | | 0.720 | 0.769 |
 | Native population - Total | | 0.001 | 0.001 |
 | Internal_migration - Foreign country | | | 0.001 |
 | Pay money to an association | | | 0.001 |
@@ -674,7 +674,7 @@ Peru, Training 2005-2013 models
 | ![](https://latex.codecogs.com/gif.latex?a_%7BNord%20%5C%20est%7D)  | -1.217 | | |
 | ![](https://latex.codecogs.com/gif.latex?a_%7BNord%20%5C%20ovest%7D)  | -0.242 | | |
 | ![](https://latex.codecogs.com/gif.latex?a_%7BSud%7D)  | -2.030 | | |
-| ![](https://latex.codecogs.com/gif.latex?y_%7Bi%2C%20t-1%7D) | | 0.479 | 0.476 |
+| ![](https://latex.codecogs.com/gif.latex?y_%7Bi%2C%20t-2%7D) | | 0.479 | 0.476 |
 | Native population - Total | | 0.001 | 0.001 |
 | Internal_migration - Foreign country | | | 0.001 |
 | Free activities in voluntary associations | | | 0.001 |
@@ -699,7 +699,7 @@ China, Training 2005-2013 models
 | ![](https://latex.codecogs.com/gif.latex?a_%7BNord%20%5C%20est%7D)  | -0.354 | | |
 | ![](https://latex.codecogs.com/gif.latex?a_%7BNord%20%5C%20ovest%7D)  | -0.326 | | |
 | ![](https://latex.codecogs.com/gif.latex?a_%7BSud%7D)  | -0.643 | | |
-| ![](https://latex.codecogs.com/gif.latex?y_%7Bi%2C%20t-1%7D) | | 0.264 | 0.278 |
+| ![](https://latex.codecogs.com/gif.latex?y_%7Bi%2C%20t-2%7D) | | 0.264 | 0.278 |
 | Born alive | | 0.001 | 0.001 |
 | Internal_migration - Foreign country | | | 0.001 |
 | Political_info - Some times in a week | | | 0.001 |
@@ -724,7 +724,7 @@ Philippines, Training 2005-2013 models
 | ![](https://latex.codecogs.com/gif.latex?a_%7BNord%20%5C%20est%7D)  | -0.814 | | |
 | ![](https://latex.codecogs.com/gif.latex?a_%7BNord%20%5C%20ovest%7D)  | -0.374 | | |
 | ![](https://latex.codecogs.com/gif.latex?a_%7BSud%7D)  | -1.221 | | |
-| ![](https://latex.codecogs.com/gif.latex?y_%7Bi%2C%20t-1%7D) | | 0.431 | 0.442 |
+| ![](https://latex.codecogs.com/gif.latex?y_%7Bi%2C%20t-2%7D) | | 0.431 | 0.442 |
 | Native population - Total | | 0.001 | 0.001 |
 | Internal_migration - Foreign country | | | 0.001 |
 | Other goods and services | | | 0.001 |

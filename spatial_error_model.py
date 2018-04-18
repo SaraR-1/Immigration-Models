@@ -148,7 +148,7 @@ def stepII(theta, a, x_, ref_I, territories, constant):
     return(ols)
 
 
-def run_model(data_init, country, times, I, x_, W, territories, var_selection, constant, palette, title, save, path = "", data_hat = None, train_test = False):
+def run_model(data_init, country, times, I, x_, W, territories, var_selection, constant, palette, title, save, path = "", data_hat = None, train_test = False, test_size = 3):
     country_name = country
     country = pycountry.countries.get(name=country_name).alpha_3
     y = data_init
@@ -178,7 +178,7 @@ def run_model(data_init, country, times, I, x_, W, territories, var_selection, c
     param_init = [0 for i in range(len(territories)+1)]
 
     if train_test:
-        res_stepI =  minimize(stepI, param_init, args = (data_, W, times[:-3], I, territories, data_hat), method='CG')
+        res_stepI =  minimize(stepI, param_init, args = (data_, W, times[:-test_size], I, territories, data_hat), method='CG')
     else:
         res_stepI =  minimize(stepI, param_init, args = (data_, W, times, I, territories, data_hat), method='CG')
 
