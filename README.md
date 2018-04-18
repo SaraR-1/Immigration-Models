@@ -505,8 +505,56 @@ The row-normalized ![](https://latex.codecogs.com/gif.latex?W) is used for ease 
 
 The model specified is used to predict the immigrant stock at Italian zones level. Same features, times period and origin countries used it the previous section (Regression Model for Data Panel) are considered.
 
-The model requires a reference territory, the estimation of the "Italia" stock at the current time ![](https://latex.codecogs.com/gif.latex?t) is used.
+All the features are assumed to be time invariant, thus as reference period the 2013 is considered.
+
+The model also requires a reference territory, the estimation of the "Italia" stock at the current time ![](https://latex.codecogs.com/gif.latex?t) is used.
 
 The prediction of the overall Italian flow is obtained through regression models whose independent variables are chosen using an automatic feature selection based on mutual information. Follows the results and the plot of the prediction.
 
-![](https://github.com/SaraR-1/Immigration-Models/blob/master/Plots/regression_model_italy.png)
+![](https://github.com/SaraR-1/Immigration-Models/blob/master/Plot_2005_2016/regression_model_italy.png)
+
+For each origin country, just the models using 3, 5, and 7 features are used. The models with an higher number of variables gave really bad estimations.
+
+Romania, Training 2005-2013 models
+
+![](https://github.com/SaraR-1/Immigration-Models/blob/master/Plot_2005_2016/spatial_autocorr_model_romania1zones.png)
+
+
+Morocco, Training 2005-2013 models
+
+![](https://github.com/SaraR-1/Immigration-Models/blob/master/Plot_2005_2016/spatial_autocorr_model_morocco1zones.png)
+
+
+Albania, Training 2005-2013 models
+
+![](https://github.com/SaraR-1/Immigration-Models/blob/master/Plot_2005_2016/spatial_autocorr_model_albania1zones.png)
+
+
+Tunisia, Training 2005-2013 models
+
+![](https://github.com/SaraR-1/Immigration-Models/blob/master/Plot_2005_2016/spatial_autocorr_model_tunisia1zones.png)
+
+
+Egypt, Training 2005-2013 models
+
+![](https://github.com/SaraR-1/Immigration-Models/blob/master/Plot_2005_2016/spatial_autocorr_model_egypt1zones.png)
+
+
+Ecuador, Training 2005-2013 models
+
+![](https://github.com/SaraR-1/Immigration-Models/blob/master/Plot_2005_2016/spatial_autocorr_model_ecuador1zones.png)
+
+
+Peru, Training 2005-2013 models
+
+![](https://github.com/SaraR-1/Immigration-Models/blob/master/Plot_2005_2016/spatial_autocorr_model_peru1zones.png)
+
+
+China, Training 2005-2013 models
+
+![](https://github.com/SaraR-1/Immigration-Models/blob/master/Plot_2005_2016/spatial_autocorr_model_china1zones.png)
+
+
+Philippines, Training 2005-2013 models
+
+![](https://github.com/SaraR-1/Immigration-Models/blob/master/Plot_2005_2016/spatial_autocorr_model_philippines1zones.png)
