@@ -518,12 +518,12 @@ For each origin country, just the models using 3, and 5 features are used. The m
 Romania, Training 2005-2013 models
 
 | Var.  | Value |
-|---|---|---|---|---|---|---|---|---|
+|---|---|
 | ![](https://latex.codecogs.com/gif.latex?%5Cbeta) | 0.926 |
 | ![](https://latex.codecogs.com/gif.latex?%5Crho) | 6.866 |
 
 | Indep. var.  | I | II | III |
-|---|---|---|---|---|
+|---|---|---|---|
 | ![](https://latex.codecogs.com/gif.latex?a_%7BCentro%7D)  | -0.110 | | |
 | ![](https://latex.codecogs.com/gif.latex?a_%7BIsole%7D)  | -0.110 | | |
 | ![](https://latex.codecogs.com/gif.latex?a_%7BNord%20%5C%20est%7D)  | - 0.137| | |
@@ -542,12 +542,12 @@ Romania, Training 2005-2013 models
 Morocco, Training 2005-2013 models
 
 | Var.  | Value |
-|---|---|---|---|---|---|---|---|---|
+|---|---|
 | ![](https://latex.codecogs.com/gif.latex?%5Cbeta) | 0.814 |
 | ![](https://latex.codecogs.com/gif.latex?%5Crho) | 7.041 |
 
 | Indep. var.  | I | II | III |
-|---|---|---|---|---|
+|---|---|---|---|
 | ![](https://latex.codecogs.com/gif.latex?a_%7BCentro%7D)  | -0.370 | | |
 | ![](https://latex.codecogs.com/gif.latex?a_%7BIsole%7D)  | -0.614 | | |
 | ![](https://latex.codecogs.com/gif.latex?a_%7BNord%20%5C%20est%7D)  | - 0.211| | |
@@ -566,12 +566,12 @@ Morocco, Training 2005-2013 models
 Albania, Training 2005-2013 models
 
 | Var.  | Value |
-|---|---|---|---|---|---|---|---|---|
+|---|---|
 | ![](https://latex.codecogs.com/gif.latex?%5Cbeta) | 0.726 |
 | ![](https://latex.codecogs.com/gif.latex?%5Crho) | 7.044 |
 
 | Indep. var.  | I | II | III |
-|---|---|---|---|---|
+|---|---|---|---|
 | ![](https://latex.codecogs.com/gif.latex?a_%7BCentro%7D)  | -0.368 | | |
 | ![](https://latex.codecogs.com/gif.latex?a_%7BIsole%7D)  | -1.156 | | |
 | ![](https://latex.codecogs.com/gif.latex?a_%7BNord%20%5C%20est%7D)  | - 0.342| | |
@@ -590,12 +590,12 @@ Albania, Training 2005-2013 models
 Tunisia, Training 2005-2013 models
 
 | Var.  | Value |
-|---|---|---|---|---|---|---|---|---|
+|---|---|
 | ![](https://latex.codecogs.com/gif.latex?%5Cbeta) | 0.734 |
 | ![](https://latex.codecogs.com/gif.latex?%5Crho) | 7.040 |
 
 | Indep. var.  | I | II | III |
-|---|---|---|---|---|
+|---|---|---|---|
 | ![](https://latex.codecogs.com/gif.latex?a_%7BCentro%7D)  | -0.486 | | |
 | ![](https://latex.codecogs.com/gif.latex?a_%7BIsole%7D)  | -0.487 | | |
 | ![](https://latex.codecogs.com/gif.latex?a_%7BNord%20%5C%20est%7D)  | - 0.297 | | |
@@ -614,12 +614,12 @@ Tunisia, Training 2005-2013 models
 Egypt, Training 2005-2013 models
 
 | Var.  | Value |
-|---|---|---|---|---|---|---|---|---|
+|---|---|
 | ![](https://latex.codecogs.com/gif.latex?%5Cbeta) | 0.666 |
 | ![](https://latex.codecogs.com/gif.latex?%5Crho) | 6.976 |
 
 | Indep. var.  | I | II | III |
-|---|---|---|---|---|
+|---|---|---|---|
 | ![](https://latex.codecogs.com/gif.latex?a_%7BCentro%7D)  | -0.686 | | |
 | ![](https://latex.codecogs.com/gif.latex?a_%7BIsole%7D)  | -1.867 | | |
 | ![](https://latex.codecogs.com/gif.latex?a_%7BNord%20%5C%20est%7D)  | -0.922 | | |
@@ -638,12 +638,12 @@ Egypt, Training 2005-2013 models
 Ecuador, Training 2005-2013 models
 
 | Var.  | Value |
-|---|---|---|---|---|---|---|---|---|
+|---|---|
 | ![](https://latex.codecogs.com/gif.latex?%5Cbeta) | 0.284 |
 | ![](https://latex.codecogs.com/gif.latex?%5Crho) | 7.025 |
 
 | Indep. var.  | I | II | III |
-|---|---|---|---|---|
+|---|---|---|---|
 | ![](https://latex.codecogs.com/gif.latex?a_%7BCentro%7D)  | -1.303 | | |
 | ![](https://latex.codecogs.com/gif.latex?a_%7BIsole%7D)  | -3.697 | | |
 | ![](https://latex.codecogs.com/gif.latex?a_%7BNord%20%5C%20est%7D)  | -1.856 | | |
@@ -662,12 +662,13 @@ Ecuador, Training 2005-2013 models
 Peru, Training 2005-2013 models
 
 | Var.  | Value |
-|---|---|---|---|---|---|---|---|---|
+|---|---|
 | ![](https://latex.codecogs.com/gif.latex?%5Cbeta) | 0.513 |
 | ![](https://latex.codecogs.com/gif.latex?%5Crho) | 7.024 |
 
+
 | Indep. var.  | I | II | III |
-|---|---|---|---|---|
+|---|---|---|---|
 | ![](https://latex.codecogs.com/gif.latex?a_%7BCentro%7D)  | -0.608 | | |
 | ![](https://latex.codecogs.com/gif.latex?a_%7BIsole%7D)  | -2.679 | | |
 | ![](https://latex.codecogs.com/gif.latex?a_%7BNord%20%5C%20est%7D)  | -1.217 | | |
@@ -686,12 +687,13 @@ Peru, Training 2005-2013 models
 China, Training 2005-2013 models
 
 | Var.  | Value |
-|---|---|---|---|---|---|---|---|---|
+|---|---|
 | ![](https://latex.codecogs.com/gif.latex?%5Cbeta) | 0.725 |
 | ![](https://latex.codecogs.com/gif.latex?%5Crho) | 7.025 |
 
+
 | Indep. var.  | I | II | III |
-|---|---|---|---|---|
+|---|---|---|---|
 | ![](https://latex.codecogs.com/gif.latex?a_%7BCentro%7D)  | -0.354 | | |
 | ![](https://latex.codecogs.com/gif.latex?a_%7BIsole%7D)  | -0.862 | | |
 | ![](https://latex.codecogs.com/gif.latex?a_%7BNord%20%5C%20est%7D)  | -0.354 | | |
@@ -710,12 +712,13 @@ China, Training 2005-2013 models
 Philippines, Training 2005-2013 models
 
 | Var.  | Value |
-|---|---|---|---|---|---|---|---|---|
+|---|---|
 | ![](https://latex.codecogs.com/gif.latex?%5Cbeta) | 0.580 |
 | ![](https://latex.codecogs.com/gif.latex?%5Crho) | 7.026 |
 
+
 | Indep. var.  | I | II | III |
-|---|---|---|---|---|
+|---|---|---|---|
 | ![](https://latex.codecogs.com/gif.latex?a_%7BCentro%7D)  | -0.448 | | |
 | ![](https://latex.codecogs.com/gif.latex?a_%7BIsole%7D)  | -1.311 | | |
 | ![](https://latex.codecogs.com/gif.latex?a_%7BNord%20%5C%20est%7D)  | -0.814 | | |
