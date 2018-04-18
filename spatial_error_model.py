@@ -199,8 +199,8 @@ def run_model(data_init, country, times, I, x_, W, territories, var_selection, c
     #col = ['Immigrant Stock', 'Prediction step I', 'MI 3 selection','MI 5 selection','MI 7 selection', 'MI 10 selection', 'MI 15 selection', 'Manual selection']
     #ks = [1, 3, 5, 7, 10, 15, 8]
 
-    col = ['Immigrant Stock', 'Prediction step I', 'MI 3 selection','MI 5 selection','MI 7 selection']
-    ks = [1, 3, 5, 7]
+    col = ['Immigrant Stock', 'Prediction step I', 'MI 3 selection','MI 5 selection']
+    ks = [1, 3, 5]
     df = pd.DataFrame('-', idx, col)
 
     for t in times[:]:

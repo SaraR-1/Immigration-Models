@@ -513,48 +513,219 @@ The prediction of the overall Italian flow is obtained through regression models
 
 ![](https://github.com/SaraR-1/Immigration-Models/blob/master/Plot_2005_2016/regression_model_italy.png)
 
-For each origin country, just the models using 3, 5, and 7 features are used. The models with an higher number of variables gave really bad estimations.
+For each origin country, just the models using 3, and 5 features are used. The models with an higher number of variables gave really bad estimations.
 
 Romania, Training 2005-2013 models
+
+| Var.  | Value |
+|---|---|---|---|---|---|---|---|---|
+| ![](https://latex.codecogs.com/gif.latex?%5Cbeta) | 0.926 |
+| ![](https://latex.codecogs.com/gif.latex?%5Crho) | 6.866 |
+
+| Indep. var.  | I | II | III |
+|---|---|---|---|---|
+| ![](https://latex.codecogs.com/gif.latex?a_%7BCentro%7D)  | -0.110 | | |
+| ![](https://latex.codecogs.com/gif.latex?a_%7BIsole%7D)  | -0.110 | | |
+| ![](https://latex.codecogs.com/gif.latex?a_%7BNord%20%5C%20est%7D)  | - 0.137| | |
+| ![](https://latex.codecogs.com/gif.latex?a_%7BNord%20%5C%20ovest%7D)  | -0.113 | | |
+| ![](https://latex.codecogs.com/gif.latex?a_%7BSud%7D)  | -0.086 | | |
+| ![](https://latex.codecogs.com/gif.latex?y_%7Bi%2C%20t-1%7D) | |-0.008 | -0.029 |
+| Average age of mothers at birth  | | 0.001 | 0.245 |
+| Average age of fathers at birth | | | -0.219 |
+| Free activities in voluntary associations | | | 0.001 |
+| **R-squared** | 0.994  |  0.994 | 0.994  |
+| **Adj R-squared** | 0.994  |  0.994 | 0.994  |
 
 ![](https://github.com/SaraR-1/Immigration-Models/blob/master/Plot_2005_2016/spatial_autocorr_model_romania1zones.png)
 
 
 Morocco, Training 2005-2013 models
 
-![](https://github.com/SaraR-1/Immigration-Models/blob/master/Plot_2005_2016/spatial_autocorr_model_morocco1zones.png)
+| Var.  | Value |
+|---|---|---|---|---|---|---|---|---|
+| ![](https://latex.codecogs.com/gif.latex?%5Cbeta) | 0.814 |
+| ![](https://latex.codecogs.com/gif.latex?%5Crho) | 7.041 |
+
+| Indep. var.  | I | II | III |
+|---|---|---|---|---|
+| ![](https://latex.codecogs.com/gif.latex?a_%7BCentro%7D)  | -0.370 | | |
+| ![](https://latex.codecogs.com/gif.latex?a_%7BIsole%7D)  | -0.614 | | |
+| ![](https://latex.codecogs.com/gif.latex?a_%7BNord%20%5C%20est%7D)  | - 0.211| | |
+| ![](https://latex.codecogs.com/gif.latex?a_%7BNord%20%5C%20ovest%7D)  | -0.163 | | |
+| ![](https://latex.codecogs.com/gif.latex?a_%7BSud%7D)  | -0.448 | | |
+| ![](https://latex.codecogs.com/gif.latex?y_%7Bi%2C%20t-1%7D) | |0.189 | 0.186 |
+| Free activities in voluntary associations | | 0.001 | 0.001 |
+| Internal_migration - Foreign country  | | | 0.001 |
+| Native population - Total | | | 0.001 |
+| **R-squared** | 1.000  |  1.000 | 1.000  |
+| **Adj R-squared** | 1.000 |  1.000 | 1.000  |
+
+![](https://github.com/SaraR-1/Immigration-Models/blob/master/Plot_2005_2016/spatial_autocorr_model_Morocco1zones.png)
 
 
 Albania, Training 2005-2013 models
+
+| Var.  | Value |
+|---|---|---|---|---|---|---|---|---|
+| ![](https://latex.codecogs.com/gif.latex?%5Cbeta) | 0.726 |
+| ![](https://latex.codecogs.com/gif.latex?%5Crho) | 7.044 |
+
+| Indep. var.  | I | II | III |
+|---|---|---|---|---|
+| ![](https://latex.codecogs.com/gif.latex?a_%7BCentro%7D)  | -0.368 | | |
+| ![](https://latex.codecogs.com/gif.latex?a_%7BIsole%7D)  | -1.156 | | |
+| ![](https://latex.codecogs.com/gif.latex?a_%7BNord%20%5C%20est%7D)  | - 0.342| | |
+| ![](https://latex.codecogs.com/gif.latex?a_%7BNord%20%5C%20ovest%7D)  | -0.293 | | |
+| ![](https://latex.codecogs.com/gif.latex?a_%7BSud%7D)  | -0.648 | | |
+| ![](https://latex.codecogs.com/gif.latex?y_%7Bi%2C%20t-1%7D) | | 0.278 | 0.279 |
+| Native population - Total | | 0.001 | 0.001 |
+| Internal_migration - Foreign country  | | | 0.001 |
+| Free activities in voluntary associations | | | 0.001 |
+| **R-squared** | 1.000  |  1.000 | 1.000  |
+| **Adj R-squared** | 1.000 |  1.000 | 1.000  |
 
 ![](https://github.com/SaraR-1/Immigration-Models/blob/master/Plot_2005_2016/spatial_autocorr_model_albania1zones.png)
 
 
 Tunisia, Training 2005-2013 models
 
+| Var.  | Value |
+|---|---|---|---|---|---|---|---|---|
+| ![](https://latex.codecogs.com/gif.latex?%5Cbeta) | 0.734 |
+| ![](https://latex.codecogs.com/gif.latex?%5Crho) | 7.040 |
+
+| Indep. var.  | I | II | III |
+|---|---|---|---|---|
+| ![](https://latex.codecogs.com/gif.latex?a_%7BCentro%7D)  | -0.486 | | |
+| ![](https://latex.codecogs.com/gif.latex?a_%7BIsole%7D)  | -0.487 | | |
+| ![](https://latex.codecogs.com/gif.latex?a_%7BNord%20%5C%20est%7D)  | - 0.297 | | |
+| ![](https://latex.codecogs.com/gif.latex?a_%7BNord%20%5C%20ovest%7D)  | -0.330 | | |
+| ![](https://latex.codecogs.com/gif.latex?a_%7BSud%7D)  | -0.732 | | |
+| ![](https://latex.codecogs.com/gif.latex?y_%7Bi%2C%20t-1%7D) | | 0.266 | 0.245 |
+| Pay money to an association | | 0.001 | 0.001 |
+| Internal_migration - Foreign country | | | 0.001 |
+| Native population - Total | | | 0.001 |
+| **R-squared** | 0.999  |  0.999 | 0.999  |
+| **Adj R-squared** | 0.999  |  0.999 | 0.999  |
+
 ![](https://github.com/SaraR-1/Immigration-Models/blob/master/Plot_2005_2016/spatial_autocorr_model_tunisia1zones.png)
 
 
 Egypt, Training 2005-2013 models
+
+| Var.  | Value |
+|---|---|---|---|---|---|---|---|---|
+| ![](https://latex.codecogs.com/gif.latex?%5Cbeta) | 0.666 |
+| ![](https://latex.codecogs.com/gif.latex?%5Crho) | 6.976 |
+
+| Indep. var.  | I | II | III |
+|---|---|---|---|---|
+| ![](https://latex.codecogs.com/gif.latex?a_%7BCentro%7D)  | -0.686 | | |
+| ![](https://latex.codecogs.com/gif.latex?a_%7BIsole%7D)  | -1.867 | | |
+| ![](https://latex.codecogs.com/gif.latex?a_%7BNord%20%5C%20est%7D)  | -0.922 | | |
+| ![](https://latex.codecogs.com/gif.latex?a_%7BNord%20%5C%20ovest%7D)  | -0.083 | | |
+| ![](https://latex.codecogs.com/gif.latex?a_%7BSud%7D)  | -1.621 | | |
+| ![](https://latex.codecogs.com/gif.latex?y_%7Bi%2C%20t-1%7D) | | 0.342 | 0.354 |
+| Native population - Total | | 0.001 | 0.001 |
+| Pay money to an association | | | 0.001 |
+| Non food | | | 0.001 |
+| **R-squared** | 0.997  |  0.997 | 0.997  |
+| **Adj R-squared** | 0.997  |  0.997 | 0.997  |
 
 ![](https://github.com/SaraR-1/Immigration-Models/blob/master/Plot_2005_2016/spatial_autocorr_model_egypt1zones.png)
 
 
 Ecuador, Training 2005-2013 models
 
+| Var.  | Value |
+|---|---|---|---|---|---|---|---|---|
+| ![](https://latex.codecogs.com/gif.latex?%5Cbeta) | 0.284 |
+| ![](https://latex.codecogs.com/gif.latex?%5Crho) | 7.025 |
+
+| Indep. var.  | I | II | III |
+|---|---|---|---|---|
+| ![](https://latex.codecogs.com/gif.latex?a_%7BCentro%7D)  | -1.303 | | |
+| ![](https://latex.codecogs.com/gif.latex?a_%7BIsole%7D)  | -3.697 | | |
+| ![](https://latex.codecogs.com/gif.latex?a_%7BNord%20%5C%20est%7D)  | -1.856 | | |
+| ![](https://latex.codecogs.com/gif.latex?a_%7BNord%20%5C%20ovest%7D)  | -0.222 | | |
+| ![](https://latex.codecogs.com/gif.latex?a_%7BSud%7D)  | -3.512 | | |
+| ![](https://latex.codecogs.com/gif.latex?y_%7Bi%2C%20t-1%7D) | | 0.720 | 0.769 |
+| Native population - Total | | 0.001 | 0.001 |
+| Internal_migration - Foreign country | | | 0.001 |
+| Pay money to an association | | | 0.001 |
+| **R-squared** | 0.997  |  0.997 | 0.997  |
+| **Adj R-squared** | 0.997  |  0.997 | 0.997  |
+
 ![](https://github.com/SaraR-1/Immigration-Models/blob/master/Plot_2005_2016/spatial_autocorr_model_ecuador1zones.png)
 
 
 Peru, Training 2005-2013 models
+
+| Var.  | Value |
+|---|---|---|---|---|---|---|---|---|
+| ![](https://latex.codecogs.com/gif.latex?%5Cbeta) | 0.513 |
+| ![](https://latex.codecogs.com/gif.latex?%5Crho) | 7.024 |
+
+| Indep. var.  | I | II | III |
+|---|---|---|---|---|
+| ![](https://latex.codecogs.com/gif.latex?a_%7BCentro%7D)  | -0.608 | | |
+| ![](https://latex.codecogs.com/gif.latex?a_%7BIsole%7D)  | -2.679 | | |
+| ![](https://latex.codecogs.com/gif.latex?a_%7BNord%20%5C%20est%7D)  | -1.217 | | |
+| ![](https://latex.codecogs.com/gif.latex?a_%7BNord%20%5C%20ovest%7D)  | -0.242 | | |
+| ![](https://latex.codecogs.com/gif.latex?a_%7BSud%7D)  | -2.030 | | |
+| ![](https://latex.codecogs.com/gif.latex?y_%7Bi%2C%20t-1%7D) | | 0.479 | 0.476 |
+| Native population - Total | | 0.001 | 0.001 |
+| Internal_migration - Foreign country | | | 0.001 |
+| Free activities in voluntary associations | | | 0.001 |
+| **R-squared** | 0.997  |  0.997 | 0.997  |
+| **Adj R-squared** | 0.997  |  0.997 | 0.997  |
 
 ![](https://github.com/SaraR-1/Immigration-Models/blob/master/Plot_2005_2016/spatial_autocorr_model_peru1zones.png)
 
 
 China, Training 2005-2013 models
 
+| Var.  | Value |
+|---|---|---|---|---|---|---|---|---|
+| ![](https://latex.codecogs.com/gif.latex?%5Cbeta) | 0.725 |
+| ![](https://latex.codecogs.com/gif.latex?%5Crho) | 7.025 |
+
+| Indep. var.  | I | II | III |
+|---|---|---|---|---|
+| ![](https://latex.codecogs.com/gif.latex?a_%7BCentro%7D)  | -0.354 | | |
+| ![](https://latex.codecogs.com/gif.latex?a_%7BIsole%7D)  | -0.862 | | |
+| ![](https://latex.codecogs.com/gif.latex?a_%7BNord%20%5C%20est%7D)  | -0.354 | | |
+| ![](https://latex.codecogs.com/gif.latex?a_%7BNord%20%5C%20ovest%7D)  | -0.326 | | |
+| ![](https://latex.codecogs.com/gif.latex?a_%7BSud%7D)  | -0.643 | | |
+| ![](https://latex.codecogs.com/gif.latex?y_%7Bi%2C%20t-1%7D) | | 0.264 | 0.278 |
+| Born alive | | 0.001 | 0.001 |
+| Internal_migration - Foreign country | | | 0.001 |
+| Political_info - Some times in a week | | | 0.001 |
+| **R-squared** | 0.999  |  0.999 | 0.999  |
+| **Adj R-squared** | 0.999  |  0.999 | 0.999  |
+
 ![](https://github.com/SaraR-1/Immigration-Models/blob/master/Plot_2005_2016/spatial_autocorr_model_china1zones.png)
 
 
 Philippines, Training 2005-2013 models
+
+| Var.  | Value |
+|---|---|---|---|---|---|---|---|---|
+| ![](https://latex.codecogs.com/gif.latex?%5Cbeta) | 0.580 |
+| ![](https://latex.codecogs.com/gif.latex?%5Crho) | 7.026 |
+
+| Indep. var.  | I | II | III |
+|---|---|---|---|---|
+| ![](https://latex.codecogs.com/gif.latex?a_%7BCentro%7D)  | -0.448 | | |
+| ![](https://latex.codecogs.com/gif.latex?a_%7BIsole%7D)  | -1.311 | | |
+| ![](https://latex.codecogs.com/gif.latex?a_%7BNord%20%5C%20est%7D)  | -0.814 | | |
+| ![](https://latex.codecogs.com/gif.latex?a_%7BNord%20%5C%20ovest%7D)  | -0.374 | | |
+| ![](https://latex.codecogs.com/gif.latex?a_%7BSud%7D)  | -1.221 | | |
+| ![](https://latex.codecogs.com/gif.latex?y_%7Bi%2C%20t-1%7D) | | 0.431 | 0.442 |
+| Native population - Total | | 0.001 | 0.001 |
+| Internal_migration - Foreign country | | | 0.001 |
+| Other goods and services | | | 0.001 |
+| **R-squared** | 0.998  |  0.998 | 0.998  |
+| **Adj R-squared** | 0.998  |  0.998 | 0.998  |
 
 ![](https://github.com/SaraR-1/Immigration-Models/blob/master/Plot_2005_2016/spatial_autocorr_model_philippines1zones.png)
