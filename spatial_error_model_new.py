@@ -201,9 +201,9 @@ def run_model(data_init, country, times, I, x_, W, territories, constant, palett
 
     #col = ['Immigrant Stock', 'Prediction step I', 'MI 3 selection','MI 5 selection','MI 7 selection', 'MI 10 selection', 'MI 15 selection', 'MI 20 selection']
     #ks = [3, 5, 7, 10, 15, 20]
-    col = ['Immigrant Stock', 'Prediction step I', '0 features', '1 features', '2 features',
+    col = ['Immigrant Stock', 'Prediction step I', '1 features', '2 features',
            '3 features', '4 features',  '5 features', '6 features', '7 features']
-    ks = [0, 1, 2, 3, 4, 5, 6, 7]
+    ks = [1, 2, 3, 4, 5, 6, 7]
     df = pd.DataFrame('-', idx, col)
     
 

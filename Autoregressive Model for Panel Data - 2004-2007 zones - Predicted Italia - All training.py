@@ -35,9 +35,8 @@ from sklearn.model_selection import train_test_split, ShuffleSplit, cross_val_sc
 from scipy.stats import normaltest
 
 #%%
-years = list(range(2005, 2017))
-directory = "/home/sara/Documents/Immigration/Shared_models/Paper_%d_%d" % (
-    years[0], years[-1])
+years = list(range(2005, 2010))
+directory = "/home/sara/Documents/Immigration/Shared_models/Paper_%d_%d" %(years[0], years[-1])
 if not os.path.exists(directory):
     os.makedirs(directory)
 
@@ -78,6 +77,8 @@ ks = [3, 5, 7, 10, 15]
 y_hat, models = mf.compute_regression_model(
     y, xs, years, countries_list, target, ks)
 
+directory = "/home/sara/Documents/Immigration/Shared_models/Paper_%d_%d" % (
+    years[0], years[-1])
 y_hat.to_csv(directory+"/predicted_italia.csv", sep="\t")
 
 pdf.relation_plot_time_variant_intern_function(y_hat, countries_list_iso3, years, ["Predicted"], resident_foreigners_norm.groupby(["Country", "Year"]), plt.figure(
@@ -131,11 +132,10 @@ palette = ['blue', 'darkgreen', 'yellowgreen', 'orange', 'lightcoral',
 for c in countries_list:
     print("------------------------------- %s -------------------------------" %c)
     res_pred, res_est, res_params = semnew.run_model(y, c, years, "Italia", xs_zones, temp_W, temp_W.columns.tolist(
-    ), False, palette, "Spatial Error Model", save=True, path=directory+"/spatial_autocorr_model_%s_" %c.lower(), data_hat=y_italia_pred, train_test=True)
+    ), False, palette, "Spatial Error Model", save=True, path=directory+"/spatial_autocorr_model_%s_" %c.lower(), data_hat=y_italia_pred, train_test=False, ref_time=2005)
     res_pred
     res_pred.to_csv(directory+"/spatial_autocorr_model_fitted_values_%s.csv" % c.lower(), sep='\t')
     res_est.to_csv(
         directory+"/spatial_autocorr_model_est_params2_%s.csv" % c.lower(), sep='\t')
     res_params.to_csv(
         directory+"/spatial_autocorr_model_est_params1_%s.csv" % c.lower(), sep='\t')
-
