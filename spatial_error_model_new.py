@@ -7,6 +7,7 @@ if not sys.warnoptions:
 import pandas as pd
 import numpy as np
 import pycountry
+import itertools
 from scipy.optimize import least_squares
 import math
 import random
@@ -135,27 +136,28 @@ def stepII(theta, a, x_, ref_I, territories, constant):
         var_c = np.ones((len(A), 1))
         X = x_.loc[terr_not_ref].values - x_.loc[ref_I].values
         X = np.append(var_c, X, axis=1)
-        temp1 = np.linalg.inv(np.array(X.T.dot(X), dtype=np.float64))
-        temp2 = X.T.dot(A)
-        ols = temp1.dot(temp2)
     else:
         # without constant
         X = x_.loc[terr_not_ref].values - x_.loc[ref_I].values
+    # Handle matrix dependencies --> singular matrix
+    try:
         temp1 = np.linalg.inv(np.array(X.T.dot(X), dtype=np.float64))
         temp2 = X.T.dot(A)
         ols = temp1.dot(temp2)
+    except np.linalg.LinAlgError:
+        ols = [np.inf for i in range(len(theta))]
 
     return(ols)
 
 
-def run_model(data_init, country, times, I, x_, W, territories, var_selection, constant, palette, title, save, path = "", data_hat = None, train_test = False, test_size = 3):
+def run_model(data_init, country, times, I, x_, W, territories, constant, palette, title, save, path = "", data_hat = None, train_test = False, test_size = 3, ref_time = 2013):
     country_name = country
     country = pycountry.countries.get(name=country_name).alpha_3
     y = data_init
     y_ = y.rename(columns = {country: "Value"})
     y_ = y_["Value"]
     y_ = y_.reset_index(level=['Province', 'Year'])
-    x_["y_prev_2"] = np.log(pd.DataFrame(data_init.shift().loc[(slice(None), slice(None)), country]))
+    #x_["y_prev_2"] = np.log(pd.DataFrame(data_init.shift().loc[(slice(None), slice(None)), country]))
     data_init = bdf.filter_origin_country_dataset(data_init, country, times, x_.index.levels[0].tolist(), x_, prev = 1)
 
     data_all = data_init.copy()
@@ -196,12 +198,14 @@ def run_model(data_init, country, times, I, x_, W, territories, var_selection, c
     terr_not_ref = [i for i in territories if i != I]
 
     idx = pd.MultiIndex.from_product([times, terr_not_ref], names=['Year', 'Province'])
-    #col = ['Immigrant Stock', 'Prediction step I', 'MI 3 selection','MI 5 selection','MI 7 selection', 'MI 10 selection', 'MI 15 selection', 'Manual selection']
-    #ks = [1, 3, 5, 7, 10, 15, 8]
 
-    col = ['Immigrant Stock', 'Prediction step I', 'MI 3 selection','MI 5 selection']
-    ks = [1, 3, 5]
+    #col = ['Immigrant Stock', 'Prediction step I', 'MI 3 selection','MI 5 selection','MI 7 selection', 'MI 10 selection', 'MI 15 selection', 'MI 20 selection']
+    #ks = [3, 5, 7, 10, 15, 20]
+    col = ['Immigrant Stock', 'Prediction step I', '0 features', '1 features', '2 features',
+           '3 features', '4 features',  '5 features', '6 features', '7 features']
+    ks = [0, 1, 2, 3, 4, 5, 6, 7]
     df = pd.DataFrame('-', idx, col)
+    
 
     for t in times[:]:
         df.loc[(t, slice(None)), 'Immigrant Stock'] = data_.loc[(t, terr_not_ref), "y"].values
@@ -212,49 +216,107 @@ def run_model(data_init, country, times, I, x_, W, territories, var_selection, c
 
 
     print("---------- Step II ----------")
-    thetas_hat = []
-    cs_hat = []
+    thetas_hat = {}
+    cs_hat = {}
+    final_hat = pd.DataFrame(columns = col[2:])
 
-    for var, k in zip(var_selection, col[2:]):
-        xs_ = data_all.loc[2013, var]
-
-        random.seed(123)
-        if constant:
-            param_init = [0 for i in range(len(xs_.columns)+1)]
-            #res_stepII =  minimize(stepII_constant, param_init, args = (a_hat, xs_, I, territories), method='CG')
-            '''res_stepII =  minimize(stepII_constant, param_init,
-                                   args = (data_, W, times, beta_hat, rho_hat, xs_, I, territories, data_hat), method='CG')'''
+    for k, col_name in zip(ks, col[2:]):
+        print("---------- %f ----------" %k)
+        print("Current time: " + str(datetime.datetime.now().strftime('%H:%M:%S')))
+        '''var_k_combinations = [x for x in itertools.combinations(x_.columns, k)]
+        df_temp = pd.DataFrame('-', idx, var_k_combinations)'''
+       # All combinations
+        if k == ks[0]:
+            var_k_combinations = [
+                x for x in itertools.combinations(x_.columns, k)]
+        # The best combination of k-1 + each new features -> otherwise too slow and memory error
         else:
-            param_init = [0 for i in range(len(xs_.columns))]
-            #res_stepII =  minimize(stepII, param_init, args = (a_hat, xs_, I, territories), method='CG')
-            '''res_stepII =  minimize(stepII, param_init,
-                                   args = (data_, W, times, beta_hat, rho_hat, xs_, I, territories, data_hat), method='CG')'''
-        res_stepII =  stepII(param_init, a_hat, xs_, I, territories, constant)
+            var_k_combinations = [
+                x for x in itertools.combinations(x_.columns, k)]
+            var_k_combinations = [
+                x for x in var_k_combinations if set(best_k).issubset(x)]
 
-        x_I = xs_.loc[I].values
-
-        if constant:
-            #c_hat = res_stepII.x[-1]
-            c_hat = res_stepII[-1]
-            cs_hat.append(c_hat)
-            #theta_hat = res_stepII.x[:-1]
-            theta_hat = res_stepII[:-1]
-            thetas_hat.append(theta_hat)
-        else:
-            c_hat = 0
-            cs_hat.append(0)
-            #theta_hat = res_stepII.x
-            theta_hat = res_stepII
-            thetas_hat.append(theta_hat)
-
-        fixed_hat = [np.dot(np.subtract(xs_.loc[i].values, x_I), theta_hat) + c_hat for i in terr_not_ref]
+        df_temp = pd.DataFrame('-', idx, var_k_combinations)
 
         for t in times[:]:
-            if type(data_hat) != type(None):
-                df.loc[(t, slice(None)), k] = np.exp(beta_hat*np.log((data_.loc[(t, terr_not_ref), "y_prev_1"]/data_.loc[(t, I), "y_prev_1"]).values) + fixed_hat + np.log([data_hat.loc[(t, I), "y"] for i in terr_not_ref]))
-            else:
-                df.loc[(t, slice(None)), k] = np.exp(beta_hat*np.log((data_.loc[(t, terr_not_ref), "y_prev_1"]/data_.loc[(t, I), "y_prev_1"]).values) + fixed_hat + np.log([data_.loc[(t, I), "y"] for i in terr_not_ref]))
+            df_temp.loc[(t, slice(None)), 'Immigrant Stock'] = data_.loc[(t, terr_not_ref), "y"].values
 
+        R2_temp = {}
+        R2_adj_temp = {}
+
+        for var in var_k_combinations:
+            #print(var)
+            xs_ = data_all.loc[ref_time, var]
+
+            random.seed(123)
+            if constant:
+                param_init = [0 for i in range(len(xs_.columns)+1)]
+                #res_stepII =  minimize(stepII_constant, param_init, args = (a_hat, xs_, I, territories), method='CG')
+                '''res_stepII =  minimize(stepII_constant, param_init,
+                                    args = (data_, W, times, beta_hat, rho_hat, xs_, I, territories, data_hat), method='CG')'''
+            else:
+                param_init = [0 for i in range(len(xs_.columns))]
+                #res_stepII =  minimize(stepII, param_init, args = (a_hat, xs_, I, territories), method='CG')
+                '''res_stepII =  minimize(stepII, param_init,
+                                    args = (data_, W, times, beta_hat, rho_hat, xs_, I, territories, data_hat), method='CG')'''
+            res_stepII =  stepII(param_init, a_hat, xs_, I, territories, constant)
+
+            x_I = xs_.loc[I].values
+
+            if constant:
+                c_hat = res_stepII[-1]
+                theta_hat = res_stepII[:-1]
+            else:
+                c_hat = 0
+                theta_hat = res_stepII
+
+            cs_hat[var] = c_hat
+            thetas_hat[var] = theta_hat
+                
+
+            fixed_hat = [np.dot(np.subtract(xs_.loc[i].values, x_I), theta_hat) + c_hat for i in terr_not_ref]
+
+            for t in times[:]:
+                if type(data_hat) != type(None):
+                    df_temp.loc[(t, slice(None)), var] = np.exp(beta_hat*np.log((data_.loc[(t, terr_not_ref), 
+                    "y_prev_1"]/data_.loc[(t, I), "y_prev_1"]).values) + fixed_hat + np.log([data_hat.loc[(t, I), "y"] 
+                    for i in terr_not_ref]))
+                else:
+                    df_temp.loc[(t, slice(None)), var] = np.exp(beta_hat*np.log((data_.loc[(t, terr_not_ref), 
+                    "y_prev_1"]/data_.loc[(t, I), "y_prev_1"]).values) + fixed_hat + np.log([data_.loc[(t, I), "y"] 
+                    for i in terr_not_ref]))
+
+           
+        #for c in df_temp.columns.tolist()[1:]:
+            # Validation: between all the combination of k vars, return the best one (in terms of R2)
+            if train_test:
+                R2_temp[var] = 1 - (sum(np.subtract(df_temp.loc[(times[-test_size:], slice(None)), "Immigrant Stock"].values,
+                                                    df_temp.loc[(times[-test_size:], slice(None))][var].values)**2) / sum((df_temp.loc[(times[-test_size:], slice(None)), "Immigrant Stock"].values)**2))
+                # k: number of independet vars
+                # len(df) includes also the reference territory
+                n = len(times[-test_size:])*len(territories)
+                R2_adj_temp[var] = 1 - (1 - R2_temp[var])*((n - 1)/(n - k - 1))
+            else:
+                R2_temp[var] = 1 - (sum(np.subtract(df_temp["Immigrant Stock"].values,
+                                                    df_temp[var].values)**2) / sum((df_temp["Immigrant Stock"].values)**2))
+                n = len(times)*len(territories)
+                R2_adj_temp[var] = 1 - (1 - R2_temp[var])*((n - 1)/(n - k - 1))
+        
+        best_k = max(R2_adj_temp, key=lambda k: R2_adj_temp[k])
+        df.loc[(slice(None), slice(None)), '%s features' % str(k)] = df_temp.loc[(
+            slice(None), slice(None))][best_k]
+    
+        final_hat.loc["R2", '%s features' %
+                      str(k)] = round(R2_temp[best_k], 5)
+        final_hat.loc["R2_adj", '%s features' %
+                      str(k)] = round(R2_adj_temp[best_k], 5)
+
+        for best_k_single, v_best in zip(best_k, thetas_hat[best_k]):
+            final_hat.loc[best_k_single, '%s features' %
+                          str(k)] = v_best
+        if constant:
+            final_hat.loc['constant', '%s features' %
+                          str(k)] = cs_hat[best_k]
     if len(terr_not_ref) <= 2:
         plt_seed = 121
     else:
@@ -265,20 +327,46 @@ def run_model(data_init, country, times, I, x_, W, territories, var_selection, c
 
     title = "Immigrant Stock VS "+title+" "+country_name
     #relation_plot_time_variant_intern_function(df, terr_not_ref, times, df.columns.tolist(), plt.figure(1, figsize=(15,10)), plt_seed, 45, palette, None, title, save, path = "")
-    pdf.relation_plot_time_variant(df, df.columns.tolist()[1:], y_, terr_not_ref, 45, title, palette, save, path, sub_iteration=False, double_scale_x = False)
+    pdf.relation_plot_time_variant(df, df.columns.tolist()[
+                                   1:], y_, terr_not_ref, 45, title, palette, save, path, sub_iteration=False, double_scale_x=False)
 
-    for c, k in zip(df.columns.tolist()[1:], ks):
-        #if constant == False:
-        #    R2 = 1 - (sum(np.subtract(data["y"].values, y_hat.fitted_values.values)**2) / sum((data["y"].values)**2))
-        #else:
-        #R2 = 1 - (sum(np.subtract(df["Immigrant Stock"].values, df[c].values)**2) / sum((df["Immigrant Stock"].values - np.mean(df["Immigrant Stock"].values))**2))
-        R2 = 1 - (sum(np.subtract(df["Immigrant Stock"].values, df[c].values)**2) / sum((df["Immigrant Stock"].values)**2))
-        print("R-squared for %s: %f." %(c, round(R2,3)))
-        # k: number of independet vars
-        #n = len(df)
-        # len(df) includes also the reference territory
-        n = len(times)*(len(territories)-1)
-        R2_adj = 1 - (1 - R2)*((n - 1)/(n - k -1))
-        print("Adjusted R-squared for %s: %f." %(c, round(R2_adj, 3)))
+    sns.set_style("whitegrid")
+    fig = plt.figure(1, figsize=(15, 10))
+    plt_seed = 121
+    rot = 30
+    ax = fig.add_subplot(plt_seed)
+    ax = sns.pointplot(
+        y=final_hat.loc['R2'].values, x=final_hat.loc['R2'].index)
+    ax.ticklabel_format(style='sci', axis='y', scilimits=(0, 0))
+    sns.despine(ax=ax, right=True, left=True)
+    ax.set_xlabel("")
+    ax.set_xticklabels(ax.get_xticklabels(), rotation=rot)
+    plt.title("R2 as the number of features increases", fontsize=14)
 
-    return(df, [beta_hat, a_hat, rho_hat, thetas_hat, cs_hat])
+    plt_seed += 1
+    ax = fig.add_subplot(plt_seed)
+    ax = sns.pointplot(y=final_hat.loc['R2_adj'].values,
+                       x=final_hat.loc['R2_adj'].index)
+    ax.ticklabel_format(style='sci', axis='y', scilimits=(0, 0))
+    sns.despine(ax=ax, right=True, left=True)
+    ax.set_xlabel("")
+    ax.set_xticklabels(ax.get_xticklabels(), rotation=rot)
+    plt.title("Adjusted R2 as the number of features increases", fontsize=14)
+
+    if save == False:
+        plt.show()
+    else:
+        path_temp = path.split("/")[:-1]
+        path_temp.extend(["R2_trend_" + path.split("/")[-1]+".png"])
+        plt.savefig("/".join(path_temp), bbox_inches='tight')
+    plt.close()
+
+    est_param = ["beta", "a_Centro", "a_Isole",
+                 "a_Nord Est", "a_ Nord Ovest", "a_Sud", "rho"]
+    res_params = [y for x in [[beta_hat], a_hat, [rho_hat]] for y in x]
+    res_params_ = pd.DataFrame(index=est_param, columns=["Values"])
+
+    for i, j in zip(res_params, est_param):
+        res_params_.loc[j, "Values"] = i
+
+    return(df, final_hat, res_params_)

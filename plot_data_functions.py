@@ -60,7 +60,7 @@ def relation_plot_time_variant_intern_function(data_, temp_territories, time_idx
         sns.set_style("whitegrid")
 
         ax = fig.add_subplot(plt_seed)
-        ax.tick_params(axis='x', which='minor', labelsize='small', rotation=30)
+        ax.tick_params(axis='x', which='minor', labelsize='small', rotation=rot)
         legend = []
         ax = sns.pointplot(y = y_i, x = time_idx)
         legend.append(mlines.Line2D([], [], markersize=15, label="Immigrant Stock"))
