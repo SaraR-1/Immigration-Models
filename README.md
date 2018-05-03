@@ -541,6 +541,7 @@ Romania, Training 2005-2013 models
 
 ![](https://github.com/SaraR-1/Immigration-Models/blob/master/Paper_2005_2016/spatial_autocorr_model_romania_zones.png)
 
+![](https://github.com/SaraR-1/Immigration-Models/blob/master/Paper_2005_2016/R2_trend_spatial_autocorr_model_romania_.png)
 
 Morocco, Training 2005-2013 models
 
@@ -566,7 +567,9 @@ Morocco, Training 2005-2013 models
 | Pay money to an association | - |  - |  - |  - |  - |  - |  0.000000 |
 | Education | - |  - |  - |  - |  - |  - |  0.001000 |
 
-![](https://github.com/SaraR-1/Immigration-Models/blob/master/Paper_2005_2016/spatial_autocorr_model_Morocco_zones.png)
+![](https://github.com/SaraR-1/Immigration-Models/blob/master/Paper_2005_2016/spatial_autocorr_model_morocco_zones.png)
+
+![](https://github.com/SaraR-1/Immigration-Models/blob/master/Paper_2005_2016/R2_trend_spatial_autocorr_model_morocco_.png)
 
 
 Albania, Training 2005-2013 models
@@ -595,6 +598,7 @@ Albania, Training 2005-2013 models
 
 ![](https://github.com/SaraR-1/Immigration-Models/blob/master/Paper_2005_2016/spatial_autocorr_model_albania_zones.png)
 
+![](https://github.com/SaraR-1/Immigration-Models/blob/master/Paper_2005_2016/R2_trend_spatial_autocorr_model_albania_.png)
 
 Tunisia, Training 2005-2013 models
 
@@ -622,6 +626,7 @@ Tunisia, Training 2005-2013 models
 
 ![](https://github.com/SaraR-1/Immigration-Models/blob/master/Paper_2005_2016/spatial_autocorr_model_tunisia_zones.png)
 
+![](https://github.com/SaraR-1/Immigration-Models/blob/master/Paper_2005_2016/R2_trend_spatial_autocorr_model_tunisia_.png)
 
 Egypt, Training 2005-2013 models
 
@@ -649,6 +654,7 @@ Egypt, Training 2005-2013 models
 
 ![](https://github.com/SaraR-1/Immigration-Models/blob/master/Paper_2005_2016/spatial_autocorr_model_egypt_zones.png)
 
+![](https://github.com/SaraR-1/Immigration-Models/blob/master/Paper_2005_2016/R2_trend_spatial_autocorr_model_egypt_.png)
 
 Ecuador, Training 2005-2013 models
 
@@ -676,6 +682,7 @@ Ecuador, Training 2005-2013 models
 
 ![](https://github.com/SaraR-1/Immigration-Models/blob/master/Paper_2005_2016/spatial_autocorr_model_ecuador_zones.png)
 
+![](https://github.com/SaraR-1/Immigration-Models/blob/master/Paper_2005_2016/R2_trend_spatial_autocorr_model_ecuador_.png)
 
 Peru, Training 2005-2013 models
 
@@ -704,6 +711,7 @@ Peru, Training 2005-2013 models
 
 ![](https://github.com/SaraR-1/Immigration-Models/blob/master/Paper_2005_2016/spatial_autocorr_model_peru_zones.png)
 
+![](https://github.com/SaraR-1/Immigration-Models/blob/master/Paper_2005_2016/R2_trend_spatial_autocorr_model_peru_.png)
 
 China, Training 2005-2013 models
 
@@ -732,6 +740,7 @@ China, Training 2005-2013 models
 
 ![](https://github.com/SaraR-1/Immigration-Models/blob/master/Paper_2005_2016/spatial_autocorr_model_china_zones.png)
 
+![](https://github.com/SaraR-1/Immigration-Models/blob/master/Paper_2005_2016/R2_trend_spatial_autocorr_model_china_.png)
 
 Philippines, Training 2005-2013 models
 
@@ -759,3 +768,5 @@ Philippines, Training 2005-2013 models
 | Pay money to an association | - |  - |  - |  - |  - |  - |  -0.000700 |
 
 ![](https://github.com/SaraR-1/Immigration-Models/blob/master/Paper_2005_2016/spatial_autocorr_model_philippines_zones.png)
+
+![](https://github.com/SaraR-1/Immigration-Models/blob/master/Paper_2005_2016/R2_trend_spatial_autocorr_model_philippines_.png)
