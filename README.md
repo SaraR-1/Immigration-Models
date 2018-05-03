@@ -796,3 +796,10 @@ In order to understand if it is possible to achieve similar results using simple
 | Country | MAE < td colspan = 4 > MPE < td colspan = 4 > MAPE |
 | | .5 | .65 | .8 | .95 | .5 | .65 | .8 | .95 | .5 | .65 | .8 | .95 |
 |--- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | 
+
+
+|||:Header 1|:Header 2|:Header 3|:Header 4
+|| Row 1 .. |  |  |  
+|| Row 2 .. |  Test
+|| Row 3 .. |  |  |  
+|| Row 4 .. |  |  |  
