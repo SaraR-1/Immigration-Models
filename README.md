@@ -119,7 +119,7 @@ Romania, Training 2005-2013 models
 | **R-squared** | 0.982  |  0.984 | 0.986  | 0.987  |  0.987 |  0.985 |  0.990 | 0.986  |
 | **Adj R-squared** | 0.982  |  0.984 | 0.986  | 0.986  | 0.987  | 0.985  |  0.990 |  0.986 |
 
-![](https://github.com/SaraR-1/Immigration-Models/blob/master/Plots/regression_model_romania_1zones.png)
+![](https://github.com/SaraR-1/Immigration-Models/blob/master/Plots/regression_model_romania__zones.png)
 
 ![](https://github.com/SaraR-1/Immigration-Models/blob/master/Plots/regression_model_romania_2zones.png)
 
@@ -148,7 +148,7 @@ Morocco, Training 2005-2013 models
 | **R-squared** | 0.996 |  0.996 | 0.997 | 0.996  |  0.996 |  0.996 |  0.997 | 0.997  |
 | **Adj R-squared** | 0.996 |  0.996 | 0.997  | 0.996 | 0.996  | 0.996  |  0.997 |  0.997 |
 
-![](https://github.com/SaraR-1/Immigration-Models/blob/master/Plots/regression_model_morocco_1zones.png)
+![](https://github.com/SaraR-1/Immigration-Models/blob/master/Plots/regression_model_morocco__zones.png)
 
 ![](https://github.com/SaraR-1/Immigration-Models/blob/master/Plots/regression_model_morocco_2zones.png)
 
@@ -178,7 +178,7 @@ Albania, Training 2005-2013 models
 | **R-squared** | 0.996 |  0.998 | 0.998  | 0.997  |  0.998 |  0.998 |  0.998 | 0.998 |
 | **Adj R-squared** | 0.996 |  0.998 | 0.998 | 0.997  | 0.998  | 0.998  |  0.998 |  0.998 |
 
-![](https://github.com/SaraR-1/Immigration-Models/blob/master/Plots/regression_model_albania_1zones.png)
+![](https://github.com/SaraR-1/Immigration-Models/blob/master/Plots/regression_model_albania__zones.png)
 
 ![](https://github.com/SaraR-1/Immigration-Models/blob/master/Plots/regression_model_albania_2zones.png)
 
@@ -209,7 +209,7 @@ Tunisia, Training 2005-2013 models
 | **R-squared** | 0.991  |  0.991 | 0.992  | 0.993  |  0.993 |  0.993 |  0.983 | 0.994  |
 | **Adj R-squared** | 0.991  |  0.991 | 0.991  | 0.993  | 0.993  | 0.993  |  0.983 |  0.994 |
 
-![](https://github.com/SaraR-1/Immigration-Models/blob/master/Plots/regression_model_tunisia_1zones.png)
+![](https://github.com/SaraR-1/Immigration-Models/blob/master/Plots/regression_model_tunisia__zones.png)
 
 ![](https://github.com/SaraR-1/Immigration-Models/blob/master/Plots/regression_model_tunisia_2zones.png)
 
@@ -240,7 +240,7 @@ Egypt, Training 2005-2013 models
 | **R-squared** | 0.984  |  0.983 | 0.983  | 0.984  |  0.983 |  0.983 |  0.966 | 0.979  |
 | **Adj R-squared** | 0.983  |  0.983 | 0.983  | 0.983  | 0.983  | 0.983  |  0.966 |  0.979 |
 
-![](https://github.com/SaraR-1/Immigration-Models/blob/master/Plots/regression_model_egypt_1zones.png)
+![](https://github.com/SaraR-1/Immigration-Models/blob/master/Plots/regression_model_egypt__zones.png)
 
 ![](https://github.com/SaraR-1/Immigration-Models/blob/master/Plots/regression_model_egypt_2zones.png)
 
@@ -270,7 +270,7 @@ Ecuador, Training 2005-2013 models
 | **R-squared** | 0.990  |  0.993 | 0.993  | 0.993  |  0.993 |  0.994 |  0.994 | 0.994  |
 | **Adj R-squared** | 0.989  |  0.993 | 0.993  | 0.993  | 0.993  | 0.994  |  0.994 |  0.993 |
 
-![](https://github.com/SaraR-1/Immigration-Models/blob/master/Plots/regression_model_ecuador_1zones.png)
+![](https://github.com/SaraR-1/Immigration-Models/blob/master/Plots/regression_model_ecuador__zones.png)
 
 ![](https://github.com/SaraR-1/Immigration-Models/blob/master/Plots/regression_model_ecuador_2zones.png)
 
@@ -300,7 +300,7 @@ Peru, Training 2005-2013 models
 | **R-squared** | 0.994  |  0.995 | 0.995  | 0.994  |  0.993 |  0.994 |  0.986 | 0.995  |
 | **Adj R-squared** | 0.984  |  0.994 | 0.995  | 0.993  | 0.993  | 0.994  |  0.985 |  0.995 |
 
-![](https://github.com/SaraR-1/Immigration-Models/blob/master/Plots/regression_model_peru_1zones.png)
+![](https://github.com/SaraR-1/Immigration-Models/blob/master/Plots/regression_model_peru__zones.png)
 
 ![](https://github.com/SaraR-1/Immigration-Models/blob/master/Plots/regression_model_peru_2zones.png)
 
@@ -330,7 +330,7 @@ China, Training 2005-2013 models
 | **R-squared** | 0.995  |  0.995 | 0.995 | 0.993 |  0.993 |  0.991 |  0.996 | 0.994 |
 | **Adj R-squared** | 0.995 |  0.995 | 0.995  | 0.993  | 0.993  | 0.991  |  0.996 |  0.994 |
 
-![](https://github.com/SaraR-1/Immigration-Models/blob/master/Plots/regression_model_china_1zones.png)
+![](https://github.com/SaraR-1/Immigration-Models/blob/master/Plots/regression_model_china__zones.png)
 
 ![](https://github.com/SaraR-1/Immigration-Models/blob/master/Plots/regression_model_china_2zones.png)
 
@@ -362,7 +362,7 @@ Philippines, Training 2005-2013 models
 | **R-squared** | 0.995  |  0.995 | 0.995 | 0.992 |  0.994 |  0.988 |  0.990 | 0.995 |
 | **Adj R-squared** | 0.995 |  0.995 | 0.995  | 0.992  | 0.994  | 0.988  |  0.990 |  0.994 |
 
-![](https://github.com/SaraR-1/Immigration-Models/blob/master/Plots/regression_model_philippines_1zones.png)
+![](https://github.com/SaraR-1/Immigration-Models/blob/master/Plots/regression_model_philippines__zones.png)
 
 ![](https://github.com/SaraR-1/Immigration-Models/blob/master/Plots/regression_model_philippines_2zones.png)
 
@@ -511,7 +511,7 @@ The model also requires a reference territory, the estimation of the "Italia" st
 
 The prediction of the overall Italian flow is obtained through regression models whose independent variables are chosen using an automatic feature selection based on mutual information. Follows the results and the plot of the prediction.
 
-![](https://github.com/SaraR-1/Immigration-Models/blob/master/Plot_2005_2016/regression_model_italy.png)
+![](https://github.com/SaraR-1/Immigration-Models/blob/master/Paper_2005_2016/regression_model_italy.png)
 
 For each origin country, just the models using 3, and 5 features are used. The models with an higher number of variables gave really bad estimations.
 
@@ -536,7 +536,7 @@ Romania, Training 2005-2013 models
 | **R-squared** | 0.994  |  0.994 | 0.994  |
 | **Adj R-squared** | 0.994  |  0.994 | 0.994  |
 
-![](https://github.com/SaraR-1/Immigration-Models/blob/master/Plot_2005_2016/spatial_autocorr_model_romania1zones.png)
+![](https://github.com/SaraR-1/Immigration-Models/blob/master/Paper_2005_2016/spatial_autocorr_model_romania_zones.png)
 
 
 Morocco, Training 2005-2013 models
@@ -560,7 +560,7 @@ Morocco, Training 2005-2013 models
 | **R-squared** | 1.000  |  1.000 | 1.000  |
 | **Adj R-squared** | 1.000 |  1.000 | 1.000  |
 
-![](https://github.com/SaraR-1/Immigration-Models/blob/master/Plot_2005_2016/spatial_autocorr_model_Morocco1zones.png)
+![](https://github.com/SaraR-1/Immigration-Models/blob/master/Paper_2005_2016/spatial_autocorr_model_Morocco_zones.png)
 
 
 Albania, Training 2005-2013 models
@@ -584,7 +584,7 @@ Albania, Training 2005-2013 models
 | **R-squared** | 1.000  |  1.000 | 1.000  |
 | **Adj R-squared** | 1.000 |  1.000 | 1.000  |
 
-![](https://github.com/SaraR-1/Immigration-Models/blob/master/Plot_2005_2016/spatial_autocorr_model_albania1zones.png)
+![](https://github.com/SaraR-1/Immigration-Models/blob/master/Paper_2005_2016/spatial_autocorr_model_albania_zones.png)
 
 
 Tunisia, Training 2005-2013 models
@@ -608,7 +608,7 @@ Tunisia, Training 2005-2013 models
 | **R-squared** | 0.999  |  0.999 | 0.999  |
 | **Adj R-squared** | 0.999  |  0.999 | 0.999  |
 
-![](https://github.com/SaraR-1/Immigration-Models/blob/master/Plot_2005_2016/spatial_autocorr_model_tunisia1zones.png)
+![](https://github.com/SaraR-1/Immigration-Models/blob/master/Paper_2005_2016/spatial_autocorr_model_tunisia_zones.png)
 
 
 Egypt, Training 2005-2013 models
@@ -632,7 +632,7 @@ Egypt, Training 2005-2013 models
 | **R-squared** | 0.997  |  0.997 | 0.997  |
 | **Adj R-squared** | 0.997  |  0.997 | 0.997  |
 
-![](https://github.com/SaraR-1/Immigration-Models/blob/master/Plot_2005_2016/spatial_autocorr_model_egypt1zones.png)
+![](https://github.com/SaraR-1/Immigration-Models/blob/master/Paper_2005_2016/spatial_autocorr_model_egypt_zones.png)
 
 
 Ecuador, Training 2005-2013 models
@@ -656,7 +656,7 @@ Ecuador, Training 2005-2013 models
 | **R-squared** | 0.997  |  0.997 | 0.997  |
 | **Adj R-squared** | 0.997  |  0.997 | 0.997  |
 
-![](https://github.com/SaraR-1/Immigration-Models/blob/master/Plot_2005_2016/spatial_autocorr_model_ecuador1zones.png)
+![](https://github.com/SaraR-1/Immigration-Models/blob/master/Paper_2005_2016/spatial_autocorr_model_ecuador_zones.png)
 
 
 Peru, Training 2005-2013 models
@@ -681,7 +681,7 @@ Peru, Training 2005-2013 models
 | **R-squared** | 0.997  |  0.997 | 0.997  |
 | **Adj R-squared** | 0.997  |  0.997 | 0.997  |
 
-![](https://github.com/SaraR-1/Immigration-Models/blob/master/Plot_2005_2016/spatial_autocorr_model_peru1zones.png)
+![](https://github.com/SaraR-1/Immigration-Models/blob/master/Paper_2005_2016/spatial_autocorr_model_peru_zones.png)
 
 
 China, Training 2005-2013 models
@@ -706,7 +706,7 @@ China, Training 2005-2013 models
 | **R-squared** | 0.999  |  0.999 | 0.999  |
 | **Adj R-squared** | 0.999  |  0.999 | 0.999  |
 
-![](https://github.com/SaraR-1/Immigration-Models/blob/master/Plot_2005_2016/spatial_autocorr_model_china1zones.png)
+![](https://github.com/SaraR-1/Immigration-Models/blob/master/Paper_2005_2016/spatial_autocorr_model_china_zones.png)
 
 
 Philippines, Training 2005-2013 models
@@ -731,4 +731,4 @@ Philippines, Training 2005-2013 models
 | **R-squared** | 0.998  |  0.998 | 0.998  |
 | **Adj R-squared** | 0.998  |  0.998 | 0.998  |
 
-![](https://github.com/SaraR-1/Immigration-Models/blob/master/Plot_2005_2016/spatial_autocorr_model_philippines1zones.png)
+![](https://github.com/SaraR-1/Immigration-Models/blob/master/Paper_2005_2016/spatial_autocorr_model_philippines_zones.png)
