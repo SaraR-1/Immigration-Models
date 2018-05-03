@@ -790,23 +790,23 @@ In order to understand if it is possible to achieve similar results using simple
 | China | 7694.037037 |  29.993810 |  29.993810 |
 | Philippines | 2469.074074 |  26.748174 |  26.748174 |
 
-![](https: // github.com/SaraR-1/Immigration-Models/blob/master/SMA_2005_2016/SMA_romania_zones.png)
+![](https://github.com/SaraR-1/Immigration-Models/blob/master/SMA_2005_2016/SMA_romania_zones.png)
 
-![](https: // github.com/SaraR-1/Immigration-Models/blob/master/SMA_2005_2016/SMA_morocco_zones.png)
+![](https://github.com/SaraR-1/Immigration-Models/blob/master/SMA_2005_2016/SMA_morocco_zones.png)
 
-![](https: // github.com/SaraR-1/Immigration-Models/blob/master/SMA_2005_2016/SMA_albania_zones.png)
+![](https://github.com/SaraR-1/Immigration-Models/blob/master/SMA_2005_2016/SMA_albania_zones.png)
 
-![](https: // github.com/SaraR-1/Immigration-Models/blob/master/SMA_2005_2016/SMA_tunisia_zones.png)
+![](https://github.com/SaraR-1/Immigration-Models/blob/master/SMA_2005_2016/SMA_tunisia_zones.png)
 
-![](https: // github.com/SaraR-1/Immigration-Models/blob/master/SMA_2005_2016/SMA_egypt_zones.png)
+![](https://github.com/SaraR-1/Immigration-Models/blob/master/SMA_2005_2016/SMA_egypt_zones.png)
 
-![](https: // github.com/SaraR-1/Immigration-Models/blob/master/SMA_2005_2016/SMA_ecuador_zones.png)
+![](https://github.com/SaraR-1/Immigration-Models/blob/master/SMA_2005_2016/SMA_ecuador_zones.png)
 
-![](https: // github.com/SaraR-1/Immigration-Models/blob/master/SMA_2005_2016/SMA_peru_zones.png)
+![](https://github.com/SaraR-1/Immigration-Models/blob/master/SMA_2005_2016/SMA_peru_zones.png)
 
-![](https: // github.com/SaraR-1/Immigration-Models/blob/master/SMA_2005_2016/SMA_china_zones.png)
+![](https://github.com/SaraR-1/Immigration-Models/blob/master/SMA_2005_2016/SMA_china_zones.png)
 
-![](https: // github.com/SaraR-1/Immigration-Models/blob/master/SMA_2005_2016/SMA_philippines_zones.png)
+![](https://github.com/SaraR-1/Immigration-Models/blob/master/SMA_2005_2016/SMA_philippines_zones.png)
 
 
 
@@ -972,20 +972,20 @@ In order to understand if it is possible to achieve similar results using simple
 </table>
 
 
-![](https: // github.com/SaraR-1/Immigration-Models/blob/master/ES_2005_2016/ES_romania_zones.png)
+![](https://github.com/SaraR-1/Immigration-Models/blob/master/ES_2005_2016/ES_romania_zones.png)
 
-![](https: // github.com/SaraR-1/Immigration-Models/blob/master/ES_2005_2016/ES_morocco_zones.png)
+![](https://github.com/SaraR-1/Immigration-Models/blob/master/ES_2005_2016/ES_morocco_zones.png)
 
-![](https: // github.com/SaraR-1/Immigration-Models/blob/master/ES_2005_2016/ES_albania_zones.png)
+![](https://github.com/SaraR-1/Immigration-Models/blob/master/ES_2005_2016/ES_albania_zones.png)
 
-![](https: // github.com/SaraR-1/Immigration-Models/blob/master/ES_2005_2016/ES_tunisia_zones.png)
+![](https://github.com/SaraR-1/Immigration-Models/blob/master/ES_2005_2016/ES_tunisia_zones.png)
 
-![](https: // github.com/SaraR-1/Immigration-Models/blob/master/ES_2005_2016/ES_egypt_zones.png)
+![](https://github.com/SaraR-1/Immigration-Models/blob/master/ES_2005_2016/ES_egypt_zones.png)
 
-![](https: // github.com/SaraR-1/Immigration-Models/blob/master/ES_2005_2016/ES_ecuador_zones.png)
+![](https://github.com/SaraR-1/Immigration-Models/blob/master/ES_2005_2016/ES_ecuador_zones.png)
 
-![](https: // github.com/SaraR-1/Immigration-Models/blob/master/ES_2005_2016/ES_peru_zones.png)
+![](https://github.com/SaraR-1/Immigration-Models/blob/master/ES_2005_2016/ES_peru_zones.png)
 
-![](https: // github.com/SaraR-1/Immigration-Models/blob/master/ES_2005_2016/ES_china_zones.png)
+![](https://github.com/SaraR-1/Immigration-Models/blob/master/ES_2005_2016/ES_china_zones.png)
 
-![](https: // github.com/SaraR-1/Immigration-Models/blob/master/ES_2005_2016/ES_philippines_zones.png)
+![](https://github.com/SaraR-1/Immigration-Models/blob/master/ES_2005_2016/ES_philippines_zones.png)
