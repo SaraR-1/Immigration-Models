@@ -14,7 +14,7 @@ for i in a.index:
 #%%
 a = pd.read_table(
     "ES_2005_2016/ES_metrics.csv", sep="\t")
-
+a = a.round(4)
 for i in a.index[1:]:
     print(" <tr>")
     for j in a.columns:
@@ -30,7 +30,7 @@ b = ["![](https://latex.codecogs.com/gif.latex?% 5Cbeta)" ,
 "![](https://latex.codecogs.com/gif.latex?a_ % 7BNord % 20 % 5C % 20ovest % 7D)", 
 "![](https://latex.codecogs.com/gif.latex?a_ % 7BSud % 7D)", 
 "![](https://latex.codecogs.com/gif.latex?% 5Crho)"]
-a = pd.read_table("Paper_2005_2016/spatial_autocorr_model_est_params1_philippines.csv", sep = "\t")
+a = pd.read_table("Paper_2005_2016/spatial_autocorr_model_est_params1_china.csv", sep = "\t")
 a = a.round(4)
 
 for i, j in zip(a.index, b):
@@ -45,21 +45,13 @@ a.columns
 for i in a.index:
     print("| %s | %f |  %f |  %f |  %f |  %f |  %f |  %f |" %
           (a.loc[i]["Unnamed: 0"], a.loc[i]["1 features"], a.loc[i]["2 features"], a.loc[i]["3 features"], 
-          a.loc[i]["4 features"], a.loc[i]["5 features"], a.loc[i]["5 features"], a.loc[i]["7 features"]))
+          a.loc[i]["4 features"], a.loc[i]["5 features"], a.loc[i]["6 features"], a.loc[i]["7 features"]))
 
 
-  <tr>
-    <td > </td>
-    <td > .5 </td>
-    <td > .65 </td>
-    <td > .8 </td>
-    <td > .95 </td>
-    <td > .5 </td>
-    <td > .65 </td>
-    <td > .8 </td>
-    <td > .95 </td>
-    <td > .5 </td>
-    <td > .65 </td>
-    <td > .8 </td>
-    <td > .95 </td>
-  </tr>
+
+#%%%
+countries_list = ["Romania", "Morocco", "Albania", "Tunisia",
+                  "Egypt", "Ecuador", "Peru", "China", "Philippines"]
+
+for c in countries_list:
+    print("![](https: // github.com/SaraR-1/Immigration-Models/blob/master/ES_2005_2016/ES_%s_zones.png)" %c.lower())

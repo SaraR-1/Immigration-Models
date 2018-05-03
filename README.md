@@ -529,14 +529,14 @@ Romania, Training 2005-2013 models
 
 | Var.  | I | II | III | IV | V | VI | VII |
 |---|---|---|---|---|---|---|---|
-| **R2** | 0.998800 |  0.998900 |  0.998900 |  0.998800 |  0.998400 |  0.998400 |  0.998700 |
-| **R2_adj** | 0.998700 |  0.998800 |  0.998700 |  0.998400 |  0.997800 |  0.997800 |  0.997800 |
-| Free activity for a union | 0.000200 |  0.000500 |  0.000400 |  -0.000800 |  0.001800 |  0.001800 |  0.000800 |
-| Free activities in voluntary associations | - |  -0.000000 |  -0.000100 |  0.000100 |  -0.000300 |  -0.000300 |  -0.000100 |
-| Meetings in cultural, recreational or other associations | - |  - |  0.000000 |  -0.000300 |  0.002000 |  0.002000 |  0.000000 |
-| Meetings in ecological associations, for civil rights, for peace | - |  - |  - |  0.002000 |  -0.004900 |  -0.004900 |  0.000200 |
-| Free activities in non voluntary associations | - |  - |  - |  - |  -0.002600 |  -0.002600 |  -0.000100 |
-| political_info - Some times in a year | - |  - |  - |  - |  - |  - |  0.000000 |
+| **R2** | 0.998800 |  0.998900 |  0.998900 |  0.998800 |  0.998400 |  0.999000 |  0.998700 |
+| **R2_adj** | 0.998700 |  0.998800 |  0.998700 |  0.998400 |  0.997800 |  0.998400 |  0.997800 |
+| Free activity for a union | 0.000200 |  0.000500 |  0.000400 |  -0.000800 |  0.001800 |  0.000500 |  0.000800 |
+| Free activities in voluntary associations | - |  -0.000000 |  -0.000100 |  0.000100 |  -0.000300 |  0.000000 |  -0.000100 |
+| Meetings in cultural, recreational or other associations | - |  - |  0.000000 |  -0.000300 |  0.002000 |  -0.000100 |  0.000000 |
+| Meetings in ecological associations, for civil rights, for peace | - |  - |  - |  0.002000 |  -0.004900 |  0.000400 |  0.000200 |
+| Free activities in non voluntary associations | - |  - |  - |  - |  -0.002600 |  0.000100 |  -0.000100 |
+| political_info - Some times in a year | - |  - |  - |  - |  - |  -0.000000 |  0.000000 |
 | Recreation, shows and culture | - |  - |  - |  - |  - |  - |  0.000000 |
 
 ![](https://github.com/SaraR-1/Immigration-Models/blob/master/Paper_2005_2016/spatial_autocorr_model_romania_zones.png)
@@ -557,14 +557,14 @@ Morocco, Training 2005-2013 models
 
 | Var.  | I | II | III | IV | V | VI | VII |
 |---|---|---|---|---|---|---|---|
-| **R2** | 0.990600 |  0.998600 |  0.998700 |  0.999200 |  0.999200 |  0.999200 |  0.999100 |
-| **R2_adj** | 0.990000 |  0.998400 |  0.998400 |  0.998900 |  0.998800 |  0.998800 |  0.998500 |
+| **R2** | 0.990600 |  0.998600 |  0.998700 |  0.999200 |  0.999200 |  0.998600 |  0.999100 |
+| **R2_adj** | 0.990000 |  0.998400 |  0.998400 |  0.998900 |  0.998800 |  0.997800 |  0.998500 |
 | internal_migration - Foreign country | 0.000000 |  0.000000 |  0.000000 |  -0.000000 |  -0.000000 |  -0.000000 |  0.000000 |
-| Free activity for a union | - |  -0.001700 |  -0.001600 |  0.011300 |  0.015500 |  0.015500 |  0.001300 |
-| Recreation, shows and culture | - |  - |  -0.000000 |  0.000900 |  0.001100 |  0.001100 |  0.000300 |
-| reach_difficulty - Municipal offices | - |  - |  - |  -0.000600 |  -0.000900 |  -0.000900 |  0.000200 |
-| work_satisfaction - Not | - |  - |  - |  - |  0.004000 |  0.004000 |  -0.030800 |
-| Pay money to an association | - |  - |  - |  - |  - |  - |  0.000000 |
+| Free activity for a union | - |  -0.001700 |  -0.001600 |  0.011300 |  0.015500 |  0.001800 |  0.001300 |
+| Recreation, shows and culture | - |  - |  -0.000000 |  0.000900 |  0.001100 |  0.000200 |  0.000300 |
+| reach_difficulty - Municipal offices | - |  - |  - |  -0.000600 |  -0.000900 |  -0.000100 |  0.000200 |
+| work_satisfaction - Not | - |  - |  - |  - |  0.004000 |  -0.007400 |  -0.030800 |
+| Pay money to an association | - |  - |  - |  - |  - |  0.000100 |  0.000000 |
 | Education | - |  - |  - |  - |  - |  - |  0.001000 |
 
 ![](https://github.com/SaraR-1/Immigration-Models/blob/master/Paper_2005_2016/spatial_autocorr_model_morocco_zones.png)
@@ -586,14 +586,14 @@ Albania, Training 2005-2013 models
 
 | Var.  | I | II | III | IV | V | VI | VII |
 |---|---|---|---|---|---|---|---|
-| **R2** | 0.973600 |  0.994400 |  0.996300 |  0.996800 |  0.999800 |  0.999800 |  0.995400 |
-| **R2_adj** | 0.971900 |  0.993700 |  0.995500 |  0.995800 |  0.999800 |  0.999800 |  0.992100 |
-| internal_migration - Foreign country | 0.000000 |  0.000000 |  0.000000 |  0.000000 |  -0.001400 |  -0.001400 |  -0.000200 |
-| internal_migration - Italy | - |  -0.000000 |  -0.000000 |  -0.000000 |  0.000000 |  0.000000 |  -0.000000 |
-| Free activity for a union | - |  - |  0.002600 |  0.002500 |  0.475800 |  0.475800 |  0.065400 |
-| Free activities in voluntary associations | - |  - |  - |  -0.000200 |  0.070700 |  0.070700 |  0.018800 |
-| reach_difficulty - Municipal offices | - |  - |  - |  - |  -0.037300 |  -0.037300 |  -0.007300 |
-| Free activities in non voluntary associations | - |  - |  - |  - |  - |  - |  -0.017600 |
+| **R2** | 0.973600 |  0.994400 |  0.996300 |  0.996800 |  0.999800 |  0.997800 |  0.995400 |
+| **R2_adj** | 0.971900 |  0.993700 |  0.995500 |  0.995800 |  0.999800 |  0.996600 |  0.992100 |
+| internal_migration - Foreign country | 0.000000 |  0.000000 |  0.000000 |  0.000000 |  -0.001400 |  0.000100 |  -0.000200 |
+| internal_migration - Italy | - |  -0.000000 |  -0.000000 |  -0.000000 |  0.000000 |  -0.000300 |  -0.000000 |
+| Free activity for a union | - |  - |  0.002600 |  0.002500 |  0.475800 |  -0.092800 |  0.065400 |
+| Free activities in voluntary associations | - |  - |  - |  -0.000200 |  0.070700 |  0.116600 |  0.018800 |
+| reach_difficulty - Municipal offices | - |  - |  - |  - |  -0.037300 |  0.016600 |  -0.007300 |
+| Free activities in non voluntary associations | - |  - |  - |  - |  - |  -0.242400 |  -0.017600 |
 | reach_difficulty - Food stores, markets | - |  - |  - |  - |  - |  - |  0.008600 |
 
 ![](https://github.com/SaraR-1/Immigration-Models/blob/master/Paper_2005_2016/spatial_autocorr_model_albania_zones.png)
@@ -614,14 +614,14 @@ Tunisia, Training 2005-2013 models
 
 | Var.  | I | II | III | IV | V | VI | VII |
 |---|---|---|---|---|---|---|---|
-| **R2** | 0.994600 |  0.994600 |  0.997800 |  0.998000 |  0.997800 |  0.997800 |  0.996500 |
-| **R2_adj** | 0.994200 |  0.993900 |  0.997300 |  0.997300 |  0.996900 |  0.996900 |  0.994100 |
-| Accommodation and catering services | 0.000300 |  0.000300 |  -0.000700 |  -0.001200 |  -0.001000 |  -0.001000 |  -0.000200 |
-| Free activity for a union | - |  -0.000000 |  -0.010700 |  -0.012000 |  -0.007400 |  -0.007400 |  -0.006200 |
-| political_info - Every day | - |  - |  0.000400 |  0.000800 |  -0.000700 |  -0.000700 |  0.000300 |
-| Meetings in ecological associations, for civil rights, for peace | - |  - |  - |  -0.009000 |  0.014300 |  0.014300 |  -0.001500 |
-| Free activities in voluntary associations | - |  - |  - |  - |  0.002000 |  0.002000 |  0.000100 |
-| native population - Total | - |  - |  - |  - |  - |  - |  -0.000000 |
+| **R2** | 0.994600 |  0.994600 |  0.997800 |  0.998000 |  0.997800 |  0.997000 |  0.996500 |
+| **R2_adj** | 0.994200 |  0.993900 |  0.997300 |  0.997300 |  0.996900 |  0.995400 |  0.994100 |
+| Accommodation and catering services | 0.000300 |  0.000300 |  -0.000700 |  -0.001200 |  -0.001000 |  -0.000700 |  -0.000200 |
+| Free activity for a union | - |  -0.000000 |  -0.010700 |  -0.012000 |  -0.007400 |  -0.008500 |  -0.006200 |
+| political_info - Every day | - |  - |  0.000400 |  0.000800 |  -0.000700 |  0.000300 |  0.000300 |
+| Meetings in ecological associations, for civil rights, for peace | - |  - |  - |  -0.009000 |  0.014300 |  0.000200 |  -0.001500 |
+| Free activities in voluntary associations | - |  - |  - |  - |  0.002000 |  0.000500 |  0.000100 |
+| native population - Total | - |  - |  - |  - |  - |  -0.000000 |  -0.000000 |
 | Housing, water, electricity, gas and other fuels | - |  - |  - |  - |  - |  - |  -0.000000 |
 
 ![](https://github.com/SaraR-1/Immigration-Models/blob/master/Paper_2005_2016/spatial_autocorr_model_tunisia_zones.png)
@@ -642,14 +642,14 @@ Egypt, Training 2005-2013 models
 
 | Var.  | I | II | III | IV | V | VI | VII |
 |---|---|---|---|---|---|---|---|
-| **R2** | 0.724400 |  0.997600 |  0.999000 |  0.999400 |  0.999300 |  0.999300 |  0.969600 |
-| **R2_adj** | 0.707200 |  0.997200 |  0.998800 |  0.999200 |  0.999100 |  0.999100 |  0.948300 |
-| internal_migration - Foreign country | 0.000000 |  0.000000 |  0.000000 |  0.000000 |  0.000000 |  0.000000 |  0.000100 |
-| Free activities in voluntary associations | - |  -0.002000 |  -0.002300 |  -0.001400 |  -0.001600 |  -0.001600 |  0.001300 |
-| Free activity for a union | - |  - |  0.002200 |  0.004100 |  0.002900 |  0.002900 |  -0.031200 |
-| work_satisfaction - Not | - |  - |  - |  -0.019700 |  -0.019900 |  -0.019900 |  -0.018100 |
-| reach_difficulty - Municipal offices | - |  - |  - |  - |  0.000100 |  0.000100 |  0.004400 |
-| native population - Total | - |  - |  - |  - |  - |  - |  -0.000000 |
+| **R2** | 0.724400 |  0.997600 |  0.999000 |  0.999400 |  0.999300 |  0.992200 |  0.969600 |
+| **R2_adj** | 0.707200 |  0.997200 |  0.998800 |  0.999200 |  0.999100 |  0.988000 |  0.948300 |
+| internal_migration - Foreign country | 0.000000 |  0.000000 |  0.000000 |  0.000000 |  0.000000 |  -0.000000 |  0.000100 |
+| Free activities in voluntary associations | - |  -0.002000 |  -0.002300 |  -0.001400 |  -0.001600 |  0.000500 |  0.001300 |
+| Free activity for a union | - |  - |  0.002200 |  0.004100 |  0.002900 |  0.021500 |  -0.031200 |
+| work_satisfaction - Not | - |  - |  - |  -0.019700 |  -0.019900 |  -0.011200 |  -0.018100 |
+| reach_difficulty - Municipal offices | - |  - |  - |  - |  0.000100 |  -0.001500 |  0.004400 |
+| native population - Total | - |  - |  - |  - |  - |  0.000000 |  -0.000000 |
 | Meetings in cultural, recreational or other associations | - |  - |  - |  - |  - |  - |  -0.004900 |
 
 ![](https://github.com/SaraR-1/Immigration-Models/blob/master/Paper_2005_2016/spatial_autocorr_model_egypt_zones.png)
@@ -670,14 +670,14 @@ Ecuador, Training 2005-2013 models
 
 | Var.  | I | II | III | IV | V | VI | VII |
 |---|---|---|---|---|---|---|---|
-| **R2** | 0.396900 |  0.983100 |  0.995300 |  0.997200 |  0.996100 |  0.996100 |  0.996700 |
-| **R2_adj** | 0.359200 |  0.980900 |  0.994300 |  0.996400 |  0.994500 |  0.994500 |  0.994400 |
-| internal_migration - Foreign country | 0.000000 |  0.000100 |  0.000100 |  0.000100 |  0.000200 |  0.000200 |  0.000100 |
-| Free activities in voluntary associations | - |  -0.004200 |  -0.005400 |  -0.004500 |  -0.008900 |  -0.008900 |  -0.003400 |
-| Meetings in ecological associations, for civil rights, for peace | - |  - |  0.005100 |  0.012400 |  0.023200 |  0.023200 |  0.027300 |
-| Average monthly expenditure for housing | - |  - |  - |  -0.086200 |  -2.111100 |  -2.111100 |  -0.296900 |
-| work_satisfaction - Quite | - |  - |  - |  - |  0.440000 |  0.440000 |  0.044900 |
-| Health services and health expenditure | - |  - |  - |  - |  - |  - |  0.000000 |
+| **R2** | 0.396900 |  0.983100 |  0.995300 |  0.997200 |  0.996100 |  0.997500 |  0.996700 |
+| **R2_adj** | 0.359200 |  0.980900 |  0.994300 |  0.996400 |  0.994500 |  0.996100 |  0.994400 |
+| internal_migration - Foreign country | 0.000000 |  0.000100 |  0.000100 |  0.000100 |  0.000200 |  0.000100 |  0.000100 |
+| Free activities in voluntary associations | - |  -0.004200 |  -0.005400 |  -0.004500 |  -0.008900 |  -0.001800 |  -0.003400 |
+| Meetings in ecological associations, for civil rights, for peace | - |  - |  0.005100 |  0.012400 |  0.023200 |  0.008900 |  0.027300 |
+| Average monthly expenditure for housing | - |  - |  - |  -0.086200 |  -2.111100 |  0.150400 |  -0.296900 |
+| work_satisfaction - Quite | - |  - |  - |  - |  0.440000 |  -0.055700 |  0.044900 |
+| Health services and health expenditure | - |  - |  - |  - |  - |  -0.001200 |  0.000000 |
 | political_info - Every day | - |  - |  - |  - |  - |  - |  -0.000900 |
 
 ![](https://github.com/SaraR-1/Immigration-Models/blob/master/Paper_2005_2016/spatial_autocorr_model_ecuador_zones.png)
@@ -699,14 +699,14 @@ Peru, Training 2005-2013 models
 
 | Var.  | I | II | III | IV | V | VI | VII |
 |---|---|---|---|---|---|---|---|
-| **R2** | 0.676300 |  0.992200 |  0.994500 |  0.985700 |  0.997400 |  0.997400 |  0.931800 |
-| **R2_adj** | 0.656100 |  0.991200 |  0.993300 |  0.981400 |  0.996300 |  0.996300 |  0.884000 |
-| internal_migration - Foreign country | 0.000000 |  0.000000 |  0.000000 |  0.000000 |  -0.000300 |  -0.000300 |  0.000000 |
-| Furniture, articles and services for the house | - |  -0.002600 |  -0.004500 |  -0.003600 |  0.107700 |  0.107700 |  -0.007900 |
-| Communications | - |  - |  0.002700 |  0.002000 |  -0.005200 |  -0.005200 |  0.009300 |
-| Free activities in non voluntary associations | - |  - |  - |  -0.001200 |  0.065100 |  0.065100 |  0.007800 |
-| Education | - |  - |  - |  - |  -1.113900 |  -1.113900 |  -0.022500 |
-| work_satisfaction - Not | - |  - |  - |  - |  - |  - |  0.148400 |
+| **R2** | 0.676300 |  0.992200 |  0.994500 |  0.985700 |  0.997400 |  0.914900 |  0.931800 |
+| **R2_adj** | 0.656100 |  0.991200 |  0.993300 |  0.981400 |  0.996300 |  0.868500 |  0.884000 |
+| internal_migration - Foreign country | 0.000000 |  0.000000 |  0.000000 |  0.000000 |  -0.000300 |  -0.000000 |  0.000000 |
+| Furniture, articles and services for the house | - |  -0.002600 |  -0.004500 |  -0.003600 |  0.107700 |  -0.002900 |  -0.007900 |
+| Communications | - |  - |  0.002700 |  0.002000 |  -0.005200 |  0.008100 |  0.009300 |
+| Free activities in non voluntary associations | - |  - |  - |  -0.001200 |  0.065100 |  0.010300 |  0.007800 |
+| Education | - |  - |  - |  - |  -1.113900 |  -0.054700 |  -0.022500 |
+| work_satisfaction - Not | - |  - |  - |  - |  - |  -0.036600 |  0.148400 |
 | Average monthly expenditure for housing | - |  - |  - |  - |  - |  - |  -0.367200 |
 
 ![](https://github.com/SaraR-1/Immigration-Models/blob/master/Paper_2005_2016/spatial_autocorr_model_peru_zones.png)
@@ -728,14 +728,14 @@ China, Training 2005-2013 models
 
 | Var.  | I | II | III | IV | V | VI | VII |
 |---|---|---|---|---|---|---|---|
-| **R2** | 0.985900 |  0.995000 |  0.995700 |  0.995300 |  0.998500 |  0.998500 |  0.997900 |
-| **R2_adj** | 0.985100 |  0.994300 |  0.994800 |  0.993800 |  0.997900 |  0.997900 |  0.996500 |
-| internal_migration - Foreign country | 0.000000 |  0.000000 |  0.000000 |  0.000000 |  0.000000 |  0.000000 |  0.000000 |
-| Alcoholic beverages and tobacco | - |  -0.000800 |  -0.004100 |  -0.069300 |  -0.102100 |  -0.102100 |  -0.007800 |
-| Communications | - |  - |  0.002000 |  0.053100 |  0.080900 |  0.080900 |  0.006300 |
-| Furniture, articles and services for the house | - |  - |  - |  -0.008300 |  -0.013500 |  -0.013500 |  -0.001100 |
-| reach_difficulty - Pharmacy | - |  - |  - |  - |  -0.000200 |  -0.000200 |  0.001200 |
-| Free activities in voluntary associations | - |  - |  - |  - |  - |  - |  0.000200 |
+| **R2** | 0.985900 |  0.995000 |  0.995700 |  0.995300 |  0.998500 |  0.997900 |  0.997900 |
+| **R2_adj** | 0.985100 |  0.994300 |  0.994800 |  0.993800 |  0.997900 |  0.996800 |  0.996500 |
+| internal_migration - Foreign country | 0.000000 |  0.000000 |  0.000000 |  0.000000 |  0.000000 |  0.000100 |  0.000000 |
+| Alcoholic beverages and tobacco | - |  -0.000800 |  -0.004100 |  -0.069300 |  -0.102100 |  -0.060700 |  -0.007800 |
+| Communications | - |  - |  0.002000 |  0.053100 |  0.080900 |  0.038700 |  0.006300 |
+| Furniture, articles and services for the house | - |  - |  - |  -0.008300 |  -0.013500 |  0.000300 |  -0.001100 |
+| reach_difficulty - Pharmacy | - |  - |  - |  - |  -0.000200 |  0.001200 |  0.001200 |
+| Free activities in voluntary associations | - |  - |  - |  - |  - |  -0.005100 |  0.000200 |
 | native population - Total | - |  - |  - |  - |  - |  - |  -0.000000 |
 
 ![](https://github.com/SaraR-1/Immigration-Models/blob/master/Paper_2005_2016/spatial_autocorr_model_china_zones.png)
@@ -757,14 +757,14 @@ Philippines, Training 2005-2013 models
 
 | Var.  | I | II | III | IV | V | VI | VII |
 |---|---|---|---|---|---|---|---|
-| **R2** | 0.913200 |  0.992700 |  0.992500 |  0.997100 |  0.997200 |  0.997200 |  0.981400 |
-| **R2_adj** | 0.907800 |  0.991700 |  0.990900 |  0.996200 |  0.996000 |  0.996000 |  0.968400 |
-| internal_migration - Foreign country | 0.000000 |  0.000000 |  0.000000 |  0.000000 |  0.000000 |  0.000000 |  0.000000 |
-| Recreation, shows and culture | - |  -0.001000 |  -0.000500 |  0.017700 |  0.016400 |  0.016400 |  0.014800 |
-| Clothing and footwear | - |  - |  -0.000500 |  -0.006000 |  -0.005000 |  -0.005000 |  0.001600 |
-| Accommodation and catering services | - |  - |  - |  -0.014200 |  -0.013600 |  -0.013600 |  -0.009900 |
-| Born alive | - |  - |  - |  - |  -0.000000 |  -0.000000 |  0.000000 |
-| Food and non-alcoholic beverages | - |  - |  - |  - |  - |  - |  -0.002300 |
+| **R2** | 0.913200 |  0.992700 |  0.992500 |  0.997100 |  0.997200 |  0.998100 |  0.981400 |
+| **R2_adj** | 0.907800 |  0.991700 |  0.990900 |  0.996200 |  0.996000 |  0.997100 |  0.968400 |
+| internal_migration - Foreign country | 0.000000 |  0.000000 |  0.000000 |  0.000000 |  0.000000 |  -0.000000 |  0.000000 |
+| Recreation, shows and culture | - |  -0.001000 |  -0.000500 |  0.017700 |  0.016400 |  0.006800 |  0.014800 |
+| Clothing and footwear | - |  - |  -0.000500 |  -0.006000 |  -0.005000 |  0.004300 |  0.001600 |
+| Accommodation and catering services | - |  - |  - |  -0.014200 |  -0.013600 |  -0.005000 |  -0.009900 |
+| Born alive | - |  - |  - |  - |  -0.000000 |  0.000000 |  0.000000 |
+| Food and non-alcoholic beverages | - |  - |  - |  - |  - |  -0.002100 |  -0.002300 |
 | Pay money to an association | - |  - |  - |  - |  - |  - |  -0.000700 |
 
 ![](https://github.com/SaraR-1/Immigration-Models/blob/master/Paper_2005_2016/spatial_autocorr_model_philippines_zones.png)
