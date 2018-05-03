@@ -770,3 +770,29 @@ Philippines, Training 2005-2013 models
 ![](https://github.com/SaraR-1/Immigration-Models/blob/master/Paper_2005_2016/spatial_autocorr_model_philippines_zones.png)
 
 ![](https://github.com/SaraR-1/Immigration-Models/blob/master/Paper_2005_2016/R2_trend_spatial_autocorr_model_philippines_.png)
+
+
+## Other Forecasting methods for time serie
+
+In order to understand if it is possible to achieve similar results using simpler methods, two of the most used time-series methods for forecasting are implemented: Simple Moving Average (SMA) and Exponential Smoothing (ES). Follows the results.
+
+### SMA
+
+| Country | MAE | MPE | MAPE |
+|---|---|---|---|
+| Romania | 61995.407407 |  44.522868 |  44.522868 |
+| Morocco | 14820.296296 |  28.785681 |  28.785681 |
+| Albania | 4270.296296 |  8.722518 |  8.722518 |
+| Tunisia | 811.111111 |  11.352861 |  11.352861 |
+| Egypt | 755.518519 |  53.680639 |  53.680639 |
+| Ecuador | 107.111111 |  15.133572 |  15.133572 |
+| Peru | 269.777778 |  16.696598 |  16.696598 |
+| China | 7694.037037 |  29.993810 |  29.993810 |
+| Philippines | 2469.074074 |  26.748174 |  26.748174 |
+
+
+### ES
+
+| Country | MAE < td colspan = 4 > MPE < td colspan = 4 > MAPE |
+| | .5 | .65 | .8 | .95 | .5 | .65 | .8 | .95 | .5 | .65 | .8 | .95 |
+|--- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | 
