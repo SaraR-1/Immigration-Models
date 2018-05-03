@@ -798,12 +798,12 @@ In order to understand if it is possible to achieve similar results using simple
 |--- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | 
 
 
-
-|             |          Grouping           ||
-|First Header  | Second Header | Third Header |
-| ------------ | :-----------: | -----------: |
-|Content       |          *Long Cell*        ||
-|Content       |   **Cell**    |         Cell |
-
-|New section   |     More      |         Data |
-|And more      | With an escaped '\|'         ||  
+<table>
+  <tr>
+    <td>One</td>
+    <td>Two</td>
+  </tr>
+  <tr>
+    <td colspan="2">Three</td>
+  </tr>
+</table>
