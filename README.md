@@ -794,14 +794,14 @@ In order to understand if it is possible to achieve similar results using simple
 ### ES
 
 <table>
-  <tr>
+  <tr style="font-weight:bold">
     <td>Country</td>
     <td colspan="4">MAE</td>
     <td colspan="4">MPE</td>
     <td colspan="4">MAPE</td>
   </tr>
-  <tr>
-    <td > </td>
+  <tr style="font-weight:bold">
+    <td > Alpha </td>
     <td > .5 </td>
     <td > .65 </td>
     <td > .8 </td>
