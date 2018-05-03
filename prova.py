@@ -15,12 +15,12 @@ for i in a.index:
 a = pd.read_table(
     "ES_2005_2016/ES_metrics.csv", sep="\t")
 
-a
+for i in a.index[1:]:
+    print(" <tr>")
+    for j in a.columns:
+        print(" <td > %s </td>" %str(a.loc[i][j]))
+    print(" <tr>")
 
-
-| Country | MAE < td colspan = 4 > MPE < td colspan = 4 > MAPE |
-| | .5 | .65 | .8 | .95 | .5 | .65 | .8 | .95 | .5 | .65 | .8 | .95 |
-|--- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | 
 
 #%%
 b = ["![](https://latex.codecogs.com/gif.latex?% 5Cbeta)" , 
@@ -46,3 +46,20 @@ for i in a.index:
     print("| %s | %f |  %f |  %f |  %f |  %f |  %f |  %f |" %
           (a.loc[i]["Unnamed: 0"], a.loc[i]["1 features"], a.loc[i]["2 features"], a.loc[i]["3 features"], 
           a.loc[i]["4 features"], a.loc[i]["5 features"], a.loc[i]["5 features"], a.loc[i]["7 features"]))
+
+
+  <tr>
+    <td > </td>
+    <td > .5 </td>
+    <td > .65 </td>
+    <td > .8 </td>
+    <td > .95 </td>
+    <td > .5 </td>
+    <td > .65 </td>
+    <td > .8 </td>
+    <td > .95 </td>
+    <td > .5 </td>
+    <td > .65 </td>
+    <td > .8 </td>
+    <td > .95 </td>
+  </tr>
