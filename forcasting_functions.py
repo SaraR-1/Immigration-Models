@@ -16,7 +16,7 @@ def SMA_single(data_, m):
 def SMA(data_, country, times, territories, m):
     country = pycountry.countries.get(name=country).alpha_3
     idx = pd.MultiIndex.from_product(
-        [times, territories], names=['Year', 'Province'])
+        [territories, times], names=['Province', 'Year'])
     col = ['SMA %s years' % str(len(times)-m)]
     df = pd.DataFrame('-', idx, col)
 
@@ -25,7 +25,7 @@ def SMA(data_, country, times, territories, m):
         est = list(data_.loc[(t, times), country].values[:len(times)-m])
         est.extend(temp)
 
-        df.loc[(slice(None), t), 'SMA %s years' % str(len(times)-m)] = est
+        df.loc[(t, slice(None)), 'SMA %s years' % str(len(times)-m)] = est
     return(df)
 
 
@@ -39,7 +39,7 @@ def exp_smoothing_single(data_, alpha):
 def exp_smoothing(data_, country, times, territories, alphas):
     country = pycountry.countries.get(name=country).alpha_3
     idx = pd.MultiIndex.from_product(
-        [times, territories], names=['Year', 'Province'])
+        [territories, times], names=['Province', 'Year'])
     col = ['Exp Smoothing %s alpha' % str(alpha) for alpha in alphas]
     df = pd.DataFrame('-', idx, col)
 
@@ -48,6 +48,6 @@ def exp_smoothing(data_, country, times, territories, alphas):
             est = exp_smoothing_single(
                 data_.loc[(t, times), country].values, alpha)
 
-            df.loc[(slice(None), t), 'Exp Smoothing %s alpha' %
+            df.loc[(t, slice(None)), 'Exp Smoothing %s alpha' %
                    str(alpha)] = est
     return(df)
