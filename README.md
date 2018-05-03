@@ -816,7 +816,6 @@ In order to understand if it is possible to achieve similar results using simple
     <td > .95 </td>
   </tr>
   <tr>
-    <td > </td>
     <td > Romania </td>
     <td > 30721.136784957627 </td>
     <td > 26105.201133817733 </td>
@@ -833,7 +832,6 @@ In order to understand if it is possible to achieve similar results using simple
     <td > </td>
  <tr>
  <tr>
-    <td > </td>
     <td > Morocco </td>
     <td > 6229.65490929555 </td>
     <td > 5582.990721820886 </td>
@@ -850,7 +848,6 @@ In order to understand if it is possible to achieve similar results using simple
     <td > </td>
  <tr>
  <tr>
-    <td > </td>
     <td > Albania </td>
     <td > 6483.955045021186 </td>
     <td > 5733.322849163691 </td>
@@ -867,7 +864,6 @@ In order to understand if it is possible to achieve similar results using simple
     <td > </td>
  <tr>
  <tr>
-    <td > </td>
     <td > Tunisia </td>
     <td > 1533.5410652807204 </td>
     <td > 1385.4457846766736 </td>
@@ -884,7 +880,6 @@ In order to understand if it is possible to achieve similar results using simple
     <td > </td>
  <tr>
  <tr>
-    <td > </td>
     <td > Egypt </td>
     <td > 2233.0488115730927 </td>
     <td > 2041.258004726917 </td>
@@ -901,7 +896,6 @@ In order to understand if it is possible to achieve similar results using simple
     <td > </td>
  <tr>
  <tr>
-    <td > </td>
     <td > Ecuador </td>
     <td > 1479.4357289459747 </td>
     <td > 1325.0430411672428 </td>
@@ -918,7 +912,6 @@ In order to understand if it is possible to achieve similar results using simple
     <td > </td>
  <tr>
  <tr>
-    <td > </td>
     <td > Peru </td>
     <td > 1856.2025622351694 </td>
     <td > 1542.220614327474 </td>
@@ -935,7 +928,6 @@ In order to understand if it is possible to achieve similar results using simple
     <td > </td>
  <tr>
  <tr>
-    <td > </td>
     <td > China </td>
     <td > 5167.465654793432 </td>
     <td > 4271.821761837881 </td>
@@ -952,7 +944,6 @@ In order to understand if it is possible to achieve similar results using simple
     <td > </td>
  <tr>
  <tr>
-    <td > </td>
     <td > Philippines </td>
     <td > 2700.4426641949153 </td>
     <td > 2169.766761166495 </td>
