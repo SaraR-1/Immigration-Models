@@ -68,7 +68,7 @@ for c in countries_list:
     SMA_df.sort_index(inplace=True)
 
     pdf.relation_plot_time_variant(SMA_df, SMA_df.columns.tolist(
-    ), y_, zones, 45, "SMA", palette, save=True, path=directory+"/SMA_%s_" %c.lower(), sub_iteration=False, double_scale_x=False)
+    ), y_, zones, 45, "SMA in %s" %c, palette, save=True, path=directory+"/SMA_%s_" %c.lower(), sub_iteration=False, double_scale_x=False)
 
 #%%
 SMA_validation.to_csv(
@@ -114,7 +114,7 @@ for c in countries_list:
     es_df.sort_index(inplace=True)
 
     pdf.relation_plot_time_variant(es_df, es_df.columns.tolist(
-    ), y_, zones, 45, "Exp Smoothing", palette, save=True, path=directory+"/ES_%s_" % c.lower(), sub_iteration=False, double_scale_x=False)
+    ), y_, zones, 45, "Exp Smoothing %s" %c, palette, save=True, path=directory+"/ES_%s_" % c.lower(), sub_iteration=False, double_scale_x=False)
 
 
 #%%
