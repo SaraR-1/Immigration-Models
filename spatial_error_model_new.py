@@ -201,7 +201,7 @@ def run_model(data_init, country, times, I, x_, W, territories, constant, palett
 
     #col = ['Immigrant Stock', 'Prediction step I', 'MI 3 selection','MI 5 selection','MI 7 selection', 'MI 10 selection', 'MI 15 selection', 'MI 20 selection']
     #ks = [3, 5, 7, 10, 15, 20]
-    col = ['Immigrant Stock', 'Prediction step I', '1 features', '2 features',
+    col = ['Immigrant Stock', 'Entity Effect', '1 features', '2 features',
            '3 features', '4 features',  '5 features', '6 features', '7 features']
     ks = [1, 2, 3, 4, 5, 6, 7]
     df = pd.DataFrame('-', idx, col)
@@ -210,15 +210,36 @@ def run_model(data_init, country, times, I, x_, W, territories, constant, palett
     for t in times[:]:
         df.loc[(t, slice(None)), 'Immigrant Stock'] = data_.loc[(t, terr_not_ref), "y"].values
         if type(data_hat) != type(None):
-            df.loc[(t, slice(None)), 'Prediction step I'] = np.exp(beta_hat*np.log((data_.loc[(t, terr_not_ref), "y_prev_1"]/data_.loc[(t, I), "y_prev_1"]).values) + a_hat + np.log([data_hat.loc[(t, I), "y"] for i in terr_not_ref]))
+            df.loc[(t, slice(None)), 'Entity Effect'] = np.exp(beta_hat*np.log((data_.loc[(t, terr_not_ref), "y_prev_1"] /
+                                                                                data_.loc[(t, I), "y_prev_1"]).values) + a_hat + np.log([data_hat.loc[(t, I), "y"] for i in terr_not_ref]))
         else:
-            df.loc[(t, slice(None)), 'Prediction step I'] = np.exp(beta_hat*np.log((data_.loc[(t, terr_not_ref), "y_prev_1"]/data_.loc[(t, I), "y_prev_1"]).values) + a_hat + np.log([data_.loc[(t, I), "y"] for i in terr_not_ref]))
+            df.loc[(t, slice(None)), 'Entity Effect'] = np.exp(beta_hat*np.log((data_.loc[(t, terr_not_ref), "y_prev_1"] /
+                                                                                data_.loc[(t, I), "y_prev_1"]).values) + a_hat + np.log([data_.loc[(t, I), "y"] for i in terr_not_ref]))
 
 
     print("---------- Step II ----------")
     thetas_hat = {}
     cs_hat = {}
-    final_hat = pd.DataFrame(columns = col[2:])
+    final_hat = pd.DataFrame(columns = col[1:])
+
+    a = df.loc[(times[-test_size:], slice(None)),
+                    df.columns[0]].values
+    f = df.loc[(times[-test_size:], slice(None)), 'Entity Effect'].values
+
+    R2 = 1 - sum((a-f)**2)/sum(a**2)
+    
+    final_hat.loc["R2", 'Entity Effect'] = round(R2, 5)
+    final_hat.loc["R2_adj", 'Entity Effect'] = round(R2, 5)
+
+    final_hat.loc["MAE", 'Entity Effect'] = round(sum(np.abs(np.subtract(a,
+                                                        f)))/len(a), 5)
+    final_hat.loc["MPE", 'Entity Effect'] = round(100*sum(np.subtract(a,
+                        f)/a)/len(a), 5)
+    final_hat.loc["MAPE", 'Entity Effect'] = round(100*sum(np.abs(np.subtract(a,
+                                f)/a))/len(a), 5)
+
+    for a, z in zip(a_hat, terr_not_ref):
+        final_hat.loc["a %s" %z, 'Entity Effect'] = a
 
     for k, col_name in zip(ks, col[2:]):
         print("---------- %f ----------" %k)
@@ -311,12 +332,27 @@ def run_model(data_init, country, times, I, x_, W, territories, constant, palett
         final_hat.loc["R2_adj", '%s features' %
                       str(k)] = round(R2_adj_temp[best_k], 5)
 
+        a = df.loc[(times[-test_size:], slice(None)),
+                        df.columns[0]].values
+        f = df.loc[(times[-test_size:], slice(None)), '%s features' % str(k)].values
+
+        final_hat.loc["MAE", '%s features' %
+                    str(k)] = round(sum(np.abs(np.subtract(a,
+                                                            f)))/len(a), 5)
+        final_hat.loc["MPE", '%s features' %
+                    str(k)] = round(100*sum(np.subtract(a,
+                            f)/a)/len(a), 5)
+        final_hat.loc["MAPE", '%s features' %
+                    str(k)] = round(100*sum(np.abs(np.subtract(a,
+                                    f)/a))/len(a), 5)
+
         for best_k_single, v_best in zip(best_k, thetas_hat[best_k]):
             final_hat.loc[best_k_single, '%s features' %
                           str(k)] = v_best
         if constant:
             final_hat.loc['constant', '%s features' %
                           str(k)] = cs_hat[best_k]
+
     if len(terr_not_ref) <= 2:
         plt_seed = 121
     else:

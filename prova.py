@@ -58,4 +58,3 @@ for c in countries_list:
 
 
 #%%
-a = "R-squared    0.996300  MAE  12282.847700   MPE  -0.572900  MAPE 5.156300   y_prev_1    1.081234"

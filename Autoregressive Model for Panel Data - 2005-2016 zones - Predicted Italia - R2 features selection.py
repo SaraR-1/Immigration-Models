@@ -78,7 +78,7 @@ ks = [3, 5, 7, 10, 15]
 y_hat, models = mf.compute_regression_model(
     y, xs, years, countries_list, target, ks)
 
-y_hat.to_csv(directory+"/predicted_italia.csv", sep="\t")
+y_hat.to_csv(directory+"/predicted_italia.tsv", sep="\t")
 
 pdf.relation_plot_time_variant_intern_function(y_hat, countries_list_iso3, years, ["Predicted"], resident_foreigners_norm.groupby(["Country", "Year"]), plt.figure(
     1, figsize=(15, 14)), 331, 45, palette, None, "Immigrant Stock Real VS Predicted", True, directory+"/regression_model_italy", False)
@@ -129,13 +129,14 @@ palette = ['blue', 'darkgreen', 'yellowgreen', 'orange', 'lightcoral',
 
 #%% 
 for c in countries_list:
-    print("------------------------------- %s -------------------------------" %c)
+    print("------------------------------- %s -------------------------------" % c)
+    test_size = 3
     res_pred, res_est, res_params = semnew.run_model(y, c, years, "Italia", xs_zones, temp_W, temp_W.columns.tolist(
-    ), False, palette, "Spatial Error Model", save=True, path=directory+"/spatial_autocorr_model_%s_" %c.lower(), data_hat=y_italia_pred, train_test=True)
-    res_pred
-    res_pred.to_csv(directory+"/spatial_autocorr_model_fitted_values_%s.csv" % c.lower(), sep='\t')
+    ), False, palette, "Spatial Error Model", save=True, path=directory+"/spatial_autocorr_model_%s_" % c.lower(), data_hat=y_italia_pred, train_test=True, test_size=test_size)
+    res_pred.to_csv(
+        directory+"/spatial_autocorr_model_fitted_values_%s.tsv" % c.lower(), sep='\t')
     res_est.to_csv(
-        directory+"/spatial_autocorr_model_est_params2_%s.csv" % c.lower(), sep='\t')
+        directory+"/spatial_autocorr_model_est_params2_%s.tsv" % c.lower(), sep='\t')
     res_params.to_csv(
-        directory+"/spatial_autocorr_model_est_params1_%s.csv" % c.lower(), sep='\t')
+        directory+"/spatial_autocorr_model_est_params1_%s.tsv" % c.lower(), sep='\t')
 
