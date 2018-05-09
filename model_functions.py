@@ -78,17 +78,30 @@ def panel_regression_training_test(y, xs, years_training, years_test, country, l
         pass
 
     print("-------------- Trainin-Test  Results --------------")
-    evaluation(data, fitted_values_, constant, len(xs.columns.tolist()))
+    #print(data.head())
+    #print(fitted_values_.head())
+    #print(fitted_values_te.head())
+    evaluation(data.loc[(slice(None), years_test), ], fitted_values_te, constant, len(xs.columns.tolist()))
+    #evaluation(data.loc[(slice(None), years_test), ], fitted_values_.loc[(slice(None), years_test), ], constant, len(xs.columns.tolist()))
 
     return(res_tr.params, fitted_values_)
 
 def evaluation(data, y_hat, constant, k):
+    a = data["y"].values
+    f = y_hat.fitted_values.values
     if constant == False:
-        R2 = 1 - (sum(np.subtract(data["y"].values, y_hat.fitted_values.values)**2) / sum((data["y"].values)**2))
+        R2 = 1 - (sum(np.subtract(a, f)**2) / sum(a**2))
     else:
-        R2 = 1 - (sum(np.subtract(data["y"].values, y_hat.fitted_values.values)**2) / sum((data["y"].values - np.mean(data["y"].values))**2))
+        R2 = 1 - (sum(np.subtract(a, f)**2) / sum((a - np.mean(a))**2))
 
-    print("R-squared %f." %round(R2,3))
+    print("R-squared    %f." %round(R2, 4))
+    MAE = sum(np.abs(np.subtract(a, f)))/len(a)
+    MPE = 100*sum(np.subtract(a, f)/a)/len(a)
+    MAPE = 100*sum(np.abs(np.subtract(a, f)/a))/len(a)
+    print("MAE  %f." %round(MAE, 4))
+    print("MPE  %f." %round(MPE, 4))
+    print("MAPE %f." %round(MAPE, 4))
+
     # k: number of independet vars
     n = len(data["y"].values)
     #R2_adj = 1 - (1 - R2)*((n - 1)/(n - k -1))

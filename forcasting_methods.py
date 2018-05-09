@@ -46,18 +46,18 @@ forecast_year = 3
 for c in countries_list:
     SMA_df = ff.SMA(y, c, years, zones, forecast_year)
     SMA_df.to_csv(
-        directory+"/SMA_fitted_values_%s.csv" % c.lower(), sep='\t')
+        directory+"/SMA_fitted_values_%s.tsv" % c.lower(), sep='\t')
 
-    a = y.loc[(zones, years), pycountry.countries.get(
+    a = y.loc[(zones, years[-forecast_year:]), pycountry.countries.get(
         name=c).alpha_3].values
-    f = SMA_df["SMA %s years" % str(len(years) - forecast_year)].values
+    f = SMA_df.loc[(slice(None), years[-forecast_year:]), "SMA %s years" % str(len(years) - forecast_year)].values
 
-    SMA_validation.loc[c]["MAE"] = sum(np.abs(np.subtract(a[-forecast_year:],
-                                                          f[-forecast_year:])))/forecast_year
-    SMA_validation.loc[c]["MPE"] = 100*sum(np.subtract(a[-forecast_year:],
-                                                       f[-forecast_year:])/a[-forecast_year:])/forecast_year
-    SMA_validation.loc[c]["MAPE"] = 100*sum(np.abs(np.subtract(a[-forecast_year:],
-                                                           f[-forecast_year:])/a[-forecast_year:]))/forecast_year
+    SMA_validation.loc[c]["MAE"] = sum(np.abs(np.subtract(a,
+                                                          f)))/len(a)
+    SMA_validation.loc[c]["MPE"] = 100*sum(np.subtract(a,
+                                                       f)/a)/len(a)
+    SMA_validation.loc[c]["MAPE"] = 100*sum(np.abs(np.subtract(a,
+                                                           f)/a))/len(a)
 
     y_ = y.rename(columns={pycountry.countries.get(
         name=c).alpha_3: "Value"})
@@ -72,7 +72,7 @@ for c in countries_list:
 
 #%%
 SMA_validation.to_csv(
-    directory+"/SMA_metrics.csv", sep='\t')
+    directory+"/SMA_metrics.tsv", sep='\t')
 
 #%%
 directory = "/home/sara/Documents/Immigration/Shared_models/ES_%d_%d" % (
@@ -91,19 +91,19 @@ for c in countries_list:
     es_df = ff.exp_smoothing(y, c, years, zones, alphas)
 
     es_df.to_csv(
-        directory+"/ES_fitted_values_%s.csv" % c.lower(), sep='\t')
+        directory+"/ES_fitted_values_%s.tsv" % c.lower(), sep='\t')
 
-    a = y.loc[(zones, years), pycountry.countries.get(
+    a = y.loc[(zones, years[1:]), pycountry.countries.get(
         name=c).alpha_3].values
     for alpha in alphas:
-        f = es_df["Exp Smoothing %s alpha" % str(alpha)].values
+        f = es_df.loc[(slice(None), years[1:]), "Exp Smoothing %s alpha" % str(alpha)].values
 
-        ES_validation.loc[c][("MAE", alpha)] = sum(np.abs(np.subtract(a[1:],
-                                                            f[1:])))/len(a[1:])
-        ES_validation.loc[c][("MPE", alpha)] = 100*sum(np.subtract(a[1:],
-                                                        f[1:])/a[1:])/len(a[1:])
-        ES_validation.loc[c][("MAPE", alpha)] = 100*sum(np.abs(np.subtract(a[1:],
-                                                                f[1:])/a[1:]))/len(a[1:])
+        ES_validation.loc[c][("MAE", alpha)] = sum(np.abs(np.subtract(a,
+                                                            f)))/len(a)
+        ES_validation.loc[c][("MPE", alpha)] = 100*sum(np.subtract(a,
+                                                        f)/a)/len(a)
+        ES_validation.loc[c][("MAPE", alpha)] = 100*sum(np.abs(np.subtract(a,
+                                                                f)/a))/len(a)
 
     y_ = y.rename(columns={pycountry.countries.get(
         name=c).alpha_3: "Value"})
@@ -116,7 +116,6 @@ for c in countries_list:
     pdf.relation_plot_time_variant(es_df, es_df.columns.tolist(
     ), y_, zones, 45, "Exp Smoothing %s" %c, palette, save=True, path=directory+"/ES_%s_" % c.lower(), sub_iteration=False, double_scale_x=False)
 
-
 #%%
 ES_validation.to_csv(
-    directory+"/ES_metrics.csv", sep='\t')
+    directory+"/ES_metrics.tsv", sep='\t')

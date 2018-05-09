@@ -38,7 +38,7 @@ for i, j in zip(a.index, b):
 
 #%%
 a = pd.read_table(
-    "Paper_2005_2016/spatial_autocorr_model_est_params2_philippines.csv", sep="\t")
+    "Paper_2005_2016/spatial_autocorr_model_est_params2_romania.csv", sep="\t")
 a = a.round(4)
 a.columns
 
@@ -55,3 +55,7 @@ countries_list = ["Romania", "Morocco", "Albania", "Tunisia",
 
 for c in countries_list:
     print("![](https: // github.com/SaraR-1/Immigration-Models/blob/master/ES_2005_2016/ES_%s_zones.png)" %c.lower())
+
+
+#%%
+a = "R-squared    0.996300  MAE  12282.847700   MPE  -0.572900  MAPE 5.156300   y_prev_1    1.081234"
