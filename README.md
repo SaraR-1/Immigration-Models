@@ -1048,4 +1048,37 @@ In order to understand if it is possible to achieve similar results using simple
 
 From the previous section, it is possible to conclude that adding features or using more sophisticated models does not improve significantly the performance in terms of prediction nor in terms of interpretation.
 
-![](https://github.com/SaraR-1/Immigration-Models/blob/master/Models_compar/models_mae_mape.png)
+#### Romania
+
+![](https://github.com/SaraR-1/Immigration-Models/blob/master/Models_compar/models_mae_mape_romania.png)
+
+#### Morocco
+
+![](https://github.com/SaraR-1/Immigration-Models/blob/master/Models_compar/models_mae_mape_morocco.png)
+
+#### Albania
+![](https://github.com/SaraR-1/Immigration-Models/blob/master/Models_compar/models_mae_mape_albania.png)
+
+#### Tunisia
+
+![](https://github.com/SaraR-1/Immigration-Models/blob/master/Models_compar/models_mae_mape_tunisia.png)
+
+#### Egypt
+
+![](https://github.com/SaraR-1/Immigration-Models/blob/master/Models_compar/models_mae_mape_egypt.png)
+
+#### Ecuador
+
+![](https://github.com/SaraR-1/Immigration-Models/blob/master/Models_compar/models_mae_mape_ecuador.png)
+
+#### Peru
+
+![](https://github.com/SaraR-1/Immigration-Models/blob/master/Models_compar/models_mae_mape_peru.png)
+
+#### China
+
+![](https://github.com/SaraR-1/Immigration-Models/blob/master/Models_compar/models_mae_mape_china.png)
+
+#### Philippines
+
+![](https://github.com/SaraR-1/Immigration-Models/blob/master/Models_compar/models_mae_mape_philippines.png)

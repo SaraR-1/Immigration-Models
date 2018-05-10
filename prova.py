@@ -86,47 +86,48 @@ import matplotlib.pyplot as plt
 
 all_path = ["ES_2005_2016/", "Regression_2006_2016/", "Paper_2005_2016/"]
 metrics = ["MAE", "MAPE"]
+countries_list = ["Romania", "Morocco", "Albania", "Tunisia",
+                  "Egypt", "Ecuador", "Peru", "China", "Philippines"]
 
-fig = plt.figure(1, figsize=(15, 15))
+for c in countries_list:
+    fig = plt.figure(1, figsize=(15, 10))
+    plt_seed = 121
+    for m in metrics:
+        temp = pd.read_table(all_path[1]+'param_%s.tsv' %c.lower(), sep="\t", index_col=0)
+        temp = temp.loc[m]
+        temp = temp.rename({i: "Regression "+i for i in temp.index})
 
-plt_seed = 121
-sns.set_style("whitegrid")
+        temp1 = pd.read_table(
+            all_path[2]+'spatial_autocorr_model_est_params2_%s.tsv' %c.lower(), sep="\t", index_col=0)
 
-for m in metrics:
-    temp = pd.read_table(all_path[1]+'param_romania.tsv', sep="\t", index_col=0)
-    temp = temp.loc[m]
-    temp = temp.rename({i: "Regression "+i for i in temp.index})
+        temp1 = temp1.loc[m]
+        temp1 = temp1.rename({i: "Paper "+i for i in temp1.index})
 
-    temp1 = pd.read_table(
-        all_path[2]+'spatial_autocorr_model_est_params2_romania.tsv', sep="\t", index_col=0)
+        temp2_ = pd.read_table(
+            all_path[0]+'ES_metrics.tsv', sep="\t", index_col=0)
+        temp2 = temp2_.loc[c][m:m+".3"]
+        temp2 = temp2.rename(
+            {j: "ES "+str(i) for i, j in zip(list(set(temp2_.loc["Alpha"].values)), temp2.index)})
 
-    temp1 = temp1.loc[m]
-    temp1 = temp1.rename({i: "Paper "+i for i in temp1.index})
+        complete = pd.concat([temp, temp1, temp2])
 
-    temp2_ = pd.read_table(
-        all_path[0]+'ES_metrics.tsv', sep="\t", index_col=0)
-    temp2 = temp2_.loc["Romania"][m:m+".3"]
-    temp2 = temp2.rename(
-        {j: "ES "+str(i) for i, j in zip(list(set(temp2_.loc["Alpha"].values)), temp2.index)})
+        sns.set_style("whitegrid")
+        ax = fig.add_subplot(plt_seed)
+        ax.tick_params(axis='x', which='minor',
+                        labelsize='small', labelcolor='m', rotation=30)
 
-    complete = pd.concat([temp, temp1, temp2])
+        ax = sns.pointplot(y=complete.values, x=complete.index)
+        ax.ticklabel_format(style='sci', axis='y', scilimits=(0, 0))
+        sns.set_style("white")
+        sns.despine(ax=ax, right=True, left=True)
 
-    ax = fig.add_subplot(plt_seed)
-    ax.tick_params(axis='x', which='minor',
-                    labelsize='small', labelcolor='m', rotation=30)
+        plt.xticks(rotation=90)
+        plt.xlabel("", fontsize=12)
+        plt.ylabel("", fontsize=12)
 
-    ax = sns.pointplot(y=complete.values, x=complete.index)
-    ax.ticklabel_format(style='sci', axis='y', scilimits=(0, 0))
-    sns.set_style("white")
-    sns.despine(ax=ax, right=True, left=True)
+        plt.title("Model's "+m+" "+ c)
 
-    plt.xticks(rotation=90)
-    plt.xlabel("", fontsize=12)
-    plt.ylabel("", fontsize=12)
+        plt_seed += 1 
 
-    plt.title("Model's "+m)
-
-    plt_seed += 1 
-
-plt.show()
-plt.close()
+    plt.savefig("Models_compar/models_mae_mape_%s.png" %c.lower(),  bbox_inches='tight')
+    plt.close()
