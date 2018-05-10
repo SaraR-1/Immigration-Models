@@ -62,7 +62,7 @@ The others may be included in a regression model to see if they improve or not t
 
 In this section regression models for data panel are performed. The model is given by:
 
-![](https://latex.codecogs.com/gif.latex?y_%7Bi%2Ct%7D%20%3D%20%5Cbeta%5ET%20x_%7Bi%2C%20t%7D%20&plus;%20%5Cepsilon_%7Bi%2Ct%7D)
+![](https://latex.codecogs.com/gif.latex?y_%7Bi%2Ct%7D%20%3D%20%5Cbeta%5ET%20x_%7Bi%2C%20t-1%7D%20&plus;%20%5Cepsilon_%7Bi%2C%20t%7D)
 
 where:
 - ![](https://latex.codecogs.com/gif.latex?y_%7Bi%2Ct%7D) is the stock of foreign-born in territory ![](https://latex.codecogs.com/gif.latex?i) at time ![](https://latex.codecogs.com/gif.latex?t).
@@ -98,85 +98,95 @@ Romania, Training 2006-2013 models
 
 | Indep. var.  | I | II | III | IV | V | VI | VII | VIII |
 |---|---|---|---|---|---|---|---|---|
-| ![](https://latex.codecogs.com/gif.latex?y_%7Bi%2C%20t-1%7D) | 1.084| 1.359 | 1.186 | 1.068 | 0.974 | 0.799 | 0.687 | 0.838 |
-| ![](https://latex.codecogs.com/gif.latex?y_%7Bi%2C%20t-2%7D)  | | -0.308 | -0.210 | -0.202 | -0.190 |  -0.171 | -0.032 | 0.006 |
-| Average age of mothers at birth  | | | 524.506 | 55284.921 | 74630.324 | 32634.865 | 42023.009 | |
-| Average age of fathers at birth | |  | | -49289.944 | -66271.533 | -30346.083 | -39339.754 | |
-| Free activities in voluntary associations | | | | 19.771 | 44.505 | -0.775 | 18.446 | -15.847 |
-| Communications | | | | | -100.724 | -869.426 | -163.744 | |
-| Other goods and services | | | | | 16.786 | 299.458 | 247.428 | |
-| Disposable Income | | | | | | 18.357 | 32.520 | 19.498 |
-| Reach_difficulty - Pharmacy | | | | | | -56.561 | -39.905 | |
-| Internal_migration - Foreign country | | | | |  | -0.840 | -1.165 | |
-| Transport | | | | | | | -43.753 | |
-| Reach_difficulty - Emergency room | | | | | | | 27.943 | 8.721 |
-| Unemployment - Total | | | | | | | -109.413 | -60.310 |
-| Born alive | | | | | | | -0.810 | |
-| Clothing and footwear | | | | | | | -197.273 | |
-| Native population - Total  | | | | | | | | -0.012 |
-| Meetings in cultural, recreational or other associations  | | | | | | | | 43.804 |
-| Average monthly expenditure for housing  | | | | | | | | -51-706 |
-| **R-squared** | 0.982  |  0.984 | 0.986  | 0.987  |  0.987 |  0.985 |  0.990 | 0.986  |
-| **Adj R-squared** | 0.982  |  0.984 | 0.986  | 0.986  | 0.987  | 0.985  |  0.990 |  0.986 |
+| ![](https://latex.codecogs.com/gif.latex?y_%7Bi%2C%20t-1%7D) | 1.081200 |  1.334000 |  0.799000 |  1.165300 |  0.877000 |  0.745700 |  0.663900 | 0.675900 |
+| ![](https://latex.codecogs.com/gif.latex?y_%7Bi%2C%20t-2%7D) | nan |  -0.282300 |  0.069100 |  -0.196800 |  -0.006800 |  0.024700 |  -0.007700 | -0.160600 |
+| native population - Total | nan |  nan |  0.002100 |  nan |  nan |  nan |  nan | nan |
+| Free activities in voluntary associations | nan |  nan |  15.580300 |  nan |  nan |  nan |  -62.712300 | -76.538200 |
+| Meetings in cultural, recreational or other associations | nan |  nan |  -72.535600 |  nan |  nan |  nan |  nan | nan |
+| Disposable Income | nan |  nan |  17.876800 |  nan |  7.641100 |  13.414500 |  20.605900 | 37.216000 |
+| Average monthly expenditure for housing | nan |  nan |  1678.173700 |  nan |  nan |  nan |  nan | nan |
+| unemployment - Total | nan |  nan |  -153.797400 |  nan |  -88.203200 |  -99.841500 |  -127.868400 | -169.664800 |
+| reach_difficulty - Emergency room | nan |  nan |  -18.316400 |  nan |  nan |  nan |  nan | nan |
+| Average age of fathers at birth | nan |  nan |  nan |  520.428300 |  109.418200 |  7375.524800 |  -24692.321500 | -64195.415900 |
+| Communications | nan |  nan |  nan |  nan |  nan |  -89.699400 |  235.638800 | 71.595400 |
+| Average age of mothers at birth | nan |  nan |  nan |  nan |  nan |  -8329.268300 |  27101.712800 | 71975.967500 |
+| internal_migration - Foreign country | nan |  nan |  nan |  nan |  nan |  nan |  0.699700 | 1.160900 |
+| Clothing and footwear | nan |  nan |  nan |  nan |  nan |  nan |  -153.154900 | -126.613300 |
+| reach_difficulty - Pharmacy | nan |  nan |  nan |  nan |  nan |  nan |  nan | -11.684400 |
+| Born alive | nan |  nan |  nan |  nan |  nan |  nan |  nan | -0.631100 |
+| Other goods and services | nan |  nan |  nan |  nan |  nan |  nan |  nan | -33.326300 |
+| Transport | nan |  nan |  nan |  nan |  nan |  nan |  nan | 54.550500 |
+| political_info - Every day | nan |  nan |  nan |  nan |  nan |  nan |  nan | -13.385800 |
+| R2 | 0.996300 |  0.996700 |  0.972300 |  0.996500 |  0.984600 |  0.984900 |  0.976700 | 0.974900 |
+| R2_adj | 0.996000 |  0.996200 |  0.944700 |  0.995500 |  0.976000 |  0.969800 |  0.918400 | 1.351400 |
+| MAE | 12282.847700 |  11605.668200 |  36255.202900 |  11309.191200 |  26215.767400 |  24672.924900 |  36891.122400 | 37232.851400 |
+| MPE | -0.572900 |  -0.446000 |  23.500300 |  -3.850400 |  15.451200 |  13.704800 |  21.948300 | 22.635600 |
+| MAPE | 5.156300 |  4.864500 |  23.500300 |  7.201000 |  15.451200 |  14.297400 |  21.948300 | 22.635600 |
 
 ![](https://github.com/SaraR-1/Immigration-Models/blob/master/Plots/regression_model_romania__zones.png)
 
 ![](https://github.com/SaraR-1/Immigration-Models/blob/master/Plots/regression_model_romania_2zones.png)
 
-Morocco, Training 2005-2013 models
+Morocco, Training 2006-2013 models
 
 | Indep. var.  | I | II | III | IV | V | VI | VII | VIII |
 |---|---|---|---|---|---|---|---|---|
-| ![](https://latex.codecogs.com/gif.latex?y_%7Bi%2C%20t-1%7D) | 1.043 | 1.346 | 1.188 | 0.941 | 0.946 | 0.624 | 0.541 | 0.685 |
-| ![](https://latex.codecogs.com/gif.latex?y_%7Bi%2C%20t-2%7D) | | -0.320 | -0.237 | -0.099 | -0.116 | 0.390 | 0.483 | 0.250 |
-| Free activities in voluntary associations | | | 7.301 | 40.489 | 45.084 | 9.580 | -8.331 | 10.240 |
-| Internal_migration - Foreign country | | | | -0.170 | -0.156 | -0.666 | -0.498 | |
-| Native population - Total | | | | -0.001 | -0.001 | 0.004 | -0.002 | 0.001 |
-| Free activities in non voluntary associations | | | | | -31.145 | 33.851 | 15.454 | |
-| Meetings in cultural, recreational or other associations | | | | | 9.237 | -12.697 | 15.807 | 5.075 |
-| Internal_migration - Italy | | | | | | -0.011 | -0.111 | |
-| Political_info - Some times in a week | | | | | | 19.406 | 24.884 | |
-| Pay money to an association | | | | | | 23.873 | 19.558 | |
-| Reach_difficulty - Supermarket | | | | | | | 24.042 | |
-| Reach_difficulty - Post offices | | | | | | | -14.270 | |
-| Born alive | | | | | | | -0.012 | |
-| Disposable Income | | | | | | | -3.921 | -3.179 |
-| Political_info - Every day | | | | | | | -1.001 | |
-| Average monthly expenditure for housing  | | | | | | | | -126.261 |
-| Unemployment - Total | | | | | | | | -20.336 |
-| Reach_difficulty - Emergency room  | | | | | | | | 10.584 |
-| **R-squared** | 0.996 |  0.996 | 0.997 | 0.996  |  0.996 |  0.996 |  0.997 | 0.997  |
-| **Adj R-squared** | 0.996 |  0.996 | 0.997  | 0.996 | 0.996  | 0.996  |  0.997 |  0.997 |
+| ![](https://latex.codecogs.com/gif.latex?y_%7Bi%2C%20t-1%7D) | 1.036300 |  1.235100 |  0.963200 |  1.166400 |  1.213900 |  1.320300 |  1.349400 | 0.839700 |
+| ![](https://latex.codecogs.com/gif.latex?y_%7Bi%2C%20t-2%7D) | nan |  -0.208600 |  0.102700 |  -0.192900 |  -0.286900 |  -0.440000 |  -0.604700 | -0.244700 |
+| native population - Total | nan |  nan |  0.004300 |  nan |  0.000400 |  0.000500 |  0.004600 | -0.006900 |
+| Free activities in voluntary associations | nan |  nan |  -3.343500 |  5.024900 |  -7.893400 |  4.711700 |  17.020300 | -4.838800 |
+| Meetings in cultural, recreational or other associations | nan |  nan |  -20.964300 |  nan |  nan |  -6.946500 |  0.488400 | 20.856200 |
+| Disposable Income | nan |  nan |  -2.378400 |  nan |  nan |  nan |  nan | 7.024200 |
+| Average monthly expenditure for housing | nan |  nan |  523.648900 |  nan |  nan |  nan |  nan | nan |
+| unemployment - Total | nan |  nan |  -26.432600 |  nan |  nan |  nan |  nan | nan |
+| reach_difficulty - Emergency room | nan |  nan |  -2.596900 |  nan |  nan |  nan |  nan | nan |
+| internal_migration - Foreign country | nan |  nan |  nan |  nan |  0.252100 |  0.343200 |  0.152300 | 0.275900 |
+| Pay money to an association | nan |  nan |  nan |  nan |  nan |  -5.020000 |  -12.174800 | 12.772300 |
+| internal_migration - Italy | nan |  nan |  nan |  nan |  nan |  nan |  0.088300 | 0.201400 |
+| reach_difficulty - Post offices | nan |  nan |  nan |  nan |  nan |  nan |  -37.306800 | -17.365900 |
+| Free activities in non voluntary associations | nan |  nan |  nan |  nan |  nan |  nan |  -23.399900 | -76.306900 |
+| Other goods and services | nan |  nan |  nan |  nan |  nan |  nan |  nan | 35.215200 |
+| Transport | nan |  nan |  nan |  nan |  nan |  nan |  nan | -26.370800 |
+| Non food | nan |  nan |  nan |  nan |  nan |  nan |  nan | 3.069400 |
+| political_info - Every day | nan |  nan |  nan |  nan |  nan |  nan |  nan | -2.985600 |
+| R2 | 0.996700 |  0.997300 |  0.996200 |  0.997500 |  0.998800 |  0.998000 |  0.995900 | 0.954800 |
+| R2_adj | 0.996400 |  0.996900 |  0.992400 |  0.996800 |  0.998100 |  0.996000 |  0.985600 | 1.632400 |
+| MAE | 4486.943300 |  4099.887500 |  6013.020800 |  4278.618800 |  3003.125200 |  3285.453000 |  5418.167600 | 19895.411300 |
+| MPE | -1.221000 |  -1.141900 |  7.706900 |  -3.195600 |  -0.308600 |  -3.544600 |  -4.788800 | 32.710300 |
+| MAPE | 4.653500 |  4.301600 |  10.232200 |  4.991400 |  3.962500 |  3.862200 |  6.638400 | 32.710300 |
 
 ![](https://github.com/SaraR-1/Immigration-Models/blob/master/Plots/regression_model_morocco__zones.png)
 
 ![](https://github.com/SaraR-1/Immigration-Models/blob/master/Plots/regression_model_morocco_2zones.png)
 
 
-Albania, Training 2005-2013 models
+Albania, Training 2006-2013 models
 
 | Indep. var.  | I | II | III | IV | V | VI | VII | VIII |
 |---|---|---|---|---|---|---|---|---|
-| ![](https://latex.codecogs.com/gif.latex?y_%7Bi%2C%20t-1%7D) | 1.049 | 1.568 | 1.537 | 1.471 | 1.34 | 1.164 | 0.449 | 1.153 |
-| ![](https://latex.codecogs.com/gif.latex?y_%7Bi%2C%20t-2%7D) | | -0.552 | -0.534 | -0.479 | -0.344 | -0.098 | 0.557 | -0.153 |
-| Native population - Total | | | 0.001 | -0.001 | 0.001 | -0.001 | 0.002 | 0.002 |
-| Internal_migration - Foreign country | | | | -0.111 | -0.229 | -0.301 | -0.440 | |
-| Free activities in voluntary associations | | | | 12.233 | 7.609 | 23.119 | -4.664 | -0.336 |
-| Disposable Income  | | | | | -3.684 | -7.379 | -4.214 | -1.713 |
-| Political_info - Every day | | | | | 7.635 | 7.760 | -1.752 | |
-| Reach_difficulty - Supermarket  | | | | | | -3.932 | -1.432 | |
-| Born alive | | | | | | 0.473 | 0.100 | |
-| Free activities in non voluntary associations | | | | | | -42.284 | -38.935 | |
-| Reach_difficulty - Pharmacy | | | | | | | 0.452 | |
-| Political_info - Never | | | | | | | -7.226 | |
-| Political_info - Some times in a week | | | | | | | 11.357 | |
-| Pay money to an association | | | | | | | 25.832 | |
-| Meetings in cultural, recreational or other associations | | | | | | | 2.164 | -2.775 |
-| Average monthly expenditure for housing | | | | | | | | 188.830 |
-| Unemployment - Total | | | | | | | | -19.643 |
-| Reach_difficulty - Emergency room | | | | | | | | 1.174 |
-| **R-squared** | 0.996 |  0.998 | 0.998  | 0.997  |  0.998 |  0.998 |  0.998 | 0.998 |
-| **Adj R-squared** | 0.996 |  0.998 | 0.998 | 0.997  | 0.998  | 0.998  |  0.998 |  0.998 |
+| ![](https://latex.codecogs.com/gif.latex?y_%7Bi%2C%20t-1%7D) | 1.042100 |  1.457300 |  1.213800 |  1.439700 |  1.334800 |  1.441300 |  1.460700 | 1.206400 |
+| ![](https://latex.codecogs.com/gif.latex?y_%7Bi%2C%20t-2%7D) | nan |  -0.438300 |  -0.169300 |  -0.431200 |  -0.394000 |  -0.531800 |  -0.578500 | -0.321700 |
+| native population - Total | nan |  nan |  0.004200 |  0.000100 |  0.000600 |  0.001300 |  0.003300 | -0.003000 |
+| Free activities in voluntary associations | nan |  nan |  8.667900 |  nan |  nan |  -23.356300 |  -29.850600 | 6.279500 |
+| Meetings in cultural, recreational or other associations | nan |  nan |  -28.259000 |  nan |  nan |  nan |  nan | -39.665400 |
+| Disposable Income | nan |  nan |  -2.265500 |  nan |  -0.651300 |  -0.331200 |  0.199100 | -5.547300 |
+| Average monthly expenditure for housing | nan |  nan |  565.312800 |  nan |  nan |  nan |  nan | nan |
+| unemployment - Total | nan |  nan |  -18.361600 |  nan |  nan |  nan |  nan | nan |
+| reach_difficulty - Emergency room | nan |  nan |  -5.328200 |  nan |  nan |  nan |  nan | nan |
+| internal_migration - Foreign country | nan |  nan |  nan |  nan |  0.128500 |  0.448200 |  0.446900 | 0.519100 |
+| political_info - Every day | nan |  nan |  nan |  nan |  nan |  -0.492400 |  -0.395700 | 3.419300 |
+| reach_difficulty - Pharmacy | nan |  nan |  nan |  nan |  nan |  nan |  0.812900 | -19.066500 |
+| reach_difficulty - Supermarket | nan |  nan |  nan |  nan |  nan |  nan |  -2.357400 | -37.300200 |
+| reach_difficulty - Post offices | nan |  nan |  nan |  nan |  nan |  nan |  -12.910300 | 37.080200 |
+| reach_difficulty - Police, carabinieri | nan |  nan |  nan |  nan |  nan |  nan |  nan | -21.471100 |
+| Born alive | nan |  nan |  nan |  nan |  nan |  nan |  nan | 1.226300 |
+| political_info - Some times in a week | nan |  nan |  nan |  nan |  nan |  nan |  nan | 11.969900 |
+| Pay money to an association | nan |  nan |  nan |  nan |  nan |  nan |  nan | -3.420900 |
+| R2 | 0.995900 |  0.997100 |  0.997200 |  0.997200 |  0.998000 |  0.999100 |  0.999100 | 0.992800 |
+| R2_adj | 0.995600 |  0.996600 |  0.994500 |  0.996400 |  0.996800 |  0.998100 |  0.996900 | 1.100200 |
+| MAE | 5556.493300 |  5051.532400 |  5206.002000 |  5070.328200 |  4394.872200 |  2818.670500 |  2717.642000 | 7782.112200 |
+| MPE | -2.940900 |  -2.143400 |  4.215400 |  -3.696500 |  -4.203800 |  1.500300 |  1.475300 | 10.831200 |
+| MAPE | 5.211100 |  4.808800 |  8.541000 |  5.214700 |  5.853500 |  4.513500 |  5.359300 | 14.942900 |
 
 ![](https://github.com/SaraR-1/Immigration-Models/blob/master/Plots/regression_model_albania__zones.png)
 
@@ -187,27 +197,29 @@ Tunisia, Training 2005-2013 models
 
 | Indep. var.  | I | II | III | IV | V | VI | VII | VIII |
 |---|---|---|---|---|---|---|---|---|
-| ![](https://latex.codecogs.com/gif.latex?y_%7Bi%2C%20t-1%7D) | 1.015 | 1.131 | 0.956 | 0.542 | 0.530 | 0.823 | 0.234 | 0.406 |
-| ![](https://latex.codecogs.com/gif.latex?y_%7Bi%2C%20t-2%7D)  | | -0.119 | -0.044 | 0.415 | 0.396 |  0.069 | 0.623 | 0.298 |
-| Pay money to an association | | | 1.204 | 6.724 | 5.956 | 4.273 | 6.650 |  |
-| Internal_migration - Foreign country | | | | -0.129 | -0.146 | -0.209 | -0.152 | |
-| Native population - Total  | | | | -0.001 | -0.001 | 0.001 | 0.001 | -0.001 |
-| Free activities in voluntary associations | | | |  | 2.259 | 4.978 |  -0.837 | 2.873|
-| Meetings in cultural, recreational or other associations  | | | | | 1.895 | -1.273 | 2.292 | 7.529 |
-| Free activities in non voluntary associations  | | | | |  | -4.278 | -24.446 | |
-| Reach_difficulty - Post offices | | | | | |   -4.160 | -0.495 | |
-| Political_info - Never | | | | | |  -2.871 | -2.295 | |
-| Internal_migration - Italy | | | | |  |  | 0.011 | |
-| Reach_difficulty - Pharmacy | | | | |  | | 3.409 | |
-| Born alive | | | | |  | | -0.050 | |
-| Accommodation and catering services  | | | | |  | | 9.149 | |
-| Political_info - Every day | | | | |  | | 1.491 | |
-| Disposable Income | | | | |  | |  | -0.802 |    
-| Average monthly expenditure for housing  | | | | | | | | 577.273 |
-| Unemployment - Total  | | | | | | | | -4.704 |
-| Reach_difficulty - Emergency room  | | | | | | | | 2.717 |
-| **R-squared** | 0.991  |  0.991 | 0.992  | 0.993  |  0.993 |  0.993 |  0.983 | 0.994  |
-| **Adj R-squared** | 0.991  |  0.991 | 0.991  | 0.993  | 0.993  | 0.993  |  0.983 |  0.994 |
+| ![](https://latex.codecogs.com/gif.latex?y_%7Bi%2C%20t-1%7D) | 1.006200 |  1.043000 |  0.621200 |  1.017900 |  0.878500 |  1.039200 |  0.845200 | 0.418100 |
+| ![](https://latex.codecogs.com/gif.latex?y_%7Bi%2C%20t-2%7D) | nan |  -0.037600 |  0.148000 |  -0.057700 |  0.096400 |  -0.009600 |  0.197400 | 0.321800 |
+| native population - Total | nan |  nan |  0.000500 |  nan |  nan |  0.000300 |  0.000700 | 0.001700 |
+| Free activities in voluntary associations | nan |  nan |  5.089100 |  0.935100 |  -4.212600 |  -5.845500 |  -13.440700 | -4.234700 |
+| Meetings in cultural, recreational or other associations | nan |  nan |  -3.071400 |  nan |  nan |  -4.706600 |  -2.666400 | 2.347200 |
+| Disposable Income | nan |  nan |  -0.746700 |  nan |  nan |  nan |  nan | nan |
+| Average monthly expenditure for housing | nan |  nan |  588.866700 |  nan |  nan |  nan |  nan | nan |
+| unemployment - Total | nan |  nan |  -6.534400 |  nan |  nan |  nan |  nan | nan |
+| reach_difficulty - Emergency room | nan |  nan |  -0.906600 |  nan |  nan |  nan |  nan | 3.849500 |
+| internal_migration - Foreign country | nan |  nan |  nan |  nan |  0.002000 |  0.058400 |  0.133900 | -0.017900 |
+| Pay money to an association | nan |  nan |  nan |  nan |  2.705500 |  1.966100 |  6.611100 | -1.014100 |
+| Accommodation and catering services | nan |  nan |  nan |  nan |  nan |  nan |  8.553200 | 33.028300 |
+| political_info - Every day | nan |  nan |  nan |  nan |  nan |  nan |  -1.081500 | -4.982300 |
+| Free activities in non voluntary associations | nan |  nan |  nan |  nan |  nan |  nan |  -28.596900 | -23.348800 |
+| reach_difficulty - Post offices | nan |  nan |  nan |  nan |  nan |  nan |  nan | -0.774800 |
+| Born alive | nan |  nan |  nan |  nan |  nan |  nan |  nan | 0.191400 |
+| Food and non-alcoholic beverages | nan |  nan |  nan |  nan |  nan |  nan |  nan | -7.306800 |
+| political_info - Never | nan |  nan |  nan |  nan |  nan |  nan |  nan | -6.802100 |
+| R2 | 0.996600 |  0.996600 |  0.991900 |  0.996100 |  0.992200 |  0.995300 |  0.942500 | 0.947900 |
+| R2_adj | 0.996300 |  0.996100 |  0.983800 |  0.995000 |  0.987900 |  0.990600 |  0.798800 | 1.729400 |
+| MAE | 971.384100 |  956.531800 |  1667.222900 |  1084.081400 |  1398.343700 |  1118.430600 |  4751.340200 | 4586.364500 |
+| MPE | 2.403300 |  2.295200 |  11.958500 |  0.869700 |  9.040700 |  5.935000 |  29.428000 | 10.781300 |
+| MAPE | 4.798900 |  4.701300 |  12.079200 |  5.443400 |  9.076600 |  6.753200 |  29.428000 | 28.851500 |
 
 ![](https://github.com/SaraR-1/Immigration-Models/blob/master/Plots/regression_model_tunisia__zones.png)
 
@@ -218,27 +230,31 @@ Egypt, Training 2005-2013 models
 
 | Indep. var.  | I | II | III | IV | V | VI | VII | VIII |
 |---|---|---|---|---|---|---|---|---|
-| ![](https://latex.codecogs.com/gif.latex?y_%7Bi%2C%20t-1%7D) | 1.039 | 0.893 | 0.876 | 0.783 | 0.595 | 0.374 | 0.321 | 0.591 |
-| ![](https://latex.codecogs.com/gif.latex?y_%7Bi%2C%20t-2%7D)  | | 0.153 | 0.154 | 0.214 | 0.487 |  0.618 | 0.653 | 0.479 |
-| Native population - Total | | | 0.001 | -0.001 | -0.001 | -0.002 | -0.002 | 0.001 |
-| Pay money to an association| | | | 1.965 | 8.469 | 9.821 | 13.464 | |
-| Non food | | | | -0.091 | 0.079 | 0.033 | 3.264 |  |
-| Internal_migration - Foreign country | | | | | -0.203 | -0.238 | -0.222 |  |
-| Free activities in voluntary associations  | | | | | 0.845 | 12.995 | 3.014 | -1.334 |
-| Internal_migration - Italy  | | | | |  | 0.043 | 0.048 | |
-| Reach_difficulty - Post offices | | | | |  | 5.431 | 9.096 | |
-| Meetings in cultural, recreational or other associations| | | | |  | -11.948 | -15.948 | 0.078 |
-| Other goods and services | | | | |  | | -24.446 | |
-| Communications| | | | |  | | -35.374 | |
-| Food and non-alcoholic beverages | | | | |  | | 3.052 | |
-| Accommodation and catering services    | | | | |  | | 17.723 |  |    
-| Transport | | | | |  | | -6.712 |  |
-| Disposable Income | | | | |  | |  | -1.861 |    
-| Average monthly expenditure for housing  | | | | | | | | 45.317 |
-| Unemployment - Total  | | | | | | | | -10.960 |
-| Reach_difficulty - Emergency room  | | | | | | | | 5.683 |
-| **R-squared** | 0.984  |  0.983 | 0.983  | 0.984  |  0.983 |  0.983 |  0.966 | 0.979  |
-| **Adj R-squared** | 0.983  |  0.983 | 0.983  | 0.983  | 0.983  | 0.983  |  0.966 |  0.979 |
+| ![](https://latex.codecogs.com/gif.latex?y_%7Bi%2C%20t-1%7D) | 1.027200 |  0.813900 |  0.669800 |  0.803800 |  0.778900 |  0.666500 |  0.749600 | 0.562100 |
+| ![](https://latex.codecogs.com/gif.latex?y_%7Bi%2C%20t-2%7D) | nan |  0.224300 |  0.410600 |  0.223200 |  0.232400 |  0.391200 |  0.273400 | 0.390500 |
+| native population - Total | nan |  nan |  0.003000 |  0.000000 |  -0.000000 |  0.000000 |  0.001400 | 0.000000 |
+| Free activities in voluntary associations | nan |  nan |  -4.863500 |  nan |  nan |  -14.479600 |  -10.373600 | -13.147800 |
+| Meetings in cultural, recreational or other associations | nan |  nan |  -5.860800 |  nan |  nan |  nan |  nan | nan |
+| Disposable Income | nan |  nan |  -1.347000 |  nan |  nan |  nan |  nan | nan |
+| Average monthly expenditure for housing | nan |  nan |  184.261600 |  nan |  nan |  nan |  nan | nan |
+| unemployment - Total | nan |  nan |  -9.403800 |  nan |  nan |  nan |  nan | nan |
+| reach_difficulty - Emergency room | nan |  nan |  -5.280200 |  nan |  nan |  nan |  nan | nan |
+| Non food | nan |  nan |  nan |  nan |  -0.059800 |  0.305700 |  -1.624900 | 6.874800 |
+| Pay money to an association | nan |  nan |  nan |  nan |  0.790400 |  6.180000 |  3.554200 | 2.478400 |
+| internal_migration - Foreign country | nan |  nan |  nan |  nan |  nan |  0.023300 |  0.018900 | -0.267300 |
+| reach_difficulty - Post offices | nan |  nan |  nan |  nan |  nan |  nan |  -10.575000 | -6.037100 |
+| Communications | nan |  nan |  nan |  nan |  nan |  nan |  42.310600 | -3.017900 |
+| Accommodation and catering services | nan |  nan |  nan |  nan |  nan |  nan |  2.560300 | -12.825900 |
+| internal_migration - Italy | nan |  nan |  nan |  nan |  nan |  nan |  nan | 0.153800 |
+| reach_difficulty - Supermarket | nan |  nan |  nan |  nan |  nan |  nan |  nan | -5.928400 |
+| Other goods and services | nan |  nan |  nan |  nan |  nan |  nan |  nan | 1.052400 |
+| Food and non-alcoholic beverages | nan |  nan |  nan |  nan |  nan |  nan |  nan | -11.395500 |
+| Transport | nan |  nan |  nan |  nan |  nan |  nan |  nan | -25.039400 |
+| R2 | 0.990500 |  0.988000 |  0.976000 |  0.987800 |  0.986600 |  0.959500 |  0.980300 | 0.930200 |
+| R2_adj | 0.989800 |  0.986000 |  0.952100 |  0.984500 |  0.979100 |  0.919100 |  0.931100 | 1.976800 |
+| MAE | 1732.044500 |  2070.709000 |  4436.408300 |  2018.025200 |  2169.215700 |  6042.958000 |  4066.703900 | 7955.170700 |
+| MPE | 13.209400 |  15.715400 |  113.222200 |  1.195800 |  8.814800 |  153.336700 |  132.840800 | 150.391700 |
+| MAPE | 13.589200 |  15.946600 |  113.222200 |  9.688000 |  14.120600 |  153.336700 |  133.934600 | 150.391700 |
 
 ![](https://github.com/SaraR-1/Immigration-Models/blob/master/Plots/regression_model_egypt__zones.png)
 
@@ -249,26 +265,30 @@ Ecuador, Training 2005-2013 models
 
 | Indep. var.  | I | II | III | IV | V | VI | VII | VIII |
 |---|---|---|---|---|---|---|---|---|
-| ![](https://latex.codecogs.com/gif.latex?y_%7Bi%2C%20t-1%7D) | 1.055 | 1.567 | 1.546 | 1.385 | 1.426 | 1.141 | 1.176 | 1.386 |
-| ![](https://latex.codecogs.com/gif.latex?y_%7Bi%2C%20t-2%7D)  | | -0.557 | -0.545 | -0.359 | -0.398 |  -0.164 | -0.173 | -0.344 |
-| Native population - Total | | | 0.001 | -0.001 | 0.001 | 0.001 | 0.002 | 0.001 |
-| Internal_migration - Foreign country| | | | -0.085 | -0.102 | -0.130 | -0.064 | |
-| Pay money to an association | | | | 3.849 | 3.787 | 8.274 | 3.038 |  |
-| Reach_difficulty - Post offices | | | | | -2.999 | -2.086 | -3.835 |  |
-| Free activities in voluntary associations  | | | | | -1.029 | 7.536 | 3.446 | -1.669 |
-| Internal_migration - Italy  | | | | |  | 0.0153| -0.036 | |
-| Accommodation and catering services | | | | |  | 1.455 | 14.394 | |
-| Meetings in cultural, recreational or other associations| | | | |  | -18.261 | -5.907 | -2.456 |
-| Other goods and services | | | | |  | | -8.600 | |
-| Non food | | | | |  | | 1.664 | |
-| Reach_difficulty - Supermarket  | | | | |  | | 7.971 | |    
-| Transport | | | | |  | | -13.838 |  |
-| Disposable Income | | | | |  | | -2.420 | -1.205 |    
-| Average monthly expenditure for housing  | | | | | | | | 68.382 |
-| Unemployment - Total  | | | | | | | | -5.074 |
-| Reach_difficulty - Emergency room  | | | | | | | | -0.631 |
-| **R-squared** | 0.990  |  0.993 | 0.993  | 0.993  |  0.993 |  0.994 |  0.994 | 0.994  |
-| **Adj R-squared** | 0.989  |  0.993 | 0.993  | 0.993  | 0.993  | 0.994  |  0.994 |  0.993 |
+| ![](https://latex.codecogs.com/gif.latex?y_%7Bi%2C%20t-1%7D) | 1.041200 |  1.299500 |  1.144700 |  1.291300 |  1.239900 |  1.385800 |  1.330400 | 1.050400 |
+| ![](https://latex.codecogs.com/gif.latex?y_%7Bi%2C%20t-2%7D) | nan |  -0.277600 |  -0.096100 |  -0.274200 |  -0.221000 |  -0.372100 |  -0.306400 | -0.077400 |
+| native population - Total | nan |  nan |  0.001800 |  0.000000 |  0.000000 |  0.001500 |  0.001600 | 0.000900 |
+| Free activities in voluntary associations | nan |  nan |  -0.164800 |  nan |  -2.252200 |  -7.295400 |  -7.394500 | -4.200300 |
+| Meetings in cultural, recreational or other associations | nan |  nan |  -6.658400 |  nan |  nan |  nan |  nan | -11.271000 |
+| Disposable Income | nan |  nan |  -0.794700 |  nan |  nan |  nan |  nan | nan |
+| Average monthly expenditure for housing | nan |  nan |  138.521100 |  nan |  nan |  nan |  nan | nan |
+| unemployment - Total | nan |  nan |  -5.388600 |  nan |  nan |  nan |  nan | nan |
+| reach_difficulty - Emergency room | nan |  nan |  -3.055100 |  nan |  nan |  nan |  nan | nan |
+| Pay money to an association | nan |  nan |  nan |  nan |  1.300900 |  -0.784900 |  -1.306400 | 2.585800 |
+| internal_migration - Foreign country | nan |  nan |  nan |  nan |  nan |  0.030900 |  0.044300 | -0.113800 |
+| reach_difficulty - Post offices | nan |  nan |  nan |  nan |  nan |  -8.332600 |  -9.253500 | -4.651000 |
+| Other goods and services | nan |  nan |  nan |  nan |  nan |  nan |  16.492400 | 3.656500 |
+| Accommodation and catering services | nan |  nan |  nan |  nan |  nan |  nan |  -1.893400 | -3.549700 |
+| Transport | nan |  nan |  nan |  nan |  nan |  nan |  -10.302000 | -12.809300 |
+| internal_migration - Italy | nan |  nan |  nan |  nan |  nan |  nan |  nan | 0.083100 |
+| reach_difficulty - Supermarket | nan |  nan |  nan |  nan |  nan |  nan |  nan | -6.145300 |
+| Food and non-alcoholic beverages | nan |  nan |  nan |  nan |  nan |  nan |  nan | -5.237900 |
+| Non food | nan |  nan |  nan |  nan |  nan |  nan |  nan | 2.914400 |
+| R2 | 0.995300 |  0.995700 |  0.995600 |  0.995700 |  0.995800 |  0.996700 |  0.996200 | 0.991600 |
+| R2_adj | 0.994900 |  0.995000 |  0.991200 |  0.994600 |  0.993500 |  0.993400 |  0.986700 | 1.116900 |
+| MAE | 1189.175900 |  1167.202100 |  1625.563400 |  1243.933400 |  1226.351600 |  1284.498800 |  1381.270900 | 2458.264300 |
+| MPE | -1.984500 |  -1.291700 |  77.821000 |  -11.623400 |  21.313600 |  28.868700 |  49.889900 | 124.061800 |
+| MAPE | 5.947900 |  5.849400 |  81.084800 |  13.989500 |  24.025800 |  44.507500 |  63.702000 | 124.867200 |
 
 ![](https://github.com/SaraR-1/Immigration-Models/blob/master/Plots/regression_model_ecuador__zones.png)
 
@@ -279,26 +299,29 @@ Peru, Training 2005-2013 models
 
 | Indep. var.  | I | II | III | IV | V | VI | VII | VIII |
 |---|---|---|---|---|---|---|---|---|
-| ![](https://latex.codecogs.com/gif.latex?y_%7Bi%2C%20t-1%7D) | 1.075 | 1.284 | 1.259 | 1.262 | 0.890 | 0.859 | 0.782 | 0.968 |
-| ![](https://latex.codecogs.com/gif.latex?y_%7Bi%2C%20t-2%7D)  | | -0.228 | -0.212 | -0.182 | 0.246 |  0.279 | 0.305 | 0.130 |
-| Native population - Total | | | 0.001 | -0.001 | 0.001 | 0.001 | 0.001 | 0.001 |
-| Internal_migration - Foreign country| | | | -0.104 | -0.141| -0.112 | -0.167 | |
-| Free activities in voluntary associations | | | | 7.768 | 2.849 | 5.315 | 1.910 | -2.678 |
-| Pay money to an association | | | | | 4.168 | 4.791 | 6.407 |  |
-| Disposable Income  | | | | | -0.699 | -0.779 | 0.237 | -0.834 |
-| Internal_migration - Italy  | | | | |  | -0.012 | 0.001 | |
-| Reach_difficulty - Post offices | | | | |  | 2.851 | -1.086 | |
-| Meetings in cultural, recreational or other associations| | | | |  | -3.296 | -1.106 | 3.208 |
-| Reach_difficulty - Supermarket  | | | | |  | | 6.476 | |
-| Non food | | | | |  | | -0.074 | |
-| Born alive  | | | | |  | | -0.195 | |    
-| Political_info - Every day | | | | |  | | -0.148 |  |
-| Free activities in non voluntary associations | | | | |  | | 2.6954   |    
-| Average monthly expenditure for housing  | | | | | | | | -11.476 |
-| Unemployment - Total  | | | | | | | | -3.698 |
-| Reach_difficulty - Emergency room  | | | | | | | | 2.439 |
-| **R-squared** | 0.994  |  0.995 | 0.995  | 0.994  |  0.993 |  0.994 |  0.986 | 0.995  |
-| **Adj R-squared** | 0.984  |  0.994 | 0.995  | 0.993  | 0.993  | 0.994  |  0.985 |  0.995 |
+| ![](https://latex.codecogs.com/gif.latex?y_%7Bi%2C%20t-1%7D) | 1.068500 |  1.133500 |  1.042100 |  1.119500 |  1.144900 |  0.784100 |  0.865900 | 0.633800 |
+| ![](https://latex.codecogs.com/gif.latex?y_%7Bi%2C%20t-2%7D) | nan |  -0.070600 |  0.043400 |  -0.063400 |  -0.096700 |  0.307400 |  0.191200 | 0.220500 |
+| native population - Total | nan |  nan |  0.001000 |  0.000000 |  0.000100 |  0.000100 |  0.000900 | -0.002500 |
+| Free activities in voluntary associations | nan |  nan |  -2.395200 |  nan |  -1.359400 |  -1.903200 |  0.149600 | -2.991600 |
+| Meetings in cultural, recreational or other associations | nan |  nan |  -1.334800 |  nan |  nan |  nan |  -7.946900 | 5.110500 |
+| Disposable Income | nan |  nan |  -0.307000 |  nan |  nan |  -0.296500 |  -0.024800 | 2.618400 |
+| Average monthly expenditure for housing | nan |  nan |  61.821200 |  nan |  nan |  nan |  nan | nan |
+| unemployment - Total | nan |  nan |  -3.402600 |  nan |  nan |  nan |  nan | nan |
+| reach_difficulty - Emergency room | nan |  nan |  -2.206900 |  nan |  nan |  nan |  nan | nan |
+| internal_migration - Foreign country | nan |  nan |  nan |  nan |  0.019300 |  -0.053600 |  -0.061900 | -0.053000 |
+| Pay money to an association | nan |  nan |  nan |  nan |  nan |  3.367400 |  4.085300 | 7.444700 |
+| reach_difficulty - Supermarket | nan |  nan |  nan |  nan |  nan |  nan |  -0.285000 | 4.690400 |
+| reach_difficulty - Post offices | nan |  nan |  nan |  nan |  nan |  nan |  -5.354100 | -3.250100 |
+| internal_migration - Italy | nan |  nan |  nan |  nan |  nan |  nan |  nan | 0.057200 |
+| Other goods and services | nan |  nan |  nan |  nan |  nan |  nan |  nan | -5.659100 |
+| Food and non-alcoholic beverages | nan |  nan |  nan |  nan |  nan |  nan |  nan | 1.904000 |
+| Non food | nan |  nan |  nan |  nan |  nan |  nan |  nan | -0.297800 |
+| political_info - Every day | nan |  nan |  nan |  nan |  nan |  nan |  nan | -3.590300 |
+| R2 | 0.992300 |  0.992700 |  0.993300 |  0.992800 |  0.993800 |  0.990700 |  0.991400 | 0.980700 |
+| R2_adj | 0.991700 |  0.991500 |  0.986600 |  0.990900 |  0.990400 |  0.981400 |  0.970000 | 1.270800 |
+| MAE | 1709.931000 |  1685.920300 |  1872.193800 |  1776.341600 |  1632.523000 |  2066.226300 |  2125.719700 | 3393.737000 |
+| MPE | -5.787000 |  -5.521500 |  45.000300 |  -15.152600 |  -7.327300 |  26.023600 |  35.135000 | 76.670600 |
+| MAPE | 7.860700 |  7.634000 |  51.646200 |  16.478000 |  12.249100 |  32.095700 |  45.832800 | 88.189800 |
 
 ![](https://github.com/SaraR-1/Immigration-Models/blob/master/Plots/regression_model_peru__zones.png)
 
@@ -309,26 +332,29 @@ China, Training 2005-2013 models
 
 | Indep. var.  | I | II | III | IV | V | VI | VII | VIII |
 |---|---|---|---|---|---|---|---|---|
-| ![](https://latex.codecogs.com/gif.latex?y_%7Bi%2C%20t-1%7D) | 1.087 | 1.041 | 0.900 | 0.515 | 0.481 | 0.405 | 0.426 | 0.390 |
-| ![](https://latex.codecogs.com/gif.latex?y_%7Bi%2C%20t-2%7D) | | 0.0500 | 0.152 | 0.488 | 0.512 | 0.463 | 0.539 | 0.690 |
-| Born alive | | | 0.017 | 0.127 | 0.099 | 0.022 | -0.176 | |
-| Internal_migration - Foreign country | | | | 0.094 | 0.101 | 0.060 | -0.178 | |
-| Political_info - Some times in a week | | | | 6.394 | -6.785 | -5.820 | -4.261 | |
-| Reach_difficulty - Pharmacy | | | | | 2.774 | 1.152 | 9.618 | |
-| Free activities in voluntary associations | | | | | 1.093 | -4.378 | -0.315 | -2.807 |
-| Reach_difficulty - Post offices  | | | | |  | -1.016 | -16.002 | |
-| Political_info - Every day | | | | |  |  4.834 | 3.677 | |
-| Meetings in cultural, recreational or other associations | | | | |  | 2.997 | -7.571 | 2.342 |
-| Native population - Total | | | | |  | | 0.002 | 0.001 |
-| Reach_difficulty - Emergency room | | | | |  | |  | |
-| Disposable Income | | | | |  | | -0.058 | -0.975 |    
-| Pay money to an association | | | | |  | | 8.923 |  |  
-| Average age of fathers at birth | | | | |  | | -104.609 |  |  
-| Average monthly expenditure for housing  | | | | | | | | 150.086 |
-| Unemployment - Total  | | | | | | | | -13.276 |
-| Reach_difficulty - Emergency room  | | | | | | | 6.368 | 3.281 |
-| **R-squared** | 0.995  |  0.995 | 0.995 | 0.993 |  0.993 |  0.991 |  0.996 | 0.994 |
-| **Adj R-squared** | 0.995 |  0.995 | 0.995  | 0.993  | 0.993  | 0.991  |  0.996 |  0.994 |
+| ![](https://latex.codecogs.com/gif.latex?y_%7Bi%2C%20t-1%7D) | 1.080300 |  0.895300 |  0.686100 |  0.826600 |  0.680500 |  0.714200 |  0.164100 | 0.223100 |
+| ![](https://latex.codecogs.com/gif.latex?y_%7Bi%2C%20t-2%7D) | nan |  0.200300 |  0.406800 |  0.204300 |  0.322800 |  0.424100 |  0.837500 | 0.745000 |
+| native population - Total | nan |  nan |  0.001200 |  nan |  nan |  nan |  -0.000400 | -0.004900 |
+| Free activities in voluntary associations | nan |  nan |  0.302300 |  nan |  nan |  nan |  -13.692100 | -9.079200 |
+| Meetings in cultural, recreational or other associations | nan |  nan |  -4.650300 |  nan |  nan |  nan |  nan | nan |
+| Disposable Income | nan |  nan |  -0.726100 |  nan |  nan |  -1.557900 |  0.902900 | -0.917900 |
+| Average monthly expenditure for housing | nan |  nan |  172.910600 |  nan |  nan |  nan |  nan | nan |
+| unemployment - Total | nan |  nan |  -6.050100 |  nan |  nan |  nan |  nan | 12.453900 |
+| reach_difficulty - Emergency room | nan |  nan |  -1.273200 |  nan |  nan |  nan |  nan | nan |
+| internal_migration - Foreign country | nan |  nan |  nan |  0.047500 |  0.076500 |  0.034900 |  0.040800 | 0.188400 |
+| Born alive | nan |  nan |  nan |  nan |  0.077000 |  0.176400 |  0.049100 | 0.540400 |
+| political_info - Some times in a week | nan |  nan |  nan |  nan |  -3.879400 |  -1.612200 |  -2.446600 | -0.046200 |
+| political_info - Every day | nan |  nan |  nan |  nan |  nan |  -1.474600 |  -2.112100 | -0.984500 |
+| Pay money to an association | nan |  nan |  nan |  nan |  nan |  nan |  12.079500 | 10.565000 |
+| reach_difficulty - Pharmacy | nan |  nan |  nan |  nan |  nan |  nan |  nan | 2.604300 |
+| reach_difficulty - Food stores, markets | nan |  nan |  nan |  nan |  nan |  nan |  nan | -2.886100 |
+| reach_difficulty - Supermarket | nan |  nan |  nan |  nan |  nan |  nan |  nan | -14.994900 |
+| reach_difficulty - Post offices | nan |  nan |  nan |  nan |  nan |  nan |  nan | 11.851100 |
+| R2 | 0.995400 |  0.995100 |  0.994700 |  0.996100 |  0.994400 |  0.994300 |  0.977700 | 0.960700 |
+| R2_adj | 0.995000 |  0.994300 |  0.989400 |  0.995000 |  0.991300 |  0.988500 |  0.921900 | 1.550600 |
+| MAE | 3010.976100 |  3249.705300 |  3561.305700 |  2837.138600 |  3150.402600 |  3451.476300 |  7308.850900 | 10857.541100 |
+| MPE | -1.061300 |  -0.759000 |  2.530900 |  1.358200 |  6.532400 |  6.169700 |  18.982200 | 23.728900 |
+| MAPE | 5.381800 |  5.747600 |  6.934900 |  5.432900 |  6.981900 |  7.997900 |  18.982200 | 23.728900 |
 
 ![](https://github.com/SaraR-1/Immigration-Models/blob/master/Plots/regression_model_china__zones.png)
 
@@ -339,28 +365,30 @@ Philippines, Training 2005-2013 models
 
 | Indep. var.  | I | II | III | IV | V | VI | VII | VIII |
 |---|---|---|---|---|---|---|---|---|
-| ![](https://latex.codecogs.com/gif.latex?y_%7Bi%2C%20t-1%7D) | 1.063 | 0.955 | 0.918 | 0.699 | 0.761 | 0.610 | 0.762 | 0.633 |  
-| ![](https://latex.codecogs.com/gif.latex?y_%7Bi%2C%20t-2%7D) | | 0.142 | 0.137 | 0.202 | 0.221 | 0.347 | 0.284 | 0.473 |  
-| Native population - Total | | | 0.001 | 0.001 | 0.001 | 0.001 | 0.001 | 0.001 |
-| Internal_migration - Foreign country | | | | 0.064 | 0.008 | -0.065 | -0.203 |  |
-| Other goods and services  | | | | -6.116 | 10.469 | 12.515 | 10.231 |  |  
-| Communications | | | | | -18.917 | -17.420 | -9.230 |  |  
-| Non food | | | | | -0.679 | -0.141 | -1.418 |  |  
-| Housing, water, electricity, gas and other fuels | | | | |  | -1.611 | 0.721 |  |  
-| Accommodation and catering services | | | | |  | -8.049| 11.558 |  |  
-| Free activities in voluntary associations| | | | |  | 11.167 | 5.669 | -3.116 |  
-| Reach_difficulty - Post offices | | | | |  | | 1.075 |  |  
-| Born alive | | | | |  | | -0.086 |  |  
-| Pay money to an association  | | | | |  | | 2.375 |  |  
-| Average age of fathers at birth | | | | |  | | -166.873 |  |
-| Food and non-alcoholic beverages | | | | |  | | -2.390 |  |   
-| Meetings in cultural, recreational or other associations | | | | |  |  |  | 1.444 |
-| Disposable Income | | | | |  | |  | -0.913 |   
-| Average monthly expenditure for housing  | | | | | | | | 43.382 |
-| Unemployment - Total  | | | | | | | | -5.443 |
-| Reach_difficulty - Emergency room  | | | | | | |  | -1.299 |
-| **R-squared** | 0.995  |  0.995 | 0.995 | 0.992 |  0.994 |  0.988 |  0.990 | 0.995 |
-| **Adj R-squared** | 0.995 |  0.995 | 0.995  | 0.992  | 0.994  | 0.988  |  0.990 |  0.994 |
+| ![](https://latex.codecogs.com/gif.latex?y_%7Bi%2C%20t-1%7D) | 1.058900 |  0.901800 |  0.742200 |  0.898800 |  0.749600 |  0.662700 |  0.389600 | 0.412800 |
+| ![](https://latex.codecogs.com/gif.latex?y_%7Bi%2C%20t-2%7D) | nan |  0.167200 |  0.361700 |  0.162900 |  -0.012300 |  0.110700 |  0.362700 | 0.149400 |
+| native population - Total | nan |  nan |  0.001600 |  nan |  0.000800 |  0.000700 |  0.000500 | -0.001600 |
+| Free activities in voluntary associations | nan |  nan |  -2.063400 |  nan |  nan |  1.685600 |  0.574000 | 0.231100 |
+| Meetings in cultural, recreational or other associations | nan |  nan |  -3.322800 |  nan |  nan |  nan |  nan | nan |
+| Disposable Income | nan |  nan |  -0.778000 |  nan |  nan |  nan |  nan | 1.099500 |
+| Average monthly expenditure for housing | nan |  nan |  109.525200 |  nan |  nan |  nan |  nan | nan |
+| unemployment - Total | nan |  nan |  -3.403000 |  nan |  nan |  nan |  nan | nan |
+| reach_difficulty - Emergency room | nan |  nan |  -2.842100 |  nan |  nan |  nan |  nan | nan |
+| internal_migration - Foreign country | nan |  nan |  nan |  0.004000 |  0.132500 |  0.106600 |  0.080100 | 0.191600 |
+| Other goods and services | nan |  nan |  nan |  nan |  -12.060500 |  1.015700 |  -5.629400 | 3.459500 |
+| Non food | nan |  nan |  nan |  nan |  nan |  -1.208300 |  -0.733700 | -2.603300 |
+| Communications | nan |  nan |  nan |  nan |  nan |  nan |  9.523800 | -0.640600 |
+| Accommodation and catering services | nan |  nan |  nan |  nan |  nan |  nan |  -4.614500 | -4.732000 |
+| Pay money to an association | nan |  nan |  nan |  nan |  nan |  nan |  3.771300 | 3.677400 |
+| reach_difficulty - Post offices | nan |  nan |  nan |  nan |  nan |  nan |  nan | -0.095900 |
+| Born alive | nan |  nan |  nan |  nan |  nan |  nan |  nan | 0.164500 |
+| Housing, water, electricity, gas and other fuels | nan |  nan |  nan |  nan |  nan |  nan |  nan | 1.237900 |
+| Food and non-alcoholic beverages | nan |  nan |  nan |  nan |  nan |  nan |  nan | 2.225100 |
+| R2 | 0.992200 |  0.992300 |  0.992200 |  0.992400 |  0.975800 |  0.976000 |  0.974300 | 0.968100 |
+| R2_adj | 0.991600 |  0.991000 |  0.984300 |  0.990300 |  0.962400 |  0.951900 |  0.910000 | 1.446500 |
+| MAE | 2387.559100 |  2369.865300 |  2300.218600 |  2340.493600 |  4964.063700 |  4983.678300 |  5309.690500 | 5989.886800 |
+| MPE | -1.174100 |  -0.903600 |  3.469800 |  -0.907000 |  -25.182700 |  -25.052200 |  -17.053800 | -11.114900 |
+| MAPE | 6.371200 |  6.366500 |  6.937800 |  6.308200 |  30.070000 |  29.815000 |  27.234700 | 28.000400 |
 
 ![](https://github.com/SaraR-1/Immigration-Models/blob/master/Plots/regression_model_philippines__zones.png)
 
@@ -520,24 +548,27 @@ Romania, Training 2005-2013 models
 | Var.  | Value |
 |---|---|
 | ![](https://latex.codecogs.com/gif.latex?%5Cbeta) | 0.926300 |
-| ![](https://latex.codecogs.com/gif.latex?a_%7BCentro%7D) | -0.109700 |
-| ![](https://latex.codecogs.com/gif.latex?a_%7BIsole%7D) | -0.110200 |
-| ![](https://latex.codecogs.com/gif.latex?a_%7BNord%20%5C%20est%7D)  | -0.136800 |
-| ![](https://latex.codecogs.com/gif.latex?a_%7BNord%20%5C%20ovest%7D) | -0.112800 |
-| ![](https://latex.codecogs.com/gif.latex?a_%7BSud%7D) | -0.086300 |
 | ![](https://latex.codecogs.com/gif.latex?%5Crho) | 6.865800 |
 
-| Var.  | I | II | III | IV | V | VI | VII |
-|---|---|---|---|---|---|---|---|
-| **R2** | 0.998800 |  0.998900 |  0.998900 |  0.998800 |  0.998400 |  0.999000 |  0.998700 |
-| **R2_adj** | 0.998700 |  0.998800 |  0.998700 |  0.998400 |  0.997800 |  0.998400 |  0.997800 |
-| Free activity for a union | 0.000200 |  0.000500 |  0.000400 |  -0.000800 |  0.001800 |  0.000500 |  0.000800 |
-| Free activities in voluntary associations | - |  -0.000000 |  -0.000100 |  0.000100 |  -0.000300 |  0.000000 |  -0.000100 |
-| Meetings in cultural, recreational or other associations | - |  - |  0.000000 |  -0.000300 |  0.002000 |  -0.000100 |  0.000000 |
-| Meetings in ecological associations, for civil rights, for peace | - |  - |  - |  0.002000 |  -0.004900 |  0.000400 |  0.000200 |
-| Free activities in non voluntary associations | - |  - |  - |  - |  -0.002600 |  0.000100 |  -0.000100 |
-| political_info - Some times in a year | - |  - |  - |  - |  - |  -0.000000 |  0.000000 |
-| Recreation, shows and culture | - |  - |  - |  - |  - |  - |  0.000000 |
+| Var.  | I | II | III | IV | V | VI | VII | VIII |
+|---|---|---|---|---|---|---|---|---|
+| R2 | 0.998400 |  0.998800 |  0.998900 |  0.998900 |  0.998800 |  0.998400 |  0.999000 | 0.998700 |
+| R2_adj | 0.998400 |  0.998700 |  0.998800 |  0.998700 |  0.998400 |  0.997800 |  0.998400 | 0.997800 |
+| MAE | 7351.814500 |  6731.112800 |  6313.440300 |  6193.532600 |  6651.446200 |  7351.814500 |  6136.917900 | 7674.905700 |
+| MPE | -2.011200 |  -2.050300 |  -2.071400 |  -2.050200 |  -2.015500 |  -2.011200 |  -1.713400 | -2.274000 |
+| MAPE | 4.347800 |  3.565000 |  3.503200 |  3.516300 |  3.963600 |  4.347800 |  3.306200 | 4.334900 |
+| a Centro | -0.109700 |  - |  - |  - |  - |  - |  - | - |
+| a Isole | -0.110200 |  - |  - |  - |  - |  - |  - | - |
+| a Nord-est | -0.136800 |  - |  - |  - |  - |  - |  - | - |
+| a Nord-ovest | -0.112800 |  - |  - |  - |  - |  - |  - | - |
+| ![](https://latex.codecogs.com/gif.latex?a_%7BSud%7D) | -0.086300 |  - |  - |  - |  - |  - |  - | - |
+| Free activity for a union | - |  0.000200 |  0.000500 |  0.000400 |  -0.000800 |  0.001800 |  0.000500 | 0.000800 |
+| Free activities in voluntary associations | - |  - |  -0.000000 |  -0.000100 |  0.000100 |  -0.000300 |  0.000000 | -0.000100 |
+| Meetings in cultural, recreational or other associations | - |  - |  - |  0.000000 |  -0.000300 |  0.002000 |  -0.000100 | 0.000000 |
+| Meetings in ecological associations, for civil rights, for peace | - |  - |  - |  - |  0.002000 |  -0.004900 |  0.000400 | 0.000200 |
+| Free activities in non voluntary associations | - |  - |  - |  - |  - |  -0.002600 |  0.000100 | -0.000100 |
+| political_info - Some times in a year | - |  - |  - |  - |  - |  - |  -0.000000 | 0.000000 |
+| Recreation, shows and culture | - |  - |  - |  - |  - |  - |  - | 0.000000 |
 
 ![](https://github.com/SaraR-1/Immigration-Models/blob/master/Paper_2005_2016/spatial_autocorr_model_romania_zones.png)
 
@@ -547,25 +578,28 @@ Morocco, Training 2005-2013 models
 
 | Var.  | Value |
 |---|---|
-| ![](https://latex.codecogs.com/gif.latex?%5Cbeta) | 0.814100 |
-| ![](https://latex.codecogs.com/gif.latex?a_%7BCentro%7D) | -0.370600 |
-| ![](https://latex.codecogs.com/gif.latex?a_%7BIsole%7D) | -0.614200 |
-| ![](https://latex.codecogs.com/gif.latex?a_%7BNord%20%5C%20est%7D) | -0.211300 |
-| ![](https://latex.codecogs.com/gif.latex?a_%7BNord%20%5C%20ovest%7D) | -0.163000 |
-| ![](https://latex.codecogs.com/gif.latex?a_%7BSud%7D) | -0.447700 |
-| ![](https://latex.codecogs.com/gif.latex?%5Crho) | 7.041200 |
+| ![](https://latex.codecogs.com/gif.latex?% 5Cbeta) | 0.814100 |
+| ![](https://latex.codecogs.com/gif.latex?% 5Crho) | 7.041200 |
 
-| Var.  | I | II | III | IV | V | VI | VII |
-|---|---|---|---|---|---|---|---|
-| **R2** | 0.990600 |  0.998600 |  0.998700 |  0.999200 |  0.999200 |  0.998600 |  0.999100 |
-| **R2_adj** | 0.990000 |  0.998400 |  0.998400 |  0.998900 |  0.998800 |  0.997800 |  0.998500 |
-| internal_migration - Foreign country | 0.000000 |  0.000000 |  0.000000 |  -0.000000 |  -0.000000 |  -0.000000 |  0.000000 |
-| Free activity for a union | - |  -0.001700 |  -0.001600 |  0.011300 |  0.015500 |  0.001800 |  0.001300 |
-| Recreation, shows and culture | - |  - |  -0.000000 |  0.000900 |  0.001100 |  0.000200 |  0.000300 |
-| reach_difficulty - Municipal offices | - |  - |  - |  -0.000600 |  -0.000900 |  -0.000100 |  0.000200 |
-| work_satisfaction - Not | - |  - |  - |  - |  0.004000 |  -0.007400 |  -0.030800 |
-| Pay money to an association | - |  - |  - |  - |  - |  0.000100 |  0.000000 |
-| Education | - |  - |  - |  - |  - |  - |  0.001000 |
+| Var.  | I | II | III | IV | V | VI | VII | VIII |
+|---|---|---|---|---|---|---|---|---|
+| R2 | 0.999200 |  0.990600 |  0.998600 |  0.998700 |  0.999200 |  0.999200 |  0.998600 | 0.999100 |
+| R2_adj | 0.999200 |  0.990000 |  0.998400 |  0.998400 |  0.998900 |  0.998800 |  0.997800 | 0.998500 |
+| MAE | 2643.818500 |  7931.735400 |  3190.173300 |  2777.037500 |  2681.001000 |  2643.818500 |  3478.986200 | 2813.939800 |
+| MPE | 2.313400 |  3.607200 |  2.607200 |  2.541400 |  2.313900 |  2.313400 |  4.746400 | 7.577100 |
+| MAPE | 3.999600 |  8.133400 |  6.263100 |  5.915300 |  4.013800 |  3.999600 |  4.746400 | 7.577100 |
+| a Centro | -0.370600 |  - |  - |  - |  - |  - |  - | - |
+| a Isole | -0.614200 |  - |  - |  - |  - |  - |  - | - |
+| a Nord-est | -0.211300 |  - |  - |  - |  - |  - |  - | - |
+| a Nord-ovest | -0.163000 |  - |  - |  - |  - |  - |  - | - |
+| a Sud | -0.447700 |  - |  - |  - |  - |  - |  - | - |
+| internal_migration - Foreign country | - |  0.000000 |  0.000000 |  0.000000 |  -0.000000 |  -0.000000 |  -0.000000 | 0.000000 |
+| Free activity for a union | - |  - |  -0.001700 |  -0.001600 |  0.011300 |  0.015500 |  0.001800 | 0.001300 |
+| Recreation, shows and culture | - |  - |  - |  -0.000000 |  0.000900 |  0.001100 |  0.000200 | 0.000300 |
+| reach_difficulty - Municipal offices | - |  - |  - |  - |  -0.000600 |  -0.000900 |  -0.000100 | 0.000200 |
+| work_satisfaction - Not | - |  - |  - |  - |  - |  0.004000 |  -0.007400 | -0.030800 |
+| Pay money to an association | - |  - |  - |  - |  - |  - |  0.000100 | 0.000000 |
+| Education | - |  - |  - |  - |  - |  - |  - | 0.001000 |
 
 ![](https://github.com/SaraR-1/Immigration-Models/blob/master/Paper_2005_2016/spatial_autocorr_model_morocco_zones.png)
 
@@ -577,24 +611,27 @@ Albania, Training 2005-2013 models
 | Var.  | Value |
 |---|---|
 | ![](https://latex.codecogs.com/gif.latex?%5Cbeta) | 0.725800 |
-| ![](https://latex.codecogs.com/gif.latex?a_%7BCentro%7D) | -0.368300 |
-| ![](https://latex.codecogs.com/gif.latex?a_%7BIsole%7D) | -1.156500 |
-| ![](https://latex.codecogs.com/gif.latex?a_%7BNord%20%5C%20est%7D) | -0.342200 |
-| ![](https://latex.codecogs.com/gif.latex?a_%7BNord%20%5C%20ovest%7D) | -0.292600 |
-| ![](https://latex.codecogs.com/gif.latex?a_%7BSud%7D) | -0.647900 |
 | ![](https://latex.codecogs.com/gif.latex?%5Crho) | 7.043800 |
 
-| Var.  | I | II | III | IV | V | VI | VII |
-|---|---|---|---|---|---|---|---|
-| **R2** | 0.973600 |  0.994400 |  0.996300 |  0.996800 |  0.999800 |  0.997800 |  0.995400 |
-| **R2_adj** | 0.971900 |  0.993700 |  0.995500 |  0.995800 |  0.999800 |  0.996600 |  0.992100 |
-| internal_migration - Foreign country | 0.000000 |  0.000000 |  0.000000 |  0.000000 |  -0.001400 |  0.000100 |  -0.000200 |
-| internal_migration - Italy | - |  -0.000000 |  -0.000000 |  -0.000000 |  0.000000 |  -0.000300 |  -0.000000 |
-| Free activity for a union | - |  - |  0.002600 |  0.002500 |  0.475800 |  -0.092800 |  0.065400 |
-| Free activities in voluntary associations | - |  - |  - |  -0.000200 |  0.070700 |  0.116600 |  0.018800 |
-| reach_difficulty - Municipal offices | - |  - |  - |  - |  -0.037300 |  0.016600 |  -0.007300 |
-| Free activities in non voluntary associations | - |  - |  - |  - |  - |  -0.242400 |  -0.017600 |
-| reach_difficulty - Food stores, markets | - |  - |  - |  - |  - |  - |  0.008600 |
+| Var.  | I | II | III | IV | V | VI | VII | VIII |
+|---|---|---|---|---|---|---|---|---|
+| R2 | 0.999800 |  0.973600 |  0.994400 |  0.996300 |  0.996800 |  0.999800 |  0.997800 | 0.995400 |
+| R2_adj | 0.999800 |  0.971900 |  0.993700 |  0.995500 |  0.995800 |  0.999800 |  0.996600 | 0.992100 |
+| MAE | 1206.040100 |  15763.048900 |  6493.342800 |  5722.243200 |  5444.417000 |  1206.040100 |  4608.401200 | 6055.727800 |
+| MPE | 1.628200 |  2.185800 |  1.014700 |  1.409800 |  1.333300 |  1.628200 |  9.215100 | 8.371100 |
+| MAPE | 2.526500 |  19.713200 |  13.058800 |  11.458300 |  11.318400 |  2.526500 |  9.585100 | 8.371100 |
+| a Centro | -0.368300 |  - |  - |  - |  - |  - |  - | - |
+| a Isole | -1.156500 |  - |  - |  - |  - |  - |  - | - |
+| a Nord-est | -0.342200 |  - |  - |  - |  - |  - |  - | - |
+| a Nord-ovest | -0.292600 |  - |  - |  - |  - |  - |  - | - |
+| a Sud | -0.647900 |  - |  - |  - |  - |  - |  - | - |
+| internal_migration - Foreign country | - |  0.000000 |  0.000000 |  0.000000 |  0.000000 |  -0.001400 |  0.000100 | -0.000200 |
+| internal_migration - Italy | - |  - |  -0.000000 |  -0.000000 |  -0.000000 |  0.000000 |  -0.000300 | -0.000000 |
+| Free activity for a union | - |  - |  - |  0.002600 |  0.002500 |  0.475800 |  -0.092800 | 0.065400 |
+| Free activities in voluntary associations | - |  - |  - |  - |  -0.000200 |  0.070700 |  0.116600 | 0.018800 |
+| reach_difficulty - Municipal offices | - |  - |  - |  - |  - |  -0.037300 |  0.016600 | -0.007300 |
+| Free activities in non voluntary associations | - |  - |  - |  - |  - |  - |  -0.242400 | -0.017600 |
+| reach_difficulty - Food stores, markets | - |  - |  - |  - |  - |  - |  - | 0.008600 |
 
 ![](https://github.com/SaraR-1/Immigration-Models/blob/master/Paper_2005_2016/spatial_autocorr_model_albania_zones.png)
 
@@ -605,24 +642,27 @@ Tunisia, Training 2005-2013 models
 | Var.  | Value |
 |---|---|
 | ![](https://latex.codecogs.com/gif.latex?%5Cbeta) | 0.734100 |
-| ![](https://latex.codecogs.com/gif.latex?a_%7BCentro%7D) | -0.486500 |
-| ![](https://latex.codecogs.com/gif.latex?a_%7BIsole%7D) | -0.487200 |
-| ![](https://latex.codecogs.com/gif.latex?a_%7BNord%20%5C%20est%7D) | -0.297000 |
-| ![](https://latex.codecogs.com/gif.latex?a_%7BNord%20%5C%20ovest%7D) | -0.330400 |
-| ![](https://latex.codecogs.com/gif.latex?a_%7BSud%7D) | -0.732300 |
 | ![](https://latex.codecogs.com/gif.latex?%5Crho) | 7.040500 |
 
-| Var.  | I | II | III | IV | V | VI | VII |
-|---|---|---|---|---|---|---|---|
-| **R2** | 0.994600 |  0.994600 |  0.997800 |  0.998000 |  0.997800 |  0.997000 |  0.996500 |
-| **R2_adj** | 0.994200 |  0.993900 |  0.997300 |  0.997300 |  0.996900 |  0.995400 |  0.994100 |
-| Accommodation and catering services | 0.000300 |  0.000300 |  -0.000700 |  -0.001200 |  -0.001000 |  -0.000700 |  -0.000200 |
-| Free activity for a union | - |  -0.000000 |  -0.010700 |  -0.012000 |  -0.007400 |  -0.008500 |  -0.006200 |
-| political_info - Every day | - |  - |  0.000400 |  0.000800 |  -0.000700 |  0.000300 |  0.000300 |
-| Meetings in ecological associations, for civil rights, for peace | - |  - |  - |  -0.009000 |  0.014300 |  0.000200 |  -0.001500 |
-| Free activities in voluntary associations | - |  - |  - |  - |  0.002000 |  0.000500 |  0.000100 |
-| native population - Total | - |  - |  - |  - |  - |  -0.000000 |  -0.000000 |
-| Housing, water, electricity, gas and other fuels | - |  - |  - |  - |  - |  - |  -0.000000 |
+| Var.  | I | II | III | IV | V | VI | VII | VIII |
+|---|---|---|---|---|---|---|---|---|
+| R2 | 0.997800 |  0.994600 |  0.994600 |  0.997800 |  0.998000 |  0.997800 |  0.997000 | 0.996500 |
+| R2_adj | 0.997800 |  0.994200 |  0.993900 |  0.997300 |  0.997300 |  0.996900 |  0.995400 | 0.994100 |
+| MAE | 823.375500 |  1398.620800 |  1375.318600 |  786.114700 |  816.386000 |  823.375500 |  989.676800 | 1054.537500 |
+| MPE | 1.350600 |  0.987800 |  0.933500 |  1.969500 |  1.640500 |  1.350600 |  0.741000 | -0.440800 |
+| MAPE | 4.302800 |  9.689300 |  9.653500 |  4.223500 |  3.909100 |  4.302800 |  5.014700 | 6.055200 |
+| a Centro | -0.486500 |  - |  - |  - |  - |  - |  - | - |
+| a Isole | -0.487200 |  - |  - |  - |  - |  - |  - | - |
+| a Nord-est | -0.297000 |  - |  - |  - |  - |  - |  - | - |
+| a Nord-ovest | -0.330400 |  - |  - |  - |  - |  - |  - | - |
+| a Sud | -0.732300 |  - |  - |  - |  - |  - |  - | - |
+| Accommodation and catering services | - |  0.000300 |  0.000300 |  -0.000700 |  -0.001200 |  -0.001000 |  -0.000700 | -0.000200 |
+| Free activity for a union | - |  - |  -0.000000 |  -0.010700 |  -0.012000 |  -0.007400 |  -0.008500 | -0.006200 |
+| political_info - Every day | - |  - |  - |  0.000400 |  0.000800 |  -0.000700 |  0.000300 | 0.000300 |
+| Meetings in ecological associations, for civil rights, for peace | - |  - |  - |  - |  -0.009000 |  0.014300 |  0.000200 | -0.001500 |
+| Free activities in voluntary associations | - |  - |  - |  - |  - |  0.002000 |  0.000500 | 0.000100 |
+| native population - Total | - |  - |  - |  - |  - |  - |  -0.000000 | -0.000000 |
+| Housing, water, electricity, gas and other fuels | - |  - |  - |  - |  - |  - |  - | -0.000000 |
 
 ![](https://github.com/SaraR-1/Immigration-Models/blob/master/Paper_2005_2016/spatial_autocorr_model_tunisia_zones.png)
 
@@ -633,25 +673,27 @@ Egypt, Training 2005-2013 models
 | Var.  | Value |
 |---|---|
 | ![](https://latex.codecogs.com/gif.latex?%5Cbeta) | 0.665600 |
-| ![](https://latex.codecogs.com/gif.latex?a_%7BCentro%7D) | -0.686400 |
-| ![](https://latex.codecogs.com/gif.latex?a_%7BIsole%7D) | -1.867000 |
-| ![](https://latex.codecogs.com/gif.latex?a_%7BNord%20%5C%20est%7D) | -0.922200 |
-| ![](https://latex.codecogs.com/gif.latex?a_%7BNord%20%5C%20ovest%7D) | -0.083200 |
-| ![](https://latex.codecogs.com/gif.latex?a_%7BSud%7D) | -1.621300 |
 | ![](https://latex.codecogs.com/gif.latex?%5Crho) | 6.975600 |
 
-| Var.  | I | II | III | IV | V | VI | VII |
-|---|---|---|---|---|---|---|---|
-| **R2** | 0.724400 |  0.997600 |  0.999000 |  0.999400 |  0.999300 |  0.992200 |  0.969600 |
-| **R2_adj** | 0.707200 |  0.997200 |  0.998800 |  0.999200 |  0.999100 |  0.988000 |  0.948300 |
-| internal_migration - Foreign country | 0.000000 |  0.000000 |  0.000000 |  0.000000 |  0.000000 |  -0.000000 |  0.000100 |
-| Free activities in voluntary associations | - |  -0.002000 |  -0.002300 |  -0.001400 |  -0.001600 |  0.000500 |  0.001300 |
-| Free activity for a union | - |  - |  0.002200 |  0.004100 |  0.002900 |  0.021500 |  -0.031200 |
-| work_satisfaction - Not | - |  - |  - |  -0.019700 |  -0.019900 |  -0.011200 |  -0.018100 |
-| reach_difficulty - Municipal offices | - |  - |  - |  - |  0.000100 |  -0.001500 |  0.004400 |
-| native population - Total | - |  - |  - |  - |  - |  0.000000 |  -0.000000 |
-| Meetings in cultural, recreational or other associations | - |  - |  - |  - |  - |  - |  -0.004900 |
-
+| Var.  | I | II | III | IV | V | VI | VII | VIII |
+|---|---|---|---|---|---|---|---|---|
+| R2 | 0.999300 |  0.724400 |  0.997600 |  0.999000 |  0.999400 |  0.999300 |  0.992200 | 0.969600 |
+| R2_adj | 0.999300 |  0.707200 |  0.997200 |  0.998800 |  0.999200 |  0.999100 |  0.988000 | 0.948300 |
+| MAE | 685.123900 |  9766.861300 |  1248.244200 |  705.672900 |  695.841600 |  685.123900 |  1813.740800 | 3965.482900 |
+| MPE | 11.248800 |  12.849800 |  10.812200 |  11.649900 |  11.239900 |  11.248800 |  -0.443200 | 27.715600 |
+| MAPE | 13.287300 |  25.543000 |  15.898600 |  12.377200 |  13.312500 |  13.287300 |  10.854200 | 27.715600 |
+| a Centro | -0.686400 |  - |  - |  - |  - |  - |  - | - |
+| a Isole | -1.867000 |  - |  - |  - |  - |  - |  - | - |
+| a Nord-est | -0.922200 |  - |  - |  - |  - |  - |  - | - |
+| a Nord-ovest | -0.083200 |  - |  - |  - |  - |  - |  - | - |
+| a Sud | -1.621300 |  - |  - |  - |  - |  - |  - | - |
+| internal_migration - Foreign country | - |  0.000000 |  0.000000 |  0.000000 |  0.000000 |  0.000000 |  -0.000000 | 0.000100 |
+| Free activities in voluntary associations | - |  - |  -0.002000 |  -0.002300 |  -0.001400 |  -0.001600 |  0.000500 | 0.001300 |
+| Free activity for a union | - |  - |  - |  0.002200 |  0.004100 |  0.002900 |  0.021500 | -0.031200 |
+| work_satisfaction - Not | - |  - |  - |  - |  -0.019700 |  -0.019900 |  -0.011200 | -0.018100 |
+| reach_difficulty - Municipal offices | - |  - |  - |  - |  - |  0.000100 |  -0.001500 | 0.004400 |
+| native population - Total | - |  - |  - |  - |  - |  - |  0.000000 | -0.000000 |
+| Meetings in cultural, recreational or other associations | - |  - |  - |  - |  - |  - |  - | -0.004900 |
 ![](https://github.com/SaraR-1/Immigration-Models/blob/master/Paper_2005_2016/spatial_autocorr_model_egypt_zones.png)
 
 ![](https://github.com/SaraR-1/Immigration-Models/blob/master/Paper_2005_2016/R2_trend_spatial_autocorr_model_egypt_.png)
@@ -661,24 +703,27 @@ Ecuador, Training 2005-2013 models
 | Var.  | Value |
 |---|---|
 | ![](https://latex.codecogs.com/gif.latex?%5Cbeta) | 0.284300 |
-| ![](https://latex.codecogs.com/gif.latex?a_%7BCentro%7D) | -1.303000 |
-| ![](https://latex.codecogs.com/gif.latex?a_%7BIsole%7D) | -3.697400 |
-| ![](https://latex.codecogs.com/gif.latex?a_%7BNord%20%5C%20est%7D) | -1.855900 |
-| ![](https://latex.codecogs.com/gif.latex?a_%7BNord%20%5C%20ovest%7D) | -0.222400 |
-| ![](https://latex.codecogs.com/gif.latex?a_%7BSud%7D) | -3.512400 |
 | ![](https://latex.codecogs.com/gif.latex?%5Crho) | 7.024800 |
 
-| Var.  | I | II | III | IV | V | VI | VII |
-|---|---|---|---|---|---|---|---|
-| **R2** | 0.396900 |  0.983100 |  0.995300 |  0.997200 |  0.996100 |  0.997500 |  0.996700 |
-| **R2_adj** | 0.359200 |  0.980900 |  0.994300 |  0.996400 |  0.994500 |  0.996100 |  0.994400 |
-| internal_migration - Foreign country | 0.000000 |  0.000100 |  0.000100 |  0.000100 |  0.000200 |  0.000100 |  0.000100 |
-| Free activities in voluntary associations | - |  -0.004200 |  -0.005400 |  -0.004500 |  -0.008900 |  -0.001800 |  -0.003400 |
-| Meetings in ecological associations, for civil rights, for peace | - |  - |  0.005100 |  0.012400 |  0.023200 |  0.008900 |  0.027300 |
-| Average monthly expenditure for housing | - |  - |  - |  -0.086200 |  -2.111100 |  0.150400 |  -0.296900 |
-| work_satisfaction - Quite | - |  - |  - |  - |  0.440000 |  -0.055700 |  0.044900 |
-| Health services and health expenditure | - |  - |  - |  - |  - |  -0.001200 |  0.000000 |
-| political_info - Every day | - |  - |  - |  - |  - |  - |  -0.000900 |
+| Var.  | I | II | III | IV | V | VI | VII | VIII |
+|---|---|---|---|---|---|---|---|---|
+| R2 | 0.996100 |  0.396900 |  0.983100 |  0.995300 |  0.997200 |  0.996100 |  0.997500 | 0.996700 |
+| R2_adj | 0.996100 |  0.359200 |  0.980900 |  0.994300 |  0.996400 |  0.994500 |  0.996100 | 0.994400 |
+| MAE | 1014.877800 |  13130.880600 |  2519.719600 |  1334.395600 |  946.285400 |  1014.877800 |  817.274000 | 1041.463100 |
+| MPE | 5.144200 |  -23.632700 |  2.883500 |  4.662200 |  5.143000 |  5.144200 |  0.208400 | -10.271100 |
+| MAPE | 6.262900 |  86.942000 |  18.208700 |  14.414200 |  6.166600 |  6.262900 |  3.943600 | 11.271500 |
+| a Centro | -1.303000 |  - |  - |  - |  - |  - |  - | - |
+| a Isole | -3.697400 |  - |  - |  - |  - |  - |  - | - |
+| a Nord-est | -1.855900 |  - |  - |  - |  - |  - |  - | - |
+| a Nord-ovest | -0.222400 |  - |  - |  - |  - |  - |  - | - |
+| a Sud | -3.512400 |  - |  - |  - |  - |  - |  - | - |
+| internal_migration - Foreign country | - |  0.000000 |  0.000100 |  0.000100 |  0.000100 |  0.000200 |  0.000100 | 0.000100 |
+| Free activities in voluntary associations | - |  - |  -0.004200 |  -0.005400 |  -0.004500 |  -0.008900 |  -0.001800 | -0.003400 |
+| Meetings in ecological associations, for civil rights, for peace | - |  - |  - |  0.005100 |  0.012400 |  0.023200 |  0.008900 | 0.027300 |
+| Average monthly expenditure for housing | - |  - |  - |  - |  -0.086200 |  -2.111100 |  0.150400 | -0.296900 |
+| work_satisfaction - Quite | - |  - |  - |  - |  - |  0.440000 |  -0.055700 | 0.044900 |
+| Health services and health expenditure | - |  - |  - |  - |  - |  - |  -0.001200 | 0.000000 |
+| political_info - Every day | - |  - |  - |  - |  - |  - |  - | -0.000900 |
 
 ![](https://github.com/SaraR-1/Immigration-Models/blob/master/Paper_2005_2016/spatial_autocorr_model_ecuador_zones.png)
 
@@ -689,25 +734,28 @@ Peru, Training 2005-2013 models
 | Var.  | Value |
 |---|---|
 | ![](https://latex.codecogs.com/gif.latex?%5Cbeta) | 0.513300 |
-| ![](https://latex.codecogs.com/gif.latex?a_%7BCentro%7D) | -0.607700 |
-| ![](https://latex.codecogs.com/gif.latex?a_%7BIsole%7D) | -2.679200 |
-| ![](https://latex.codecogs.com/gif.latex?a_%7BNord%20%5C%20est%7D) | -1.217100 |
-| ![](https://latex.codecogs.com/gif.latex?a_%7BNord%20%5C%20ovest%7D) | -0.242000 |
-| ![](https://latex.codecogs.com/gif.latex?a_%7BSud%7D) | -2.030300 |
 | ![](https://latex.codecogs.com/gif.latex?%5Crho) | 7.023900 |
 
 
-| Var.  | I | II | III | IV | V | VI | VII |
-|---|---|---|---|---|---|---|---|
-| **R2** | 0.676300 |  0.992200 |  0.994500 |  0.985700 |  0.997400 |  0.914900 |  0.931800 |
-| **R2_adj** | 0.656100 |  0.991200 |  0.993300 |  0.981400 |  0.996300 |  0.868500 |  0.884000 |
-| internal_migration - Foreign country | 0.000000 |  0.000000 |  0.000000 |  0.000000 |  -0.000300 |  -0.000000 |  0.000000 |
-| Furniture, articles and services for the house | - |  -0.002600 |  -0.004500 |  -0.003600 |  0.107700 |  -0.002900 |  -0.007900 |
-| Communications | - |  - |  0.002700 |  0.002000 |  -0.005200 |  0.008100 |  0.009300 |
-| Free activities in non voluntary associations | - |  - |  - |  -0.001200 |  0.065100 |  0.010300 |  0.007800 |
-| Education | - |  - |  - |  - |  -1.113900 |  -0.054700 |  -0.022500 |
-| work_satisfaction - Not | - |  - |  - |  - |  - |  -0.036600 |  0.148400 |
-| Average monthly expenditure for housing | - |  - |  - |  - |  - |  - |  -0.367200 |
+| Var.  | I | II | III | IV | V | VI | VII | VIII |
+|---|---|---|---|---|---|---|---|---|
+| R2 | 0.997400 |  0.676300 |  0.992200 |  0.994500 |  0.985700 |  0.997400 |  0.914900 | 0.931800 |
+| R2_adj | 0.997400 |  0.656100 |  0.991200 |  0.993300 |  0.981400 |  0.996300 |  0.868500 | 0.884000 |
+| MAE | 913.316600 |  11646.324700 |  2024.001700 |  1918.997200 |  2769.531300 |  913.316600 |  5189.721100 | 5388.658000 |
+| MPE | -2.643100 |  -18.961600 |  -7.276500 |  -6.460300 |  -6.849700 |  -2.643100 |  -11.547800 | -4.360600 |
+| MAPE | 4.878800 |  65.822700 |  32.231700 |  30.589800 |  31.718500 |  4.878800 |  27.689200 | 23.148600 |
+| a Centro | -0.607700 |  - |  - |  - |  - |  - |  - | - |
+| a Isole | -2.679200 |  - |  - |  - |  - |  - |  - | - |
+| a Nord-est | -1.217100 |  - |  - |  - |  - |  - |  - | - |
+| a Nord-ovest | -0.242000 |  - |  - |  - |  - |  - |  - | - |
+| a Sud | -2.030300 |  - |  - |  - |  - |  - |  - | - |
+| internal_migration - Foreign country | - |  0.000000 |  0.000000 |  0.000000 |  0.000000 |  -0.000300 |  -0.000000 | 0.000000 |
+| Furniture, articles and services for the house | - |  - |  -0.002600 |  -0.004500 |  -0.003600 |  0.107700 |  -0.002900 | -0.007900 |
+| Communications | - |  - |  - |  0.002700 |  0.002000 |  -0.005200 |  0.008100 | 0.009300 |
+| Free activities in non voluntary associations | - |  - |  - |  - |  -0.001200 |  0.065100 |  0.010300 | 0.007800 |
+| Education | - |  - |  - |  - |  - |  -1.113900 |  -0.054700 | -0.022500 |
+| work_satisfaction - Not | - |  - |  - |  - |  - |  - |  -0.036600 | 0.148400 |
+| Average monthly expenditure for housing | - |  - |  - |  - |  - |  - |  - | -0.367200 |
 
 ![](https://github.com/SaraR-1/Immigration-Models/blob/master/Paper_2005_2016/spatial_autocorr_model_peru_zones.png)
 
@@ -718,25 +766,28 @@ China, Training 2005-2013 models
 | Var.  | Value |
 |---|---|
 | ![](https://latex.codecogs.com/gif.latex?%5Cbeta) | 0.724900 |
-| ![](https://latex.codecogs.com/gif.latex?a_%7BCentro%7D) | -0.354500 |
-| ![](https://latex.codecogs.com/gif.latex?a_%7BIsole%7D) | -0.862100 |
-| ![](https://latex.codecogs.com/gif.latex?a_%7BNord%20%5C%20est%7D) | -0.353600 |
-| ![](https://latex.codecogs.com/gif.latex?a_%7BNord%20%5C%20ovest%7D) | -0.326200 |
-| ![](https://latex.codecogs.com/gif.latex?a_%7BSud%7D) | -0.643100 |
 | ![](https://latex.codecogs.com/gif.latex?%5Crho) | 7.024900 |
 
 
-| Var.  | I | II | III | IV | V | VI | VII |
-|---|---|---|---|---|---|---|---|
-| **R2** | 0.985900 |  0.995000 |  0.995700 |  0.995300 |  0.998500 |  0.997900 |  0.997900 |
-| **R2_adj** | 0.985100 |  0.994300 |  0.994800 |  0.993800 |  0.997900 |  0.996800 |  0.996500 |
-| internal_migration - Foreign country | 0.000000 |  0.000000 |  0.000000 |  0.000000 |  0.000000 |  0.000100 |  0.000000 |
-| Alcoholic beverages and tobacco | - |  -0.000800 |  -0.004100 |  -0.069300 |  -0.102100 |  -0.060700 |  -0.007800 |
-| Communications | - |  - |  0.002000 |  0.053100 |  0.080900 |  0.038700 |  0.006300 |
-| Furniture, articles and services for the house | - |  - |  - |  -0.008300 |  -0.013500 |  0.000300 |  -0.001100 |
-| reach_difficulty - Pharmacy | - |  - |  - |  - |  -0.000200 |  0.001200 |  0.001200 |
-| Free activities in voluntary associations | - |  - |  - |  - |  - |  -0.005100 |  0.000200 |
-| native population - Total | - |  - |  - |  - |  - |  - |  -0.000000 |
+| Var.  | I | II | III | IV | V | VI | VII | VIII |
+|---|---|---|---|---|---|---|---|---|
+| R2 | 0.998500 |  0.985900 |  0.995000 |  0.995700 |  0.995300 |  0.998500 |  0.997900 | 0.997900 |
+| R2_adj | 0.998500 |  0.985100 |  0.994300 |  0.994800 |  0.993800 |  0.997900 |  0.996800 | 0.996500 |
+| MAE | 1908.844100 |  5668.396900 |  3792.519700 |  3414.192700 |  3372.068800 |  1908.844100 |  2093.374600 | 2004.988200 |
+| MPE | -0.611700 |  -0.072200 |  -0.680700 |  -0.692700 |  -0.098700 |  -0.611700 |  -2.655000 | -4.596300 |
+| MAPE | 3.707400 |  12.836500 |  11.028100 |  10.771400 |  8.018400 |  3.707400 |  4.245700 | 5.858000 |
+| a Centro | -0.354500 |  - |  - |  - |  - |  - |  - | - |
+| a Isole | -0.862100 |  - |  - |  - |  - |  - |  - | - |
+| a Nord-est | -0.353600 |  - |  - |  - |  - |  - |  - | - |
+| a Nord-ovest | -0.326200 |  - |  - |  - |  - |  - |  - | - |
+| a Sud | -0.643100 |  - |  - |  - |  - |  - |  - | - |
+| internal_migration - Foreign country | - |  0.000000 |  0.000000 |  0.000000 |  0.000000 |  0.000000 |  0.000100 | 0.000000 |
+| Alcoholic beverages and tobacco | - |  - |  -0.000800 |  -0.004100 |  -0.069300 |  -0.102100 |  -0.060700 | -0.007800 |
+| Communications | - |  - |  - |  0.002000 |  0.053100 |  0.080900 |  0.038700 | 0.006300 |
+| Furniture, articles and services for the house | - |  - |  - |  - |  -0.008300 |  -0.013500 |  0.000300 | -0.001100 |
+| reach_difficulty - Pharmacy | - |  - |  - |  - |  - |  -0.000200 |  0.001200 | 0.001200 |
+| Free activities in voluntary associations | - |  - |  - |  - |  - |  - |  -0.005100 | 0.000200 |
+| native population - Total | - |  - |  - |  - |  - |  - |  - | -0.000000 |
 
 ![](https://github.com/SaraR-1/Immigration-Models/blob/master/Paper_2005_2016/spatial_autocorr_model_china_zones.png)
 
@@ -747,26 +798,28 @@ Philippines, Training 2005-2013 models
 | Var.  | Value |
 |---|---|
 | ![](https://latex.codecogs.com/gif.latex?%5Cbeta) | 0.580000 |
-| ![](https://latex.codecogs.com/gif.latex?a_%7BCentro%7D) | -0.448000 |
-| ![](https://latex.codecogs.com/gif.latex?a_%7BIsole%7D) | -1.310900 |
-| ![](https://latex.codecogs.com/gif.latex?a_%7BNord%20%5C%20est%7D) | -0.813800 |
-| ![](https://latex.codecogs.com/gif.latex?a_%7BNord%20%5C%20ovest%7D) | -0.373900 |
-| ![](https://latex.codecogs.com/gif.latex?a_%7BSud%7D) | -1.221200 |
 | ![](https://latex.codecogs.com/gif.latex?%5Crho) | 7.026200 |
 
 
-| Var.  | I | II | III | IV | V | VI | VII |
-|---|---|---|---|---|---|---|---|
-| **R2** | 0.913200 |  0.992700 |  0.992500 |  0.997100 |  0.997200 |  0.998100 |  0.981400 |
-| **R2_adj** | 0.907800 |  0.991700 |  0.990900 |  0.996200 |  0.996000 |  0.997100 |  0.968400 |
-| internal_migration - Foreign country | 0.000000 |  0.000000 |  0.000000 |  0.000000 |  0.000000 |  -0.000000 |  0.000000 |
-| Recreation, shows and culture | - |  -0.001000 |  -0.000500 |  0.017700 |  0.016400 |  0.006800 |  0.014800 |
-| Clothing and footwear | - |  - |  -0.000500 |  -0.006000 |  -0.005000 |  0.004300 |  0.001600 |
-| Accommodation and catering services | - |  - |  - |  -0.014200 |  -0.013600 |  -0.005000 |  -0.009900 |
-| Born alive | - |  - |  - |  - |  -0.000000 |  0.000000 |  0.000000 |
-| Food and non-alcoholic beverages | - |  - |  - |  - |  - |  -0.002100 |  -0.002300 |
-| Pay money to an association | - |  - |  - |  - |  - |  - |  -0.000700 |
-
+| Var.  | I | II | III | IV | V | VI | VII | VIII |
+|---|---|---|---|---|---|---|---|---|
+| R2 | 0.997200 |  0.913200 |  0.992700 |  0.992500 |  0.997100 |  0.997200 |  0.998100 | 0.981400 |
+| R2_adj | 0.997200 |  0.907800 |  0.991700 |  0.990900 |  0.996200 |  0.996000 |  0.997100 | 0.968400 |
+| MAE | 1430.389200 |  8816.779800 |  2669.732000 |  2550.870200 |  1426.221300 |  1430.389200 |  1187.710800 | 3975.159600 |
+| MPE | -0.790000 |  -1.506600 |  -0.300500 |  -0.729500 |  -0.409400 |  -0.790000 |  0.695200 | 13.254200 |
+| MAPE | 3.936500 |  25.240200 |  10.788200 |  10.430000 |  4.269200 |  3.936500 |  3.474000 | 13.254200 |
+| a Centro | -0.448000 |  - |  - |  - |  - |  - |  - | - |
+| a Isole | -1.310900 |  - |  - |  - |  - |  - |  - | - |
+| a Nord-est | -0.813800 |  - |  - |  - |  - |  - |  - | - |
+| a Nord-ovest | -0.373900 |  - |  - |  - |  - |  - |  - | - |
+| a Sud | -1.221200 |  - |  - |  - |  - |  - |  - | - |
+| internal_migration - Foreign country | - |  0.000000 |  0.000000 |  0.000000 |  0.000000 |  0.000000 |  -0.000000 | 0.000000 |
+| Recreation, shows and culture | - |  - |  -0.001000 |  -0.000500 |  0.017700 |  0.016400 |  0.006800 | 0.014800 |
+| Clothing and footwear | - |  - |  - |  -0.000500 |  -0.006000 |  -0.005000 |  0.004300 | 0.001600 |
+| Accommodation and catering services | - |  - |  - |  - |  -0.014200 |  -0.013600 |  -0.005000 | -0.009900 |
+| Born alive | - |  - |  - |  - |  - |  -0.000000 |  0.000000 | 0.000000 |
+| Food and non-alcoholic beverages | - |  - |  - |  - |  - |  - |  -0.002100 | -0.002300 |
+| Pay money to an association | - |  - |  - |  - |  - |  - |  - | -0.000700 |
 ![](https://github.com/SaraR-1/Immigration-Models/blob/master/Paper_2005_2016/spatial_autocorr_model_philippines_zones.png)
 
 ![](https://github.com/SaraR-1/Immigration-Models/blob/master/Paper_2005_2016/R2_trend_spatial_autocorr_model_philippines_.png)
