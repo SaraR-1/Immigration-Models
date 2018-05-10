@@ -948,6 +948,7 @@ In order to understand if it is possible to achieve similar results using simple
     <td > 6.9416 </td>
  <tr>
  <tr>
+    <td > Egypt </td>
     <td > 2395.4524 </td>
     <td > 2189.7131 </td>
     <td > 2040.1306 </td>
@@ -1041,3 +1042,10 @@ In order to understand if it is possible to achieve similar results using simple
 ![](https://github.com/SaraR-1/Immigration-Models/blob/master/ES_2005_2016/ES_china_zones.png)
 
 ![](https://github.com/SaraR-1/Immigration-Models/blob/master/ES_2005_2016/ES_philippines_zones.png)
+
+
+## Conclusion (?)
+
+From the previous section, it is possible to conclude that adding features or using more sophisticated models does not improve significantly the performance in terms of prediction nor in terms of interpretation.
+
+![](https://github.com/SaraR-1/Immigration-Models/blob/master/Models_compar/models_mae_mape.png)
