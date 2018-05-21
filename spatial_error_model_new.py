@@ -150,7 +150,7 @@ def stepII(theta, a, x_, ref_I, territories, constant):
     return(ols)
 
 
-def run_model(data_init, country, times, I, x_, W, territories, constant, palette, title, save, path = "", data_hat = None, train_test = False, test_size = 3, ref_time = 2013):
+def run_model(data_init, country, times, I, x_, W, territories, constant, palette, title, save, title_add=" in Italian Zones", path="", data_hat=None, train_test=False, test_size=3, ref_time=2013):
     country_name = country
     country = pycountry.countries.get(name=country_name).alpha_3
     y = data_init
@@ -383,7 +383,7 @@ def run_model(data_init, country, times, I, x_, W, territories, constant, palett
     title = "Immigrant Stock VS "+title+" "+country_name
     #relation_plot_time_variant_intern_function(df, terr_not_ref, times, df.columns.tolist(), plt.figure(1, figsize=(15,10)), plt_seed, 45, palette, None, title, save, path = "")
     pdf.relation_plot_time_variant(df, df.columns.tolist()[
-                                   1:], y_, terr_not_ref, 45, title, palette, save, path, sub_iteration=False, double_scale_x=False)
+                                   1:], y_, terr_not_ref, 45, title, palette, save, path, sub_iteration=False, double_scale_x=False, title_add = title_add)
 
     sns.set_style("whitegrid")
     fig = plt.figure(1, figsize=(15, 10))

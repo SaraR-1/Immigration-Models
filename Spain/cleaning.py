@@ -236,3 +236,34 @@ W = W.reindex(sorted(W.columns), axis=1)
 W = W.reindex(sorted(W.columns), axis=0)
 W.to_csv("Data/dist_matrix.tsv", sep="\t")
 
+#%%
+complete = pd.read_table(
+    "Data/spain_working_aut_comm.tsv", sep="\t", index_col=0)
+
+complete["Province"].replace(
+    {"Comunidad de Madrid": "Com. de Madrid", 'Castilla - La Mancha': 'Castilla-La Mancha', "Región de Murcia": "Reg. de Murcia",
+     "Comunidad Foral de Navarra": "Com. Foral de Navarra", "Principado de Asturias": "Princ. de Asturias", 
+     "Comunitat Valenciana": "Com. Valenciana"}, inplace=True)
+complete.to_csv("Data/spain_working_aut_comm.tsv", sep="\t")
+
+#%%
+W = pd.read_table("Data/dist_matrix.tsv", sep="\t", index_col=0)
+
+W = W.rename({"Comunidad de Madrid": "Com. de Madrid", 'Castilla - La Mancha': 'Castilla-La Mancha', "Región de Murcia": "Reg. de Murcia",
+     "Comunidad Foral de Navarra": "Com. Foral de Navarra", "Principado de Asturias": "Princ. de Asturias",
+     "Comunitat Valenciana": "Com. Valenciana"}, axis="columns")
+
+W = W.rename({"Comunidad de Madrid": "Com. de Madrid", 'Castilla - La Mancha': 'Castilla-La Mancha', "Región de Murcia": "Reg. de Murcia",
+        "Comunidad Foral de Navarra": "Com. Foral de Navarra", "Principado de Asturias": "Princ. de Asturias",
+        "Comunitat Valenciana": "Com. Valenciana"}, axis="index")
+W = W.reindex(sorted(W.columns), axis=1)
+W = W.reindex(sorted(W.columns), axis=0)
+W.to_csv("Data/dist_matrix.tsv", sep="\t")
+
+#%%
+xs = pd.read_table("Data/xs_aut_comm.tsv", sep="\t")
+xs["Province"].replace(
+    {"Comunidad de Madrid": "Com. de Madrid", 'Castilla - La Mancha': 'Castilla-La Mancha', "Región de Murcia": "Reg. de Murcia",
+     "Comunidad Foral de Navarra": "Com. Foral de Navarra", "Principado de Asturias": "Princ. de Asturias",
+     "Comunitat Valenciana": "Com. Valenciana"}, inplace=True)
+xs.to_csv("Data/xs_aut_comm.tsv", sep="\t")

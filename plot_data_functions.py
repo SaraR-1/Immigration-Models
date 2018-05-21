@@ -89,7 +89,10 @@ def relation_plot_time_variant_intern_function(data_, temp_territories, time_idx
 
         sns.despine(ax=ax, right=True, left=True)
         ax.set_xlabel("")
-        ax.set_xticklabels(ax.get_xticklabels(), rotation=rot)
+        if plt_seed != 451:
+            ax.set_xticklabels(ax.get_xticklabels(), rotation=rot)
+        else:
+            ax.set_xticklabels("", rotation=rot)
         #plt.title(r, fontsize = 14)
         #plt.legend(handles = legend, prop={'size':14}, loc='best')
         plt.title(r, fontsize = 14)
@@ -106,17 +109,24 @@ def relation_plot_time_variant_intern_function(data_, temp_territories, time_idx
 
     if len(temp_territories) == 9:
         lgd = plt.legend(handles = legend, loc='center left', bbox_to_anchor=(1.1, 3.25), fancybox=True)
+        
+    if plt_seed == 451:
+            title = title + \
+                " - years %s - %s" % (str(time_idx[0]), str(time_idx[-1]))
+    else: 
+        pass  
 
     fig.suptitle(title, fontsize = 14)
     if save == False:
         plt.show()
     else:
-        plt.savefig(path+".png", box_extra_artists=(lgd,), bbox_inches='tight')
+        plt.savefig(path+".png", box_extra_artists=(lgd,), bbox_inches='tight', dpi=300)
     plt.close()
 
     return(info)
 
-def relation_plot_time_variant(data_, cols, y, zones_data, rot, title, palette, save, path = "", sub_iteration = True, double_scale_x = True):
+
+def relation_plot_time_variant(data_, cols, y, zones_data, rot, title, palette, save, path="", sub_iteration=True, double_scale_x=True, title_add=" in Italian Zones"):
     if type(zones_data) != list:
         territories = list(set(zones_data["Zona"]))
     else:
@@ -136,7 +146,7 @@ def relation_plot_time_variant(data_, cols, y, zones_data, rot, title, palette, 
             plt_seed = 231
     if len(territories) == 19:
         plt_seed = 451
-    info = relation_plot_time_variant_intern_function(data_, territories, time_idx, cols, y_grouped, fig, plt_seed, rot, palette, info, "Immigrant Stock VS "+title+" in Italian Zones", save, path+"zones", double_scale_x = double_scale_x)
+    info = relation_plot_time_variant_intern_function(data_, territories, time_idx, cols, y_grouped, fig, plt_seed, rot, palette, info, "Immigrant Stock VS "+title+title_add, save, path+"zones", double_scale_x = double_scale_x)
 
     #info = {c: {"R2": [], "MSE": [], "Pearson": [], "Spearman": [], "Kendall": []} for c in cols}
     if sub_iteration:

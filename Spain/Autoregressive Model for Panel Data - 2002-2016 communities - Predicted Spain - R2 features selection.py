@@ -116,7 +116,7 @@ test_size = 3
 for c in countries_list:
     print("------------------------------- %s -------------------------------" % c)
     res_pred, res_est, res_params = semnew.run_model(y, c, years, "Spain", xs_zones, temp_W, temp_W.columns.tolist(
-    ), False, palette, "Spatial Error Model", save=True, path=directory+"/spatial_autocorr_model_%s_" % c.lower(), data_hat=y_spain_pred, train_test=True, test_size=test_size)
+    ), False, palette, "Spatial Error Model", save=True, title_add=" in Spanish Autonomous Communities", path=directory+"/spatial_autocorr_model_%s_" % c.lower(), data_hat=y_spain_pred, train_test=True, test_size=test_size)
     res_pred.to_csv(
         directory+"/spatial_autocorr_model_fitted_values_%s.tsv" % c.lower(), sep='\t')
     res_est.to_csv(
