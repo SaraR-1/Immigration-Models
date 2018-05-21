@@ -52,14 +52,14 @@ def relation_plot_time_invariant(data_, cols, y, rot, title, save, path):
     plt.close()
 
 def relation_plot_time_variant_intern_function(data_, temp_territories, time_idx, cols, y, fig, plt_seed, rot, palette, info, title, save, path = "", double_scale_x = True):
-
+    x = 1
     for r in temp_territories:
         y_i = [y.get_group((r, t))["Value"].sum() for t in time_idx]
         y_i_mean = np.mean(y_i)
 
         sns.set_style("whitegrid")
 
-        ax = fig.add_subplot(plt_seed)
+        ax = fig.add_subplot(int(str(plt_seed)[0]), int(str(plt_seed)[1]), x)
         ax.tick_params(axis='x', which='minor', labelsize='small', rotation=rot)
         legend = []
         ax = sns.pointplot(y = y_i, x = time_idx)
@@ -93,7 +93,8 @@ def relation_plot_time_variant_intern_function(data_, temp_territories, time_idx
         #plt.title(r, fontsize = 14)
         #plt.legend(handles = legend, prop={'size':14}, loc='best')
         plt.title(r, fontsize = 14)
-        plt_seed += 1
+        #plt_seed += 1
+        x += 1
 
     if len(temp_territories)%2 == 0:
         lgd = plt.legend(handles = legend, loc='center left', bbox_to_anchor=(1.05, 0.05+int(str(plt_seed)[0])), fancybox=True)
@@ -133,6 +134,8 @@ def relation_plot_time_variant(data_, cols, y, zones_data, rot, title, palette, 
             plt_seed = 221
         else:
             plt_seed = 231
+    if len(territories) == 19:
+        plt_seed = 451
     info = relation_plot_time_variant_intern_function(data_, territories, time_idx, cols, y_grouped, fig, plt_seed, rot, palette, info, "Immigrant Stock VS "+title+" in Italian Zones", save, path+"zones", double_scale_x = double_scale_x)
 
     #info = {c: {"R2": [], "MSE": [], "Pearson": [], "Spearman": [], "Kendall": []} for c in cols}

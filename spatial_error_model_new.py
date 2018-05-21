@@ -218,6 +218,7 @@ def run_model(data_init, country, times, I, x_, W, territories, constant, palett
 
 
     print("---------- Step II ----------")
+    
     thetas_hat = {}
     cs_hat = {}
     final_hat = pd.DataFrame(columns = col[1:])
@@ -233,10 +234,17 @@ def run_model(data_init, country, times, I, x_, W, territories, constant, palett
 
     final_hat.loc["MAE", 'Entity Effect'] = round(sum(np.abs(np.subtract(a,
                                                         f)))/len(a), 5)
-    final_hat.loc["MPE", 'Entity Effect'] = round(100*sum(np.subtract(a,
-                        f)/a)/len(a), 5)
-    final_hat.loc["MAPE", 'Entity Effect'] = round(100*sum(np.abs(np.subtract(a,
-                                f)/a))/len(a), 5)
+    if 0 in a:
+        aa = [x+1 for x in a]
+        final_hat.loc["MPE", 'Entity Effect'] = round(100*sum(np.subtract(a,
+                                                                          f)/aa)/len(a), 5)
+        final_hat.loc["MAPE", 'Entity Effect'] = round(100*sum(np.abs(np.subtract(a,
+                                                                                  f)/aa))/len(a), 5)
+    else:
+        final_hat.loc["MPE", 'Entity Effect'] = round(100*sum(np.subtract(a,
+                            f)/a)/len(a), 5)
+        final_hat.loc["MAPE", 'Entity Effect'] = round(100*sum(np.abs(np.subtract(a,
+                                    f)/a))/len(a), 5)
 
     for a, z in zip(a_hat, terr_not_ref):
         final_hat.loc["a %s" %z, 'Entity Effect'] = a
@@ -339,12 +347,21 @@ def run_model(data_init, country, times, I, x_, W, territories, constant, palett
         final_hat.loc["MAE", '%s features' %
                     str(k)] = round(sum(np.abs(np.subtract(a,
                                                             f)))/len(a), 5)
-        final_hat.loc["MPE", '%s features' %
-                    str(k)] = round(100*sum(np.subtract(a,
-                            f)/a)/len(a), 5)
-        final_hat.loc["MAPE", '%s features' %
-                    str(k)] = round(100*sum(np.abs(np.subtract(a,
-                                    f)/a))/len(a), 5)
+        if 0 in a:
+            aa = [x+1 for x in a]
+            final_hat.loc["MPE", '%s features' %
+                            str(k)] = round(100*sum(np.subtract(a,
+                                                                f)/aa)/len(a), 5)
+            final_hat.loc["MAPE", '%s features' %
+                          str(k)] = round(100*sum(np.abs(np.subtract(a,
+                                                                     f)/aa))/len(a), 5)
+        else:
+            final_hat.loc["MPE", '%s features' %
+                        str(k)] = round(100*sum(np.subtract(a,
+                                f)/a)/len(a), 5)
+            final_hat.loc["MAPE", '%s features' %
+                        str(k)] = round(100*sum(np.abs(np.subtract(a,
+                                        f)/a))/len(a), 5)
 
         for best_k_single, v_best in zip(best_k, thetas_hat[best_k]):
             final_hat.loc[best_k_single, '%s features' %
@@ -360,6 +377,8 @@ def run_model(data_init, country, times, I, x_, W, territories, constant, palett
             plt_seed = 221
         else:
             plt_seed = 231
+    if len(terr_not_ref) == 19:
+        plt_seed = 451
 
     title = "Immigrant Stock VS "+title+" "+country_name
     #relation_plot_time_variant_intern_function(df, terr_not_ref, times, df.columns.tolist(), plt.figure(1, figsize=(15,10)), plt_seed, 45, palette, None, title, save, path = "")

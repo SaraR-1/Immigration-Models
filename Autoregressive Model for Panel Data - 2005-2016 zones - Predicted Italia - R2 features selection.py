@@ -40,7 +40,8 @@ directory = "/home/sara/Documents/Immigration/Shared_models/Paper_%d_%d" % (
     years[0], years[-1])
 if not os.path.exists(directory):
     os.makedirs(directory)
-
+    
+#%%
 y = pd.read_table(
     "/home/sara/Documents/Immigration/Shared_models/Data/resident_foreigners_norm.csv", sep="\t", index_col=0)
 y = y.groupby(["Province", "Country", "Year"], as_index=False)["Value"].sum()
