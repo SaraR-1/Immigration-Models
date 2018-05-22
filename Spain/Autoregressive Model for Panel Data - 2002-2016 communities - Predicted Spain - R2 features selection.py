@@ -29,6 +29,8 @@ complete = pd.read_table("Data/spain_working_aut_comm.tsv", sep="\t", index_col 
 y = bdf.pivot(complete, "Country", "Value")
 # Sort the Province col by alphabetic order
 y = y.sortlevel()
+# Replace all the 0s with the value 1 so to not produce -inf in the method computation
+y.replace({0: 1}, inplace=True)
 #y.head()
 
 #%%
@@ -52,8 +54,11 @@ for t in temp.index.levels[1]:
 palette = ['blue', 'darkgreen', 'yellowgreen', 'orange', 'lightcoral',
            'red', 'paleturquoise', 'deepskyblue', 'mediumpurple', 'fuchsia']
 
-countries_list = ["Romania", "Morocco", "Albania", "Tunisia",
-                  "Egypt", "Ecuador", "Peru", "China", "Philippines"]
+'''countries_list = ["Romania", "Morocco", "Albania", "Tunisia",
+                  "Egypt", "Ecuador", "Peru", "China", "Philippines"]'''
+
+countries_list = ['China', 'Colombia', 'Ecuador', 'Germany', 'Morocco', 'Romania']
+
 countries_list_iso3 = [pycountry.countries.get(
     name=country).alpha_3 for country in countries_list]
 target = "Spain"
@@ -67,7 +72,7 @@ y_hat.to_csv(directory+"/predicted_spain.tsv", sep="\t")
 
 #%%
 pdf.relation_plot_time_variant_intern_function(y_hat, countries_list_iso3, years, ["Predicted"], complete.groupby(["Country", "Year"]), plt.figure(
-    1, figsize=(15, 14)), 331, 45, palette, None, "Immigrant Stock Real VS Predicted", True, directory+"/regression_model_spain", False)
+    1, figsize=(15, 14)), 231, 45, palette, None, "Immigrant Stock Real VS Predicted in Spain", True, directory+"/regression_model_spain", False)
 
 y_spain_pred = y.copy()
 for country in countries_list_iso3:

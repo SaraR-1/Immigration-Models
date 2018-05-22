@@ -48,7 +48,8 @@ def relation_plot_time_invariant(data_, cols, y, rot, title, save, path):
     if save == False:
         plt.show()
     else:
-        plt.savefig(path+".png",  box_extra_artists=(lgd,), bbox_inches='tight')
+        plt.savefig(path+".png",  box_extra_artists=(lgd,),
+                    bbox_inches='tight', dpi=300)
     plt.close()
 
 def relation_plot_time_variant_intern_function(data_, temp_territories, time_idx, cols, y, fig, plt_seed, rot, palette, info, title, save, path = "", double_scale_x = True):

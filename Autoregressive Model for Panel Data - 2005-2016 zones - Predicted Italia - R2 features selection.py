@@ -68,8 +68,11 @@ for t in temp.index.levels[1]:
 palette = ['blue', 'darkgreen', 'yellowgreen', 'orange', 'lightcoral',
            'red', 'paleturquoise', 'deepskyblue', 'mediumpurple', 'fuchsia']
 
-countries_list = ["Romania", "Morocco", "Albania", "Tunisia",
-                  "Egypt", "Ecuador", "Peru", "China", "Philippines"]
+'''countries_list = ["Romania", "Morocco", "Albania", "Tunisia",
+                  "Egypt", "Ecuador", "Peru", "China", "Philippines"]'''
+
+countries_list = ['China', 'Colombia', 'Ecuador', 'Germany', 'Morocco', 'Romania']
+
 countries_list_iso3 = [pycountry.countries.get(
     name=country).alpha_3 for country in countries_list]
 target = "Italia"
@@ -81,8 +84,13 @@ y_hat, models = mf.compute_regression_model(
 
 y_hat.to_csv(directory+"/predicted_italia.tsv", sep="\t")
 
-pdf.relation_plot_time_variant_intern_function(y_hat, countries_list_iso3, years, ["Predicted"], resident_foreigners_norm.groupby(["Country", "Year"]), plt.figure(
+'''pdf.relation_plot_time_variant_intern_function(y_hat, countries_list_iso3, years, ["Predicted"], resident_foreigners_norm.groupby(["Country", "Year"]), plt.figure(
     1, figsize=(15, 14)), 331, 45, palette, None, "Immigrant Stock Real VS Predicted", True, directory+"/regression_model_italy", False)
+'''
+
+pdf.relation_plot_time_variant_intern_function(y_hat, countries_list_iso3, years, ["Predicted"], resident_foreigners_norm.groupby(["Country", "Year"]), plt.figure(
+    1, figsize=(15, 14)), 231, 45, palette, None, "Immigrant Stock Real VS Predicted in Italy", True, directory+"/regression_model_italy", False)
+
 
 y_italia_pred = y.copy()
 for country in countries_list_iso3:
