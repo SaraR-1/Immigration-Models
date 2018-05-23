@@ -94,14 +94,25 @@ def evaluation(data, y_hat, constant, k):
     else:
         R2 = 1 - (sum(np.subtract(a, f)**2) / sum((a - np.mean(a))**2))
 
-    print("R-squared    %f." %round(R2, 4))
+    print("R-squared    %f." %round(R2, 5))
     MAE = sum(np.abs(np.subtract(a, f)))/len(a)
-    MPE = 100*sum(np.subtract(a, f)/a)/len(a)
-    MAPE = 100*sum(np.abs(np.subtract(a, f)/a))/len(a)
-    print("MAE  %f." %round(MAE, 4))
-    print("MPE  %f." %round(MPE, 4))
-    print("MAPE %f." %round(MAPE, 4))
+    MSE = round(np.mean(np.subtract(a, f)**2), 5)
+    RMSE = round(
+        np.sqrt(MSE), 5)
 
+    '''if 0 in a:
+        aa = [x+1 for x in a]
+        MPE = 100*sum(np.subtract(a, f)/aa)/len(a)
+        MAPE = 100*sum(np.abs(np.subtract(a, f)/aa))/len(a)
+    else:
+        MPE = 100*sum(np.subtract(a, f)/a)/len(a)
+        MAPE = 100*sum(np.abs(np.subtract(a, f)/a))/len(a)
+    print("MPE  %f." %round(MPE, 4))
+    print("MAPE %f." %round(MAPE, 4))'''
+    
+    print("MAE  %f." % MAE)
+    print("MSE  %f." % MSE)
+    print("RMSE  %f." % RMSE)
     # k: number of independet vars
     n = len(data["y"].values)
     #R2_adj = 1 - (1 - R2)*((n - 1)/(n - k -1))

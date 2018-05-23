@@ -10,6 +10,8 @@ import os
 from statsmodels.datasets import grunfeld
 from linearmodels.panel  import PanelOLS
 import pandas as pd
+import sys
+sys.path.append('/home/sara/Documents/Immigration/Shared_models')
 import build_data_functions as bdf
 import seaborn as sns
 import matplotlib.pyplot as plt

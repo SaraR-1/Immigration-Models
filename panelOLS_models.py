@@ -18,11 +18,12 @@ import plot_data_functions as pdf
 import statsmodels.api as sm
 from sklearn.feature_selection import SelectKBest, f_regression, mutual_info_regression
 import pycountry
+from sklearn.metrics import mean_absolute_error
 
 
-def panel_regression(y, xs, years, country, ks, zones_data, palette, title, path, plot = True, unique_plot = False, save_final = True, save = False, show = False, diff = False, constant = False, entity_effects = False):
+def panel_regression(y, xs, years, country, ks, zones_data, palette, title, path, plot=True, unique_plot=False, save_final=True, save=False, show=False, diff=False, constant=False, entity_effects=False, manual_sel=True, title_add=" in Italian Zones"):
     temp = ["%s features" % str(i) for i in ks]
-    col = ['Provious time', 'Provious two times']
+    col = ['Provious time', 'Provious two times', "Previous three times"]
     col = col + temp
     final_hat = pd.DataFrame()
 
@@ -47,13 +48,13 @@ def panel_regression(y, xs, years, country, ks, zones_data, palette, title, path
         final_hat.loc[i, 'Previous time'] = v
 
     print("-------------------- Previous 2 Times --------------------")
-    param, values = mf.panel_regression(y, xs, years, country, ['y_prev_1', 'y_prev_2'], prev = 2, save = save, show = show, diff = diff, constant = constant, entity_effects = entity_effects)
+    param, values = mf.panel_regression(y, xs, years, country, ['y_prev_1', 'y_prev_2'], prev = 3, save = save, show = show, diff = diff, constant = constant, entity_effects = entity_effects)
     #print(param)
     # Training - Test (2014, 2015)
-    #param, values = mf.panel_regression_training_test(y, xs, years[:-2], years[-2:], country, ['y_prev_1', 'y_prev_2'], prev = 2, save = save, show = show, diff = diff, constant = constant, entity_effects = entity_effects)
+    #param, values = mf.panel_regression_training_test(y, xs, years[:-2], years[-2:], country, ['y_prev_1', 'y_prev_2'], prev = 3, save = save, show = show, diff = diff, constant = constant, entity_effects = entity_effects)
 
     # Training - Test (2014, 2015, 2016)
-    param, values = mf.panel_regression_training_test(y, xs, years[:-3], years[-3:], country, ['y_prev_1', 'y_prev_2'], prev = 2, save = save, show = show, diff = diff, constant = constant, entity_effects = entity_effects)
+    param, values = mf.panel_regression_training_test(y, xs, years[:-3], years[-3:], country, ['y_prev_1', 'y_prev_2'], prev = 3, save = save, show = show, diff = diff, constant = constant, entity_effects = entity_effects)
     #print(param)
     results1 = pd.concat([results1, values.fitted_values], axis = 1)
     results1 = results1.rename(columns = {"fitted_values": "Previous two times"})
@@ -61,32 +62,56 @@ def panel_regression(y, xs, years, country, ks, zones_data, palette, title, path
     for i, v in param.items():
         final_hat.loc[i, 'Previous two times'] = v
 
-    print("------------- Variable Selection  Plot based -------------")
-    var_selection = ['native population - Total', 'Free activities in voluntary associations',
-                     'Meetings in cultural, recreational or other associations',
-                     'Disposable Income', 'Average monthly expenditure for housing',
-                     'unemployment - Total', 'reach_difficulty - Emergency room']
-
-    # PanelOLS uses fixed effect (i.e., entity effects) to eliminate the entity specific components.
-    # FirstDifferenceOLS takes the first difference to eliminate the entity specific effect.
-    param, values = mf.panel_regression(y, xs, years, country, ['y_prev_1', 'y_prev_2']+var_selection, prev = 2, save = save, show = show, diff = diff, constant = constant, entity_effects = entity_effects)
+    print("-------------------- Previous 3 Times --------------------")
+    param, values = mf.panel_regression(y, xs, years, country, [
+                                        'y_prev_1', 'y_prev_2', 'y_prev_3'], prev=3, save=save, show=show, diff=diff, constant=constant, entity_effects=entity_effects)
     #print(param)
     # Training - Test (2014, 2015)
-    #param, values = mf.panel_regression_training_test(y, xs, years[:-2], years[-2:], country, ['y_prev_1', 'y_prev_2']+var_selection, prev = 2, save = save, show = show, diff = diff, constant = constant, entity_effects = entity_effects)
+    #param, values = mf.panel_regression_training_test(y, xs, years[:-2], years[-2:], country, ['y_prev_1', 'y_prev_2'], prev = 3, save = save, show = show, diff = diff, constant = constant, entity_effects = entity_effects)
 
     # Training - Test (2014, 2015, 2016)
-    param, values = mf.panel_regression_training_test(y, xs, years[:-3], years[-3:], country, ['y_prev_1', 'y_prev_2']+var_selection, prev = 2, save = save, show = show, diff = diff, constant = constant, entity_effects = entity_effects)
+    param, values = mf.panel_regression_training_test(y, xs, years[:-3], years[-3:], country, [
+                                                      'y_prev_1', 'y_prev_2', 'y_prev_3'], prev=3, save=save, show=show, diff=diff, constant=constant, entity_effects=entity_effects)
     #print(param)
-    results1 = pd.concat([results1, values.fitted_values], axis = 1)
-    results1 = results1.rename(columns = {"fitted_values": "Manual Selection"})
+    results1 = pd.concat([results1, values.fitted_values], axis=1)
+    results1 = results1.rename(columns={"fitted_values": "Previous three times"})
 
     for i, v in param.items():
-        final_hat.loc[i, 'Manual Selection'] = v
+        final_hat.loc[i, 'Previous three times'] = v
 
-    df = y.loc[(sorted(list(set(zones_data.Zona))), years), country]
+        
+    if manual_sel == True:
+        print("------------- Variable Selection  Plot based -------------")
+        var_selection = ['native population - Total', 'Free activities in voluntary associations',
+                        'Meetings in cultural, recreational or other associations',
+                        'Disposable Income', 'Average monthly expenditure for housing',
+                        'unemployment - Total', 'reach_difficulty - Emergency room']
+
+        # PanelOLS uses fixed effect (i.e., entity effects) to eliminate the entity specific components.
+        # FirstDifferenceOLS takes the first difference to eliminate the entity specific effect.
+        param, values = mf.panel_regression(y, xs, years, country, ['y_prev_1', 'y_prev_2']+var_selection, prev = 3, save = save, show = show, diff = diff, constant = constant, entity_effects = entity_effects)
+        #print(param)
+        # Training - Test (2014, 2015)
+        #param, values = mf.panel_regression_training_test(y, xs, years[:-2], years[-2:], country, ['y_prev_1', 'y_prev_2']+var_selection, prev = 3, save = save, show = show, diff = diff, constant = constant, entity_effects = entity_effects)
+
+        # Training - Test (2014, 2015, 2016)
+        param, values = mf.panel_regression_training_test(y, xs, years[:-3], years[-3:], country, ['y_prev_1', 'y_prev_2']+var_selection, prev = 3, save = save, show = show, diff = diff, constant = constant, entity_effects = entity_effects)
+        #print(param)
+        results1 = pd.concat([results1, values.fitted_values], axis = 1)
+        results1 = results1.rename(columns = {"fitted_values": "Manual Selection"})
+
+        for i, v in param.items():
+            final_hat.loc[i, 'Manual Selection'] = v
+    else:
+        pass
+
+    try:
+        df = y.loc[(sorted(list(set(zones_data.Zona))), years), country]
+    except:
+        df = y.loc[(sorted(list(set(zones_data))), years), country]
 
     print("----------------- Variable Selection  MI -----------------")
-    data = bdf.filter_origin_country_dataset(y, country, years, xs.index.levels[0].tolist(), xs, prev = 2)
+    data = bdf.filter_origin_country_dataset(y, country, years, xs.index.levels[0].tolist(), xs, prev = 3)
     y_ = data["y"]
     xs_ = data.loc[:, data.columns != 'y']
 
@@ -99,13 +124,13 @@ def panel_regression(y, xs, years, country, ks, zones_data, palette, title, path
             temp = (data == v).idxmax(axis=1)[0]
             selected_.append(temp)
 
-        param, values = mf.panel_regression(y, xs, years, country, selected_, prev = 2, save = save, show = show, diff = diff, constant = constant, entity_effects = entity_effects)
+        param, values = mf.panel_regression(y, xs, years, country, selected_, prev = 3, save = save, show = show, diff = diff, constant = constant, entity_effects = entity_effects)
         #print(param)
         # Training - Test (2014, 2015)
-        #param, values = mf.panel_regression_training_test(y, xs, years[:-2], years[-2:], country, selected_, prev = 2, save = save, show = show, diff = diff, constant = constant, entity_effects = entity_effects)
+        #param, values = mf.panel_regression_training_test(y, xs, years[:-2], years[-2:], country, selected_, prev = 3, save = save, show = show, diff = diff, constant = constant, entity_effects = entity_effects)
 
         # Training - Test (2014, 2015, 2016)
-        param, values = mf.panel_regression_training_test(y, xs, years[:-3], years[-3:], country, selected_, prev = 2, save = save, show = show, diff = diff, constant = constant, entity_effects = entity_effects)
+        param, values = mf.panel_regression_training_test(y, xs, years[:-3], years[-3:], country, selected_, prev = 3, save = save, show = show, diff = diff, constant = constant, entity_effects = entity_effects)
         #print(param)
         results2 = pd.concat([results2, values.fitted_values], axis = 1)
         results2 = results2.rename(columns = {"fitted_values": "MI %d selection" %k})
@@ -125,12 +150,15 @@ def panel_regression(y, xs, years, country, ks, zones_data, palette, title, path
 
         final_hat.loc["MAE", "MI %d selection" % k] = round(sum(np.abs(np.subtract(a,
                                                                f)))/len(a), 5)
-        final_hat.loc["MPE", "MI %d selection" % k] = round(100*sum(np.subtract(a,
-                                                            f)/a)/len(a), 5)
-        final_hat.loc["MAPE", "MI %d selection" % k] = round(100*sum(np.abs(np.subtract(a,
-                                                                    f)/a))/len(a), 5)
+        final_hat.loc["MSE", "MI %d selection" % k] = round(np.mean(np.subtract(a,
+                                                                                f)**2), 5)
+        final_hat.loc["RMSE", "MI %d selection" % k] = round(
+            np.sqrt(final_hat.loc["MSE", "MI %d selection" % k]), 5)
 
-    ks = [1, 2, len(var_selection)]
+    if manual_sel == True:
+        ks = [1, 2, 3, len(var_selection)]
+    else:
+        ks = [1, 2, 3]
     for c, k in zip(results1.columns, ks):
         a = df.loc[(slice(None), years[-3:])].values
         f = results1.loc[(slice(None), years[-3:]),
@@ -143,11 +171,10 @@ def panel_regression(y, xs, years, country, ks, zones_data, palette, title, path
 
         final_hat.loc["MAE", c] = round(sum(np.abs(np.subtract(a,
                                                                f)))/len(a), 5)
-        final_hat.loc["MPE", c] = round(100*sum(np.subtract(a,
-                                                            f)/a)/len(a), 5)
-        final_hat.loc["MAPE", c] = round(100*sum(np.abs(np.subtract(a,
-                                                                    f)/a))/len(a), 5)
-
+        final_hat.loc["MSE", c] = round(np.mean(np.subtract(a,
+                                                                                        f)**2), 5)
+        final_hat.loc["RMSE", c] = round(
+            np.sqrt(final_hat.loc["MSE", c]), 5)
 
     if plot == True:
         results1.index = results1.index.swaplevel(0, 1)
@@ -163,14 +190,14 @@ def panel_regression(y, xs, years, country, ks, zones_data, palette, title, path
         if unique_plot == True:
             results1 = pd.concat([results1, results2], axis = 1)
             pdf.relation_plot_time_variant(results1, results1.columns.tolist(), y_, zones_data, 45, title, palette,
-                                           save_final, path+"/"+"_".join(title.lower().split(" ")), sub_iteration=False, double_scale_x=False)
+                                           save_final, path+"/"+"_".join(title.lower().split(" ")), sub_iteration=False, double_scale_x=False, title_add=title_add)
         else:
             temp = " ".join([title, str(1)])
             pdf.relation_plot_time_variant(results1, results1.columns.tolist(), y_, zones_data, 45, temp, palette,
-                                           save_final, path+"/"+"_".join(temp.lower().split(" ")), sub_iteration=False, double_scale_x=False)
+                                           save_final, path+"/"+"_".join(temp.lower().split(" ")), sub_iteration=False, double_scale_x=False, title_add=title_add)
             temp = " ".join([title, str(2)])
             pdf.relation_plot_time_variant(results2, results2.columns.tolist(), y_, zones_data, 45, temp, palette,
-                                           save_final, path+"/"+"_".join(temp.lower().split(" ")), sub_iteration=False, double_scale_x=False)
+                                           save_final, path+"/"+"_".join(temp.lower().split(" ")), sub_iteration=False, double_scale_x=False, title_add=title_add)
 
     results = pd.concat([results1, results2], axis=1)
     results.to_csv(path+"/fitted_values_"+country_name.lower()+".tsv", sep = "\t")

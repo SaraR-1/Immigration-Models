@@ -266,4 +266,9 @@ xs["Province"].replace(
     {"Comunidad de Madrid": "Com. de Madrid", 'Castilla - La Mancha': 'Castilla-La Mancha', "Región de Murcia": "Reg. de Murcia",
      "Comunidad Foral de Navarra": "Com. Foral de Navarra", "Principado de Asturias": "Princ. de Asturias",
      "Comunitat Valenciana": "Com. Valenciana"}, inplace=True)
-xs.to_csv("Data/xs_aut_comm.tsv", sep="\t")
+xs.to_csv("Data/xs_aut_comm.tsv", sep="\t", index = False)
+
+#%%
+xs.to_csv("Data/xs_aut_comm.tsv", sep="\t", index=False)
+xs
+
