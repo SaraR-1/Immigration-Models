@@ -68,10 +68,7 @@ for t in temp.index.levels[1]:
 palette = ['blue', 'darkgreen', 'yellowgreen', 'orange', 'lightcoral',
            'red', 'paleturquoise', 'deepskyblue', 'mediumpurple', 'fuchsia']
 
-'''countries_list = ["Romania", "Morocco", "Albania", "Tunisia",
-                  "Egypt", "Ecuador", "Peru", "China", "Philippines"]'''
-
-countries_list = ['China', 'Colombia', 'Ecuador', 'Germany', 'Morocco', 'Romania']
+countries_list = ['Germany', 'Morocco', 'Peru', 'Poland', 'Romania']
 
 countries_list_iso3 = [pycountry.countries.get(
     name=country).alpha_3 for country in countries_list]

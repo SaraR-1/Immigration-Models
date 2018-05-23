@@ -50,48 +50,10 @@ directory = "/home/sara/Documents/Immigration/Shared_models/Regression_%d_%d" % 
 if not os.path.exists(directory):
     os.makedirs(directory)
 
-# ROMANIA
-#%%
-panelOLS_models.panel_regression(y, xs, years, "Romania", [
-                                 3, 5, 7, 10, 15], zones_data, palette, "Regression Model Romania", directory)
+countries_list = ['Germany', 'Morocco', 'Peru', 'Poland', 'Romania']
 
-# MOROCCO
-#%%
-panelOLS_models.panel_regression(y, xs, years, "Morocco", [
-                                 3, 5, 7, 10, 15], zones_data, palette, "Regression Model Morocco", directory)
-
-# ALBANIA
-#%%
-panelOLS_models.panel_regression(y, xs, years, "Albania", [
-                                 3, 5, 7, 10, 15], zones_data, palette, "Regression Model Albania", directory)
-
-# TUNISIA
-#%%
-panelOLS_models.panel_regression(y, xs, years, "Tunisia", [
-                                 3, 5, 7, 10, 15], zones_data, palette, "Regression Model Tunisia", directory)
-
-# EGYPT
-#%%
-panelOLS_models.panel_regression(y, xs, years, "Egypt", [
-                                 3, 5, 7, 10, 15], zones_data, palette, "Regression Model Egypt", directory)
-
-# ECUADOR
-#%%
-panelOLS_models.panel_regression(y, xs, years, "Ecuador", [
-                                 3, 5, 7, 10, 15], zones_data, palette, "Regression Model Ecuador", directory)
-
-# PERU
-#%%
-panelOLS_models.panel_regression(y, xs, years, "Peru", [
-                                 3, 5, 7, 10, 15], zones_data, palette, "Regression Model Peru", directory)
-
-# CHINA
-#%%
-panelOLS_models.panel_regression(y, xs, years, "China", [
-                                 3, 5, 7, 10, 15], zones_data, palette, "Regression Model China", directory)
-
-# PHILIPPINES
-#%%
-panelOLS_models.panel_regression(y, xs, years, "Philippines", [
-                                 3, 5, 7, 10, 15], zones_data, palette, "Regression Model Philippines", directory)
+for country in countries_list:
+    print("------------------------------- %s -------------------------------" % country)
+    panelOLS_models.panel_regression(y, xs, years, country, [
+        3, 5, 7, 10, 15], zones_data, palette, "Regression Model %s" % country, directory)
 

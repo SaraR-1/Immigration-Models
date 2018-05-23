@@ -55,5 +55,5 @@ for c in countries_list:
         plt_seed += 1
 
     plt.savefig("%s/models_mae_mse_rmse_%s.png" %
-                %(directory, c.lower()),  bbox_inches='tight')
+                (directory, c.lower()),  bbox_inches='tight')
     plt.close()

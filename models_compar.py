@@ -1,16 +1,21 @@
 #%%
 import glob
+import os
+import pandas as pd
 import seaborn as sns
 import matplotlib.pyplot as plt
 
 all_path = ["ES_2005_2016/", "Regression_2006_2016/", "Paper_2005_2016/"]
-metrics = ["MAE", "MAPE"]
-countries_list = ["Romania", "Morocco", "Albania", "Tunisia",
-                  "Egypt", "Ecuador", "Peru", "China", "Philippines"]
+metrics = ["MAE", "MSE", "RMSE"]
+countries_list = ['Germany', 'Morocco', 'Peru', 'Poland', 'Romania']
+
+directory = "/home/sara/Documents/Immigration/Shared_models/Model_compar"
+if not os.path.exists(directory):
+    os.makedirs(directory)
 
 for c in countries_list:
     fig = plt.figure(1, figsize=(15, 10))
-    plt_seed = 121
+    plt_seed = 131
     for m in metrics:
         temp = pd.read_table(all_path[1]+'param_%s.tsv' %
                              c.lower(), sep="\t", index_col=0)
@@ -49,6 +54,6 @@ for c in countries_list:
 
         plt_seed += 1
 
-    plt.savefig("Models_compar/models_mae_mape_%s.png" %
-                c.lower(),  bbox_inches='tight')
+    plt.savefig("%s/models_mae_mape_%s.png" %
+               (directory, c.lower()),  bbox_inches='tight', dpi = 300)
     plt.close()

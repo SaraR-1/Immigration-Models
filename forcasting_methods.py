@@ -24,8 +24,8 @@ zones = list(pd.read_table("/home/sara/Documents/Immigration/Shared_models/Data/
 years = list(range(2005, 2017))
 
 #%%
-countries_list = ["Romania", "Morocco", "Albania", "Tunisia",
-                  "Egypt", "Ecuador", "Peru", "China", "Philippines"]
+countries_list = ['China', 'Ecuador', 'Germany',
+                  'Morocco', 'Peru', 'Poland', 'Romania']
 
 palette = ['blue', 'darkgreen', 'yellowgreen', 'orange', 'lightcoral',
            'red', 'paleturquoise', 'deepskyblue', 'mediumpurple', 'fuchsia']
@@ -39,7 +39,7 @@ if not os.path.exists(directory):
 
 # Forecast in SMA: last 3 years per territory
 SMA_validation = pd.DataFrame(
-    '-', countries_list, ["MAE", "MPE", "MAPE"])
+    '-', countries_list, ["MAE", "MSE", "RMSE"])
 
 forecast_year = 3
 
@@ -54,10 +54,10 @@ for c in countries_list:
 
     SMA_validation.loc[c]["MAE"] = sum(np.abs(np.subtract(a,
                                                           f)))/len(a)
-    SMA_validation.loc[c]["MPE"] = 100*sum(np.subtract(a,
-                                                       f)/a)/len(a)
-    SMA_validation.loc[c]["MAPE"] = 100*sum(np.abs(np.subtract(a,
-                                                           f)/a))/len(a)
+    SMA_validation.loc[c]["MSE"] = round(np.mean(np.subtract(a,
+                                                             f)**2), 5)
+    SMA_validation.loc[c]["RMSE"] = round(
+        np.sqrt(SMA_validation.loc[c]["MSE"]), 5)
 
     y_ = y.rename(columns={pycountry.countries.get(
         name=c).alpha_3: "Value"})
@@ -70,7 +70,6 @@ for c in countries_list:
     pdf.relation_plot_time_variant(SMA_df, SMA_df.columns.tolist(
     ), y_, zones, 45, "SMA in %s" %c, palette, save=True, path=directory+"/SMA_%s_" %c.lower(), sub_iteration=False, double_scale_x=False)
 
-#%%
 SMA_validation.to_csv(
     directory+"/SMA_metrics.tsv", sep='\t')
 
@@ -83,7 +82,7 @@ if not os.path.exists(directory):
 alphas = [.5, .65, .8, .95]
 
 idx = pd.MultiIndex.from_product(
-    [["MAE", "MPE", "MAPE"], alphas], names=['Metric', 'Alpha'])
+    [["MAE", "MSE", "RMSE"], alphas], names=['Metric', 'Alpha'])
 ES_validation = pd.DataFrame("-", countries_list, idx)
 
 # Forecasting period: all period but one (the first time has to be known)
@@ -99,11 +98,11 @@ for c in countries_list:
         f = es_df.loc[(slice(None), years[1:]), "Exp Smoothing %s alpha" % str(alpha)].values
 
         ES_validation.loc[c][("MAE", alpha)] = sum(np.abs(np.subtract(a,
-                                                            f)))/len(a)
-        ES_validation.loc[c][("MPE", alpha)] = 100*sum(np.subtract(a,
-                                                        f)/a)/len(a)
-        ES_validation.loc[c][("MAPE", alpha)] = 100*sum(np.abs(np.subtract(a,
-                                                                f)/a))/len(a)
+                                                                      f)))/len(a)
+        ES_validation.loc[c][("MSE", alpha)] = round(np.mean(np.subtract(a,
+                                                                         f)**2), 5)
+        ES_validation.loc[c][("RMSE", alpha)] = round(
+            np.sqrt(ES_validation.loc[c][("MSE", alpha)]), 5)
 
     y_ = y.rename(columns={pycountry.countries.get(
         name=c).alpha_3: "Value"})
@@ -116,6 +115,5 @@ for c in countries_list:
     pdf.relation_plot_time_variant(es_df, es_df.columns.tolist(
     ), y_, zones, 45, "Exp Smoothing %s" %c, palette, save=True, path=directory+"/ES_%s_" % c.lower(), sub_iteration=False, double_scale_x=False)
 
-#%%
 ES_validation.to_csv(
     directory+"/ES_metrics.tsv", sep='\t')
