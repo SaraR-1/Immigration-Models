@@ -57,7 +57,9 @@ palette = ['blue', 'darkgreen', 'yellowgreen', 'orange', 'lightcoral',
 '''countries_list = ["Romania", "Morocco", "Albania", "Tunisia",
                   "Egypt", "Ecuador", "Peru", "China", "Philippines"]'''
 
-countries_list = ['China', 'Colombia', 'Ecuador', 'Germany', 'Morocco', 'Romania']
+#countries_list = ['China', 'Colombia', 'Ecuador', 'Germany', 'Morocco', 'Romania']
+
+countries_list = ['Ecuador', 'Germany', 'Morocco', 'Peru', 'Poland', 'Romania']
 
 countries_list_iso3 = [pycountry.countries.get(
     name=country).alpha_3 for country in countries_list]
@@ -68,7 +70,7 @@ ks = [3, 5, 7, 10, 15]
 y_hat, models = mf.compute_regression_model(
     y, xs, years, countries_list, target, ks)
 
-y_hat.to_csv(directory+"/predicted_spain.tsv", sep="\t")
+#y_hat.to_csv(directory+"/predicted_spain.tsv", sep="\t")
 
 #%%
 pdf.relation_plot_time_variant_intern_function(y_hat, countries_list_iso3, years, ["Predicted"], complete.groupby(["Country", "Year"]), plt.figure(
