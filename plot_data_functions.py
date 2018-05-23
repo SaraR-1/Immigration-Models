@@ -55,6 +55,14 @@ def relation_plot_time_invariant(data_, cols, y, rot, title, save, path):
 def relation_plot_time_variant_intern_function(data_, temp_territories, time_idx, cols, y, fig, plt_seed, rot, palette, info, title, save, path = "", double_scale_x = True):
     x = 1
     for r in temp_territories:
+        if plt_seed == 451:
+            plt.rc('font', size=7)
+            scale = .5
+            lgd_size = 9
+        else:
+            plt.rc('font', size=10)
+            scale = .8
+            lgd_size = 12
         y_i = [y.get_group((r, t))["Value"].sum() for t in time_idx]
         y_i_mean = np.mean(y_i)
 
@@ -63,7 +71,7 @@ def relation_plot_time_variant_intern_function(data_, temp_territories, time_idx
         ax = fig.add_subplot(int(str(plt_seed)[0]), int(str(plt_seed)[1]), x)
         ax.tick_params(axis='x', which='minor', labelsize='small', rotation=rot)
         legend = []
-        ax = sns.pointplot(y = y_i, x = time_idx)
+        ax = sns.pointplot(y=y_i, x=time_idx, scale=scale)
         legend.append(mlines.Line2D([], [], markersize=15, label="Immigrant Stock"))
         ax.ticklabel_format(style='sci', axis='y', scilimits=(0,0))
         sns.set_style("white")
@@ -85,8 +93,10 @@ def relation_plot_time_variant_intern_function(data_, temp_territories, time_idx
             for c in cols:
                 x_i = [data_.loc[t].loc[r][c] for t in time_idx]
                 # Color - always +1 because the first color is for the real value (ax)
-                ax2= sns.pointplot(y = x_i, x = time_idx, color = palette[cols.index(c)+1])
-                legend.append(mlines.Line2D([], [], markersize=15, label=c.split("-")[0], color = palette[cols.index(c)+1]))
+                ax2 = sns.pointplot(y=x_i, x=time_idx,
+                                    color=palette[cols.index(c)+1], scale=scale)
+                legend.append(mlines.Line2D([], [], markersize=15, label=c.split(
+                    "-")[0], color=palette[cols.index(c)+1]))
 
         sns.despine(ax=ax, right=True, left=True)
         ax.set_xlabel("")
@@ -101,15 +111,19 @@ def relation_plot_time_variant_intern_function(data_, temp_territories, time_idx
         x += 1
 
     if len(temp_territories)%2 == 0:
-        lgd = plt.legend(handles = legend, loc='center left', bbox_to_anchor=(1.05, 0.05+int(str(plt_seed)[0])), fancybox=True)
+        lgd = plt.legend(handles=legend, loc='center left', bbox_to_anchor=(
+            1.05, 0.05+int(str(plt_seed)[0])), fancybox=True, fontsize=lgd_size)
     else:
-        lgd = plt.legend(handles = legend, loc='center left', bbox_to_anchor=(2.35, 0.05+int(str(plt_seed)[0])), fancybox=True)
+        lgd = plt.legend(handles=legend, loc='center left', bbox_to_anchor=(
+            2.35, 0.05+int(str(plt_seed)[0])), fancybox=True, fontsize=lgd_size)
 
     if len(temp_territories) == 2:
-        lgd = plt.legend(handles = legend, loc='center left', bbox_to_anchor=(1.05, .925), fancybox=True)
+        lgd = plt.legend(handles=legend, loc='center left',
+                         bbox_to_anchor=(1.05, .925), fancybox=True, fontsize=lgd_size)
 
     if len(temp_territories) == 9:
-        lgd = plt.legend(handles = legend, loc='center left', bbox_to_anchor=(1.1, 3.25), fancybox=True)
+        lgd = plt.legend(handles=legend, loc='center left',
+                         bbox_to_anchor=(1.1, 3.25), fancybox=True, fontsize=lgd_size)
         
     if plt_seed == 451:
             title = title + \

@@ -14,7 +14,12 @@ comunidades = y.index.levels[0].tolist()
 
 for t in y.index.levels[1]:
     y.loc[("Spain", t), :] = y.loc[(comunidades, t), :].sum()
+#%%
+xs_zones = pd.read_table("Data/xs_aut_comm.tsv", sep="\t",
+                         index_col=["Province", "Year"])
 
+#%%
+xs_zones
 
 #%%
 a = y.loc[("Spain", list(range(2002, 2017))), ].sum()
@@ -23,7 +28,7 @@ b = [pycountry.countries.get(
     alpha_3=country).name for country in aa]
 b
 
-#%%
+'''#%%
 print("---------------------------------------------------------------------------")
 #%%
 y = pd.read_table(
@@ -43,12 +48,12 @@ aa = list(a.nlargest(20).index)
 d = [pycountry.countries.get(
     alpha_3=country).name for country in aa]
 d
-
+'''
 #%%
 print("---------------------------------------------------------------------------")
 sorted(list(set(b).intersection(d)))
 #%%
-c.loc[(slice(None), list(range(2003, 2017))), "POL"].sum()/2
+y.loc[(slice(None), list(range(2003, 2017))), "ECU"]
 
 #%%
 c.loc[(slice(None), list(range(2003, 2017))), "DEU"].sum()/2

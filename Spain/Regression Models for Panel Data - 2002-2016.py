@@ -45,7 +45,7 @@ directory = "/home/sara/Documents/Immigration/Shared_models/Spain/Regression_%d_
 if not os.path.exists(directory):
     os.makedirs(directory)
 
-countries_list = ['China', 'Ecuador', 'Germany', 'Morocco', 'Peru', 'Poland', 'Romania']
+countries_list = ['Ecuador', 'Germany', 'Morocco', 'Peru', 'Poland', 'Romania']
 
 #%%
 for country in countries_list:

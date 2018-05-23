@@ -233,19 +233,10 @@ def run_model(data_init, country, times, I, x_, W, territories, constant, palett
     final_hat.loc["R2_adj", 'Entity Effect'] = round(R2, 5)
 
     final_hat.loc["MAE", 'Entity Effect'] = round(sum(np.abs(np.subtract(a,
-                                                        f)))/len(a), 5)
-    if 0 in a:
-        aa = [x+1 for x in a]
-        final_hat.loc["MPE", 'Entity Effect'] = round(100*sum(np.subtract(a,
-                                                                          f)/aa)/len(a), 5)
-        final_hat.loc["MAPE", 'Entity Effect'] = round(100*sum(np.abs(np.subtract(a,
-                                                                                  f)/aa))/len(a), 5)
-    else:
-        final_hat.loc["MPE", 'Entity Effect'] = round(100*sum(np.subtract(a,
-                            f)/a)/len(a), 5)
-        final_hat.loc["MAPE", 'Entity Effect'] = round(100*sum(np.abs(np.subtract(a,
-                                    f)/a))/len(a), 5)
-
+    f)))/len(a), 5)
+    final_hat.loc["MSE", 'Entity Effect'] = round(np.mean(np.subtract(a, f)**2), 5)
+    final_hat.loc["RMSE", 'Entity Effect'] = round(
+        np.sqrt(final_hat.loc["MSE", 'Entity Effect']), 5)
     for a, z in zip(a_hat, terr_not_ref):
         final_hat.loc["a %s" %z, 'Entity Effect'] = a
 
@@ -345,23 +336,12 @@ def run_model(data_init, country, times, I, x_, W, territories, constant, palett
         f = df.loc[(times[-test_size:], slice(None)), '%s features' % str(k)].values
 
         final_hat.loc["MAE", '%s features' %
-                    str(k)] = round(sum(np.abs(np.subtract(a,
-                                                            f)))/len(a), 5)
-        if 0 in a:
-            aa = [x+1 for x in a]
-            final_hat.loc["MPE", '%s features' %
-                            str(k)] = round(100*sum(np.subtract(a,
-                                                                f)/aa)/len(a), 5)
-            final_hat.loc["MAPE", '%s features' %
-                          str(k)] = round(100*sum(np.abs(np.subtract(a,
-                                                                     f)/aa))/len(a), 5)
-        else:
-            final_hat.loc["MPE", '%s features' %
-                        str(k)] = round(100*sum(np.subtract(a,
-                                f)/a)/len(a), 5)
-            final_hat.loc["MAPE", '%s features' %
-                        str(k)] = round(100*sum(np.abs(np.subtract(a,
-                                        f)/a))/len(a), 5)
+                    str(k)] = round(sum(np.abs(np.subtract(a,f)))/len(a), 5)
+        final_hat.loc["MSE", '%s features' %
+                        str(k)]=round(np.mean(np.subtract(a, f)**2), 5)
+        final_hat.loc["RMSE", '%s features' %
+                      str(k)] = round(np.sqrt(final_hat.loc["MSE", '%s features' %
+                                                            str(k)]), 5)
 
         for best_k_single, v_best in zip(best_k, thetas_hat[best_k]):
             final_hat.loc[best_k_single, '%s features' %
@@ -385,6 +365,7 @@ def run_model(data_init, country, times, I, x_, W, territories, constant, palett
     pdf.relation_plot_time_variant(df, df.columns.tolist()[
                                    1:], y_, terr_not_ref, 45, title, palette, save, path, sub_iteration=False, double_scale_x=False, title_add = title_add)
 
+    print(final_hat.loc["R2"])
     sns.set_style("whitegrid")
     fig = plt.figure(1, figsize=(15, 10))
     plt_seed = 121
